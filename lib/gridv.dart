@@ -12,132 +12,46 @@ class _GridVeState extends State<GridVe> {
     return Scaffold(
       body: GridView.count(
         crossAxisCount: 2,
-      children: <Widget>[
-          Container(
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              elevation: 7.0,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.adjust),
-                  Text("Hajj"),
-                ],
-              ),
+        children: <Widget>[
+          HomePageItem(Icons.adjust, 'Emergency'),
+          HomePageItem(Icons.adjust, 'Remainder'),
+          HomePageItem(Icons.adjust, 'Dua'),
+          HomePageItem(Icons.adjust, 'Emergency'),
+          HomePageItem(Icons.adjust, 'Hajj'),
+          HomePageItem(Icons.adjust, 'Hajj'),
+        ],
+      ),
+    );
+  }
+}
 
-            ),
-          ),
-        Container(
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 7.0,
-            child: InkWell(
-              child: Text("Remainder"),
-              onTap:() {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=> list(),
-                ));
-              },
-            ),
+class HomePageItem extends StatelessWidget {
+  IconData adjust;
+  String s;
 
-          ),
+  HomePageItem(this.adjust, this.s);
 
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      elevation: 7.0,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) => list(),
+          ));
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(adjust),
+            SizedBox(height: 16,),
+            Text(s),
+          ],
         ),
-        Container(
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 7.0,
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.adjust),
-                Text("Dua"),
-              ],
-            ),
-
-          ),
-        ),
-        Container(
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 7.0,
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.adjust),
-                Text("Emergency"),
-              ],
-            ),
-
-          ),
-        ),
-        Container(
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 7.0,
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.adjust),
-                Text("Hajj"),
-              ],
-            ),
-
-          ),
-        ),
-        Container(
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 7.0,
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.adjust),
-                Text("Hajj"),
-              ],
-            ),
-
-          ),
-        ),
-        Container(
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 7.0,
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.adjust),
-                Text("Hajj"),
-              ],
-            ),
-
-          ),
-        ),
-        Container(
-
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            elevation: 7.0,
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.adjust),
-                Text("Hajj"),
-              ],
-            ),
-
-          ),
-        ),
-      ],
       ),
     );
   }

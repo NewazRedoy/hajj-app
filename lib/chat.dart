@@ -11,17 +11,17 @@ class _AppDrawerState extends State<AppDrawer> {
     return Scaffold(
       body: ListView.builder(
           itemCount: 7,
-          itemBuilder: (context,index){
+          itemBuilder: (context, index) {
             return Container(
               decoration: BoxDecoration(
-                border: Border(top: BorderSide(color: Colors.blueGrey, width: 2.0)),
+                border:
+                Border(top: BorderSide(color: Colors.blueGrey, width: 2.0)),
               ),
               child: ListTile(
                 title: Text("Text"),
               ),
             );
-          }
-      ),
+          }),
     );
   }
 }

@@ -13,115 +13,58 @@ class _listState extends State<list> {
         title: Text("Hajj App-guide"),
         backgroundColor: Colors.teal,
       ),
-      body: ListView(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text
-                ("1"),
-            ],
-          ),
+        body: ListView.builder(
+          itemCount: 5,
+          itemBuilder: (context, index) {
+            return ListPageItem(index, 'text');
+          },
+        )
+    );
+  }
+}
 
 
+class ListPageItem extends StatelessWidget {
+  int index;
+  String s;
 
+  ListPageItem(this.index, this.s);
 
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      elevation: 7.0,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) => list(),
+          ));
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(color: Colors.blue),
+              padding: const EdgeInsets.all(8.0),
+              child: Text(index.toString(),
+                style: TextStyle(color: Colors.white, fontSize: 20),),
+            ),
+            SizedBox(width: 8,),
+            Expanded(child: Text(s, style: TextStyle(fontSize: 20),),),
 
+            Container(
+              decoration: BoxDecoration(color: Colors.blue),
+              padding: const EdgeInsets.all(8.0),
+              child: Text("",
+                style: TextStyle(fontSize: 20),),
+            ),
 
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.teal,
-            ),
-            height: 45.0,
-            child: Material(
-              color: Colors.white,
-              elevation: 12.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: InkWell(
-                child: Center(child: Text("Text1")),
-                onTap: () {},
-              ),
-            ),
-          ),
-          SizedBox(height: 10.0,),
-          Container(
-            color: Colors.teal,
-            height: 45.0,
-            child: Material(
-              elevation: 12.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: InkWell(
-                child: Center(child: Text("Text2")),
-                onTap: () {},
-              ),
-            ),
-          ),
-          SizedBox(height: 10.0,),
-          Container(
-            height: 45.0,
-            child: Material(
-              color: Colors.white,
-              elevation: 12.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: InkWell(
-                child: Center(child: Text("Text3")),
-                onTap: () {},
-              ),
-            ),
-          ),
-          SizedBox(height: 10.0,),
-          Container(
-            height: 45.0,
-            child: Material(
-              color: Colors.white,
-              elevation: 12.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: InkWell(
-                child: Center(child: Text("Text4")),
-                onTap: () {},
-              ),
-            ),
-          ),
-          SizedBox(height: 10.0,),
-          Container(
-            height: 45.0,
-            child: Material(
-              color: Colors.white,
-              elevation: 12.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: InkWell(
-                child: Center(child: Text("Text5")),
-                onTap: () {},
-              ),
-            ),
-          ),
-          SizedBox(height: 10.0,),
-          Container(
-            height: 45.0,
-            child: Material(
-              color: Colors.white,
-              elevation: 12.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: InkWell(
-                child: Center(child: Text("Text6")),
-                onTap: () {},
-              ),
-            ),
-          ),
-          SizedBox(height: 10.0,),
-          Container(
-            height: 45.0,
-            child: Material(
-              color: Colors.white,
-              elevation: 12.0,
-              borderRadius: BorderRadius.circular(20.0),
-              child: InkWell(
-                child: Center(child: Text("Text7")),
-                onTap: () {},
-              ),
-            ),
-          ),
-        ],
-
+          ],
+        ),
       ),
     );
   }
