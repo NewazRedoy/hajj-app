@@ -27,13 +27,15 @@ class _HomeState extends State<Home>with SingleTickerProviderStateMixin {
         child: Drawer(
           child: ListView(
             children: <Widget>[
-              UserAccountsDrawerHeader(
-                currentAccountPicture: Center(
-                  child: CircleAvatar(
+              Center(
+                child: UserAccountsDrawerHeader(
+                  currentAccountPicture: Center(
+                    child: CircleAvatar(
+                    ),
                   ),
+                  accountName: Center(child: Text("write name")),
+                  accountEmail: Center(child: Text("")),
                 ),
-                accountName: Center(child: Text("write name")),
-                accountEmail: Center(child: Text("")),
               ),
               Divider(),
               ListTile(
