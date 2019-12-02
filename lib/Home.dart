@@ -17,26 +17,30 @@ class _HomeState extends State<Home>with SingleTickerProviderStateMixin {
    controller.dispose();
     super.dispose();
   }
+  hexColor (String colorCode) {
+    String colorNew= '0xff' + colorCode;
+    colorNew= colorNew.replaceAll('#', '');
+    int colorInt = int.parse(colorNew);
+    return colorInt;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer:
       Container(
       decoration: BoxDecoration(
-      color: Colors.teal,),
+      color: Color(hexColor('4F7491')),),
         child: Drawer(
           child: ListView(
             children: <Widget>[
-              Center(
-                child: UserAccountsDrawerHeader(
-                  currentAccountPicture: Center(
-                    child: CircleAvatar(
+               UserAccountsDrawerHeader(
+                  currentAccountPicture: CircleAvatar(
                     ),
-                  ),
-                  accountName: Center(child: Text("write name")),
-                  accountEmail: Center(child: Text("")),
+
+                  accountName:  Text("write name"),
+                  accountEmail:  Text(""),
                 ),
-              ),
+
               Divider(),
               ListTile(
                 leading: Icon(Icons.album),
@@ -81,7 +85,7 @@ class _HomeState extends State<Home>with SingleTickerProviderStateMixin {
       ),
  appBar: AppBar(
         title: Text("Hajj App"),
-        backgroundColor: Colors.teal,
+        backgroundColor: Color(hexColor('4F7491')),
         bottom: TabBar(
           controller: controller,
           indicatorWeight: 5.0,
