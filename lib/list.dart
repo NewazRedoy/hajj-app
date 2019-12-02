@@ -60,7 +60,7 @@ class ListPageItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: BoxDecoration(color: Color(hexColor('A8926D'))),
               padding: const EdgeInsets.all(8.0),
               child: Text(index.toString(),
                 style: TextStyle(color: Colors.white, fontSize: 20),),
