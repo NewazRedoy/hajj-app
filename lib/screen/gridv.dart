@@ -1,4 +1,4 @@
-import 'package:first_app/list.dart';
+import 'package:first_app/screen/list.dart';
 import 'package:flutter/material.dart';
 
 class GridVe extends StatefulWidget {
