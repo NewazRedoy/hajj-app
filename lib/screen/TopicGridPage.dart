@@ -13,7 +13,7 @@ class _TopicGridPageState extends State<TopicGridPage> {
     return Scaffold(
       body: GridView.count(
         crossAxisCount: 2,
-        children: List.generate(14, (index) {
+        children: List.generate(8, (index) {
           return CollectionItem(
               context: context,
               collection: Constants.collections[index],

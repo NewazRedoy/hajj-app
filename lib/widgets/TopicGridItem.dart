@@ -1,4 +1,4 @@
-import 'package:first_app/model/Subtopic.dart';
+import 'package:first_app/model/Content.dart';
 import 'package:first_app/model/Topic.dart';
 import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:flutter/material.dart';
@@ -17,19 +17,23 @@ class CollectionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      elevation: 7.0,
+      child: InkWell(
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return SubtopicListPage(collection: collection);
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return SubtopicListPage(collection: collection);
 
-              }
-            ),
-          );
-        },
-        child: Center(
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
+                }
+              ),
+            );
+          },
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
               Text(
                 collection.abbv,
               ),
@@ -37,7 +41,8 @@ class CollectionItem extends StatelessWidget {
                 collection.name,
                 style: TextStyle(fontSize: 12),
               ),
-            ])));
+            ]),
+      ),
+    );
   }
 }
-
