@@ -15,7 +15,7 @@ class _AppDrawerState extends State<AppDrawer> {
             return Container(
               decoration: BoxDecoration(
                 border:
-                Border(top: BorderSide(color: Colors.blueGrey, width: 2.0)),
+                    Border(top: BorderSide(color: Colors.blueGrey, width: 2.0)),
               ),
               child: ListTile(
                 title: Text("Text"),
