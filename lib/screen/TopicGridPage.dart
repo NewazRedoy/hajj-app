@@ -13,12 +13,16 @@ class _TopicGridPageState extends State<TopicGridPage> {
     return Scaffold(
       body: GridView.count(
         crossAxisCount: 2,
-        children: List.generate(8, (index) {
-          return CollectionItem(
-              context: context,
-              collection: Constants.collections[index],
-              index: index);
-        }),
-      ));
+        children: List.generate(
+          8,
+          (index) {
+            return CollectionItem(
+                context: context,
+                collection: Constants.collections[index],
+                index: index);
+          },
+        ),
+      ),
+    );
   }
 }
