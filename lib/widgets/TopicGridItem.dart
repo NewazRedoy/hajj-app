@@ -19,7 +19,7 @@ class CollectionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.circular(12.0),
       ),
       elevation: 7.0,
       child: InkWell(
