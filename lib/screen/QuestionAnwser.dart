@@ -1,6 +1,12 @@
+import 'package:first_app/model/Subtopic.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/widgets/ListPageItem.dart';
+import 'package:first_app/widgets/TopicGridItem.dart';
+import 'package:first_app/model/Subtopic.dart';
  class QueAns extends StatefulWidget {
+   Subtopic book;
+   QueAns({this.book});
+
    @override
    _QueAnsState createState() => _QueAnsState();
  }

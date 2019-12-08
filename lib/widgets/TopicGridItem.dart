@@ -2,6 +2,7 @@ import 'package:first_app/model/Content.dart';
 import 'package:first_app/model/Topic.dart';
 import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:flutter/material.dart';
+import 'package:first_app/screen/QuestionAnwser.dart';
 
 class CollectionItem extends StatelessWidget {
   const CollectionItem({
@@ -27,8 +28,13 @@ class CollectionItem extends StatelessWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return SubtopicListPage(collection: collection);
+                  if (collection.id < 7) {
+                    return SubtopicListPage(collection: collection);
+                  } else {
+                    return QueAns(
 
+                    );
+                }
                 }
               ),
             );
