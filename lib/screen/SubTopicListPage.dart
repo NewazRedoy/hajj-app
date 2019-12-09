@@ -31,6 +31,7 @@ class _SubtopicListPageState extends State<SubtopicListPage> {
           itemBuilder: (context, index) {
             return ListPageItem(index, 'text');
           },
-        ));
+        )
+    );
   }
 }
