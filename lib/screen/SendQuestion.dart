@@ -13,10 +13,14 @@ class _SendQuestionState extends State<SendQuestion> {
         backgroundColor: Colors.cyan,
       ),
       body: Container(
+        padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
+        decoration:
+         BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
         child: Column(
               children: <Widget>[
-
-                  TextField(
+                TextField(
                     onChanged: (text){
                       print(text);
                     },
@@ -33,3 +37,7 @@ class _SendQuestionState extends State<SendQuestion> {
     );
   }
 }
+
+
+
+
