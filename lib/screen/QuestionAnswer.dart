@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:first_app/screen/SendQuestion.dart';
 
 
 class QueAns extends StatefulWidget {
@@ -24,7 +25,7 @@ class _QueAnsState extends State<QueAns> {
       body: GridView.count(
         crossAxisCount: 2,
         children: <Widget>[
-          Item(Icons.adjust, 'নির্বাচিত '),
+          Item(Icons.adjust, 'নির্বাচিত প্রশ্নোত্তর'),
           Item(Icons.adjust, 'প্রশ্ন করুন'),
         ],
       ),
@@ -33,9 +34,8 @@ class _QueAnsState extends State<QueAns> {
 }
 
 class Item extends StatelessWidget {
-  IconData adjust;
-  String s;
-
+  final IconData adjust;
+  final String s;
   Item(this.adjust, this.s);
 
   @override
@@ -47,7 +47,12 @@ class Item extends StatelessWidget {
       elevation: 7.0,
       child: InkWell(
         onTap: () {
-
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+              builder: (context) => SendQuestion(),
+              ),
+          );
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

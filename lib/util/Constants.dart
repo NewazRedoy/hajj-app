@@ -47,7 +47,7 @@ class Constants {
         color: '#62c6f5'),
     Topic(
         id: 6,
-        name: 'ঐতিহাসিক স্থান্সমূহ',
+        name: 'ঐতিহাসিক স্থানসমূহ',
         name_ar: '',
         abbv: 'IM',
         color: '#3c968d'),
