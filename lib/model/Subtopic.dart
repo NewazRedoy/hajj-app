@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 class Subtopic {
-  String BookID;
-  int CollectionID;
+  String SubtopicID;
+  int TopicID;
   String name_en;
 
   Subtopic({
-    this.CollectionID,
-    this.BookID,
+    this.TopicID,
+    this.SubtopicID,
     this.name_en,
   });
 
@@ -17,14 +17,14 @@ class Subtopic {
   String toRawJson() => json.encode(toJson());
 
   factory Subtopic.fromJson(Map<String, dynamic> json) => new Subtopic(
-        CollectionID: json["CollectionID"],
-        BookID: json["BookID"],
+    TopicID: json["TopicID"],
+    SubtopicID: json["SubtopicID"],
         name_en: json["name_en"],
       );
 
   Map<String, dynamic> toJson() => {
-        "BookID": BookID,
-        "CollectionID": CollectionID,
+    "SubtopicID": SubtopicID,
+    "TopicID": TopicID,
         "name_en": name_en,
       };
 }

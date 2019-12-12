@@ -1,36 +1,91 @@
+import 'package:first_app/model/Subtopic.dart';
 import 'package:first_app/model/Topic.dart';
+import 'package:first_app/model/database_helper.dart';
 import 'package:first_app/widgets/ListPageItem.dart';
 import 'package:flutter/material.dart';
 
-class SubtopicListPage extends StatefulWidget {
-  final Topic collection;
 
-  SubtopicListPage({this.collection});
+class SubtopicListPage extends StatelessWidget {
+  final Topic topic;
 
-  @override
-  _SubtopicListPageState createState() => _SubtopicListPageState();
-}
-
-class _SubtopicListPageState extends State<SubtopicListPage> {
-  hexColor(String colorCode) {
-    String colorNew = '0xff' + colorCode;
-    colorNew = colorNew.replaceAll('#', '');
-    int colorInt = int.parse(colorNew);
-    return colorInt;
-  }
+  SubtopicListPage({this.topic});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hajj App-guide"),
-          backgroundColor: Color(hexColor('4F7491')),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: Icon(
+              Icons.chevron_left,
+              size: 40.0,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          title: Text(
+            topic.name,
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
         ),
-        body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return ListPageItem(index, 'text');
-          },
-        ));
+        body: SampleAppPage(topic));
   }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage(this.topic);
+
+  final Topic topic;
+
+  @override
+  _SampleAppPageState createState() => _SampleAppPageState(topic);
+}
+
+class _SampleAppPageState extends State<SampleAppPage> {
+  List data = [];
+  var loading = true;
+
+  _SampleAppPageState(this.topic);
+
+  final Topic topic;
+
+  @override
+  void initState() {
+    super.initState();
+
+    loadData();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return loading
+        ? _buildCircularProgressIndicator()
+        : ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (BuildContext context, int position) {
+          return new ListPageItem(
+              position, Subtopic.fromJson(data[position]));
+        });
+  }
+
+  loadData() async {
+    var books =
+    await DatabaseHelper.instance.queryBooksByTopicId(topic.id);
+
+    setState(() {
+      data = books;
+      loading = false;
+    });
+  }
+}
+
+_buildCircularProgressIndicator() {
+  return Center(
+    child: CircularProgressIndicator(),
+  );
 }

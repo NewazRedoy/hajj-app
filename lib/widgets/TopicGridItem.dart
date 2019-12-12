@@ -26,7 +26,7 @@ class CollectionItem extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 if (collection.id < 7) {
-                  return SubtopicListPage(collection: collection);
+                  return SubtopicListPage(topic: collection);
                 } else {
                   return QueAns();
                 }

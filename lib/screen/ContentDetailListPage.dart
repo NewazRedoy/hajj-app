@@ -1,37 +1,100 @@
-import 'package:first_app/model/Topic.dart';
-import 'package:first_app/widgets/ContentPageItem.dart';
-import 'package:first_app/widgets/ListPageItem.dart';
+import 'package:first_app/model/Content.dart';
+import 'package:first_app/model/Subtopic.dart';
+import 'package:first_app/model/database_helper.dart';
+import 'package:first_app/widgets/ContentListItem.dart';
 import 'package:flutter/material.dart';
 
-class ContentDetailListPage extends StatefulWidget {
-  final Topic collection;
 
-  ContentDetailListPage({this.collection});
+class ContentDetailListPage extends StatelessWidget {
+  Subtopic book;
 
-  @override
-  _ContentDetailListPageState createState() => _ContentDetailListPageState();
-}
-
-class _ContentDetailListPageState extends State<ContentDetailListPage> {
-  hexColor(String colorCode) {
-    String colorNew = '0xff' + colorCode;
-    colorNew = colorNew.replaceAll('#', '');
-    int colorInt = int.parse(colorNew);
-    return colorInt;
-  }
+  ContentDetailListPage({this.book});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hajj App-guide"),
-          backgroundColor: Color(hexColor('4F7491')),
-        ),
-        body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return ContentPageItem(index, 'text');
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: Icon(
+              Icons.chevron_left,
+              size: 40.0,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
           },
-        ));
+          ),
+          title: Text(
+            book.name_en,
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ),
+        body: SampleAppPage(book)
+    );
   }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage(this.book);
+
+  Subtopic book;
+
+  @override
+  _SampleAppPageState createState() => _SampleAppPageState(book);
+}
+
+class _SampleAppPageState extends State<SampleAppPage> {
+  List data = [];
+  var loading = true;
+  Subtopic book;
+
+  _SampleAppPageState(this.book);
+
+  @override
+  void initState() {
+    super.initState();
+
+    loadData();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return loading
+        ? _buildCircularProgressIndicator()
+        : new GestureDetector(
+        onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
+//              setState(() {
+//                int newNumberOfDays =
+//                    (previousNumOfDays / scaleDetails.scale).round();
+//                if (newNumberOfDays >= 7) {
+//                  numberOfDays = newNumberOfDays;
+//                }
+//              });
+        },
+        child: ListView.builder(
+            itemCount: data.length,
+            itemBuilder: (BuildContext context, int position) {
+              return ContentListItem(hadith: Content.fromMap(data[position]));
+            }));
+  }
+
+  loadData() async {
+    var hadiths = await DatabaseHelper.instance
+        .queryHadithsBySubtopicId(book.TopicID, book.SubtopicID);
+
+    setState(() {
+      data = hadiths;
+      loading = false;
+    });
+  }
+}
+
+_buildCircularProgressIndicator() {
+  return Center(
+    child: CircularProgressIndicator(),
+  );
 }
