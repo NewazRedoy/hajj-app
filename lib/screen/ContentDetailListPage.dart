@@ -1,14 +1,14 @@
+import 'package:first_app/model/Content.dart';
 import 'package:first_app/model/Subtopic.dart';
-import 'package:first_app/model/Topic.dart';
 import 'package:first_app/model/database_helper.dart';
-import 'package:first_app/widgets/ListPageItem.dart';
+import 'package:first_app/widgets/ContentListItem.dart';
 import 'package:flutter/material.dart';
 
 
-class SubtopicListPage extends StatelessWidget {
-  final Topic topic;
+class ContentDetailListPage extends StatelessWidget {
+  Subtopic book;
 
-  SubtopicListPage({this.topic});
+  ContentDetailListPage({this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -24,35 +24,35 @@ class SubtopicListPage extends StatelessWidget {
             ),
             onPressed: () {
               Navigator.of(context).pop();
-            },
+          },
           ),
           title: Text(
-            topic.name,
+            book.name_en,
             style: TextStyle(
               color: Colors.black,
             ),
           ),
         ),
-        body: SampleAppPage(topic));
+        body: SampleAppPage(book)
+    );
   }
 }
 
 class SampleAppPage extends StatefulWidget {
-  SampleAppPage(this.topic);
+  SampleAppPage(this.book);
 
-  final Topic topic;
+  Subtopic book;
 
   @override
-  _SampleAppPageState createState() => _SampleAppPageState(topic);
+  _SampleAppPageState createState() => _SampleAppPageState(book);
 }
 
 class _SampleAppPageState extends State<SampleAppPage> {
   List data = [];
   var loading = true;
+  Subtopic book;
 
-  _SampleAppPageState(this.topic);
-
-  final Topic topic;
+  _SampleAppPageState(this.book);
 
   @override
   void initState() {
@@ -65,20 +65,29 @@ class _SampleAppPageState extends State<SampleAppPage> {
   Widget build(BuildContext context) {
     return loading
         ? _buildCircularProgressIndicator()
-        : ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (BuildContext context, int position) {
-          return new ListPageItem(
-              position, Subtopic.fromJson(data[position]));
-        });
+        : new GestureDetector(
+        onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
+//              setState(() {
+//                int newNumberOfDays =
+//                    (previousNumOfDays / scaleDetails.scale).round();
+//                if (newNumberOfDays >= 7) {
+//                  numberOfDays = newNumberOfDays;
+//                }
+//              });
+        },
+        child: ListView.builder(
+            itemCount: data.length,
+            itemBuilder: (BuildContext context, int position) {
+              return ContentListItem(hadith: Content.fromMap(data[position]));
+            }));
   }
 
   loadData() async {
-    var books =
-    await DatabaseHelper.instance.queryBooksByTopicId(topic.id);
+    var hadiths = await DatabaseHelper.instance
+        .queryHadithsBySubtopicId(book.TopicID, book.SubtopicID);
 
     setState(() {
-      data = books;
+      data = hadiths;
       loading = false;
     });
   }

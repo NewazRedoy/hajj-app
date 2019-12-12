@@ -42,8 +42,8 @@ class Content {
   String toJson() => json.encode(toMap());
 
   factory Content.fromMap(Map<String, dynamic> json) => new Content(
-        bookId: json["BookID"],
-        collectionId: json["CollectionID"],
+    bookId: json["SubtopicID"],
+    collectionId: json["TopicID"],
         hadithId: json["HadithID"],
         gradeAr: json["grade_ar"],
         gradeArDiacless: json["grade_ar_diacless"],
@@ -61,8 +61,8 @@ class Content {
       );
 
   Map<String, dynamic> toMap() => {
-        "BookID": bookId,
-        "CollectionID": collectionId,
+    "SubtopicID": bookId,
+    "TopicID": collectionId,
         "HadithID": hadithId,
         "grade_ar": gradeAr,
         "grade_ar_diacless": gradeArDiacless,

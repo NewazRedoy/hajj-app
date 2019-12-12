@@ -1,4 +1,3 @@
-
 import 'package:first_app/model/Topic.dart';
 
 class Constants {
@@ -51,18 +50,12 @@ class Constants {
         name_ar: '',
         abbv: 'IM',
         color: '#3c968d'),
-    Topic(
-        id: 7,
-        name: 'প্রশ্নসমূহ',
-        name_ar: '',
-        abbv: 'MM',
-        color: '#409c3e'),
+    Topic(id: 7, name: 'প্রশ্নসমূহ', name_ar: '', abbv: 'MM', color: '#409c3e'),
     Topic(
         id: 8,
         name: 'হজ্জ - উমরাহ সহায়ক',
         name_ar: '',
         abbv: 'A',
         color: '#8bc34a'),
-
   ];
 }

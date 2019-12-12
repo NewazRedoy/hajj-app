@@ -1,12 +1,12 @@
-import 'package:first_app/screen/SubTopicListPage.dart';
+import 'package:first_app/model/Subtopic.dart';
+import 'package:first_app/screen/ContentDetailListPage.dart';
 import 'package:flutter/material.dart';
-
 
 class ListPageItem extends StatelessWidget {
   int index;
-  String s;
+  Subtopic subtopic;
 
-  ListPageItem(this.index, this.s);
+  ListPageItem(this.index, this.subtopic);
 
   hexColor(String colorCode) {
     String colorNew = '0xff' + colorCode;
@@ -28,7 +28,7 @@ class ListPageItem extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => SubtopicListPage(),
+                builder: (context) => ContentDetailListPage(),
               ));
         },
         child: Row(
@@ -47,7 +47,7 @@ class ListPageItem extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                s,
+                subtopic.name_en,
                 style: TextStyle(fontSize: 20),
               ),
             ),
