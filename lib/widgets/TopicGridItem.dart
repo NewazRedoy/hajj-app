@@ -31,7 +31,8 @@ class CollectionItem extends StatelessWidget {
                     builder: (context) {
                       if (collection.id < 7) {
                         return SubtopicListPage(collection: collection);
-                      } else {
+                      }
+                      else {
                         return QueAns();
                       }
                     }
