@@ -1,7 +1,7 @@
 import 'package:first_app/model/Topic.dart';
+import 'package:first_app/screen/QuestionAnswer.dart';
 import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/screen/QuestionAnswer.dart';
 
 class CollectionItem extends StatelessWidget {
   const CollectionItem({
@@ -23,29 +23,23 @@ class CollectionItem extends StatelessWidget {
         ),
         elevation: 7.0,
         child: InkWell(
-          onTap: () {
-            Navigator
-                .of(context)
-                .push(
-                MaterialPageRoute(
-                    builder: (context) {
-                      if (collection.id < 7) {
-                        return SubtopicListPage(collection: collection);
-                      }
-                      else {
-                        return QueAns();
-                      }
-                    }
-                ));
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                if (collection.id < 7) {
+                  return SubtopicListPage(collection: collection);
+                } else {
+                  return QueAns();
+                }
+              }));
             },
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Text(
-            collection.abbv,
-          ),
-            Text(
-              collection.name,
-              style: TextStyle(fontSize: 12),
-            ),
-          ])));
+            child: Column(mainAxisSize: MainAxisSize.min, children: [
+              Text(
+                collection.abbv,
+              ),
+              Text(
+                collection.name,
+                style: TextStyle(fontSize: 12),
+              ),
+            ])));
   }
 }
