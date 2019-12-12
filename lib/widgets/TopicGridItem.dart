@@ -2,6 +2,7 @@ import 'package:first_app/model/Topic.dart';
 import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/screen/QuestionAnswer.dart';
+import 'package:first_app/screen/HajjUmrahAssistant.dart';
 
 class CollectionItem extends StatelessWidget {
   const CollectionItem({
@@ -31,6 +32,7 @@ class CollectionItem extends StatelessWidget {
                     builder: (context) {
                       if (collection.id < 7) {
                         return SubtopicListPage(collection: collection);
+                      }else if (collection.id == 8) {return HajjAssistant();
                       }
                       else {
                         return QueAns();

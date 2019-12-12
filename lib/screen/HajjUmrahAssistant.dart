@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screen/ElectedQuestion.dart';
-import 'package:first_app/screen/SendQuestion.dart';
+import 'package:first_app/screen/SieCount.dart';
+import 'package:first_app/screen/SomeArabicSentences.dart';
+import 'package:first_app/screen/TawafCount.dart';
+import 'package:first_app/screen/RiyalTakaConverter.dart';
  class HajjAssistant extends StatefulWidget {
    @override
    _HajjAssistantState createState() => _HajjAssistantState();
@@ -15,7 +17,7 @@ import 'package:first_app/screen/SendQuestion.dart';
          backgroundColor: Colors.cyan,
        ),
        body: GridView.count(
-         crossAxisCount: 4,
+         crossAxisCount: 2,
          children: <Widget>[
            Item(Icons.adjust, 'তাওয়াফ গণনা',1),
            Item(Icons.adjust, "স'ঈ গণনা",2),
@@ -47,11 +49,10 @@ class Item extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context)
                 {
-                  if (option < 2) {
-                    return ElectedQuestion();
-                  } else {
-                    return SendQuestion();
-                  }
+                  if (option < 2) {return TawafCount();}
+                  else if(option==2)  {return SaiCount();}
+                  else if(option==3){return RiyalConverter();}
+                  else{return SomeArabicSentences();}
                 }
 
             ),

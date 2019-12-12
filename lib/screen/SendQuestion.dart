@@ -20,7 +20,7 @@ class _SendQuestionState extends State<SendQuestion> {
                 child: Card(
                   elevation: 10.0,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),),
+                    borderRadius: BorderRadius.circular(2.0),),
                   child: Column(
                     children: <Widget>[
                       TextField(
