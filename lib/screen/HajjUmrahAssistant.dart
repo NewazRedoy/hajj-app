@@ -51,7 +51,7 @@ class Item extends StatelessWidget {
                 {
                   if (option < 2) {return TawafCount();}
                   if (option == 2) {return SaiCount();}
-                  if (option < 2) {return RiyalConverter();}
+                  if (option == 3) {return RiyalConverter();}
                   else {
                     return SomeArabicSentences();
                   }
