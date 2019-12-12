@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:first_app/screen/ElectedQuestion.dart';
 import 'package:first_app/screen/SendQuestion.dart';
+import 'package:first_app/screen/RiyalTakaConverter.dart';
+import 'package:first_app/screen/SieCount.dart';
+import 'package:first_app/screen/TawafCount.dart';
+import 'package:first_app/screen/SomeArabicSentences.dart';
  class HajjAssistant extends StatefulWidget {
    @override
    _HajjAssistantState createState() => _HajjAssistantState();
@@ -47,10 +51,11 @@ class Item extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context)
                 {
-                  if (option < 2) {
-                    return ElectedQuestion();
-                  } else {
-                    return SendQuestion();
+                  if (option < 2) {return TawafCount();}
+                  if (option == 2) {return SaiCount();}
+                  if (option < 2) {return RiyalConverter();}
+                  else {
+                    return SomeArabicSentences();
                   }
                 }
 
