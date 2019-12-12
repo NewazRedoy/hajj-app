@@ -15,7 +15,7 @@ import 'package:first_app/screen/SendQuestion.dart';
          backgroundColor: Colors.cyan,
        ),
        body: GridView.count(
-         crossAxisCount: 4,
+         crossAxisCount: 2,
          children: <Widget>[
            Item(Icons.adjust, 'তাওয়াফ গণনা',1),
            Item(Icons.adjust, "স'ঈ গণনা",2),
