@@ -10,7 +10,7 @@ class _SendQuestionState extends State<SendQuestion> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hajj App-guide"),
+        title: Text("প্রশ্ন করুন"),
         backgroundColor: Colors.cyan,
       ),
       body: SingleChildScrollView(

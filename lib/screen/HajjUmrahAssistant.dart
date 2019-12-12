@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screen/ElectedQuestion.dart';
-import 'package:first_app/screen/SendQuestion.dart';
 import 'package:first_app/screen/RiyalTakaConverter.dart';
 import 'package:first_app/screen/SieCount.dart';
 import 'package:first_app/screen/TawafCount.dart';
