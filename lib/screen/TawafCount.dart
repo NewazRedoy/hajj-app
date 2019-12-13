@@ -11,7 +11,6 @@ class _TawafCountState extends State<TawafCount> {
     return Scaffold(
       appBar: AppBar(
         title: Text("তাওয়াফ গণনা"),
-        backgroundColor: Colors.cyan,
       ),
       body: Container(),
     );

@@ -8,19 +8,13 @@ class QueAns extends StatefulWidget {
 }
 
 class _QueAnsState extends State<QueAns> {
-  hexColor(String colorCode) {
-    String colorNew = '0xff' + colorCode;
-    colorNew = colorNew.replaceAll('#', '');
-    int colorInt = int.parse(colorNew);
-    return colorInt;
-  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Hajj App-guide"),
-        backgroundColor: Color(hexColor('4F7491')),
       ),
       body: GridView.count(
         crossAxisCount: 2,

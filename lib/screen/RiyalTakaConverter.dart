@@ -11,7 +11,6 @@ class _RiyalConverterState extends State<RiyalConverter> {
     return Scaffold(
       appBar: AppBar(
         title: Text("রিয়াল-টাকা কনভাটার"),
-        backgroundColor: Colors.cyan,
       ),
       body: Container(
         child: Column(

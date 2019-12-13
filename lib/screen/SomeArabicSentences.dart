@@ -11,7 +11,6 @@ class _SomeArabicSentencesState extends State<SomeArabicSentences> {
     return Scaffold(
       appBar: AppBar(
         title: Text("কিছু আরবি বাক্য"),
-        backgroundColor: Colors.cyan,
       ),
       body: ListView.builder(
         itemCount: 5,

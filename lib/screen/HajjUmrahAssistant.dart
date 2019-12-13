@@ -15,7 +15,6 @@ class _HajjAssistantState extends State<HajjAssistant> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Hajj App-guide"),
-        backgroundColor: Colors.cyan,
       ),
       body: GridView.count(
         crossAxisCount: 2,

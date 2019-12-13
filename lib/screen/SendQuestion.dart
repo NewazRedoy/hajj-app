@@ -11,7 +11,6 @@ class _SendQuestionState extends State<SendQuestion> {
     return Scaffold(
       appBar: AppBar(
         title: Text("প্রশ্ন করুন"),
-        backgroundColor: Colors.cyan,
       ),
       body: ListView(
           children: <Widget>[
@@ -19,7 +18,7 @@ class _SendQuestionState extends State<SendQuestion> {
               child: Card(
                 elevation: 10.0,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0),
+                  borderRadius: BorderRadius.circular(2.0),
                 ),
                 child: Column(
                   children: <Widget>[

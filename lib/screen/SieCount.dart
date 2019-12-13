@@ -11,7 +11,6 @@ class _SaiCountState extends State<SaiCount> {
     return Scaffold(
       appBar: AppBar(
         title: Text("স'ঈ গণনা"),
-        backgroundColor: Colors.cyan,
       ),
       body: Container(),
     );
