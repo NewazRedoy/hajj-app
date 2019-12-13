@@ -11,7 +11,7 @@ class _SettingsState extends State<Settings> {
       appBar: AppBar(title: Text("সেটিং"
           ),),
       body: Container(
-        child: Text("টেক্রট সাইজ"),
+        child: Center(child: Text("টেক্রট সাইজ")),
       ),
     );
   }
