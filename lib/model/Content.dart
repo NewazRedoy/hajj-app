@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class Content {
-  dynamic bookId;
-  int collectionId;
-  int hadithId;
+  int topic_id;
+  int subtopic_id;
+  int content_id;
   String gradeAr;
   String gradeArDiacless;
   String gradeEn;
@@ -19,9 +19,9 @@ class Content {
   String textEn;
 
   Content({
-    this.bookId,
-    this.collectionId,
-    this.hadithId,
+    this.subtopic_id,
+    this.topic_id,
+    this.content_id,
     this.gradeAr,
     this.gradeArDiacless,
     this.gradeEn,
@@ -42,9 +42,9 @@ class Content {
   String toJson() => json.encode(toMap());
 
   factory Content.fromMap(Map<String, dynamic> json) => new Content(
-    bookId: json["SubtopicID"],
-    collectionId: json["TopicID"],
-        hadithId: json["HadithID"],
+        subtopic_id: json["subtopic_id"],
+        topic_id: json["topic_id"],
+        content_id: json["content_id"],
         gradeAr: json["grade_ar"],
         gradeArDiacless: json["grade_ar_diacless"],
         gradeEn: json["grade_en"],
@@ -61,9 +61,9 @@ class Content {
       );
 
   Map<String, dynamic> toMap() => {
-    "SubtopicID": bookId,
-    "TopicID": collectionId,
-        "HadithID": hadithId,
+        "subtopic_id": subtopic_id,
+        "topic_id": topic_id,
+        "content_id": content_id,
         "grade_ar": gradeAr,
         "grade_ar_diacless": gradeArDiacless,
         "grade_en": gradeEn,

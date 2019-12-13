@@ -1,27 +1,27 @@
 import 'dart:convert';
 
 class Topic {
-  int id;
+  int topic_id;
   String name;
-  String name_ar;
+  String desc_en;
   String color;
   String abbv;
 
-  Topic({this.id, this.name, this.name_ar, this.color, this.abbv});
+  Topic({this.topic_id, this.name, this.desc_en, this.color, this.abbv});
 
   factory Topic.fromRawJson(String str) => Topic.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
   factory Topic.fromJson(Map<String, dynamic> json) => new Topic(
-        id: json["id"],
+        topic_id: json["topic_id"],
         name: json["name"],
-        name_ar: json["name_ar"],
+        desc_en: json["desc_en"],
         color: json["color"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        "topic_id": topic_id,
         "name": name,
       };
 }

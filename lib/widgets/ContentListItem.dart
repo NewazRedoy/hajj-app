@@ -24,8 +24,7 @@ class ContentListItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(hadith.hadithId.toString()),
-                        Text(hadith.gradeEn)
+                        Text(hadith.content_id.toString()),
                       ],
                     ),
                     SizedBox(height: 6),

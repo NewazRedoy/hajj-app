@@ -4,7 +4,6 @@ import 'package:first_app/model/database_helper.dart';
 import 'package:first_app/widgets/ListPageItem.dart';
 import 'package:flutter/material.dart';
 
-
 class SubtopicListPage extends StatelessWidget {
   final Topic topic;
 
@@ -66,16 +65,16 @@ class _SampleAppPageState extends State<SampleAppPage> {
     return loading
         ? _buildCircularProgressIndicator()
         : ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (BuildContext context, int position) {
-          return new ListPageItem(
-              position, Subtopic.fromJson(data[position]));
-        });
+            itemCount: data.length,
+            itemBuilder: (BuildContext context, int position) {
+              return new ListPageItem(
+                  position, Subtopic.fromJson(data[position]));
+            });
   }
 
   loadData() async {
     var books =
-    await DatabaseHelper.instance.queryBooksByTopicId(topic.id);
+        await DatabaseHelper.instance.queryBooksByTopicId(topic.topic_id);
 
     setState(() {
       data = books;

@@ -1,8 +1,9 @@
 import 'package:first_app/model/Topic.dart';
+import 'package:first_app/screen/HajjUmrahAssistant.dart';
 import 'package:first_app/screen/QuestionAnswer.dart';
 import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/screen/HajjUmrahAssistant.dart';
+
 class CollectionItem extends StatelessWidget {
   const CollectionItem({
     Key key,
@@ -25,11 +26,11 @@ class CollectionItem extends StatelessWidget {
         child: InkWell(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                if (collection.id < 7) {
+                if (collection.topic_id < 7) {
                   return SubtopicListPage(topic: collection);
-                } else if (collection.id ==8) {
-                  return HajjAssistant();}
-                else {
+                } else if (collection.topic_id == 8) {
+                  return HajjAssistant();
+                } else {
                   return QueAns();
                 }
               }));
