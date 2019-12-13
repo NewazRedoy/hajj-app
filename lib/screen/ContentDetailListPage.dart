@@ -4,11 +4,10 @@ import 'package:first_app/model/database_helper.dart';
 import 'package:first_app/widgets/ContentListItem.dart';
 import 'package:flutter/material.dart';
 
-
 class ContentDetailListPage extends StatelessWidget {
   Subtopic book;
 
-  ContentDetailListPage({this.book});
+  ContentDetailListPage(this.book);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class ContentDetailListPage extends StatelessWidget {
             ),
             onPressed: () {
               Navigator.of(context).pop();
-          },
+            },
           ),
           title: Text(
             book.name_en,
@@ -33,8 +32,7 @@ class ContentDetailListPage extends StatelessWidget {
             ),
           ),
         ),
-        body: SampleAppPage(book)
-    );
+        body: SampleAppPage(book));
   }
 }
 
@@ -66,7 +64,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
     return loading
         ? _buildCircularProgressIndicator()
         : new GestureDetector(
-        onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
+            onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
 //              setState(() {
 //                int newNumberOfDays =
 //                    (previousNumOfDays / scaleDetails.scale).round();
@@ -74,17 +72,18 @@ class _SampleAppPageState extends State<SampleAppPage> {
 //                  numberOfDays = newNumberOfDays;
 //                }
 //              });
-        },
-        child: ListView.builder(
-            itemCount: data.length,
-            itemBuilder: (BuildContext context, int position) {
-              return ContentListItem(hadith: Content.fromMap(data[position]));
-            }));
+            },
+            child: ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (BuildContext context, int position) {
+                  return ContentListItem(
+                      hadith: Content.fromMap(data[position]));
+                }));
   }
 
   loadData() async {
     var hadiths = await DatabaseHelper.instance
-        .queryHadithsBySubtopicId(book.TopicID, book.SubtopicID);
+        .queryHadithsBySubtopicId(book.topic_id, book.subtopic_id);
 
     setState(() {
       data = hadiths;

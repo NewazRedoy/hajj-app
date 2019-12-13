@@ -1,38 +1,41 @@
-import 'package:flutter/material.dart';
 import 'package:first_app/screen/RiyalTakaConverter.dart';
 import 'package:first_app/screen/SieCount.dart';
-import 'package:first_app/screen/TawafCount.dart';
 import 'package:first_app/screen/SomeArabicSentences.dart';
- class HajjAssistant extends StatefulWidget {
-   @override
-   _HajjAssistantState createState() => _HajjAssistantState();
- }
+import 'package:first_app/screen/TawafCount.dart';
+import 'package:flutter/material.dart';
 
- class _HajjAssistantState extends State<HajjAssistant> {
-   @override
-   Widget build(BuildContext context) {
-     return Scaffold(
-       appBar: AppBar(
-         title: Text("Hajj App-guide"),
-       ),
-       body: GridView.count(
-         crossAxisCount: 2,
-         children: <Widget>[
-           Item(Icons.adjust, 'তাওয়াফ গণনা',1),
-           Item(Icons.adjust, "স'ঈ গণনা",2),
-           Item(Icons.adjust, "রিয়াল-টাকা কনভাটার",3),
-           Item(Icons.adjust, "কিছু আরবি বাক্য",4),
-         ],
-       ),
-     );
-   }
- }
+class HajjAssistant extends StatefulWidget {
+  @override
+  _HajjAssistantState createState() => _HajjAssistantState();
+}
+
+class _HajjAssistantState extends State<HajjAssistant> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hajj App-guide"),
+        backgroundColor: Colors.cyan,
+      ),
+      body: GridView.count(
+        crossAxisCount: 2,
+        children: <Widget>[
+          Item(Icons.adjust, 'তাওয়াফ গণনা', 1),
+          Item(Icons.adjust, "স'ঈ গণনা", 2),
+          Item(Icons.adjust, "রিয়াল-টাকা কনভাটার", 3),
+          Item(Icons.adjust, "কিছু আরবি বাক্য", 4),
+        ],
+      ),
+    );
+  }
+}
 
 class Item extends StatelessWidget {
   final IconData icon;
   final String title;
   final int option;
-  Item(this.icon, this.title,this.option);
+
+  Item(this.icon, this.title, this.option);
 
   @override
   Widget build(BuildContext context) {
@@ -45,18 +48,19 @@ class Item extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context)
-                {
-                  if (option < 2) {return TawafCount();}
-                  if (option == 2) {return SaiCount();}
-                  if (option == 3) {return RiyalConverter();}
-                  else {
-                    return SomeArabicSentences();
-                  }
-                }
-
-            ),
+            MaterialPageRoute(builder: (context) {
+              if (option < 2) {
+                return TawafCount();
+              }
+              if (option == 2) {
+                return SaiCount();
+              }
+              if (option == 3) {
+                return RiyalConverter();
+              } else {
+                return SomeArabicSentences();
+              }
+            }),
           );
         },
         child: Column(

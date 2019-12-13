@@ -2,12 +2,12 @@ import 'dart:convert';
 
 class Guide {
   String GuideID;
-  int TopicID;
+  int topic_id;
   String name_en;
 
   Guide({
     this.GuideID,
-    this.TopicID,
+    this.topic_id,
     this.name_en,
   });
 
@@ -16,14 +16,14 @@ class Guide {
   String toRawJson() => json.encode(toJson());
 
   factory Guide.fromJson(Map<String, dynamic> json) => new Guide(
-    TopicID: json["TopicID"],
-    GuideID: json["SubtopicID"],
+        topic_id: json["topic_id"],
+        GuideID: json["subtopic_id"],
         name_en: json["name_en"],
       );
 
   Map<String, dynamic> toJson() => {
-    "SubtopicID": GuideID,
-    "TopicID": TopicID,
+        "subtopic_id": GuideID,
+        "topic_id": topic_id,
         "name_en": name_en,
       };
 }

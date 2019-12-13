@@ -15,10 +15,10 @@ class DatabaseHelper {
 
   // database table and column names
   static final String HADITH_ID_GLOBAL = "_id";
-  static final String HADITH_COLLECTION_ID = "TopicID";
-  static final String HADITH_BOOK_ID = "SubtopicID";
+  static final String HADITH_COLLECTION_ID = "topic_id";
+  static final String HADITH_BOOK_ID = "subtopic_id";
   static final String HADITH_CHAPTER_ID = "ChapID";
-  static final String HADITH_ID = "HadithID";
+  static final String HADITH_ID = "content_id";
   static final String LANGUAGE = "_en";
 
 //    static final String DIACLESS = "_diacless";
@@ -60,7 +60,7 @@ class DatabaseHelper {
       "," +
       RELATED_REFERENCE;
 
-  static final String HADITH_TABLE = "hadiths";
+  static final String HADITH_TABLE = "content";
 
   // Make this a singleton class.
   DatabaseHelper._privateConstructor();
@@ -113,34 +113,43 @@ class DatabaseHelper {
   Future<List<Map>> querySubtopicsByTopicId(int id) async {
     Database db = await database;
     List<Map> maps =
-        await db.rawQuery("select * from Subtopic where TopicID=$id");
+        await db.rawQuery("select * from Subtopic where topic_id=$id");
     return maps;
   }
 
   Future<List<Map>> queryHadithsByQuery(String query) async {
     Database db = await database;
     List<Map> maps =
-        await db.rawQuery("select * from hadiths where hadiths match '$query'");
+        await db.rawQuery("select * from content where content match '$query'");
 
-    print("select * from hadiths where match $query");
+    print("select * from content where match $query");
     return maps;
   }
+
+//  Future<List<Map>> queryHadithsBySubtopicId(
+//      int collectionID, String bookID) async {
+//    Database db = await database;
+//    List<Map> maps = await db.rawQuery(
+//        "select * from content where content match 'topic_id: $collectionID subtopic_id:$bookID'");
+//
+//    print("select * from content where topic_id=$collectionID and subtopic_id = $bookID");
+//    return maps;
+//  }
 
   Future<List<Map>> queryHadithsBySubtopicId(
       int collectionID, String bookID) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery(
-        "select * from hadiths where hadiths match 'TopicID: $collectionID SubtopicID:$bookID'");
+        "select * from content where topic_id= $collectionID and subtopic_id=$bookID");
 
-    print(
-        "select * from hadiths where TopicID=$collectionID and SubtopicID = $bookID");
+    print("select * from content where topic_id=$collectionID and subtopic_id = $bookID");
     return maps;
   }
 
   Future<List<Map>> queryBooksByTopicId(int id) async {
     Database db = await database;
     List<Map> maps =
-        await db.rawQuery("select * from Subtopic where TopicID=$id");
+        await db.rawQuery("select * from Subtopic where topic_id=$id");
     return maps;
   }
 
