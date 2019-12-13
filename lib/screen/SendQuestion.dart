@@ -13,8 +13,7 @@ class _SendQuestionState extends State<SendQuestion> {
         title: Text("প্রশ্ন করুন"),
         backgroundColor: Colors.cyan,
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      body: ListView(
           children: <Widget>[
             Container(
               child: Card(
@@ -50,6 +49,7 @@ class _SendQuestionState extends State<SendQuestion> {
                   child: InkWell(
                     onTap: () {},
                     child: Container(
+                      margin: EdgeInsets.only(top:50.0),
                       height: 100.0,
                       width: 100.0,
                       alignment: Alignment.bottomCenter,
@@ -59,7 +59,7 @@ class _SendQuestionState extends State<SendQuestion> {
             ),
           ],
         ),
-      ),
+
     );
   }
 }

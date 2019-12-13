@@ -12,7 +12,26 @@ class _RiyalConverterState extends State<RiyalConverter> {
         title: Text("রিয়াল-টাকা কনভাটার"),
         backgroundColor: Colors.cyan,
       ),
-      body: Container(),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "টাকা",
+                hintText: "টাকা",
+              ),
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "রিয়াল",
+                hintText: "রিয়াল",
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

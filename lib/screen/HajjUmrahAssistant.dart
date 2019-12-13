@@ -14,7 +14,6 @@ import 'package:first_app/screen/SomeArabicSentences.dart';
      return Scaffold(
        appBar: AppBar(
          title: Text("Hajj App-guide"),
-         backgroundColor: Colors.cyan,
        ),
        body: GridView.count(
          crossAxisCount: 2,
