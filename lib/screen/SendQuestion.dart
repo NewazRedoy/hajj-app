@@ -38,7 +38,7 @@ class _SendQuestionState extends State<SendQuestion> {
               ),
             ),
             SizedBox(
-              height: 10.0,
+              height: 140.0,
             ),
             Center(
               child: Card(
@@ -48,9 +48,8 @@ class _SendQuestionState extends State<SendQuestion> {
                   child: InkWell(
                     onTap: () {},
                     child: Container(
-                      margin: EdgeInsets.only(top:50.0),
-                      height: 100.0,
-                      width: 100.0,
+                      height: 130.0,
+                      width: 130.0,
                       alignment: Alignment.bottomCenter,
                       child: Text("পাঠিয়ে দিন"),
                     ),

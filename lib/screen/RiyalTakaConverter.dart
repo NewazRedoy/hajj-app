@@ -10,27 +10,32 @@ class _RiyalConverterState extends State<RiyalConverter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("রিয়াল-টাকা কনভাটার"),
+        title: Text("রিয়াল-টাকা কনভার্টার"),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: "টাকা",
-                hintText: "টাকা",
+      body: Card(
+        shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                maxLines: 3,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: "টাকা",
+                  hintText: "টাকা",
+                ),
               ),
-            ),
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: "রিয়াল",
-                hintText: "রিয়াল",
-              ),
-            )
-          ],
-        ),
+              TextField(
+                maxLines: 3,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: "রিয়াল",
+                  hintText: "রিয়াল",
+                ),
+              )
+            ],
+          ),
       ),
     );
   }

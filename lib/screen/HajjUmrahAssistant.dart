@@ -14,16 +14,22 @@ class _HajjAssistantState extends State<HajjAssistant> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hajj App-guide"),
+        title: Text("হজ্জ - উমরাহ সহায়ক"),
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: <Widget>[
-          Item(Icons.adjust, 'তাওয়াফ গণনা', 1),
-          Item(Icons.adjust, "স'ঈ গণনা", 2),
-          Item(Icons.adjust, "রিয়াল-টাকা কনভাটার", 3),
-          Item(Icons.adjust, "কিছু আরবি বাক্য", 4),
-        ],
+      body: Center(
+        child: Container(
+          height:300.0,
+              width:300.0,
+              child: GridView.count(
+                crossAxisCount: 2,
+                children: <Widget>[
+                  Item(Icons.adjust, 'তাওয়াফ গণনা', 1),
+                  Item(Icons.adjust, "স'ঈ গণনা", 2),
+                  Item(Icons.adjust, "রিয়াল-টাকা কনভার্টার", 3),
+                  Item(Icons.adjust, "কিছু আরবি বাক্য", 4),
+                ],
+              ),
+        ),
       ),
     );
   }
@@ -40,7 +46,7 @@ class Item extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.circular(5.0),
       ),
       elevation: 7.0,
       child: InkWell(

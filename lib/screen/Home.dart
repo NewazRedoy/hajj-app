@@ -23,19 +23,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-  hexColor(String colorCode) {
-    String colorNew = '0xff' + colorCode;
-    colorNew = colorNew.replaceAll('#', '');
-    int colorInt = int.parse(colorNew);
-    return colorInt;
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Container(
         decoration: BoxDecoration(
-          color: Color(hexColor('4F7491')),
         ),
         child: Drawer(
           child: ListView(
@@ -86,7 +79,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       ),
       appBar: AppBar(
         title: Text("Hajj App"),
-        backgroundColor: Color(hexColor('4F7491')),
         bottom: TabBar(
           controller: controller,
           indicatorWeight: 5.0,

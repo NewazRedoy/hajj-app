@@ -6,7 +6,6 @@ class ElectedQuestion extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("নির্বাচিত প্রশ্নোত্তর"),
-        backgroundColor: Colors.cyan,
       ),
       body: ListView.builder(
         itemCount: 5,

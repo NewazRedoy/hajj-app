@@ -14,14 +14,20 @@ class _QueAnsState extends State<QueAns> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hajj App-guide"),
+        title: Text("প্রশ্নসমূহ"),
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: <Widget>[
-          Item(Icons.adjust, 'নির্বাচিত প্রশ্নোত্তর', 1),
-          Item(Icons.adjust, 'প্রশ্ন করুন', 2),
-        ],
+      body: Center(
+        child: Container(
+          height: 300.0,
+          width: 300.0,
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: <Widget>[
+              Item(Icons.adjust, 'নির্বাচিত প্রশ্নোত্তর', 1),
+              Item(Icons.adjust, 'প্রশ্ন করুন', 2),
+            ],
+          ),
+        ),
       ),
     );
   }
