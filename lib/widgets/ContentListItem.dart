@@ -2,9 +2,9 @@ import 'package:first_app/model/Content.dart';
 import 'package:flutter/material.dart';
 
 class ContentListItem extends StatelessWidget {
-  Content hadith;
+  Content content;
 
-  ContentListItem({this.hadith});
+  ContentListItem({this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +24,55 @@ class ContentListItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(hadith.content_id.toString()),
+                        Expanded(
+                          child: Container(
+                            child:Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                    decoration: BoxDecoration(color: Colors.amber),
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      content.content_id.toString(),
+                                      style: TextStyle(color: Colors.white, fontSize: 20),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Expanded(
+                                      child: Text(
+                                        "",
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(color: Colors.amber),
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      "",
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                  )
+                                ]),
+                          ),
+                        ),
                       ],
                     ),
                     SizedBox(height: 6),
                     Text(
-                      hadith.textAr,
+                      content.textAr,
                       textAlign: TextAlign.end,
                       style: TextStyle(fontSize: 22, fontFamily: 'Quran'),
                     ),
                     SizedBox(height: 6),
                     Text(
-                      hadith.textEn,
+                      content.textEn,
                       style: Theme.of(context).textTheme.subhead,
                     ),
                     SizedBox(height: 6),
                     Text(
-                      hadith.referenceEn,
+                      content.referenceEn,
                       style: TextStyle(fontSize: 12),
                     )
                   ])),

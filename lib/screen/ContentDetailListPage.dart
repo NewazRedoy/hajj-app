@@ -77,16 +77,16 @@ class _SampleAppPageState extends State<SampleAppPage> {
                 itemCount: data.length,
                 itemBuilder: (BuildContext context, int position) {
                   return ContentListItem(
-                      hadith: Content.fromMap(data[position]));
+                      content: Content.fromMap(data[position]));
                 }));
   }
 
   loadData() async {
-    var hadiths = await DatabaseHelper.instance
+    var content = await DatabaseHelper.instance
         .queryHadithsBySubtopicId(book.topic_id, book.subtopic_id);
 
     setState(() {
-      data = hadiths;
+      data = content;
       loading = false;
     });
   }
