@@ -46,6 +46,10 @@ class ElectedQuestion extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(color: Colors.amber),
                         padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "",
+                          style: TextStyle(fontSize: 20),
+                        ),
                       )
                     ]),
               ));
