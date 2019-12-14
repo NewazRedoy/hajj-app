@@ -75,7 +75,9 @@ class ContentListItem extends StatelessWidget {
                       content.referenceEn,
                       style: TextStyle(fontSize: 12),
                     )
-                  ])),
+                  ],
+              ),
+          ),
         ),
       ),
     );
