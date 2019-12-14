@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:first_app/screen/E.Q.SubTopicPage.dart';
 
 class ElectedQuestion extends StatelessWidget {
   @override
@@ -17,7 +18,11 @@ class ElectedQuestion extends StatelessWidget {
               ),
               elevation: 7.0,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context)=> EQSubTopic()));
+                },
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -41,10 +46,6 @@ class ElectedQuestion extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(color: Colors.amber),
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "",
-                          style: TextStyle(fontSize: 20),
-                        ),
                       )
                     ]),
               ));

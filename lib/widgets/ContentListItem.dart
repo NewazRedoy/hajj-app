@@ -42,17 +42,13 @@ class ContentListItem extends StatelessWidget {
                                   ),
                                   Expanded(
                                       child: Text(
-                                        "",
+                                        content.subtopic_id.toString(),
                                         style: TextStyle(fontSize: 20),
                                       ),
                                   ),
                                   Container(
                                     decoration: BoxDecoration(color: Colors.amber),
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "",
-                                      style: TextStyle(fontSize: 20),
-                                    ),
                                   )
                                 ]),
                           ),
