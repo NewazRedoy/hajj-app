@@ -1,13 +1,13 @@
-import 'package:first_app/screen/ElectedQuestion.dart';
-import 'package:first_app/screen/SendQuestion.dart';
+import 'package:first_app/screen/ElectedQuestionPage.dart';
+import 'package:first_app/screen/SendQuestionPage.dart';
 import 'package:flutter/material.dart';
 
-class QueAns extends StatefulWidget {
+class QuestionAnswerPage extends StatefulWidget {
   @override
-  _QueAnsState createState() => _QueAnsState();
+  _QuestionAnswerPageState createState() => _QuestionAnswerPageState ();
 }
 
-class _QueAnsState extends State<QueAns> {
+class _QuestionAnswerPageState  extends State<QuestionAnswerPage> {
 
 
   @override

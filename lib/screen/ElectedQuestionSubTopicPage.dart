@@ -17,7 +17,6 @@ class EQSubTopic extends StatelessWidget {
               ),
               elevation: 5.0,
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Container(height: 50.0,
                         padding: const EdgeInsets.all(8.0),

@@ -1,7 +1,7 @@
 import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:flutter/material.dart';
 
-import 'chat.dart' as appdrawer;
+import 'DuaPage.dart' as appdrawer;
 
 class Home extends StatefulWidget {
   @override

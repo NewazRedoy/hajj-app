@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/screen/E.Q.SubTopicPage.dart';
+import 'package:first_app/screen/ElectedQuestionSubTopicPage.dart';
 
 class ElectedQuestion extends StatelessWidget {
   @override

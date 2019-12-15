@@ -1,6 +1,6 @@
 import 'package:first_app/model/Topic.dart';
-import 'package:first_app/screen/HajjUmrahAssistant.dart';
-import 'package:first_app/screen/QuestionAnswer.dart';
+import 'package:first_app/screen/HajjUmrahAssistantPage.dart';
+import 'package:first_app/screen/QuestionAnswerPage.dart';
 import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:flutter/material.dart';
 
@@ -29,9 +29,9 @@ class CollectionItem extends StatelessWidget {
                 if (collection.topic_id < 7) {
                   return SubtopicListPage(topic: collection);
                 } else if (collection.topic_id == 8) {
-                  return HajjAssistant();
+                  return HajjAssistantPage(topic: collection,);
                 } else {
-                  return QueAns();
+                  return QuestionAnswerPage();
                 }
               }));
             },
