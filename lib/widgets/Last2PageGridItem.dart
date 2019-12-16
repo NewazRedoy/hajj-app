@@ -1,17 +1,20 @@
 import 'package:first_app/model/Subtopic.dart';
-import 'package:flutter/material.dart';
-import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:first_app/screen/RiyalTakaConverterPage.dart';
 import 'package:first_app/screen/SieCountPage.dart';
+import 'package:first_app/screen/TawafCountPage.dart';
+import 'package:flutter/material.dart';
 
 class Last2PageGridItem extends StatelessWidget {
   int index;
   Subtopic subtopic;
 
-  Last2PageGridItem(this.index, this.subtopic,);
+  Last2PageGridItem(
+    this.index,
+    this.subtopic,
+  );
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
@@ -22,12 +25,15 @@ class Last2PageGridItem extends StatelessWidget {
         child: InkWell(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              if (subtopic.subtopic_id > 0 ) {
-                return SubtopicListPage();
-              } else if (subtopic.subtopic_id == 4 ) {
-                return RiyalConverter();
-              } else {
-                return SaiCount();
+              switch (subtopic.subtopic_id) {
+                case 1:
+                  return TawafCountPage();
+                case 2:
+                  return SaiCount();
+                case 3:
+                  return RiyalConverter();
+                case 4:
+                  return RiyalConverter();
               }
             }));
           },

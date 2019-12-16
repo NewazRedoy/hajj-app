@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TawafCount extends StatefulWidget {
+class TawafCountPage extends StatefulWidget {
   @override
-  _TawafCountState createState() => _TawafCountState();
+  _TawafCountPageState createState() => _TawafCountPageState();
 }
 
-class _TawafCountState extends State<TawafCount> {
+class _TawafCountPageState extends State<TawafCountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
