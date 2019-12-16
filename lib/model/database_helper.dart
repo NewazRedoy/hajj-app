@@ -137,7 +137,7 @@ class DatabaseHelper {
 //  }
 
   Future<List<Map>> queryHadithsBySubtopicId(
-      int collectionID, String bookID) async {
+      int collectionID, int bookID) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery(
         "select * from content where topic_id= $collectionID and subtopic_id=$bookID");

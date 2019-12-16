@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class Subtopic {
-  String subtopic_id;
+  int subtopic_id;
   int topic_id;
   String name_en;
 
@@ -16,7 +16,7 @@ class Subtopic {
 
   String toRawJson() => json.encode(toJson());
 
-  factory Subtopic.fromJson(Map<String, dynamic> json) => new Subtopic(
+  factory Subtopic.fromJson(Map<int, dynamic> json) => new Subtopic(
         topic_id: json["topic_id"],
         subtopic_id: json["subtopic_id"],
         name_en: json["name_en"],

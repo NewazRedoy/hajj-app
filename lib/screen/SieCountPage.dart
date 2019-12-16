@@ -14,22 +14,20 @@ class _SaiCountState extends State<SaiCount> {
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            alignment: Alignment.topCenter,
-            child: Text(
-                "সাফা থেকে শুরু করুন এবং মারওয়ায় পৌঁছে সাফা এবং মারওয়াতে ট্যাপ করুন"),
-          ),
-          InkWell(
-            onTap: () {},
-            child: Container(
-              alignment: Alignment.bottomLeft,
-              child: Text("দু'আ তালিকা"),
+          Text(
+              "সাফা থেকে শুরু করুন এবং মারওয়ায় পৌঁছে সাফা এবং মারওয়াতে ট্যাপ করুন"),
+          Stack(
+              children:[
+                 Align( alignment: Alignment.bottomLeft,
+                  child: Text("দু'আ তালিকা"),
+                ),
+              ],
             ),
-          ),
           InkWell(
             onTap: () {},
-            child: Container(
-              alignment: Alignment.bottomRight,
+            child: RawMaterialButton(
+              fillColor: Colors.red,
+              shape: StadiumBorder(),
               child: Text("শুরু করুন"),
             ),
           )

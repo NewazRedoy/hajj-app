@@ -33,7 +33,7 @@ class CollectionItem extends StatelessWidget {
                     topic: collection,
                   );
                 } else {
-                  return QuestionAnswerPage();
+                  return QuestionAnswerPage(topic:collection);
                 }
               }));
             },
