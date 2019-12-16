@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 
 class QuestionAnswerPage extends StatefulWidget {
   @override
-  _QuestionAnswerPageState createState() => _QuestionAnswerPageState ();
+  _QuestionAnswerPageState createState() => _QuestionAnswerPageState();
 }
 
-class _QuestionAnswerPageState  extends State<QuestionAnswerPage> {
-
-
+class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

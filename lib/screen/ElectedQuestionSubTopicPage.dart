@@ -11,30 +11,31 @@ class EQSubTopic extends StatelessWidget {
         itemCount: 5,
         itemBuilder: (context, index) {
           return Card(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            elevation: 5.0,
+            child: Column(children: <Widget>[
+              Container(
+                height: 50.0,
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Ask Question?",
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
-              elevation: 5.0,
-                child: Column(
-                    children: <Widget>[
-                      Container(height: 50.0,
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Ask Question?",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      Divider(),
-                      Container(height: 100.0,
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Detailes of Those questions",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      )
-                    ]),
-              );
+              Divider(),
+              Container(
+                height: 100.0,
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Detailes of Those questions",
+                  style: TextStyle(fontSize: 20),
+                ),
+              )
+            ]),
+          );
         },
       ),
     );

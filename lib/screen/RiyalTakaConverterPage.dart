@@ -14,28 +14,28 @@ class _RiyalConverterState extends State<RiyalConverter> {
       ),
       body: Card(
         shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-          child: Column(
-            children: <Widget>[
-              TextField(
-                maxLines: 3,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: "টাকা",
-                  hintText: "টাকা",
-                ),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Column(
+          children: <Widget>[
+            TextField(
+              maxLines: 3,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "টাকা",
+                hintText: "টাকা",
               ),
-              TextField(
-                maxLines: 3,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: "রিয়াল",
-                  hintText: "রিয়াল",
-                ),
-              )
-            ],
-          ),
+            ),
+            TextField(
+              maxLines: 3,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "রিয়াল",
+                hintText: "রিয়াল",
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

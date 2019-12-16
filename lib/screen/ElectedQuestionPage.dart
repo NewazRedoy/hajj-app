@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:first_app/screen/ElectedQuestionSubTopicPage.dart';
+import 'package:flutter/material.dart';
 
 class ElectedQuestion extends StatelessWidget {
   @override
@@ -19,9 +19,8 @@ class ElectedQuestion extends StatelessWidget {
               elevation: 7.0,
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context)=> EQSubTopic()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => EQSubTopic()));
                 },
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

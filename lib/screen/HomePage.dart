@@ -23,13 +23,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Container(
-        decoration: BoxDecoration(
-        ),
+        decoration: BoxDecoration(),
         child: Drawer(
           child: ListView(
             children: <Widget>[

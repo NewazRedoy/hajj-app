@@ -16,15 +16,18 @@ class _SaiCountState extends State<SaiCount> {
         children: <Widget>[
           Container(
             alignment: Alignment.topCenter,
-            child: Text("সাফা থেকে শুরু করুন এবং মারওয়ায় পৌঁছে সাফা এবং মারওয়াতে ট্যাপ করুন"),
+            child: Text(
+                "সাফা থেকে শুরু করুন এবং মারওয়ায় পৌঁছে সাফা এবং মারওয়াতে ট্যাপ করুন"),
           ),
-          InkWell( onTap:() {},
+          InkWell(
+            onTap: () {},
             child: Container(
               alignment: Alignment.bottomLeft,
               child: Text("দু'আ তালিকা"),
             ),
           ),
-          InkWell( onTap:() {},
+          InkWell(
+            onTap: () {},
             child: Container(
               alignment: Alignment.bottomRight,
               child: Text("শুরু করুন"),

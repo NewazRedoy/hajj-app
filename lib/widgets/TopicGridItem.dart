@@ -29,7 +29,9 @@ class CollectionItem extends StatelessWidget {
                 if (collection.topic_id < 7) {
                   return SubtopicListPage(topic: collection);
                 } else if (collection.topic_id == 8) {
-                  return HajjAssistantPage(topic: collection,);
+                  return HajjAssistantPage(
+                    topic: collection,
+                  );
                 } else {
                   return QuestionAnswerPage();
                 }

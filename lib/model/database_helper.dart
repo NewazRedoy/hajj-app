@@ -142,7 +142,8 @@ class DatabaseHelper {
     List<Map> maps = await db.rawQuery(
         "select * from content where topic_id= $collectionID and subtopic_id=$bookID");
 
-    print("select * from content where topic_id=$collectionID and subtopic_id = $bookID");
+    print(
+        "select * from content where topic_id=$collectionID and subtopic_id = $bookID");
     return maps;
   }
 
