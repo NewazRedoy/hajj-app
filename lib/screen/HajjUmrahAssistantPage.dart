@@ -65,8 +65,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
     return loading
         ? _buildCircularProgressIndicator()
         : Center(
-            child:
-            GridView.builder(
+            child: GridView.builder(
                 shrinkWrap: true,
                 itemCount: data.length,
                 gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(

@@ -65,21 +65,20 @@ class _SampleAppPageState extends State<SampleAppPage> {
     return loading
         ? _buildCircularProgressIndicator()
         : Center(
-        child:
-        GridView.builder(
-            shrinkWrap: true,
-            itemCount: data.length,
-            gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
-            itemBuilder: (BuildContext context, int position) {
-              return new Last2PageGridItem(
-                  position, Subtopic.fromJson(data[position]));
-            }));
+            child: GridView.builder(
+                shrinkWrap: true,
+                itemCount: data.length,
+                gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemBuilder: (BuildContext context, int position) {
+                  return new Last2PageGridItem(
+                      position, Subtopic.fromJson(data[position]));
+                }));
   }
 
   loadData() async {
     var books =
-    await DatabaseHelper.instance.queryBooksByTopicId(topic.topic_id);
+        await DatabaseHelper.instance.queryBooksByTopicId(topic.topic_id);
 
     setState(() {
       data = books;
