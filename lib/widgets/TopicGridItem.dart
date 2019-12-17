@@ -37,13 +37,14 @@ class CollectionItem extends StatelessWidget {
                 }
               }));
             },
-            child: Column(mainAxisSize: MainAxisSize.min, children: [
-              Text(
-                collection.abbv,
-              ),
+            child: Column(mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+              Icon(Icons.adjust),
+              SizedBox(height: 16,),
               Text(
                 collection.name,
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 13.0,fontWeight: FontWeight.bold),
               ),
             ])));
   }
