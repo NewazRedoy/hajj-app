@@ -27,7 +27,7 @@ class ElectedQuestionSubtopic extends StatelessWidget {
                 height: 50.0,
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  catechism.answer,
+                  catechism.questiontopic,
                   style: TextStyle(fontSize: 20),
                 ),
               ),

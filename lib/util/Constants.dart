@@ -70,22 +70,22 @@ class Constants {
     QuestionSubtopic(
       question_id: 1,
       questiontopic: 'হজ্জ-উমরাহ পরিচিতি',
-      answer: '',
+      answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
       question_id: 2,
       questiontopic: "হারাম সীমানা, মীকাত এবং ইহরাম",
-      answer: '',
+      answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
       question_id: 3,
       questiontopic: 'ধাপে ধাপে উমরাহ',
-      answer: '',
+      answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
       question_id: 4,
       questiontopic: 'ধাপে ধাপে হজ্জ',
-      answer: '',
+      answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
       question_id: 5,
@@ -95,17 +95,17 @@ class Constants {
     QuestionSubtopic(
       question_id: 6,
       questiontopic: 'ঐতিহাসিক স্থানসমূহ',
-      answer: '',
+      answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
       question_id: 7,
       questiontopic: 'প্রশ্নসমূহ',
-      answer: '',
+      answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
       question_id: 8,
       questiontopic: 'হজ্জ - উমরাহ সহায়ক',
-      answer: '',
+      answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
   ];
   static List sentences = [
