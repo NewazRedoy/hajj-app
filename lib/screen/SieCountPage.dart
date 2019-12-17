@@ -52,18 +52,30 @@ class _SaiCountState extends State<SaiCount> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                RaisedButton(shape: StadiumBorder(),onPressed: () {}, child: Text("দু'আ তালিকা")),
-                    RaisedButton(color: Colors.red, shape: StadiumBorder(),
-                      onPressed: () {},
-                      child:
-                      Row(children: <Widget>[
-                          CircleAvatar(backgroundColor:Colors.white,
-                              child: Icon(Icons.arrow_upward,color: Colors.red,)),
-                          SizedBox(width:5.0),
-                          Text("শুরু করুন",
-                          style: TextStyle(color: Colors.white) ,
-                          ),],),
-                    ),
+                RaisedButton(
+                    shape: StadiumBorder(),
+                    onPressed: () {},
+                    child: Text("দু'আ তালিকা")),
+                RaisedButton(
+                  color: Colors.red,
+                  shape: StadiumBorder(),
+                  onPressed: () {},
+                  child: Row(
+                    children: <Widget>[
+                      CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.arrow_upward,
+                            color: Colors.red,
+                          )),
+                      SizedBox(width: 5.0),
+                      Text(
+                        "শুরু করুন",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ],

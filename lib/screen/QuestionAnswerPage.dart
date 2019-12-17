@@ -1,94 +1,74 @@
-import 'package:first_app/model/Subtopic.dart';
-import 'package:first_app/model/Topic.dart';
-import 'package:first_app/model/database_helper.dart';
-import 'package:first_app/widgets/Last2PageGridItem.dart';
+import 'package:first_app/screen/ElectedQuestionPage.dart';
+import 'package:first_app/screen/SendQuestionPage.dart';
 import 'package:flutter/material.dart';
 
-class QuestionAnswerPage extends StatelessWidget {
-  final Topic topic;
+class QuestionAnswerPage extends StatefulWidget {
+  @override
+  _QuestionAnswerPageState createState() => _QuestionAnswerPageState();
+}
 
-  QuestionAnswerPage({this.topic});
-
+class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: Icon(
-              Icons.chevron_left,
-              size: 40.0,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          title: Text(
-            topic.name,
-            style: TextStyle(
-              color: Colors.black,
-            ),
+      appBar: AppBar(
+        title: Text("প্রশ্নসমূহ"),
+      ),
+      body: Center(
+        child: Container(
+          height: 300.0,
+          width: 300.0,
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: <Widget>[
+              Item(Icons.adjust, 'নির্বাচিত প্রশ্নোত্তর', 1),
+              Item(Icons.adjust, 'প্রশ্ন করুন', 2),
+            ],
           ),
         ),
-        body: SampleAppPage(topic));
+      ),
+    );
   }
 }
 
-class SampleAppPage extends StatefulWidget {
-  SampleAppPage(this.topic);
+class Item extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final int option;
 
-  final Topic topic;
-
-  @override
-  _SampleAppPageState createState() => _SampleAppPageState(topic);
-}
-
-class _SampleAppPageState extends State<SampleAppPage> {
-  List data = [];
-  var loading = true;
-
-  _SampleAppPageState(this.topic);
-
-  final Topic topic;
-
-  @override
-  void initState() {
-    super.initState();
-
-    loadData();
-  }
+  Item(this.icon, this.title, this.option);
 
   @override
   Widget build(BuildContext context) {
-    return loading
-        ? _buildCircularProgressIndicator()
-        : Center(
-            child: GridView.builder(
-                shrinkWrap: true,
-                itemCount: data.length,
-                gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
-                itemBuilder: (BuildContext context, int position) {
-                  return new Last2PageGridItem(
-                      position, Subtopic.fromJson(data[position]));
-                }));
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      elevation: 7.0,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) {
+              if (option < 2) {
+                return ElectedQuestionPage();
+              } else {
+                return SendQuestionPage();
+              }
+            }),
+          );
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(icon),
+            SizedBox(
+              height: 16,
+            ),
+            Text(title),
+          ],
+        ),
+      ),
+    );
   }
-
-  loadData() async {
-    var books =
-        await DatabaseHelper.instance.queryBooksByTopicId(topic.topic_id);
-
-    setState(() {
-      data = books;
-      loading = false;
-    });
-  }
-}
-
-_buildCircularProgressIndicator() {
-  return Center(
-    child: CircularProgressIndicator(),
-  );
 }

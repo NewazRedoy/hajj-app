@@ -1,5 +1,5 @@
-import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:first_app/screen/AppDrawerPage.dart';
+import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:flutter/material.dart';
 
 import 'DuaPage.dart' as DuaPage;
@@ -23,6 +23,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

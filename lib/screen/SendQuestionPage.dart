@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SendQuestion extends StatefulWidget {
+class SendQuestionPage extends StatefulWidget {
   @override
-  _SendQuestionState createState() => _SendQuestionState();
+  _SendQuestionPageState createState() => _SendQuestionPageState();
 }
 
-class _SendQuestionState extends State<SendQuestion> {
+class _SendQuestionPageState extends State<SendQuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,3 @@
-import 'package:first_app/widgets/CircleProgress.dart';
 import 'package:first_app/widgets/TawafWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -36,9 +35,7 @@ class _TawafCountPageState extends State<TawafCountPage> {
             Container(
               height: 200,
               width: 200,
-              child: CustomPaint(
-                foregroundPainter: TawafWidget(count/7)
-              ),
+              child: CustomPaint(foregroundPainter: TawafWidget(count / 7)),
             ),
             SizedBox(
               height: 8,

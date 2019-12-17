@@ -1,10 +1,8 @@
 import 'package:first_app/model/Subtopic.dart';
 import 'package:first_app/screen/RiyalTakaConverterPage.dart';
 import 'package:first_app/screen/SieCountPage.dart';
-import 'package:first_app/screen/TawafCountPage.dart';
 import 'package:first_app/screen/SomeArabicSentencesPage.dart';
-import 'package:first_app/screen/ElectedQuestionPage.dart';
-import 'package:first_app/screen/SendQuestionPage.dart';
+import 'package:first_app/screen/TawafCountPage.dart';
 import 'package:flutter/material.dart';
 
 class Last2PageGridItem extends StatelessWidget {
@@ -37,20 +35,20 @@ class Last2PageGridItem extends StatelessWidget {
                   return RiyalConverter();
                 case 4:
                   return SomeArabicSentences();
-                case 5:
-                  return ElectedQuestion();
-                case 6:
-                  return SendQuestion();
               }
             }));
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 16,),
+              SizedBox(
+                height: 16,
+              ),
               Icon(Icons.adjust),
-              Text(subtopic.name_en,
-                style: TextStyle(fontSize: 13.0,fontWeight: FontWeight.bold),),
+              Text(
+                subtopic.name_en,
+                style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold),
+              ),
             ],
           ),
         ),

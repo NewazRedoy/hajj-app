@@ -1,6 +1,12 @@
+import 'package:first_app/model/QuestionsSubTopic.dart';
 import 'package:flutter/material.dart';
 
-class EQSubTopic extends StatelessWidget {
+class ElectedQuestionSubtopic extends StatelessWidget {
+  final QuestionSubtopic catechism;
+
+  const ElectedQuestionSubtopic({Key key, @required this.catechism})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +27,7 @@ class EQSubTopic extends StatelessWidget {
                 height: 50.0,
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Ask Question?",
+                  catechism.answer,
                   style: TextStyle(fontSize: 20),
                 ),
               ),
@@ -30,10 +36,10 @@ class EQSubTopic extends StatelessWidget {
                 height: 100.0,
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Detailes of Those questions",
+                  catechism.answer,
                   style: TextStyle(fontSize: 20),
                 ),
-              )
+              ),
             ]),
           );
         },

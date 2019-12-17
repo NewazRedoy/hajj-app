@@ -1,3 +1,4 @@
+import 'package:first_app/model/QuestionsSubTopic.dart';
 import 'package:first_app/model/Topic.dart';
 
 class Constants {
@@ -22,7 +23,7 @@ class Constants {
         color: '#e65c60'),
     Topic(
         topic_id: 2,
-        name: 'হারাম সীমানা, মীকাত এবং ইহরাম',
+        name: "হারাম সীমানা, মীকাত এবং ইহরাম",
         desc_en: '',
         abbv: 'M',
         color: '#e85d8b'),
@@ -62,5 +63,48 @@ class Constants {
         desc_en: '',
         abbv: 'A',
         color: '#8bc34a'),
+  ];
+
+  static List catechism = [
+    QuestionSubtopic(
+      question_id: 1,
+      questiontopic: 'হজ্জ-উমরাহ পরিচিতি',
+      answer: '',
+    ),
+    QuestionSubtopic(
+      question_id: 2,
+      questiontopic: "হারাম সীমানা, মীকাত এবং ইহরাম",
+      answer: '',
+    ),
+    QuestionSubtopic(
+      question_id: 3,
+      questiontopic: 'ধাপে ধাপে উমরাহ',
+      answer: '',
+    ),
+    QuestionSubtopic(
+      question_id: 4,
+      questiontopic: 'ধাপে ধাপে হজ্জ',
+      answer: '',
+    ),
+    QuestionSubtopic(
+      question_id: 5,
+      questiontopic: 'সাবধান এবং সতর্কতা',
+      answer: '',
+    ),
+    QuestionSubtopic(
+      question_id: 6,
+      questiontopic: 'ঐতিহাসিক স্থানসমূহ',
+      answer: '',
+    ),
+    QuestionSubtopic(
+      question_id: 7,
+      questiontopic: 'প্রশ্নসমূহ',
+      answer: '',
+    ),
+    QuestionSubtopic(
+      question_id: 8,
+      questiontopic: 'হজ্জ - উমরাহ সহায়ক',
+      answer: '',
+    ),
   ];
 }
