@@ -1,4 +1,5 @@
 import 'package:first_app/widgets/CircleProgress.dart';
+import 'package:first_app/widgets/SieWidget.dart';
 import 'package:flutter/material.dart';
 
 class SaiCount extends StatefulWidget {
@@ -37,7 +38,7 @@ class _SaiCountState extends State<SaiCount> {
                   height: 400,
                   width: 200,
                   child: CustomPaint(
-                    foregroundPainter: CircleProgress(count / 7),
+                    foregroundPainter: SieWidget(count / 7),
                   )),
             ]),
             RaisedButton(

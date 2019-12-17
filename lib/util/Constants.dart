@@ -1,4 +1,5 @@
 import 'package:first_app/model/ArabicSentences.dart';
+import 'package:first_app/model/QuestionsCategory.dart';
 import 'package:first_app/model/QuestionsSubTopic.dart';
 import 'package:first_app/model/Topic.dart';
 
@@ -65,44 +66,63 @@ class Constants {
         abbv: 'A',
         color: '#8bc34a'),
   ];
+  static List question_categories = [
+    QuestionCategory(
+      category_id: 1,
+      questiontopic: 'হজ্জ-উমরাহ পরিচিতি',
+    ),
+    QuestionCategory(
+      category_id: 1,
+      questiontopic: "হারাম সীমানা, মীকাত এবং ইহরাম",
+    ),
+
+  ];
 
   static List catechism = [
     QuestionSubtopic(
+      category_id: 1,
       question_id: 1,
       questiontopic: 'হজ্জ-উমরাহ পরিচিতি',
       answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
+      category_id: 1,
       question_id: 2,
       questiontopic: "হারাম সীমানা, মীকাত এবং ইহরাম",
       answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
+      category_id: 1,
       question_id: 3,
       questiontopic: 'ধাপে ধাপে উমরাহ',
       answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
+      category_id: 1,
       question_id: 4,
       questiontopic: 'ধাপে ধাপে হজ্জ',
       answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
+      category_id: 2,
       question_id: 5,
       questiontopic: 'সাবধান এবং সতর্কতা',
       answer: '',
     ),
     QuestionSubtopic(
+      category_id: 1,
       question_id: 6,
       questiontopic: 'ঐতিহাসিক স্থানসমূহ',
       answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
+      category_id: 2,
       question_id: 7,
       questiontopic: 'প্রশ্নসমূহ',
       answer: 'হজ্জ-উমরাহ পরিচিতি',
     ),
     QuestionSubtopic(
+      category_id: 1,
       question_id: 8,
       questiontopic: 'হজ্জ - উমরাহ সহায়ক',
       answer: 'হজ্জ-উমরাহ পরিচিতি',
