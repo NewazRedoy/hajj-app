@@ -1,3 +1,4 @@
+import 'package:first_app/model/ArabicSentences.dart';
 import 'package:first_app/model/QuestionsSubTopic.dart';
 import 'package:first_app/model/Topic.dart';
 
@@ -105,6 +106,62 @@ class Constants {
       question_id: 8,
       questiontopic: 'হজ্জ - উমরাহ সহায়ক',
       answer: '',
+    ),
+  ];
+  static List sentences = [
+    ArabicSentences(
+      topic_id: 1,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
+    ),
+    ArabicSentences(
+      topic_id: 2,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
+    ),
+    ArabicSentences(
+      topic_id: 3,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
+    ),
+    ArabicSentences(
+      topic_id: 4,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
+    ),
+    ArabicSentences(
+      topic_id: 5,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
+    ),
+    ArabicSentences(
+      topic_id: 6,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
+    ),
+    ArabicSentences(
+      topic_id: 7,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
+    ),
+    ArabicSentences(
+      topic_id: 8,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
+    ),
+    ArabicSentences(
+      topic_id: 9,
+      bengali: "",
+      arabic: "",
+      pronunciation: "",
     ),
   ];
 }
