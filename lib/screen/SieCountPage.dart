@@ -30,7 +30,7 @@ class _SaiCountState extends State<SaiCount> {
                     });
                   }
                 },
-                child: Text("marwa")),
+                child: Text("মারওয়া")),
             Row(children: <Widget>[
               Text("$count/7"),
               Container(
@@ -48,7 +48,7 @@ class _SaiCountState extends State<SaiCount> {
                     });
                   }
                 },
-                child: Text("Safa")),
+                child: Text("সাফা")),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
