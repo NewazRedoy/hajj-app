@@ -1,7 +1,7 @@
 import 'package:first_app/model/Subtopic.dart';
 import 'package:first_app/screen/RiyalTakaConverterPage.dart';
 import 'package:first_app/screen/SieCountPage.dart';
-import 'package:first_app/screen/SomeArabicSentencesPage.dart';
+import 'package:first_app/screen/ArabicSentencesTopicPage.dart';
 import 'package:first_app/screen/TawafCountPage.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +34,7 @@ class Last2PageGridItem extends StatelessWidget {
                 case 3:
                   return RiyalConverter();
                 case 4:
-                  return SomeArabicSentences();
+                  return ArabicSentencesTopicPage();
               }
             }));
           },

@@ -1,24 +1,24 @@
-import 'package:first_app/model/QuestionsCategory.dart';
-import 'package:first_app/model/QuestionsSubTopic.dart';
-import 'package:first_app/util/Constants.dart';
 import 'package:flutter/material.dart';
+import 'package:first_app/model/ArabicSentences.dart';
+import 'package:first_app/model/ArabicSentencesCategory.dart';
+import 'package:first_app/util/Constants.dart';
 
-class ElectedQuestionSubtopic extends StatefulWidget {
-  final QuestionCategory catechism;
+class ArabicSentencesDetailPage extends StatefulWidget {
+  final SentencesCategory sentences;
 
 
-  const ElectedQuestionSubtopic({Key key, @required this.catechism,})
+  const ArabicSentencesDetailPage({Key key, @required this.sentences,})
       : super(key: key);
 
   @override
-  _ElectedQuestionSubtopicState createState() =>
-      _ElectedQuestionSubtopicState(catechism);
+  _ArabicSentencesDetailPageState createState() =>
+      _ArabicSentencesDetailPageState(sentences);
 }
 
-class _ElectedQuestionSubtopicState extends State<ElectedQuestionSubtopic> {
-  QuestionCategory catechism;
+class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
+  SentencesCategory sentences;
 
-  _ElectedQuestionSubtopicState(this.catechism);
+  _ArabicSentencesDetailPageState(this.sentences);
   List data = [];
   var loading = true;
 
@@ -30,7 +30,7 @@ class _ElectedQuestionSubtopicState extends State<ElectedQuestionSubtopic> {
   }
 
   loadData() async {
-    var content = await Constants.catechism;
+    var content = await Constants.sentences;
     setState(() {
       data = content;
       loading = false;
@@ -42,7 +42,7 @@ class _ElectedQuestionSubtopicState extends State<ElectedQuestionSubtopic> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            catechism.questiontopic,
+          sentences.sentencetopic,
         ),
       ),
       body: ListView.builder(
@@ -57,9 +57,9 @@ class _ElectedQuestionSubtopicState extends State<ElectedQuestionSubtopic> {
 
 class NewWidget extends StatelessWidget {
 
-  QuestionSubtopic questionSubtopic;
+  ArabicSentences arabicSentences;
 
-  NewWidget(this.questionSubtopic);
+  NewWidget(this.arabicSentences);
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +74,21 @@ class NewWidget extends StatelessWidget {
           height: 50.0,
           padding: const EdgeInsets.all(6.0),
           child: Text(
-            questionSubtopic.questiontopic,
+            arabicSentences.bengali,
             style: TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.bold
+                fontSize: 14.0,
+                fontWeight: FontWeight.bold
             ),
+          ),
+        ),
+        Divider(),
+        Container(
+          height: 50.0,
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            arabicSentences.arabic,
+            textDirection: TextDirection.rtl,
+            style: TextStyle(fontSize: 14.0),
           ),
         ),
         Divider(),
@@ -86,7 +96,7 @@ class NewWidget extends StatelessWidget {
           height: 100.0,
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            questionSubtopic.answer,
+            arabicSentences.pronunciation,
             style: TextStyle(fontSize: 14.0),
           ),
         ),

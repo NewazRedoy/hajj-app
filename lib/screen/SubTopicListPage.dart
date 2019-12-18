@@ -3,7 +3,6 @@ import 'package:first_app/model/Topic.dart';
 import 'package:first_app/model/database_helper.dart';
 import 'package:first_app/widgets/ListPageItem.dart';
 import 'package:flutter/material.dart';
-
 class SubtopicListPage extends StatelessWidget {
   final Topic topic;
 
