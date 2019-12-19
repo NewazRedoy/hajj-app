@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/model/DuaTopic.dart';
+import 'package:first_app/screen/MyDuaPage.dart';
 import 'package:first_app/screen/DuaSubTopicPage.dart';
 
 class DuaTopicPage extends StatefulWidget {
@@ -67,8 +68,13 @@ class NewWidget extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        DuaSubTopicPage()));
+                    builder: (context) {
+                      if (duaTopic.duatopic_id == 2) {
+                        return MyDuaPage();
+                      } else {
+                        return DuaSubTopicPage();
+                      }
+                    }));
           },
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
