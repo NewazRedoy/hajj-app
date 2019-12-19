@@ -3,6 +3,7 @@ import 'package:first_app/model/QuestionsCategory.dart';
 import 'package:first_app/model/QuestionsSubTopic.dart';
 import 'package:first_app/model/Topic.dart';
 import 'package:first_app/model/ArabicSentencesCategory.dart';
+import 'package:first_app/model/DuaTopic.dart';
 
 class Constants {
   static const String ROUTE_PRODUCT_DETAIL = "/productDetail";
@@ -50,6 +51,20 @@ class Constants {
         topic_id: 8,
         name: 'হজ্জ - উমরাহ সহায়ক',
         color: '#8bc34a'),
+  ];
+  static List dua_categories = [
+    DuaTopic(
+        duatopic_id:1,
+        duatopic: "সব দু'আ",
+    ),
+    DuaTopic(
+      duatopic_id:2,
+      duatopic: "আমার দু'আ",
+    ),
+    DuaTopic(
+      duatopic_id:3,
+      duatopic: "পছন্দ তালিকা",
+    ),
   ];
   static List question_categories = [
     QuestionCategory(
