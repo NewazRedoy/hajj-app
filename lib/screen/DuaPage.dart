@@ -29,9 +29,6 @@ class _DuaPageState extends State<DuaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("নির্বাচিত প্রশ্নোত্তর"),
-      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(
