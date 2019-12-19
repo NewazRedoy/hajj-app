@@ -4,6 +4,8 @@ import 'package:first_app/model/QuestionsSubTopic.dart';
 import 'package:first_app/model/Topic.dart';
 import 'package:first_app/model/ArabicSentencesCategory.dart';
 import 'package:first_app/model/DuaTopic.dart';
+import 'package:first_app/model/DuaSubTopic.dart';
+import 'package:first_app/model/DuaSubTopicCategory.dart';
 
 class Constants {
   static const String ROUTE_PRODUCT_DETAIL = "/productDetail";
@@ -64,6 +66,69 @@ class Constants {
     DuaTopic(
       duatopic_id:3,
       duatopic: "পছন্দ তালিকা",
+    ),
+  ];
+
+  static List duaSub_categories = [
+    DuaSubTopicCategory(
+      duaSubcategory_id:1,
+      duaSubtopic: "সা'ঈ দু'আ",
+    ),
+    DuaSubTopicCategory(
+      duaSubcategory_id:2,
+      duaSubtopic: "ইহরামের সময় যা বলতে হয়",
+    ),
+    DuaSubTopicCategory(
+      duaSubcategory_id:3,
+      duaSubtopic: "হজ্জ/উমরাহর নিয়ত",
+    ),
+    DuaSubTopicCategory(
+      duaSubcategory_id:4,
+      duaSubtopic: "তালবিয়াহ",
+    ),
+    DuaSubTopicCategory(
+      duaSubcategory_id:5,
+      duaSubtopic: "মক্কায় পোঁছে যা বলতে হয়",
+    ),
+    DuaSubTopicCategory(
+      duaSubcategory_id:6,
+      duaSubtopic: "মাসজিদুল হারামে ঢোকার দোয়া",
+    ),
+    DuaSubTopicCategory(
+      duaSubcategory_id:7,
+      duaSubtopic: "মাসজিদুল হারামে ঢোকার দোয়া",
+    ),
+  ];
+
+
+  static List all = [
+    DuaSubTopic(
+        duaSubcategory_id:1,
+        Subtopic_id:1,
+        arabic:" لبيك لا شريك لك لبيك اللهم لبيك، لبيك لا",
+        bengali:"আমি হাজির,হে আল্লাহ আমি হাজির! তোমার কোনো শরিক নেই, আমি হাজির! নিশ্চয়ই যাবতীয় প্রশংসা ও নিয়ামত তোমার এবং রাজত্বও!তোমার কোনো শরিক নেই",
+        english:"Ever at your service, O Allah, every at your service. Ever at your service, you have no partner, ever at your service. Verily all praise, blessings and dominions are yours. You have no partner.",
+    ),
+    DuaSubTopic(
+      duaSubcategory_id:1,
+      Subtopic_id:2,
+      arabic:" لبيك لا شريك لك لبيك اللهم لبيك، لبيك لا",
+      bengali:"আমি হাজির,হে আল্লাহ আমি হাজির! তোমার কোনো শরিক নেই, আমি হাজির! নিশ্চয়ই যাবতীয় প্রশংসা ও নিয়ামত তোমার এবং রাজত্বও!তোমার কোনো শরিক নেই",
+      english:"Ever at your service, O Allah, every at your service. Ever at your service, you have no partner, ever at your service. Verily all praise, blessings and dominions are yours. You have no partner.",
+    ),
+    DuaSubTopic(
+      duaSubcategory_id:1,
+      Subtopic_id:3,
+      arabic:" لبيك لا شريك لك لبيك اللهم لبيك، لبيك لا",
+      bengali:"আমি হাজির,হে আল্লাহ আমি হাজির! তোমার কোনো শরিক নেই, আমি হাজির! নিশ্চয়ই যাবতীয় প্রশংসা ও নিয়ামত তোমার এবং রাজত্বও!তোমার কোনো শরিক নেই",
+      english:"Ever at your service, O Allah, every at your service. Ever at your service, you have no partner, ever at your service. Verily all praise, blessings and dominions are yours. You have no partner.",
+    ),
+    DuaSubTopic(
+      duaSubcategory_id:1,
+      Subtopic_id:4,
+      arabic:" لبيك لا شريك لك لبيك اللهم لبيك، لبيك لا",
+      bengali:"আমি হাজির,হে আল্লাহ আমি হাজির! তোমার কোনো শরিক নেই, আমি হাজির! নিশ্চয়ই যাবতীয় প্রশংসা ও নিয়ামত তোমার এবং রাজত্বও!তোমার কোনো শরিক নেই",
+      english:"Ever at your service, O Allah, every at your service. Ever at your service, you have no partner, ever at your service. Verily all praise, blessings and dominions are yours. You have no partner.",
     ),
   ];
   static List question_categories = [

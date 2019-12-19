@@ -2,7 +2,7 @@ import 'package:first_app/screen/AppDrawerPage.dart';
 import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:flutter/material.dart';
 
-import 'DuaPage.dart' as DuaPage;
+import 'DuaTopicPage.dart' as DuaPage;
 
 class Home extends StatefulWidget {
   @override
@@ -48,7 +48,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         controller: controller,
         children: <Widget>[
           TopicGridPage(),
-          DuaPage.DuaPage(),
+          DuaPage.DuaTopicPage(),
         ],
       ),
     );

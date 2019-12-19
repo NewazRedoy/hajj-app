@@ -1,13 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:first_app/util/Constants.dart';
+import 'package:first_app/model/DuaSubTopicCategory.dart';
 import 'package:first_app/model/DuaTopic.dart';
+import 'package:first_app/screen/DuaDetailPage.dart';
+import 'package:first_app/util/Constants.dart';
+import 'package:flutter/material.dart';
 
-class DuaPage extends StatefulWidget {
+class DuaSubTopicPage extends StatefulWidget {
   @override
-  _DuaPageState createState() => _DuaPageState();
+  _DuaSubTopicPageState createState() => _DuaSubTopicPageState();
 }
 
-class _DuaPageState extends State<DuaPage> {
+class _DuaSubTopicPageState extends State<DuaSubTopicPage> {
   List data = [];
   var loading = true;
 
@@ -19,7 +21,7 @@ class _DuaPageState extends State<DuaPage> {
   }
 
   loadData() async {
-    var content = await Constants.dua_categories;
+    var content = await Constants.duaSub_categories;
     setState(() {
       data = content;
       loading = false;
@@ -29,6 +31,9 @@ class _DuaPageState extends State<DuaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("সব দু'আ")
+      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(
@@ -49,9 +54,9 @@ _buildCircularProgressIndicator() {
 
 class NewWidget extends StatelessWidget {
   int index;
-  DuaTopic duaTopic;
+  DuaSubTopicCategory duaSubTopic;
 
-  NewWidget(this.index, this.duaTopic);
+  NewWidget(this.index, this.duaSubTopic);
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +68,11 @@ class NewWidget extends StatelessWidget {
         elevation: 7.0,
         child: InkWell(
           onTap: () {
-
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                       DuaDetailPage(all: duaSubTopic)));
           },
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -81,7 +90,7 @@ class NewWidget extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    duaTopic.duatopic,
+                    duaSubTopic.duaSubtopic,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -97,5 +106,3 @@ class NewWidget extends StatelessWidget {
         ));
   }
 }
-
-
