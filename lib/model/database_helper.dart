@@ -127,23 +127,23 @@ class DatabaseHelper {
   }
 
 //  Future<List<Map>> queryHadithsBySubtopicId(
-//      int collectionID, String bookID) async {
+//      int topicID, String bookID) async {
 //    Database db = await database;
 //    List<Map> maps = await db.rawQuery(
-//        "select * from content where content match 'topic_id: $collectionID subtopic_id:$bookID'");
+//        "select * from content where content match 'topic_id: $topicID subtopic_id:$bookID'");
 //
-//    print("select * from content where topic_id=$collectionID and subtopic_id = $bookID");
+//    print("select * from content where topic_id=$topicID and subtopic_id = $bookID");
 //    return maps;
 //  }
 
   Future<List<Map>> queryHadithsBySubtopicId(
-      int collectionID, int bookID) async {
+      int topicID, int bookID) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery(
-        "select * from content where topic_id= $collectionID and subtopic_id=$bookID");
+        "select * from content where topic_id= $topicID and subtopic_id=$bookID");
 
     print(
-        "select * from content where topic_id=$collectionID and subtopic_id = $bookID");
+        "select * from content where topic_id=$topicID and subtopic_id = $bookID");
     return maps;
   }
 

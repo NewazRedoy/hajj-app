@@ -16,9 +16,9 @@ class _TopicGridPageState extends State<TopicGridPage> {
         children: List.generate(
           8,
           (index) {
-            return CollectionItem(
+            return TopicGridItem(
                 context: context,
-                collection: Constants.collections[index],
+                topic: Constants.topics[index],
                 index: index);
           },
         ),

@@ -20,7 +20,7 @@ class Constants {
 
   static var ROUTE_BOOK_LIST = "/hadithlist";
 
-  static List collections = [
+  static List topics = [
     Topic(
         topic_id: 1,
         name: 'হজ্জ-উমরাহ পরিচিতি',

@@ -1,8 +1,7 @@
 import 'package:first_app/screen/AppDrawerPage.dart';
+import 'package:first_app/screen/DuaTopicPage.dart';
 import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:flutter/material.dart';
-
-import 'DuaTopicPage.dart' as DuaPage;
 
 class Home extends StatefulWidget {
   @override
@@ -32,8 +31,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         title: Text("Hajj App"),
         bottom: TabBar(
           controller: controller,
-          indicatorWeight: 5.0,
-          indicatorColor: Colors.lime,
+          indicatorWeight: 3.0,
           tabs: <Widget>[
             Tab(
               icon: Icon(Icons.home),
@@ -48,7 +46,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         controller: controller,
         children: <Widget>[
           TopicGridPage(),
-          DuaPage.DuaTopicPage(),
+          DuaTopicPage(),
         ],
       ),
     );

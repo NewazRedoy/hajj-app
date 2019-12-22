@@ -4,16 +4,16 @@ import 'package:first_app/screen/QuestionAnswerPage.dart';
 import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:flutter/material.dart';
 
-class CollectionItem extends StatelessWidget {
-  const CollectionItem({
+class TopicGridItem extends StatelessWidget {
+  const TopicGridItem({
     Key key,
     @required this.context,
-    @required this.collection,
+    @required this.topic,
     this.index,
   }) : super(key: key);
 
   final BuildContext context;
-  final Topic collection;
+  final Topic topic;
   final index;
 
   @override
@@ -26,11 +26,11 @@ class CollectionItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            if (collection.topic_id < 7) {
-              return SubtopicListPage(topic: collection);
-            } else if (collection.topic_id == 8) {
+            if (topic.topic_id < 7) {
+              return SubtopicListPage(topic: topic);
+            } else if (topic.topic_id == 8) {
               return HajjAssistantPage(
-                topic: collection,
+                topic: topic,
               );
             } else {
               return QuestionAnswerPage();
@@ -41,14 +41,14 @@ class CollectionItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.adjust),
+            Icon(Icons.star_border,size: 24,),
             SizedBox(
               height: 16,
             ),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
-                collection.name,
+                topic.name,
                 style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold),
               ),
             ),
