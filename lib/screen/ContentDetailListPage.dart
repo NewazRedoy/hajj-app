@@ -77,6 +77,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
                 itemCount: data.length,
                 itemBuilder: (BuildContext context, int position) {
                   return ContentListItem(
+                    book: book,
                       content: Content.fromMap(data[position]));
                 }));
   }
