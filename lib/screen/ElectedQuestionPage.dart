@@ -1,4 +1,5 @@
 import 'package:first_app/model/QuestionsCategory.dart';
+import 'package:first_app/model/QuestionsSubTopic.dart';
 import 'package:first_app/screen/ElectedQuestionSubTopicPage.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:flutter/material.dart';
@@ -67,11 +68,6 @@ class NewWidget extends StatelessWidget {
         elevation: 7.0,
         child: InkWell(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        ElectedQuestionSubtopic(catechism: questionCategory)));
           },
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,24 +1,54 @@
-import 'package:first_app/model/QuestionsCategory.dart';
 import 'package:first_app/model/QuestionsSubTopic.dart';
 import 'package:first_app/util/Constants.dart';
+import 'package:first_app/widgets/ElectedQuestionSubTopicItem.dart';
 import 'package:flutter/material.dart';
 
-class ElectedQuestionSubtopic extends StatefulWidget {
-  final QuestionCategory catechism;
+class ElectedQuestionSubtopicPage extends StatelessWidget {
+  QuestionSubtopic catechism;
 
+   ElectedQuestionSubtopicPage(this.catechism,);
 
-  const ElectedQuestionSubtopic({Key key, @required this.catechism,})
-      : super(key: key);
-
-  @override
-  _ElectedQuestionSubtopicState createState() =>
-      _ElectedQuestionSubtopicState(catechism);
+   @override
+   Widget build(BuildContext context) {
+     return Scaffold(
+         appBar: AppBar(
+           centerTitle: true,
+           backgroundColor: Colors.white,
+           leading: IconButton(
+             icon: Icon(
+               Icons.chevron_left,
+               size: 40.0,
+               color: Colors.black,
+             ),
+             onPressed: () {
+               Navigator.of(context).pop();
+             },
+           ),
+           title: Text(
+             catechism.questiontopic,
+             style: TextStyle(
+               color: Colors.black,
+             ),
+           ),
+         ),
+         body: SampleAppPage(catechism));
+   }
 }
 
-class _ElectedQuestionSubtopicState extends State<ElectedQuestionSubtopic> {
-  QuestionCategory catechism;
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage(this.catechism);
 
-  _ElectedQuestionSubtopicState(this.catechism);
+  QuestionSubtopic catechism;
+
+  @override
+  _SampleAppPageState createState() => _SampleAppPageState(catechism);
+}
+
+class _SampleAppPageState extends State<SampleAppPage> {
+  QuestionSubtopic catechism;
+
+  _SampleAppPageState(this.catechism);
+
   List data = [];
   var loading = true;
 
@@ -29,6 +59,27 @@ class _ElectedQuestionSubtopicState extends State<ElectedQuestionSubtopic> {
     loadData();
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return loading
+        ? _buildCircularProgressIndicator()
+        : new GestureDetector(
+        onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
+//              setState(() {
+//                int newNumberOfDays =
+//                    (previousNumOfDays / scaleDetails.scale).round();
+//                if (newNumberOfDays >= 7) {
+//                  numberOfDays = newNumberOfDays;
+//                }
+//              });
+        },
+        child: ListView.builder(
+            itemCount: data.length,
+            itemBuilder: ( context, questionsubtopic) {
+              return ElectedQuestionSubTopicListItem(questionsubtopic, data[questionsubtopic]);
+            }));
+  }
+
   loadData() async {
     var content = await Constants.catechism;
     setState(() {
@@ -36,61 +87,15 @@ class _ElectedQuestionSubtopicState extends State<ElectedQuestionSubtopic> {
       loading = false;
     });
   }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-            catechism.questiontopic,
-        ),
-      ),
-      body: ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          return NewWidget(data[index]);
-        },
-      ),
-    );
-  }
 }
 
-class NewWidget extends StatelessWidget {
-
-  QuestionSubtopic questionSubtopic;
-
-  NewWidget(this.questionSubtopic);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
-      ),
-      elevation: 5.0,
-      child: Column(children: <Widget>[
-        Container(
-          height: 50.0,
-          padding: const EdgeInsets.all(6.0),
-          child: Text(
-            questionSubtopic.questiontopic,
-            style: TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.bold
-            ),
-          ),
-        ),
-        Divider(),
-        Container(
-          height: 100.0,
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            questionSubtopic.answer,
-            style: TextStyle(fontSize: 14.0),
-          ),
-        ),
-      ]),
+  _buildCircularProgressIndicator() {
+    return Center(
+      child: CircularProgressIndicator(),
     );
   }
-}
+
+
+
+
+
