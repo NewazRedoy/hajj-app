@@ -220,4 +220,23 @@ class Constants {
     ),
 
   ];
+
+
+
+//  public static String intToBangla(int n) {
+//    var buffer = new StringBuffer(n.toString());
+//
+//    buffer.write("Hello");
+//    buffer.write("world");
+//    for (int i = 0; i < sb.length(); i++) {
+//      int ch = sb.charAt(i);
+//      if (ch >= '\u09E6'.codeUnitAt(0) || ch == '-' || ch == '+' || ch == ':' || ch == '.')
+//        continue; // if already bangla then no need
+//      ch += '\u09E6' - '0';
+//      buffer.write ch);
+//
+//    }
+//    return sb.toString();
+//  }
+
 }

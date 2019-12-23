@@ -67,7 +67,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
             itemCount: data.length,
             itemBuilder: (BuildContext context, int position) {
               return new ListPageItem(
-                  position, Subtopic.fromJson(data[position]));
+                  (position+1), Subtopic.fromJson(data[position]));
             });
   }
 
