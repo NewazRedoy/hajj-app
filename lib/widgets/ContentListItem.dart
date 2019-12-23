@@ -1,10 +1,12 @@
 import 'package:first_app/model/Content.dart';
 import 'package:flutter/material.dart';
 
+
 class ContentListItem extends StatelessWidget {
   Content content;
 
-  ContentListItem({this.content});
+
+  ContentListItem({this.content,});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class ContentListItem extends StatelessWidget {
                               ),
                               Expanded(
                                 child: Text(
-                                  content.subtopic_id.toString(),
+                                 content.content_id.toString(),
                                   style: TextStyle(fontSize: 20),
                                 ),
                               ),
