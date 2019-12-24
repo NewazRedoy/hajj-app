@@ -18,14 +18,15 @@ class _RiyalConverterState extends State<RiyalConverter> {
         ),
         child: Column(
           children: <Widget>[
-            TextField(
-              maxLines: 3,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: "টাকা",
-                hintText: "টাকা",
-              ),
-            ),
+
+                TextField(
+                  maxLines: 3,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: "টাকা",
+                    hintText: "টাকা",
+                  ),
+                ),
             TextField(
               maxLines: 3,
               keyboardType: TextInputType.number,
