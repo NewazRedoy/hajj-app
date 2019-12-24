@@ -1,4 +1,3 @@
-import 'package:first_app/model/ArabicSentences.dart';
 import 'package:first_app/model/ArabicSentencesCategory.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/ArabicSentenceListItem.dart';
@@ -57,4 +56,3 @@ class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
     );
   }
 }
-

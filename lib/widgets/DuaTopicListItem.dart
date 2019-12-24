@@ -1,4 +1,3 @@
-
 import 'package:first_app/model/DuaSubTopicCategory.dart';
 import 'package:first_app/screen/dua/DuaDetailPage.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +23,15 @@ class DuaTopicListItem extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => DuaDetailPage(duaSubCategory: duaSubTopic)));
+                      builder: (context) =>
+                          DuaDetailPage(duaSubCategory: duaSubTopic)));
             },
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                    decoration:
+                        BoxDecoration(color: Theme.of(context).accentColor),
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       index.toString(),
@@ -47,7 +48,8 @@ class DuaTopicListItem extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                    decoration:
+                        BoxDecoration(color: Theme.of(context).accentColor),
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "",

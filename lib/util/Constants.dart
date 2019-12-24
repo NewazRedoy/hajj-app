@@ -4,8 +4,8 @@ import 'package:first_app/model/DuaDetail.dart';
 import 'package:first_app/model/DuaSubTopicCategory.dart';
 import 'package:first_app/model/DuaTopic.dart';
 import 'package:first_app/model/MyDua.dart';
-import 'package:first_app/model/QuestionsCategory.dart';
 import 'package:first_app/model/QuestionDetail.dart';
+import 'package:first_app/model/QuestionsCategory.dart';
 import 'package:first_app/model/Topic.dart';
 
 class Constants {
@@ -208,21 +208,21 @@ class Constants {
     ),
   ];
 
- static final duas = [
+  static final duas = [
     MyDua(
       title: "পরিবার",
       text: "কেও চাইলে নিজের ব্যাক্তিগত দু'আ এখানে সেইভ করে রাখতে পারে ।",
     ),
-  MyDua(
+    MyDua(
       title: "Bangladesh",
       text:
-      "Kew chaile nij desher dua korte pare. Upore akta button thakbe jekhane dua creat korar option thakbe.",
-  ),
-MyDua(
+          "Kew chaile nij desher dua korte pare. Upore akta button thakbe jekhane dua creat korar option thakbe.",
+    ),
+    MyDua(
       title: "Sara muslim ummahr jonno dua",
       text:
-      "amar dua option tha ashole ekta note pad er moto. ekhn je jar Khushi moto dua likhe rakhte parbe. amar dua option tha ashole akta note pad er moto.",
-)
+          "amar dua option tha ashole ekta note pad er moto. ekhn je jar Khushi moto dua likhe rakhte parbe. amar dua option tha ashole akta note pad er moto.",
+    )
   ];
 
 //  public static String intToBangla(int n) {

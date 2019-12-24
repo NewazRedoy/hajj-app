@@ -5,13 +5,9 @@ class MyDua {
   String text;
   String english;
 
-  MyDua({
-      this.title,
-      this.text,
-      this.english});
+  MyDua({this.title, this.text, this.english});
 
-  factory MyDua.fromRawJson(String str) =>
-      MyDua.fromJson(json.decode(str));
+  factory MyDua.fromRawJson(String str) => MyDua.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 

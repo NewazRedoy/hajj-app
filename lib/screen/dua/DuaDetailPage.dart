@@ -76,8 +76,7 @@ class DuaDetailItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                decoration:
-                BoxDecoration(color: Theme.of(context).accentColor),
+                decoration: BoxDecoration(color: Theme.of(context).accentColor),
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   duaSubTopic.duaSubcategory_id.toString(),
@@ -98,14 +97,12 @@ class DuaDetailItem extends StatelessWidget {
                   Icons.more_vert,
                   size: 24.0,
                 ),
-                onPressed: () {
-                },
+                onPressed: () {},
               ),
               Container(
-                decoration:
-                BoxDecoration(color: Theme.of(context).accentColor),
+                decoration: BoxDecoration(color: Theme.of(context).accentColor),
                 padding:
-                const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                 child: Text(
                   "",
                   style: TextStyle(fontSize: 20),
@@ -115,9 +112,9 @@ class DuaDetailItem extends StatelessWidget {
           ),
           Container(
               child: Divider(
-                color: Colors.grey,
-                height: 1,
-              )),
+            color: Colors.grey,
+            height: 1,
+          )),
           Container(
             padding: const EdgeInsets.all(6.0),
             child: Text(

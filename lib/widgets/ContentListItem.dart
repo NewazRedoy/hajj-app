@@ -54,8 +54,7 @@ class ContentListItem extends StatelessWidget {
                       Icons.more_vert,
                       size: 24.0,
                     ),
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                   ),
                   Container(
                     decoration:

@@ -1,5 +1,3 @@
-import 'package:first_app/model/DuaSubTopicCategory.dart';
-import 'package:first_app/screen/dua/DuaDetailPage.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/DuaTopicListItem.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +35,7 @@ class _AllDuaPageState extends State<AllDuaPage> {
           : ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                return DuaTopicListItem(index+1, data[index]);
+                return DuaTopicListItem(index + 1, data[index]);
               },
             ),
     );

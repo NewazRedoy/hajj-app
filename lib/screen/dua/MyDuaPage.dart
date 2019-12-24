@@ -1,3 +1,4 @@
+import 'package:first_app/model/MyDua.dart';
 import 'package:first_app/provider/CurrentUserModel.dart';
 import 'package:first_app/screen/dua/MyDuaSavingPage.dart';
 import 'package:first_app/util/Constants.dart';
@@ -12,11 +13,9 @@ class MyDuaPage extends StatefulWidget {
 }
 
 class MyDuaPageState extends State<MyDuaPage> {
-
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserModel>(builder: (context, model, _)
-    {
+    return Consumer<CurrentUserModel>(builder: (context, model, _) {
       return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -39,34 +38,32 @@ class MyDuaPageState extends State<MyDuaPage> {
           child: Icon(Icons.add),
         ),
       );
-    }
-    }
+    });
+  }
 
-        List data = [];
-        var loading = true;
+  List data = [];
+  var loading = true;
 
-        @override
-        void initState()
-    {
-      super.initState();
+  @override
+  void initState() {
+    super.initState();
 
-      loadData();
-    }
+    loadData();
+  }
 
-    loadData() async {
-      var content = await Constants.duas;
-      setState(() {
-        data = content;
-        loading = false;
-      });
-    }
+  loadData() async {
+    var content = await Constants.duas;
+    setState(() {
+      data = content;
+      loading = false;
+    });
   }
 }
 
 class MyDuaListItem extends StatelessWidget {
-  Dua dua;
+  MyDua dua;
 
-  MyDuaListItem(this.dua)
+  MyDuaListItem(this.dua);
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +72,7 @@ class MyDuaListItem extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    MyDuaSavingPage(DuaMode.Editing)));
+                builder: (context) => MyDuaSavingPage(DuaMode.Editing)));
       },
       child: Card(
         shape: RoundedRectangleBorder(
@@ -85,17 +81,15 @@ class MyDuaListItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            DuaTitle(duas[index]["title"]),
+            DuaTitle(dua.title),
             Divider(),
-            DuaText(duas[index]["text"]),
-
+            DuaText(dua.text),
           ],
         ),
       ),
     );
   }
 }
-
 
 class DuaTitle extends StatelessWidget {
   final String title;
@@ -111,7 +105,7 @@ class DuaTitle extends StatelessWidget {
       ),
       elevation: 7.0,
       child:
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
         Container(
           decoration: BoxDecoration(color: Colors.amber),
           padding: const EdgeInsets.all(8.0),

@@ -32,7 +32,6 @@ class _SendQuestionPageState extends State<SendQuestionPage> {
                           hintText: "hint"),
                     ),
                     TextField(
-
                       decoration: InputDecoration(
                           labelStyle: TextStyle(fontWeight: FontWeight.bold),
                           labelText: 'Description',

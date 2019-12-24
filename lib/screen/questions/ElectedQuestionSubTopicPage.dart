@@ -1,8 +1,6 @@
 import 'package:first_app/model/QuestionsCategory.dart';
-import 'package:first_app/model/QuestionDetail.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/ElectedQuestionSubTopicItem.dart';
-import 'package:first_app/widgets/ListPageItem.dart';
 import 'package:flutter/material.dart';
 
 class ElectedQuestionSubtopicPage extends StatelessWidget {
@@ -62,8 +60,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
     return loading
         ? _buildCircularProgressIndicator()
         : new GestureDetector(
-            onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
-            },
+            onScaleUpdate: (ScaleUpdateDetails scaleDetails) {},
             child: ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {

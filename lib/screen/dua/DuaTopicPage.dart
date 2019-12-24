@@ -45,11 +45,7 @@ class _DuaTopicPageState extends State<DuaTopicPage> {
                     if (duaTopic.duatopic_id == 1) {
                       return AllDuaPage();
                     } else if (duaTopic.duatopic_id == 2) {
-
-
                       return MyDuaPage();
-
-
                     } else {
                       return FavouriteDuaPage();
                     }

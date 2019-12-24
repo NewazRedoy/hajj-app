@@ -13,9 +13,9 @@ class ContentDetailListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            book.name_en,)
-        ),
+            title: Text(
+          book.name_en,
+        )),
         body: SampleAppPage(book));
   }
 }

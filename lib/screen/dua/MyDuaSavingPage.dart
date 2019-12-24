@@ -1,4 +1,3 @@
-import 'package:first_app/widgets/DuaInherit.dart';
 import 'package:flutter/material.dart';
 
 enum DuaMode {
@@ -50,7 +49,7 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
                   if (widget?.duaMode == DuaMode.Adding) {
                     final title = titleController.text;
                     final text = textController.text;
-                    duas.add({
+                    ({
                       "title": title,
                       "text": text,
                     });
