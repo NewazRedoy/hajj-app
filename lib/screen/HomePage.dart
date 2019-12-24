@@ -3,6 +3,8 @@ import 'package:first_app/screen/dua/DuaTopicPage.dart';
 import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:flutter/material.dart';
 
+import 'SettingsPage.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -29,6 +31,16 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       drawer: DrawerPage(),
       appBar: AppBar(
         title: Text("Hajj App"),
+        actions: <Widget>[
+          PopupMenuButton(
+           itemBuilder: (BuildContext context){
+             return [
+               PopupMenuItem(
+                     child: Text("সেটিংস")),
+             ];
+           },
+          ),
+        ],
         bottom: TabBar(
           controller: controller,
           indicatorWeight: 3.0,
