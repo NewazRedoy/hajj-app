@@ -9,8 +9,7 @@ class Topic {
 
   Topic({this.topic_id, this.name, this.desc_en, this.color, this.abbv});
 
-  factory Topic.fromRawJson(String str) =>
-      Topic.fromJson(json.decode(str));
+  factory Topic.fromRawJson(String str) => Topic.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 

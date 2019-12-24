@@ -1,15 +1,16 @@
-import 'package:flutter/material.dart';
+import 'package:first_app/model/ArabicSentencesCategory.dart';
+import 'package:first_app/screen/hajjassistant/ArabicSentencesDetailPage.dart';
 import 'package:first_app/util/Constants.dart';
-import 'package:first_app/model/DuaTopic.dart';
-import 'package:first_app/screen/MyDuaPage.dart';
-import 'package:first_app/screen/DuaSubTopicPage.dart';
+import 'package:first_app/widgets/ListPageItem.dart';
+import 'package:flutter/material.dart';
 
-class DuaTopicPage extends StatefulWidget {
+class ArabicSentencesTopicPage extends StatefulWidget {
   @override
-  _DuaTopicPageState createState() => _DuaTopicPageState();
+  _ArabicSentencesTopicPageState createState() =>
+      _ArabicSentencesTopicPageState();
 }
 
-class _DuaTopicPageState extends State<DuaTopicPage> {
+class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
   List data = [];
   var loading = true;
 
@@ -21,7 +22,7 @@ class _DuaTopicPageState extends State<DuaTopicPage> {
   }
 
   loadData() async {
-    var content = await Constants.dua_categories;
+    var content = await Constants.sentense_categories;
     setState(() {
       data = content;
       loading = false;
@@ -31,15 +32,26 @@ class _DuaTopicPageState extends State<DuaTopicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: loading
-          ? _buildCircularProgressIndicator()
-          : ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          return NewWidget(index, data[index]);
-        },
-      ),
-    );
+        appBar: AppBar(
+          title: Text("কিছু আরবি বাক্য"),
+        ),
+        body: loading
+            ? _buildCircularProgressIndicator()
+            : ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  SentencesCategory sentencesCategory = data[index];
+
+                  return ListPageItem(
+                      (index + 1), sentencesCategory.sentencetopic, () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ArabicSentencesDetailPage(
+                                  sentences: sentencesCategory,
+                                )));
+                  });
+                }));
   }
 }
 
@@ -51,9 +63,9 @@ _buildCircularProgressIndicator() {
 
 class NewWidget extends StatelessWidget {
   int index;
-  DuaTopic duaTopic;
+  SentencesCategory sentencesCategory;
 
-  NewWidget(this.index, this.duaTopic);
+  NewWidget(this.index, this.sentencesCategory);
 
   @override
   Widget build(BuildContext context) {
@@ -68,13 +80,9 @@ class NewWidget extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) {
-                      if (duaTopic.duatopic_id == 2) {
-                        return MyDuaPage();
-                      } else {
-                        return DuaSubTopicPage();
-                      }
-                    }));
+                    builder: (context) => ArabicSentencesDetailPage(
+                          sentences: sentencesCategory,
+                        )));
           },
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +100,7 @@ class NewWidget extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    duaTopic.duatopic,
+                    sentencesCategory.sentencetopic,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -108,5 +116,3 @@ class NewWidget extends StatelessWidget {
         ));
   }
 }
-
-

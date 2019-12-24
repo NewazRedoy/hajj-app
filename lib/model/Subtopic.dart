@@ -18,7 +18,7 @@ class Subtopic {
 
   factory Subtopic.fromJson(Map<String, dynamic> json) => new Subtopic(
         topic_id: json["topic_id"],
-        subtopic_id: int.parse(json["subtopic_id"]),
+        subtopic_id: json["subtopic_id"],
         name_en: json["name_en"],
       );
 

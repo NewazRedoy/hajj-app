@@ -1,19 +1,11 @@
-import 'package:first_app/model/Subtopic.dart';
-import 'package:first_app/screen/ContentDetailListPage.dart';
 import 'package:flutter/material.dart';
 
 class ListPageItem extends StatelessWidget {
   int index;
-  Subtopic subtopic;
+  String name;
+  GestureTapCallback onTap;
 
-  ListPageItem(this.index, this.subtopic);
-
-  hexColor(String colorCode) {
-    String colorNew = '0xff' + colorCode;
-    colorNew = colorNew.replaceAll('#', '');
-    int colorInt = int.parse(colorNew);
-    return colorInt;
-  }
+  ListPageItem(this.index, this.name, this.onTap);
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +18,12 @@ class ListPageItem extends StatelessWidget {
         ),
         elevation: 7.0,
         child: InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ContentDetailListPage(subtopic),
-                ));
-          },
+          onTap: onTap,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                decoration: BoxDecoration(color: Color(hexColor('A8926D'))),
+                decoration: BoxDecoration(color: Theme.of(context).accentColor),
                 padding: const EdgeInsets.all(24.0),
                 child: Text(
                   index.toString(),
@@ -49,13 +35,14 @@ class ListPageItem extends StatelessWidget {
               ),
               Expanded(
                 child: Text(
-                  subtopic.name_en,
+                  name,
                   style: TextStyle(fontSize: 20),
                 ),
               ),
               Container(
-                decoration: BoxDecoration(color: Color(hexColor('A8926D'))),
-                padding: const EdgeInsets.fromLTRB(5 , 24 , 5,24),
+                decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 24, horizontal: 5),
                 child: Text(
                   "",
                   style: TextStyle(fontSize: 20),

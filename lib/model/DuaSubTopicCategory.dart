@@ -18,9 +18,7 @@ class DuaSubTopicCategory {
       );
 
   Map<String, dynamic> toJson() => {
-    "duaSubcategory_id": duaSubcategory_id,
-    "questiontpic": duaSubtopic,
-  };
-
-
+        "duaSubcategory_id": duaSubcategory_id,
+        "questiontpic": duaSubtopic,
+      };
 }

@@ -21,6 +21,4 @@ class QuestionCategory {
         "question_id": category_id,
         "questiontpic": questiontopic,
       };
-
-
 }

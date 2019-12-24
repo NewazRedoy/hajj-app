@@ -2,12 +2,14 @@ import 'package:first_app/model/Content.dart';
 import 'package:first_app/model/Subtopic.dart';
 import 'package:flutter/material.dart';
 
-
 class ContentListItem extends StatelessWidget {
   Content content;
-Subtopic book;
+  Subtopic book;
 
-  ContentListItem({this.content, this.book,});
+  ContentListItem({
+    this.content,
+    this.book,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,8 @@ Subtopic book;
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                    decoration:
+                        BoxDecoration(color: Theme.of(context).accentColor),
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       content.content_id.toString(),
@@ -42,13 +45,23 @@ Subtopic book;
                   ),
                   Expanded(
                     child: Text(
-                     book.name_en,
+                      book.name_en,
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.more_vert,
+                      size: 24.0,
+                    ),
+                    onPressed: () {
+                    },
+                  ),
                   Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                    decoration:
+                        BoxDecoration(color: Theme.of(context).accentColor),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                     child: Text(
                       "",
                       style: TextStyle(fontSize: 20),
@@ -58,9 +71,9 @@ Subtopic book;
               ),
               Container(
                   child: Divider(
-                    color: Colors.grey,
-                    height: 1,
-                  )),
+                color: Colors.grey,
+                height: 1,
+              )),
               SizedBox(height: 6),
 //              Padding(
 //                padding: const EdgeInsets.all(8.0),

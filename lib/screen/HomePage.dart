@@ -1,5 +1,5 @@
 import 'package:first_app/screen/AppDrawerPage.dart';
-import 'package:first_app/screen/DuaTopicPage.dart';
+import 'package:first_app/screen/dua/DuaTopicPage.dart';
 import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:flutter/material.dart';
 

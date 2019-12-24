@@ -1,7 +1,6 @@
 import 'package:first_app/provider/CurrentUserModel.dart';
 import 'package:first_app/util/Validator.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {

@@ -1,5 +1,5 @@
-import 'package:first_app/screen/ElectedQuestionPage.dart';
-import 'package:first_app/screen/SendQuestionPage.dart';
+import 'package:first_app/screen/questions/ElectedQuestionPage.dart';
+import 'package:first_app/screen/questions/SendQuestionPage.dart';
 import 'package:flutter/material.dart';
 
 class QuestionAnswerPage extends StatefulWidget {

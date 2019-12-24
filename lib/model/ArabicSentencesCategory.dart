@@ -18,9 +18,7 @@ class SentencesCategory {
       );
 
   Map<String, dynamic> toJson() => {
-    "sentencecategory_id": sentencecategory_id,
-    "sentencetopic": sentencetopic,
-  };
-
-
+        "sentencecategory_id": sentencecategory_id,
+        "sentencetopic": sentencetopic,
+      };
 }

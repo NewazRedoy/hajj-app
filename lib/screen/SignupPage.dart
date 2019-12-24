@@ -3,7 +3,6 @@ import 'package:first_app/util/Validator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 class SignupPage extends StatefulWidget {
   SignupPage({Key key}) : super(key: key);
 
@@ -69,16 +68,18 @@ class _SignupPageState extends State<SignupPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Expanded(
-                                child: Divider()
+                            Expanded(child: Divider()),
+                            SizedBox(
+                              width: 6,
                             ),
-                            SizedBox(width: 6,),
-
-                            Text("OR", style: TextStyle(color: Colors.grey),),
-                            SizedBox(width: 6,),
-                            Expanded(
-                                child: Divider()
+                            Text(
+                              "OR",
+                              style: TextStyle(color: Colors.grey),
                             ),
+                            SizedBox(
+                              width: 6,
+                            ),
+                            Expanded(child: Divider()),
                           ],
                         ),
                         TextFormField(
@@ -230,12 +231,11 @@ class _SignupPageState extends State<SignupPage> {
                         SizedBox(height: 14.0),
                         Center(
                           child: FlatButton(
-                            onPressed: () => {
+                              onPressed: () => {
 //                              launch(
 //                                  'https://ultracoralaustralia.com/coral/partner-registration/')
-                            },
-                            child: Text('Register for a partner Account')
-                          ),
+                                  },
+                              child: Text('Register for a partner Account')),
                         ),
                       ],
                     ),

@@ -13,23 +13,8 @@ class HajjAssistantPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: Icon(
-              Icons.chevron_left,
-              size: 40.0,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
           title: Text(
             topic.name,
-            style: TextStyle(
-              color: Colors.black,
-            ),
           ),
         ),
         body: SampleAppPage(topic));

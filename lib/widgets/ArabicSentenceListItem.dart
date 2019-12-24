@@ -1,12 +1,10 @@
-import 'package:first_app/model/QuestionsSubTopic.dart';
+import 'package:first_app/model/ArabicSentences.dart';
 import 'package:flutter/material.dart';
 
-class ElectedQuestionSubTopicListItem extends StatelessWidget {
-  QuestionSubtopic questionsubtopic;
+class ArabicSentenceListItem extends StatelessWidget {
+  ArabicSentence arabicSentence;
 
-  ElectedQuestionSubTopicListItem(
-    this.questionsubtopic,
-  );
+  ArabicSentenceListItem(this.arabicSentence);
 
   @override
   Widget build(BuildContext context) {
@@ -15,22 +13,31 @@ class ElectedQuestionSubTopicListItem extends StatelessWidget {
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.0),
+          borderRadius: BorderRadius.circular(12.0),
         ),
         elevation: 5.0,
         child: Column(children: <Widget>[
-          Padding(
+          Container(
             padding: const EdgeInsets.all(12.0),
             child: Text(
-              questionsubtopic.questiontopic,
+              arabicSentence.bengali,
               style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
             ),
           ),
           Divider(),
-          Padding(
+          Container(
             padding: const EdgeInsets.all(12.0),
             child: Text(
-              questionsubtopic.answer,
+              arabicSentence.arabic,
+              textDirection: TextDirection.rtl,
+              style: TextStyle(fontSize: 14.0),
+            ),
+          ),
+          Divider(),
+          Container(
+            padding: const EdgeInsets.all(12.0),
+            child: Text(
+              arabicSentence.pronunciation,
               style: TextStyle(fontSize: 14.0),
             ),
           ),

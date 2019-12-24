@@ -1,6 +1,6 @@
 import 'package:first_app/model/Topic.dart';
-import 'package:first_app/screen/HajjUmrahAssistantPage.dart';
-import 'package:first_app/screen/QuestionAnswerPage.dart';
+import 'package:first_app/screen/hajjassistant/HajjUmrahAssistantPage.dart';
+import 'package:first_app/screen/questions/QuestionAnswerPage.dart';
 import 'package:first_app/screen/SubTopicListPage.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +42,10 @@ class TopicGridItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.star_border,size: 24,),
+            Icon(
+              Icons.star_border,
+              size: 24,
+            ),
             SizedBox(
               height: 16,
             ),

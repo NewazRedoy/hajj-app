@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 class User {
   int id;
   DateTime dateCreated;

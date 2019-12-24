@@ -1,15 +1,16 @@
-import 'package:first_app/model/DuaSubTopicCategory.dart';
 import 'package:first_app/model/DuaTopic.dart';
-import 'package:first_app/screen/DuaDetailPage.dart';
+import 'package:first_app/screen/dua/DuaSubTopicPage.dart';
+import 'package:first_app/screen/dua/MyDuaPage.dart';
 import 'package:first_app/util/Constants.dart';
+import 'package:first_app/widgets/ListPageItem.dart';
 import 'package:flutter/material.dart';
 
-class DuaSubTopicPage extends StatefulWidget {
+class FavouriteDuaPage extends StatefulWidget {
   @override
-  _DuaSubTopicPageState createState() => _DuaSubTopicPageState();
+  _FavouriteDuaPageState createState() => _FavouriteDuaPageState();
 }
 
-class _DuaSubTopicPageState extends State<DuaSubTopicPage> {
+class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
   List data = [];
   var loading = true;
 
@@ -21,7 +22,7 @@ class _DuaSubTopicPageState extends State<DuaSubTopicPage> {
   }
 
   loadData() async {
-    var content = await Constants.duaSub_categories;
+    var content = await Constants.dua_categories;
     setState(() {
       data = content;
       loading = false;
@@ -31,17 +32,25 @@ class _DuaSubTopicPageState extends State<DuaSubTopicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("সব দু'আ")
-      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          return NewWidget(index, data[index]);
-        },
-      ),
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                DuaTopic duaTopic = data[index];
+
+                return ListPageItem((index + 1), duaTopic.duatopic, () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    if (duaTopic.duatopic_id == 2) {
+                      return MyDuaPage();
+                    } else {
+                      return AllDuaPage();
+                    }
+                  }));
+                });
+                return NewWidget(index, data[index]);
+              },
+            ),
     );
   }
 }
@@ -54,9 +63,9 @@ _buildCircularProgressIndicator() {
 
 class NewWidget extends StatelessWidget {
   int index;
-  DuaSubTopicCategory duaSubTopic;
+  DuaTopic duaTopic;
 
-  NewWidget(this.index, this.duaSubTopic);
+  NewWidget(this.index, this.duaTopic);
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +77,13 @@ class NewWidget extends StatelessWidget {
         elevation: 7.0,
         child: InkWell(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                       DuaDetailPage(all: duaSubTopic)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              if (duaTopic.duatopic_id == 2) {
+                return MyDuaPage();
+              } else {
+                return AllDuaPage();
+              }
+            }));
           },
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +101,7 @@ class NewWidget extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    duaSubTopic.duaSubtopic,
+                    duaTopic.duatopic,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),

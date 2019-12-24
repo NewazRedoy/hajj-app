@@ -13,24 +13,8 @@ class ContentDetailListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: Icon(
-              Icons.chevron_left,
-              size: 40.0,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
           title: Text(
-            book.name_en,
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
+            book.name_en,)
         ),
         body: SampleAppPage(book));
   }
@@ -77,8 +61,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
                 itemCount: data.length,
                 itemBuilder: (BuildContext context, int position) {
                   return ContentListItem(
-                    book: book,
-                      content: Content.fromMap(data[position]));
+                      book: book, content: Content.fromMap(data[position]));
                 }));
   }
 

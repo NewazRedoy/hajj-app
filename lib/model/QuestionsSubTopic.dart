@@ -6,7 +6,8 @@ class QuestionSubtopic {
   String questiontopic;
   String answer;
 
-  QuestionSubtopic({this.category_id, this.question_id, this.questiontopic, this.answer});
+  QuestionSubtopic(
+      {this.category_id, this.question_id, this.questiontopic, this.answer});
 
   factory QuestionSubtopic.fromRawJson(String str) =>
       QuestionSubtopic.fromJson(json.decode(str));
@@ -22,7 +23,7 @@ class QuestionSubtopic {
       );
 
   Map<String, dynamic> toJson() => {
-    "question_id": category_id,
+        "question_id": category_id,
         "question_id": question_id,
         "questiontpic": questiontopic,
         "answer": answer,

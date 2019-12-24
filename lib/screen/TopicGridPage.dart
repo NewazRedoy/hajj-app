@@ -17,9 +17,7 @@ class _TopicGridPageState extends State<TopicGridPage> {
           8,
           (index) {
             return TopicGridItem(
-                context: context,
-                topic: Constants.topics[index],
-                index: index);
+                context: context, topic: Constants.topics[index], index: index);
           },
         ),
       ),
