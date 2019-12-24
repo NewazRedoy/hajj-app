@@ -2,34 +2,18 @@ import 'dart:convert';
 
 class User {
   int id;
-  DateTime dateCreated;
-  DateTime dateCreatedGmt;
-  DateTime dateModified;
-  DateTime dateModifiedGmt;
   String email;
   String firstName;
   String lastName;
-  String role;
   String username;
-  Address billing;
-  Address shipping;
-  bool isPayingCustomer;
   String avatarUrl;
 
   User({
     this.id,
-    this.dateCreated,
-    this.dateCreatedGmt,
-    this.dateModified,
-    this.dateModifiedGmt,
     this.email,
     this.firstName,
     this.lastName,
-    this.role,
     this.username,
-    this.billing,
-    this.shipping,
-    this.isPayingCustomer,
     this.avatarUrl,
 //    this.metaData,
   });
@@ -40,53 +24,20 @@ class User {
 
   factory User.fromMap(Map<String, dynamic> json) => new User(
         id: json["id"] == null ? null : json["id"],
-        dateCreated: json["date_created"] == null
-            ? null
-            : DateTime.parse(json["date_created"]),
-        dateCreatedGmt: json["date_created_gmt"] == null
-            ? null
-            : DateTime.parse(json["date_created_gmt"]),
-        dateModified: json["date_modified"] == null
-            ? null
-            : DateTime.parse(json["date_modified"]),
-        dateModifiedGmt: json["date_modified_gmt"] == null
-            ? null
-            : DateTime.parse(json["date_modified_gmt"]),
         email: json["email"] == null ? null : json["email"],
         firstName: json["first_name"] == null ? null : json["first_name"],
         lastName: json["last_name"] == null ? null : json["last_name"],
-        role: json["role"] == null ? null : json["role"],
         username: json["username"] == null ? null : json["username"],
-        billing:
-            json["billing"] == null ? null : Address.fromMap(json["billing"]),
-        shipping:
-            json["shipping"] == null ? null : Address.fromMap(json["shipping"]),
-        isPayingCustomer: json["is_paying_customer"] == null
-            ? null
-            : json["is_paying_customer"],
         avatarUrl: json["avatar_url"] == null ? null : json["avatar_url"],
 //    metaData: json["meta_data"] == null ? null : new List<MetaDatum>.from(json["meta_data"].map((x) => MetaDatum.fromMap(x))),
       );
 
   Map<String, dynamic> toMap() => {
         "id": id == null ? null : id,
-        "date_created":
-            dateCreated == null ? null : dateCreated.toIso8601String(),
-        "date_created_gmt":
-            dateCreatedGmt == null ? null : dateCreatedGmt.toIso8601String(),
-        "date_modified":
-            dateModified == null ? null : dateModified.toIso8601String(),
-        "date_modified_gmt":
-            dateModifiedGmt == null ? null : dateModifiedGmt.toIso8601String(),
         "email": email == null ? null : email,
         "first_name": firstName == null ? null : firstName,
         "last_name": lastName == null ? null : lastName,
-        "role": role == null ? null : role,
         "username": username == null ? null : username,
-        "billing": billing == null ? null : billing.toMap(),
-        "shipping": shipping == null ? null : shipping.toMap(),
-        "is_paying_customer":
-            isPayingCustomer == null ? null : isPayingCustomer,
         "avatar_url": avatarUrl == null ? null : avatarUrl,
 //    "meta_data": metaData == null ? null : new List<dynamic>.from(metaData.map((x) => x.toMap())),
       };

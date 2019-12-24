@@ -1,22 +1,31 @@
+import 'package:first_app/provider/CurrentUserModel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class AppDrawerPage extends StatefulWidget {
+class DrawerPage extends StatefulWidget {
   @override
-  _AppDrawerPageState createState() => _AppDrawerPageState();
+  _DrawerPageState createState() => _DrawerPageState();
 }
 
-class _AppDrawerPageState extends State<AppDrawerPage> {
+class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
+    var user = Provider.of<CurrentUserModel>(context).user;
     return Container(
       child: Drawer(
         child: ListView(
           children: <Widget>[
-            UserAccountsDrawerHeader(
-              currentAccountPicture: CircleAvatar(),
-              accountName: Text("User Abdullah"),
-              accountEmail: Text("Macca,Saudi Arabia"),
-            ),
+            user == null
+                ? UserAccountsDrawerHeader(
+                    currentAccountPicture: CircleAvatar(),
+                    accountName: Text("Not Logged In"),
+                    accountEmail: Text(""),
+                  )
+                : UserAccountsDrawerHeader(
+                    currentAccountPicture: CircleAvatar(),
+                    accountName: Text(user.firstName),
+                    accountEmail: Text("Macca,Saudi Arabia"),
+                  ),
             Divider(),
             ListTile(
               leading: Icon(Icons.album),

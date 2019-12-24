@@ -19,8 +19,6 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController textController = TextEditingController();
 
-  List<Map<String, String>> get duas => DuaInherit.of(context).duas;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

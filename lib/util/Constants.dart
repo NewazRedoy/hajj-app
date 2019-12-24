@@ -1,10 +1,11 @@
 import 'package:first_app/model/ArabicSentences.dart';
 import 'package:first_app/model/ArabicSentencesCategory.dart';
-import 'package:first_app/model/DuaSubTopic.dart';
+import 'package:first_app/model/DuaDetail.dart';
 import 'package:first_app/model/DuaSubTopicCategory.dart';
 import 'package:first_app/model/DuaTopic.dart';
+import 'package:first_app/model/MyDua.dart';
 import 'package:first_app/model/QuestionsCategory.dart';
-import 'package:first_app/model/QuestionsSubTopic.dart';
+import 'package:first_app/model/QuestionDetail.dart';
 import 'package:first_app/model/Topic.dart';
 
 class Constants {
@@ -134,7 +135,7 @@ class Constants {
   ];
 
   static List question_subtopics = [
-    QuestionSubtopic(
+    QuestionDetail(
       category_id: 1,
       question_id: 1,
       questiontopic:
@@ -142,14 +143,14 @@ class Constants {
       answer:
           'মাথায়, দাড়িতে ও শরীরে মাখা যায় । ইহরাম পরিধানের পর যদি এর সুগন্ধ শরীরে থেকে যায় তাতে কোন অসুবিধা নেই । মনে রাখতে হবে, মেয়েরা সুগন্ধি লাগাবে না ।',
     ),
-    QuestionSubtopic(
+    QuestionDetail(
       category_id: 1,
       question_id: 2,
       questiontopic: "৩৬-ইহরামের ওয়াজিব কয়টি ও কী কী?",
       answer:
           "৩টি যথা : (১) মীকাত থেকে ইহরাম বাঁধা ।(২) সেলাইবিহীন কাপড় পরিধান করা ।(৩) তালবিয়াহ পাঠ করা । অর্থাৎ নিয়ত করার পর তালবিয়াহ পাঠ করা ওয়াজিব ।",
     ),
-    QuestionSubtopic(
+    QuestionDetail(
       category_id: 1,
       question_id: 3,
       questiontopic:
@@ -205,6 +206,23 @@ class Constants {
       arabic: "أرني الطريق إلى الفندق",
       pronunciation: " এখানে আরবির উচ্চারণটা থাকবে",
     ),
+  ];
+
+ static final duas = [
+    MyDua(
+      title: "পরিবার",
+      text: "কেও চাইলে নিজের ব্যাক্তিগত দু'আ এখানে সেইভ করে রাখতে পারে ।",
+    ),
+  MyDua(
+      title: "Bangladesh",
+      text:
+      "Kew chaile nij desher dua korte pare. Upore akta button thakbe jekhane dua creat korar option thakbe.",
+  ),
+MyDua(
+      title: "Sara muslim ummahr jonno dua",
+      text:
+      "amar dua option tha ashole ekta note pad er moto. ekhn je jar Khushi moto dua likhe rakhte parbe. amar dua option tha ashole akta note pad er moto.",
+)
   ];
 
 //  public static String intToBangla(int n) {

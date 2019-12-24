@@ -1,6 +1,8 @@
+import 'package:first_app/provider/CurrentUserModel.dart';
 import 'package:first_app/screen/dua/MyDuaSavingPage.dart';
-import 'package:first_app/widgets/DuaInherit.dart';
+import 'package:first_app/util/Constants.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyDuaPage extends StatefulWidget {
   @override
@@ -10,12 +12,12 @@ class MyDuaPage extends StatefulWidget {
 }
 
 class MyDuaPageState extends State<MyDuaPage> {
-  List<Map<String, String>> get duas => DuaInherit.of(context).duas;
 
   @override
   Widget build(BuildContext context) {
-    return DuaInherit(
-      Scaffold(
+    return Consumer<CurrentUserModel>(builder: (context, model, _)
+    {
+      return Scaffold(
         appBar: AppBar(
           title: Text(
             ("আমার দু'আ"),
@@ -23,30 +25,9 @@ class MyDuaPageState extends State<MyDuaPage> {
         ),
         body: ListView.builder(
           itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            MyDuaSavingPage(DuaMode.Editing)));
-              },
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    DuaTitle(duas[index]["title"]),
-                    Divider(),
-                    DuaText(duas[index]["text"]),
-                  ],
-                ),
-              ),
-            );
+            return MyDuaListItem(data[index]);
           },
-          itemCount: duas.length,
+          itemCount: data.length,
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -57,10 +38,64 @@ class MyDuaPageState extends State<MyDuaPage> {
           },
           child: Icon(Icons.add),
         ),
+      );
+    }
+    }
+
+        List data = [];
+        var loading = true;
+
+        @override
+        void initState()
+    {
+      super.initState();
+
+      loadData();
+    }
+
+    loadData() async {
+      var content = await Constants.duas;
+      setState(() {
+        data = content;
+        loading = false;
+      });
+    }
+  }
+}
+
+class MyDuaListItem extends StatelessWidget {
+  Dua dua;
+
+  MyDuaListItem(this.dua)
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    MyDuaSavingPage(DuaMode.Editing)));
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            DuaTitle(duas[index]["title"]),
+            Divider(),
+            DuaText(duas[index]["text"]),
+
+          ],
+        ),
       ),
     );
   }
 }
+
 
 class DuaTitle extends StatelessWidget {
   final String title;
@@ -76,7 +111,7 @@ class DuaTitle extends StatelessWidget {
       ),
       elevation: 7.0,
       child:
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+      Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
         Container(
           decoration: BoxDecoration(color: Colors.amber),
           padding: const EdgeInsets.all(8.0),

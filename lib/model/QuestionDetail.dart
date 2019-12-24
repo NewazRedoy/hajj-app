@@ -1,21 +1,21 @@
 import 'dart:convert';
 
-class QuestionSubtopic {
+class QuestionDetail {
   int category_id;
   int question_id;
   String questiontopic;
   String answer;
 
-  QuestionSubtopic(
+  QuestionDetail(
       {this.category_id, this.question_id, this.questiontopic, this.answer});
 
-  factory QuestionSubtopic.fromRawJson(String str) =>
-      QuestionSubtopic.fromJson(json.decode(str));
+  factory QuestionDetail.fromRawJson(String str) =>
+      QuestionDetail.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory QuestionSubtopic.fromJson(Map<String, dynamic> json) =>
-      new QuestionSubtopic(
+  factory QuestionDetail.fromJson(Map<String, dynamic> json) =>
+      new QuestionDetail(
         category_id: json[" category_id"],
         question_id: json["question_id"],
         questiontopic: json["questiontpic_id"],

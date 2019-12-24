@@ -1,8 +1,8 @@
-import 'package:first_app/model/QuestionsSubTopic.dart';
+import 'package:first_app/model/QuestionDetail.dart';
 import 'package:flutter/material.dart';
 
 class ElectedQuestionSubTopicListItem extends StatelessWidget {
-  QuestionSubtopic questionsubtopic;
+  QuestionDetail questionsubtopic;
 
   ElectedQuestionSubTopicListItem(
     this.questionsubtopic,

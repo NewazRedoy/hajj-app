@@ -1,4 +1,4 @@
-import 'package:first_app/model/DuaSubTopic.dart';
+import 'package:first_app/model/DuaDetail.dart';
 import 'package:first_app/model/DuaSubTopicCategory.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:flutter/material.dart';

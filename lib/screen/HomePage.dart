@@ -26,7 +26,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AppDrawerPage(),
+      drawer: DrawerPage(),
       appBar: AppBar(
         title: Text("Hajj App"),
         bottom: TabBar(

@@ -1,5 +1,5 @@
 import 'package:first_app/model/QuestionsCategory.dart';
-import 'package:first_app/model/QuestionsSubTopic.dart';
+import 'package:first_app/model/QuestionDetail.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/ElectedQuestionSubTopicItem.dart';
 import 'package:first_app/widgets/ListPageItem.dart';

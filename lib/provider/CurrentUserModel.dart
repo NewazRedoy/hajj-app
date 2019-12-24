@@ -192,20 +192,34 @@ class CurrentUserModel extends ChangeNotifier {
       String username, String password) async {
     showProgressDialog(context, "Logging in");
 
-    var response = await http.get(
-        'https://ultracoralaustralia.com/ucapi/user/generate_auth_cookie/?username=$username&password=$password');
+    _user = User(id: 1, firstName: "Nabil", lastName: "Mosharraf", email: "nabil6391@gmail.com",avatarUrl: "",username: "nabil6391");
 
-    print(response.body);
+    await Future.delayed(const Duration(seconds: 2), (){});
 
-    if (response.body.contains("error")) {
-      var error = json.decode(response.body)["error"];
-      Navigator.of(context).pop();
-      _showDialog(context: context, error: error);
-    } else {
-      var email = json.decode(response.body)["user"]["email"];
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setString("user", _user.toJson());
 
-      onAuthSuccessForSignUp(context, email, password, name);
-    }
+    _status = Status.Authenticated;
+
+    notifyListeners();
+    Navigator.of(context).pop();
+    print("auth notified");
+
+//
+//    var response = await http.get(
+//        'https://ultracoralaustralia.com/ucapi/user/generate_auth_cookie/?username=$username&password=$password');
+//
+//    print(response.body);
+//
+//    if (response.body.contains("error")) {
+//      var error = json.decode(response.body)["error"];
+//      Navigator.of(context).pop();
+//      _showDialog(context: context, error: error);
+//    } else {
+//      var email = json.decode(response.body)["user"]["email"];
+//
+//      onAuthSuccessForSignUp(context, email, password, name);
+//    }
 
 //    AuthResult authResult = await FirebaseAuth.instance
 //        .signInWithEmailAndPassword(email: email, password: password);

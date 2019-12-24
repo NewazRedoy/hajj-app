@@ -1,6 +1,9 @@
+import 'package:first_app/provider/CurrentUserModel.dart';
+import 'package:first_app/screen/LoginPage.dart';
 import 'package:first_app/screen/questions/ElectedQuestionPage.dart';
 import 'package:first_app/screen/questions/SendQuestionPage.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class QuestionAnswerPage extends StatefulWidget {
   @override
@@ -53,7 +56,11 @@ class Item extends StatelessWidget {
               if (option < 2) {
                 return ElectedQuestionPage();
               } else {
-                return SendQuestionPage();
+                var user = Provider.of<CurrentUserModel>(context).user;
+                if (user == null) {
+                  return LoginPage();
+                } else
+                  return SendQuestionPage();
               }
             }),
           );
