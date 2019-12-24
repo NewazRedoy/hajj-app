@@ -74,75 +74,72 @@ class MyDuaListItem extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => MyDuaSavingPage(DuaMode.Editing)));
       },
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            DuaTitle(dua.title),
-            Divider(),
-            DuaText(dua.text),
-          ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          elevation: 5.0,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
+                  child: Text(
+                    "",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                Expanded(
+                  child: Text(
+                    dua.title,
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                PopupMenuButton(
+                  itemBuilder: (BuildContext context) {
+                    return [
+                      PopupMenuItem(child: Text("কালার পরিবর্তন")),
+                      PopupMenuItem(child: Text("মুছুন")),
+                    ];
+
+                  },
+                ),
+                Container(
+                  decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                  padding:
+                  const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
+                  child: Text(
+                    "",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ],
+              ),
+              Container(
+                  child: Divider(
+                    color: Colors.grey,
+                    height: 1,
+                  )),
+              Container(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(dua.text,
+                    style: TextStyle(fontSize: 14.0),
+                  )
+                  ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class DuaTitle extends StatelessWidget {
-  final String title;
 
-  DuaTitle(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      elevation: 7.0,
-      child:
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        Container(
-          decoration: BoxDecoration(color: Colors.amber),
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "",
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
-        SizedBox(
-          width: 8,
-        ),
-        Expanded(
-          child: Text(
-            title,
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(color: Colors.amber),
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "",
-            style: TextStyle(fontSize: 20),
-          ),
-        )
-      ]),
-    );
-  }
-}
-
-class DuaText extends StatelessWidget {
-  final String text;
-
-  DuaText(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(text);
-  }
-}

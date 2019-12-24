@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 class RiyalConverter extends StatefulWidget {
   @override
   _RiyalConverterState createState() => _RiyalConverterState();
@@ -18,30 +19,29 @@ class _RiyalConverterState extends State<RiyalConverter> {
         ),
         child: Column(
           children: <Widget>[
-              Row(
+            Row(
+              children: <Widget>[
+                Column(
                   children: <Widget>[
-                    Column(
-                        children: <Widget>[
-                          Images("assets/images/BangladeshFlag.png"),
-                          Text("টাকা"),
-                        ],
-                      ),
-                    TextField(
-                      maxLines: 3,
-                      keyboardType: TextInputType.number,
-
-                    ),
+                    Images("assets/images/BangladeshFlag.png"),
+                    Text("টাকা"),
                   ],
                 ),
+                TextField(
+                  maxLines: 3,
+                  keyboardType: TextInputType.number,
+                ),
+              ],
+            ),
             Divider(),
             Row(
               children: <Widget>[
-                   Column(
-                    children: <Widget>[
-                      Images("assets/images/SaudiarabiaFlag.png"),
-                      Text("রিয়াল"),
-                    ],
-                  ),
+                Column(
+                  children: <Widget>[
+                    Images("assets/images/SaudiarabiaFlag.png"),
+                    Text("রিয়াল"),
+                  ],
+                ),
                 TextField(
                   maxLines: 3,
                   keyboardType: TextInputType.number,
@@ -57,16 +57,17 @@ class _RiyalConverterState extends State<RiyalConverter> {
 
 class Images extends StatelessWidget {
   final String image;
+
   Images(this.image);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints.expand(height: 50.0),
-      child: Image.asset(image,fit: BoxFit.cover,),
+      child: Image.asset(
+        image,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }
-
-
-
-

@@ -192,9 +192,15 @@ class CurrentUserModel extends ChangeNotifier {
       String username, String password) async {
     showProgressDialog(context, "Logging in");
 
-    _user = User(id: 1, firstName: "Nabil", lastName: "Mosharraf", email: "nabil6391@gmail.com",avatarUrl: "",username: "nabil6391");
+    _user = User(
+        id: 1,
+        firstName: "Nabil",
+        lastName: "Mosharraf",
+        email: "nabil6391@gmail.com",
+        avatarUrl: "",
+        username: "nabil6391");
 
-    await Future.delayed(const Duration(seconds: 2), (){});
+    await Future.delayed(const Duration(seconds: 2), () {});
 
     var prefs = await SharedPreferences.getInstance();
     prefs.setString("user", _user.toJson());
