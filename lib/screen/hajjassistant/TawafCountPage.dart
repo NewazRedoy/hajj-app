@@ -1,3 +1,4 @@
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:first_app/widgets/TawafWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class _TawafCountPageState extends State<TawafCountPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("তাওয়াফ গণনা"),
+        actions: <Widget>[SearchSettings(),],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

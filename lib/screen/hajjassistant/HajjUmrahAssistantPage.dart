@@ -2,6 +2,7 @@ import 'package:first_app/model/Subtopic.dart';
 import 'package:first_app/model/Topic.dart';
 import 'package:first_app/model/database_helper.dart';
 import 'package:first_app/widgets/Last2PageGridItem.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class HajjAssistantPage extends StatelessWidget {
@@ -16,6 +17,7 @@ class HajjAssistantPage extends StatelessWidget {
           title: Text(
             topic.name,
           ),
+          actions: <Widget>[SearchSettings(),],
         ),
         body: SampleAppPage(topic));
   }

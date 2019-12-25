@@ -1,3 +1,4 @@
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:first_app/widgets/SieWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,7 @@ class _SaiCountState extends State<SaiCount> {
     return Scaffold(
       appBar: AppBar(
         title: Text("স'ঈ গণনা"),
+        actions: <Widget>[SearchSettings(),],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

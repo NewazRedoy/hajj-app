@@ -1,3 +1,4 @@
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
     return Scaffold(
       appBar: AppBar(
         title: Text("রিয়াল-টাকা কনভার্টার"),
+        actions: <Widget>[SearchSettings(),],
       ),
       body: Card(
         shape: RoundedRectangleBorder(
