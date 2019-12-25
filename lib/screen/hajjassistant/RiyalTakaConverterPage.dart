@@ -25,7 +25,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Images("assets/images/BangladeshFlag.png"),
+                    Image.asset("assets/images/BangladeshFlag.png"),
                     Text("টাকা"),
                   ],
                 ),
@@ -40,7 +40,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Images("assets/images/SaudiarabiaFlag.png"),
+                    Image.asset("assets/images/SaudiarabiaFlag.png"),
                     Text("রিয়াল"),
                   ],
                 ),
@@ -57,19 +57,3 @@ class _RiyalConverterState extends State<RiyalConverter> {
   }
 }
 
-class Images extends StatelessWidget {
-  final String image;
-
-  Images(this.image);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      constraints: BoxConstraints.expand(height: 50.0),
-      child: Image.asset(
-        image,
-        fit: BoxFit.cover,
-      ),
-    );
-  }
-}

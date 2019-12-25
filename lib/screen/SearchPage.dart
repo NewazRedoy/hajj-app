@@ -1,3 +1,4 @@
+import 'package:first_app/screen/SearchDetailPage.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -30,18 +31,25 @@ class _SearchPageState extends State<SearchPage> {
               ),
           ),
           SizedBox(
-            height: 150.0,
+            height: 250.0,
           ),
           Container(alignment: Alignment.bottomRight,
             child: RaisedButton(
-              color: Theme.of(context).accentColor,
-                shape: StadiumBorder(),
-                onPressed: () {},
-                child: Text(
-                    "সম্পূর্ণ রেজাল্ট দেখুন",
-                  style: TextStyle(color: Colors.white),
-                )),
-          )
+              color: Theme
+                  .of(context)
+                  .accentColor,
+              shape: StadiumBorder(),
+              onPressed: () {
+                Navigator.push(
+                  context, MaterialPageRoute(
+                  builder: (context) => SearchDetailPage(),),
+                );
+              },
+              child: Text(
+                "সম্পূর্ণ রেজাল্ট দেখুন",
+                style: TextStyle(color: Colors.white),
+              ),),
+          ),
         ],
       ),
     );
