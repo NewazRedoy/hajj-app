@@ -1,7 +1,7 @@
 import 'package:first_app/provider/CurrentUserModel.dart';
 import 'package:first_app/screen/LoginPage.dart';
 import 'package:first_app/screen/questions/ElectedQuestionPage.dart';
-import 'package:first_app/screen/questions/SendQuestionPage.dart';
+import 'package:first_app/screen/questions/AskQuestionPage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,8 +24,8 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
           child: GridView.count(
             crossAxisCount: 2,
             children: <Widget>[
-              Item(Icons.adjust, 'নির্বাচিত প্রশ্নোত্তর', 1),
-              Item(Icons.adjust, 'প্রশ্ন করুন', 2),
+              Item(Icons.star_border, 'নির্বাচিত প্রশ্নোত্তর', 1),
+              Item(Icons.star_border, 'প্রশ্ন করুন', 2),
             ],
           ),
         ),
@@ -43,38 +43,42 @@ class Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      elevation: 7.0,
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) {
-              if (option < 2) {
-                return ElectedQuestionPage();
-              } else {
-                var user = Provider.of<CurrentUserModel>(context).user;
-                if (user == null) {
-                  return LoginPage();
-                } else
-                  return SendQuestionPage();
-              }
-            }),
-          );
-        },
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(icon),
-            SizedBox(
-              height: 16,
+    return  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          elevation: 7.0,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  if (option < 2) {
+                    return ElectedQuestionPage();
+                  } else {
+                    var user = Provider.of<CurrentUserModel>(context).user;
+                    if (user == null) {
+                      return LoginPage();
+                    } else
+                      return AskQuestionPage();
+                  }
+                }),
+              );
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(icon),
+                SizedBox(
+                  height: 16,
+                ),
+                Text(title),
+              ],
             ),
-            Text(title),
-          ],
-        ),
+          ),
+
       ),
     );
   }

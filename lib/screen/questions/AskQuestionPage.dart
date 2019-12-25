@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SendQuestionPage extends StatefulWidget {
+class AskQuestionPage extends StatefulWidget {
   @override
-  _SendQuestionPageState createState() => _SendQuestionPageState();
+  _AskQuestionPageState createState() => _AskQuestionPageState();
 }
 
-class _SendQuestionPageState extends State<SendQuestionPage> {
+class _AskQuestionPageState extends State<AskQuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("প্রশ্ন করুন"),
       ),

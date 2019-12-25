@@ -1,4 +1,5 @@
 import 'package:first_app/screen/AppDrawerPage.dart';
+import 'package:first_app/screen/SearchPage.dart';
 import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:first_app/screen/dua/DuaTopicPage.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               Icons.search,
               size: 24.0,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(
+                  builder: (context) => SearchPage(),
+                ),
+              );
+            },
           ),
 
           PopupMenuButton(
