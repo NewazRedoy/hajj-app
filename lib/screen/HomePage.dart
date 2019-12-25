@@ -1,7 +1,7 @@
 import 'package:first_app/screen/AppDrawerPage.dart';
-import 'package:first_app/screen/SearchPage.dart';
 import 'package:first_app/screen/TopicGridPage.dart';
 import 'package:first_app/screen/dua/DuaTopicPage.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -31,28 +31,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       appBar: AppBar(
         title: Text("Hajj App"),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              size: 24.0,
-            ),
-            onPressed: () {
-              Navigator.push(context,
-                MaterialPageRoute(
-                  builder: (context) => SearchPage(),
-                ),
-              );
-            },
-          ),
-
-          PopupMenuButton(
-            itemBuilder: (BuildContext context) {
-              return [
-                PopupMenuItem(child: Text("সেটিংস")),
-              ];
-            },
-          ),
-
+          SearchSettings()
         ],
         bottom: TabBar(
           controller: controller,
