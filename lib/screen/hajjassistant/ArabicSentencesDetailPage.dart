@@ -1,6 +1,7 @@
 import 'package:first_app/model/ArabicSentencesCategory.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/ArabicSentenceListItem.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class ArabicSentencesDetailPage extends StatefulWidget {
@@ -46,6 +47,7 @@ class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
         title: Text(
           sentences.sentencetopic,
         ),
+        actions: <Widget>[SearchSettings(),],
       ),
       body: ListView.builder(
         itemCount: data.length,

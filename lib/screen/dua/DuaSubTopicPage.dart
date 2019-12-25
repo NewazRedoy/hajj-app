@@ -1,5 +1,6 @@
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/DuaTopicListItem.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class AllDuaPage extends StatefulWidget {
@@ -29,7 +30,9 @@ class _AllDuaPageState extends State<AllDuaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("সব দু'আ")),
+      appBar: AppBar(title: Text("সব দু'আ"),
+          actions: <Widget>[SearchSettings(),],
+      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(

@@ -1,6 +1,7 @@
 import 'package:first_app/model/QuestionsCategory.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/ElectedQuestionSubTopicItem.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class ElectedQuestionSubtopicPage extends StatelessWidget {
@@ -26,6 +27,7 @@ class ElectedQuestionSubtopicPage extends StatelessWidget {
           title: Text(
             questionCategory.questiontopic,
           ),
+          actions: <Widget>[SearchSettings(),],
         ),
         body: SampleAppPage(questionCategory));
   }

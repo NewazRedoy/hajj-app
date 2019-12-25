@@ -2,6 +2,7 @@ import 'package:first_app/provider/CurrentUserModel.dart';
 import 'package:first_app/screen/LoginPage.dart';
 import 'package:first_app/screen/questions/ElectedQuestionPage.dart';
 import 'package:first_app/screen/questions/AskQuestionPage.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +17,7 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("প্রশ্নসমূহ"),
+        actions: <Widget>[SearchSettings(),],
       ),
       body: Center(
         child: Container(

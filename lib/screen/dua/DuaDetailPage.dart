@@ -1,6 +1,7 @@
 import 'package:first_app/model/DuaDetail.dart';
 import 'package:first_app/model/DuaSubTopicCategory.dart';
 import 'package:first_app/util/Constants.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class DuaDetailPage extends StatefulWidget {
@@ -45,6 +46,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
         title: Text(
           duaSubCategory.duaSubtopic,
         ),
+        actions: <Widget>[SearchSettings(),],
       ),
       body: ListView.builder(
         itemCount: data.length,

@@ -1,3 +1,4 @@
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class AskQuestionPage extends StatefulWidget {
@@ -12,6 +13,7 @@ class _AskQuestionPageState extends State<AskQuestionPage> {
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("প্রশ্ন করুন"),
+        actions: <Widget>[SearchSettings(),],
       ),
       body:  Column(
           children: <Widget>[

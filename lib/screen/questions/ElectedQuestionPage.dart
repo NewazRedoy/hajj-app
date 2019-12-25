@@ -2,6 +2,7 @@ import 'package:first_app/model/QuestionsCategory.dart';
 import 'package:first_app/screen/questions/ElectedQuestionSubTopicPage.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/ListPageItem.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class ElectedQuestionPage extends StatefulWidget {
@@ -33,6 +34,7 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("নির্বাচিত প্রশ্নোত্তর"),
+        actions: <Widget>[SearchSettings(),],
       ),
       body: loading
           ? _buildCircularProgressIndicator()

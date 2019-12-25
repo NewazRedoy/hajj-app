@@ -2,6 +2,7 @@ import 'package:first_app/model/Content.dart';
 import 'package:first_app/model/Subtopic.dart';
 import 'package:first_app/model/database_helper.dart';
 import 'package:first_app/widgets/ContentListItem.dart';
+import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class ContentDetailListPage extends StatelessWidget {
@@ -15,7 +16,9 @@ class ContentDetailListPage extends StatelessWidget {
         appBar: AppBar(
             title: Text(
           book.name_en,
-        )),
+        ),
+          actions: <Widget>[SearchSettings(),],
+        ),
         body: SampleAppPage(book));
   }
 }
