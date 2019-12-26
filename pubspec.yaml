@@ -54,6 +54,7 @@ flutter:
   assets:
      - assets/images/BangladeshFlag.png
      - assets/images/SaudiarabiaFlag.png
+     - assets/images/UmrahPreparation.png
      - assets/hadith.db
      - assets/fonts/me_quran.ttf
 

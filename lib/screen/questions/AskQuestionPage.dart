@@ -1,3 +1,4 @@
+import 'package:first_app/widgets/PreparationWidget.dart';
 import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +54,9 @@ class _AskQuestionPageState extends State<AskQuestionPage> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PreparationWidget()));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(24),
                       child: Column(

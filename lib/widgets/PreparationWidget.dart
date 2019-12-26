@@ -74,7 +74,7 @@ class PreparationWidget extends StatelessWidget {
                     height: 1,
                   )),
               SizedBox(height: 6),
-              Image.asset(""),
+              Image.asset("assets/images/UmrahPreparation.png",width: 150.0, height: 150.0,),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
