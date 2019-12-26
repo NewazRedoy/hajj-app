@@ -28,13 +28,13 @@ class Last2PageGridItem extends StatelessWidget {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
               switch (subtopic.subtopic_id) {
                 case 1:
-                  return TawafCountPage();
+                  return TawafCountPage(subtopic);
                 case 2:
-                  return SaiCount();
+                  return SaiCount(subtopic);
                 case 3:
-                  return RiyalConverter();
+                  return RiyalConverter(subtopic);
                 case 4:
-                  return ArabicSentencesTopicPage();
+                  return ArabicSentencesTopicPage(subtopic);
               }
             }));
           },

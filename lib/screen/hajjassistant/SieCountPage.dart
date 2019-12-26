@@ -1,8 +1,11 @@
 import 'package:first_app/widgets/Search&Settings.dart';
 import 'package:first_app/widgets/SieWidget.dart';
+import 'package:first_app/model/Subtopic.dart';
 import 'package:flutter/material.dart';
 
 class SaiCount extends StatefulWidget {
+  final Subtopic subtopic;
+  SaiCount(this.subtopic);
   @override
   _SaiCountState createState() => _SaiCountState();
 }
@@ -15,7 +18,7 @@ class _SaiCountState extends State<SaiCount> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("স'ঈ গণনা"),
+        title: Text(widget.subtopic.name_en),
         actions: <Widget>[SearchSettings(),],
       ),
       body: Padding(

@@ -1,8 +1,11 @@
 import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:first_app/model/Subtopic.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RiyalConverter extends StatefulWidget {
+  final Subtopic subtopic;
+  RiyalConverter(this.subtopic);
   @override
   _RiyalConverterState createState() => _RiyalConverterState();
 }
@@ -17,7 +20,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("রিয়াল-টাকা কনভার্টার"),
+        title: Text(widget.subtopic.name_en),
         actions: <Widget>[SearchSettings(),],
       ),
       body: Card(
