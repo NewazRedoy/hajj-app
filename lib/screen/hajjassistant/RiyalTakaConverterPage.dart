@@ -33,7 +33,9 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   Column(
                     children: <Widget>[
                       Image.asset("assets/images/BangladeshFlag.png", width: 48, height: 48,),
-                      Text("টাকা"),
+                      Text("বাংলাদেশ টাকা",
+                        style: TextStyle(color: Colors.grey.shade600),
+                      ),
                     ],
                   ),
                   Expanded(
@@ -62,7 +64,9 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   Column(
                     children: <Widget>[
                       Image.asset("assets/images/SaudiarabiaFlag.png", width: 48, height: 48,),
-                      Text("রিয়াল"),
+                      Text("সৌদি রিয়াল",
+                      style: TextStyle(color: Colors.grey.shade600),
+                      ),
                     ],
                   ),
                   Expanded(
