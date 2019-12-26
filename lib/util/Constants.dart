@@ -1,7 +1,7 @@
 import 'package:first_app/model/ArabicSentences.dart';
 import 'package:first_app/model/ArabicSentencesCategory.dart';
 import 'package:first_app/model/DuaDetail.dart';
-import 'package:first_app/model/DuaSubTopicCategory.dart';
+import 'package:first_app/model/AllDuaCategory.dart';
 import 'package:first_app/model/DuaTopic.dart';
 import 'package:first_app/model/MyDua.dart';
 import 'package:first_app/model/QuestionDetail.dart';
@@ -46,40 +46,40 @@ class Constants {
     ),
   ];
 
-  static List duaSub_categories = [
-    DuaSubTopicCategory(
-      duaSubcategory_id: 1,
-      duaSubtopic: "সা'ঈ দু'আ",
+  static List allDua_categories = [
+    AllDuaCategory(
+      allDuacategory_id: 1,
+      allDuatopic: "সা'ঈ দু'আ",
     ),
-    DuaSubTopicCategory(
-      duaSubcategory_id: 2,
-      duaSubtopic: "ইহরামের সময় যা বলতে হয়",
+    AllDuaCategory(
+      allDuacategory_id: 2,
+      allDuatopic: "ইহরামের সময় যা বলতে হয়",
     ),
-    DuaSubTopicCategory(
-      duaSubcategory_id: 3,
-      duaSubtopic: "হজ্জ/উমরাহর নিয়ত",
+    AllDuaCategory(
+      allDuacategory_id: 3,
+      allDuatopic: "হজ্জ/উমরাহর নিয়ত",
     ),
-    DuaSubTopicCategory(
-      duaSubcategory_id: 4,
-      duaSubtopic: "তালবিয়াহ",
+    AllDuaCategory(
+      allDuacategory_id: 4,
+      allDuatopic: "তালবিয়াহ",
     ),
-    DuaSubTopicCategory(
-      duaSubcategory_id: 5,
-      duaSubtopic: "মক্কায় পোঁছে যা বলতে হয়",
+    AllDuaCategory(
+      allDuacategory_id: 5,
+      allDuatopic: "মক্কায় পোঁছে যা বলতে হয়",
     ),
-    DuaSubTopicCategory(
-      duaSubcategory_id: 6,
-      duaSubtopic: "মাসজিদুল হারামে ঢোকার দোয়া",
+    AllDuaCategory(
+      allDuacategory_id: 6,
+      allDuatopic: "মাসজিদুল হারামে ঢোকার দোয়া",
     ),
-    DuaSubTopicCategory(
-      duaSubcategory_id: 7,
-      duaSubtopic: "মাসজিদুল হারামে ঢোকার দোয়া",
+    AllDuaCategory(
+      allDuacategory_id: 7,
+      allDuatopic: "মাসজিদুল হারামে ঢোকার দোয়া",
     ),
   ];
 
   static List all = [
     DuaDetail(
-      duaSubcategory_id: 1,
+      allDuacategory_id: 1,
       Subtopic_id: 1,
       arabic: " لبيك لا شريك لك لبيك اللهم لبيك، لبيك لا",
       bengali:
@@ -88,7 +88,7 @@ class Constants {
           "Ever at your service, O Allah, every at your service. Ever at your service, you have no partner, ever at your service. Verily all praise, blessings and dominions are yours. You have no partner.",
     ),
     DuaDetail(
-      duaSubcategory_id: 1,
+      allDuacategory_id: 1,
       Subtopic_id: 2,
       arabic: " لبيك لا شريك لك لبيك اللهم لبيك، لبيك لا",
       bengali:
@@ -97,7 +97,7 @@ class Constants {
           "Ever at your service, O Allah, every at your service. Ever at your service, you have no partner, ever at your service. Verily all praise, blessings and dominions are yours. You have no partner.",
     ),
     DuaDetail(
-      duaSubcategory_id: 1,
+      allDuacategory_id: 1,
       Subtopic_id: 3,
       arabic: " لبيك لا شريك لك لبيك اللهم لبيك، لبيك لا",
       bengali:
@@ -106,7 +106,7 @@ class Constants {
           "Ever at your service, O Allah, every at your service. Ever at your service, you have no partner, ever at your service. Verily all praise, blessings and dominions are yours. You have no partner.",
     ),
     DuaDetail(
-      duaSubcategory_id: 1,
+      allDuacategory_id: 1,
       Subtopic_id: 4,
       arabic: " لبيك لا شريك لك لبيك اللهم لبيك، لبيك لا",
       bengali:

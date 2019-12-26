@@ -1,5 +1,5 @@
 import 'package:first_app/model/DuaTopic.dart';
-import 'package:first_app/screen/dua/DuaSubTopicPage.dart';
+import 'package:first_app/screen/dua/AllDuaPage.dart';
 import 'package:first_app/screen/dua/MyDuaPage.dart';
 import 'package:first_app/util/Constants.dart';
 import 'package:first_app/widgets/ListPageItem.dart';

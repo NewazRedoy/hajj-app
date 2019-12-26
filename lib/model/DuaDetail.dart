@@ -2,14 +2,14 @@ import 'dart:convert';
 
 class DuaDetail {
   int Subtopic_id;
-  int duaSubcategory_id;
+  int allDuacategory_id;
   String arabic;
   String bengali;
   String english;
 
   DuaDetail(
       {this.Subtopic_id,
-      this.duaSubcategory_id,
+      this.allDuacategory_id,
       this.arabic,
       this.bengali,
       this.english});
@@ -21,7 +21,7 @@ class DuaDetail {
 
   factory DuaDetail.fromJson(Map<String, dynamic> json) => new DuaDetail(
         Subtopic_id: json["Subtopic_id"],
-        duaSubcategory_id: json["duaSubcategory_id"],
+    allDuacategory_id: json["allDuacategory_id"],
         bengali: json["bengali"],
         arabic: json["arabic"],
         english: json["english"],
@@ -29,7 +29,7 @@ class DuaDetail {
 
   Map<String, dynamic> toJson() => {
         "Subtopic_id": Subtopic_id,
-        "duaSubcategory_id": duaSubcategory_id,
+        "allDuacategory_id": allDuacategory_id,
         "arabic": arabic,
         "bengali": bengali,
         "english": english,

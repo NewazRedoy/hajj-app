@@ -1,17 +1,17 @@
-import 'package:first_app/model/DuaSubTopicCategory.dart';
+import 'package:first_app/model/AllDuaCategory.dart';
 import 'package:first_app/screen/dua/DuaDetailPage.dart';
 import 'package:flutter/material.dart';
 
 class DuaTopicListItem extends StatelessWidget {
   int index;
-  DuaSubTopicCategory duaSubTopic;
+  AllDuaCategory allDuatopic;
 
-  DuaTopicListItem(this.index, this.duaSubTopic);
+  DuaTopicListItem(this.index, this.allDuatopic);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(left:10.0,right:10.0,top:3.0,bottom:0.0,),
       child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           shape: RoundedRectangleBorder(
@@ -24,7 +24,7 @@ class DuaTopicListItem extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          DuaDetailPage(duaSubCategory: duaSubTopic)));
+                          DuaDetailPage(allDuaCategory: allDuatopic)));
             },
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +43,7 @@ class DuaTopicListItem extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      duaSubTopic.duaSubtopic,
+                      allDuatopic.allDuatopic,
                       style: TextStyle(fontSize: 16),
                     ),
                   ),

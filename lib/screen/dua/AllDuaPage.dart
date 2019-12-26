@@ -20,7 +20,7 @@ class _AllDuaPageState extends State<AllDuaPage> {
   }
 
   loadData() async {
-    var content = await Constants.duaSub_categories;
+    var content = await Constants.allDua_categories;
     setState(() {
       data = content;
       loading = false;

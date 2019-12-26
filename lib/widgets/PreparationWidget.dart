@@ -74,15 +74,7 @@ class PreparationWidget extends StatelessWidget {
                     height: 1,
                   )),
               SizedBox(height: 6),
-//              Padding(
-//                padding: const EdgeInsets.all(8.0),
-//                child: Text(
-//                  content.textAr,
-//                  textAlign: TextAlign.end,
-//                  style: TextStyle(fontSize: 22, fontFamily: 'Quran'),
-//                ),
-//              ),
-              SizedBox(height: 6),
+              Image.asset(""),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
@@ -90,14 +82,6 @@ class PreparationWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.subhead,
                 ),
               ),
-              SizedBox(height: 6),
-//              Padding(
-//                padding: const EdgeInsets.all(8.0),
-//                child: Text(
-//                  content.referenceEn,
-//                  style: TextStyle(fontSize: 12),
-//                ),
-//              )
             ],
           ),
         ),
