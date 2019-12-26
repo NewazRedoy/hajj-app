@@ -55,7 +55,6 @@ class _AskQuestionPageState extends State<AskQuestionPage> {
                   ),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PreparationWidget()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(24),
