@@ -8,6 +8,11 @@ class RiyalConverter extends StatefulWidget {
 }
 
 class _RiyalConverterState extends State<RiyalConverter> {
+
+  int takaValue =11;
+  int rialValue = 200;
+
+  double conversion = 1/20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,34 +26,62 @@ class _RiyalConverterState extends State<RiyalConverter> {
         ),
         child: Column(
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Image.asset("assets/images/BangladeshFlag.png"),
-                    Text("টাকা"),
-                  ],
-                ),
-                TextField(
-                  maxLines: 3,
-                  keyboardType: TextInputType.number,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Image.asset("assets/images/BangladeshFlag.png", width: 48, height: 48,),
+                      Text("টাকা"),
+                    ],
+                  ),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration.collapsed(hintText: takaValue.toString()),
+                      maxLines: 1,
+                      textAlign: TextAlign.right,
+                      style: TextStyle(fontSize: 32,),
+                      keyboardType: TextInputType.number,
+                      onChanged: (text) {
+                        print("First text field taka: $text");
+                        setState(() {
+                          rialValue = (conversion * int.parse(text)) as int;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
             Divider(),
-            Row(
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Image.asset("assets/images/SaudiarabiaFlag.png"),
-                    Text("রিয়াল"),
-                  ],
-                ),
-                TextField(
-                  maxLines: 3,
-                  keyboardType: TextInputType.number,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Image.asset("assets/images/SaudiarabiaFlag.png", width: 48, height: 48,),
+                      Text("রিয়াল"),
+                    ],
+                  ),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration.collapsed(hintText: rialValue.toString()),
+                      maxLines: 1,
+                      textAlign: TextAlign.right,
+                      style: TextStyle(fontSize: 32),
+                      keyboardType: TextInputType.number,
+                      onChanged: (text) {
+                        print("First text field: $text");
+                        setState(() {
+                          takaValue = (int.parse(text)/conversion) as int;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),
