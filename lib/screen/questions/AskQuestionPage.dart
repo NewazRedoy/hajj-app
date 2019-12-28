@@ -1,5 +1,4 @@
-import 'package:first_app/widgets/PreparationWidget.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class AskQuestionPage extends StatefulWidget {

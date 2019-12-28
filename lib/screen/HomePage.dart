@@ -1,7 +1,7 @@
-import 'package:first_app/screen/AppDrawerPage.dart';
-import 'package:first_app/screen/TopicGridPage.dart';
-import 'package:first_app/screen/dua/DuaTopicPage.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/screen/AppDrawerPage.dart';
+import 'package:hajjapp/screen/TopicGridPage.dart';
+import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {

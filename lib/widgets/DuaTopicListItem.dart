@@ -1,5 +1,5 @@
-import 'package:first_app/model/AllDuaCategory.dart';
-import 'package:first_app/screen/dua/DuaDetailPage.dart';
+import 'package:hajjapp/model/AllDuaCategory.dart';
+import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
 import 'package:flutter/material.dart';
 
 class DuaTopicListItem extends StatelessWidget {

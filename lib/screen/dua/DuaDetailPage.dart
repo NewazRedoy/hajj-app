@@ -1,7 +1,7 @@
-import 'package:first_app/model/DuaDetail.dart';
-import 'package:first_app/model/AllDuaCategory.dart';
-import 'package:first_app/util/Constants.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/model/DuaDetail.dart';
+import 'package:hajjapp/model/AllDuaCategory.dart';
+import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class DuaDetailPage extends StatefulWidget {

@@ -1,8 +1,8 @@
-import 'package:first_app/model/QuestionsCategory.dart';
-import 'package:first_app/screen/questions/ElectedQuestionSubTopicPage.dart';
-import 'package:first_app/util/Constants.dart';
-import 'package:first_app/widgets/ListPageItem.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/model/QuestionsCategory.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionSubTopicPage.dart';
+import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/widgets/ListPageItem.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class ElectedQuestionPage extends StatefulWidget {

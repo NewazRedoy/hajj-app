@@ -1,7 +1,7 @@
-import 'package:first_app/model/MyDua.dart';
-import 'package:first_app/provider/CurrentUserModel.dart';
-import 'package:first_app/screen/dua/MyDuaSavingPage.dart';
-import 'package:first_app/util/Constants.dart';
+import 'package:hajjapp/model/MyDua.dart';
+import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/screen/dua/MyDuaSavingPage.dart';
+import 'package:hajjapp/util/Constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

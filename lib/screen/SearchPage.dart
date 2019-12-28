@@ -1,4 +1,4 @@
-import 'package:first_app/screen/SearchDetailPage.dart';
+import 'package:hajjapp/screen/SearchDetailPage.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:first_app/model/ArabicSentences.dart';
+import 'package:hajjapp/model/ArabicSentences.dart';
 import 'package:flutter/material.dart';
 
 class ArabicSentenceListItem extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:first_app/model/user.dart';
+import 'package:hajjapp/model/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;

@@ -1,9 +1,9 @@
-import 'package:first_app/model/ArabicSentencesCategory.dart';
-import 'package:first_app/screen/hajjassistant/ArabicSentencesDetailPage.dart';
-import 'package:first_app/util/Constants.dart';
-import 'package:first_app/model/Subtopic.dart';
-import 'package:first_app/widgets/ListPageItem.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/model/ArabicSentencesCategory.dart';
+import 'package:hajjapp/screen/hajjassistant/ArabicSentencesDetailPage.dart';
+import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/widgets/ListPageItem.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class ArabicSentencesTopicPage extends StatefulWidget {

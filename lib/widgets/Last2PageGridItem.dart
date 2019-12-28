@@ -1,8 +1,8 @@
-import 'package:first_app/model/Subtopic.dart';
-import 'package:first_app/screen/hajjassistant/ArabicSentencesTopicPage.dart';
-import 'package:first_app/screen/hajjassistant/RiyalTakaConverterPage.dart';
-import 'package:first_app/screen/hajjassistant/SieCountPage.dart';
-import 'package:first_app/screen/hajjassistant/TawafCountPage.dart';
+import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
+import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
+import 'package:hajjapp/screen/hajjassistant/SieCountPage.dart';
+import 'package:hajjapp/screen/hajjassistant/TawafCountPage.dart';
 import 'package:flutter/material.dart';
 
 class Last2PageGridItem extends StatelessWidget {

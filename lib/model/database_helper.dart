@@ -16,7 +16,7 @@ class DatabaseHelper {
   // database table and column names
   static final String HADITH_ID_GLOBAL = "_id";
   static final String HADITH_COLLECTION_ID = "topic_id";
-  static final String HADITH_BOOK_ID = "subtopic_id";
+  static final String HADITH_SUBTOPIC_ID = "subtopic_id";
   static final String HADITH_CHAPTER_ID = "ChapID";
   static final String HADITH_ID = "content_id";
   static final String LANGUAGE = "_en";
@@ -32,13 +32,13 @@ class DatabaseHelper {
   static final String HADITH_BODY_ARABIC = "text_ar" + DIACLESS;
 
   static final String HADITH_NARRATOR_ARABICEND = "narrator_arend" + DIACLESS;
-  static final String BOOK_NAME = "name_en";
-  static final String BOOK_TABLE = "Subtopic";
+  static final String SUBTOPIC_NAME = "name_en";
+  static final String SUBTOPIC_TABLE = "Subtopic";
   static final String CHAPNAME = "name_en";
   static final String columns = " rowid AS _id," +
       HADITH_COLLECTION_ID +
       "," +
-      HADITH_BOOK_ID +
+      HADITH_SUBTOPIC_ID +
       "," +
       HADITH_CHAPTER_ID +
       "," +
@@ -110,12 +110,6 @@ class DatabaseHelper {
     return await openDatabase(path, readOnly: true);
   }
 
-  Future<List<Map>> querySubtopicsByTopicId(int id) async {
-    Database db = await database;
-    List<Map> maps =
-        await db.rawQuery("select * from Subtopic where topic_id=$id");
-    return maps;
-  }
 
   Future<List<Map>> queryHadithsByQuery(String query) async {
     Database db = await database;
@@ -127,26 +121,27 @@ class DatabaseHelper {
   }
 
 //  Future<List<Map>> queryHadithsBySubtopicId(
-//      int topicID, String bookID) async {
+//      int topicID, String subtopicID) async {
 //    Database db = await database;
 //    List<Map> maps = await db.rawQuery(
-//        "select * from content where content match 'topic_id: $topicID subtopic_id:$bookID'");
+//        "select * from content where content match 'topic_id: $topicID subtopic_id:$subtopicID'");
 //
-//    print("select * from content where topic_id=$topicID and subtopic_id = $bookID");
+//    print("select * from content where topic_id=$topicID and subtopic_id = $subtopicID");
 //    return maps;
 //  }
 
-  Future<List<Map>> queryHadithsBySubtopicId(int topicID, int bookID) async {
+  Future<List<Map>> queryHadithsBySubtopicId(int topicID, int subtopicID) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery(
-        "select * from content where topic_id= $topicID and subtopic_id=$bookID");
+        "select * from content where topic_id= $topicID and subtopic_id=$subtopicID");
 
     print(
-        "select * from content where topic_id=$topicID and subtopic_id = $bookID");
+        "select * from content where topic_id=$topicID and subtopic_id = $subtopicID size:${maps.length}");
+
     return maps;
   }
 
-  Future<List<Map>> queryBooksByTopicId(int id) async {
+  Future<List<Map>> querySubtopicsByTopicId(int id) async {
     Database db = await database;
     List<Map> maps =
         await db.rawQuery("select * from Subtopic where topic_id=$id");

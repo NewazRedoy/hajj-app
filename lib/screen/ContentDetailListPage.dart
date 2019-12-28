@@ -1,43 +1,46 @@
-import 'package:first_app/model/Content.dart';
-import 'package:first_app/model/Subtopic.dart';
-import 'package:first_app/model/database_helper.dart';
-import 'package:first_app/widgets/ContentListItem.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/model/Content.dart';
+import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/database_helper.dart';
+import 'package:hajjapp/widgets/ContentListItem.dart';
+import 'package:hajjapp/widgets/PreparationListItem.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class ContentDetailListPage extends StatelessWidget {
-  Subtopic book;
+  Subtopic subtopic;
 
-  ContentDetailListPage(this.book);
+  ContentDetailListPage(this.subtopic);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text(
-          book.name_en,
+          title: Text(
+            subtopic.name_en,
+          ),
+          actions: <Widget>[
+            SearchSettings(),
+          ],
         ),
-          actions: <Widget>[SearchSettings(),],
-        ),
-        body: SampleAppPage(book));
+        body: SampleAppPage(subtopic));
   }
 }
 
 class SampleAppPage extends StatefulWidget {
-  SampleAppPage(this.book);
+  SampleAppPage(this.subtopic);
 
-  Subtopic book;
+  Subtopic subtopic;
 
   @override
-  _SampleAppPageState createState() => _SampleAppPageState(book);
+  _SampleAppPageState createState() => _SampleAppPageState(subtopic);
 }
 
 class _SampleAppPageState extends State<SampleAppPage> {
   List data = [];
   var loading = true;
-  Subtopic book;
+  Subtopic subtopic;
 
-  _SampleAppPageState(this.book);
+  _SampleAppPageState(this.subtopic);
 
   @override
   void initState() {
@@ -60,17 +63,27 @@ class _SampleAppPageState extends State<SampleAppPage> {
 //                }
 //              });
             },
-            child: ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (BuildContext context, int position) {
-                  return ContentListItem(
-                      book: book, content: Content.fromMap(data[position]));
-                }));
+            child: subtopic.topic_id == 4 && subtopic.subtopic_id==1
+                ? ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (BuildContext context, int position) {
+                      return PreparationListItem(
+                          subtopic: subtopic,
+                          content: Content.fromMap(data[position]));
+                    })
+
+                : ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (BuildContext context, int position) {
+                      return ContentListItem(
+                          subtopic: subtopic,
+                          content: Content.fromMap(data[position]));
+                    }));
   }
 
   loadData() async {
     var content = await DatabaseHelper.instance
-        .queryHadithsBySubtopicId(book.topic_id, book.subtopic_id);
+        .queryHadithsBySubtopicId(subtopic.topic_id, subtopic.subtopic_id);
 
     setState(() {
       data = content;

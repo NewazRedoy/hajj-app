@@ -1,6 +1,6 @@
-import 'package:first_app/widgets/Search&Settings.dart';
-import 'package:first_app/model/Subtopic.dart';
-import 'package:first_app/widgets/TawafWidget.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
+import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/widgets/TawafWidget.dart';
 import 'package:flutter/material.dart';
 
 class TawafCountPage extends StatefulWidget {

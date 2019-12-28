@@ -1,4 +1,4 @@
-package com.example.first_app
+package com.taibah.hajjapp
 
 import android.os.Bundle
 

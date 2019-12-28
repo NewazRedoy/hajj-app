@@ -1,8 +1,8 @@
-import 'package:first_app/provider/CurrentUserModel.dart';
-import 'package:first_app/screen/LoginPage.dart';
-import 'package:first_app/screen/questions/ElectedQuestionPage.dart';
-import 'package:first_app/screen/questions/AskQuestionPage.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/screen/LoginPage.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
+import 'package:hajjapp/screen/questions/AskQuestionPage.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

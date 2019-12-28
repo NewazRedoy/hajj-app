@@ -1,5 +1,5 @@
-import 'package:first_app/util/Constants.dart';
-import 'package:first_app/widgets/TopicGridItem.dart';
+import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/widgets/TopicGridItem.dart';
 import 'package:flutter/material.dart';
 
 class TopicGridPage extends StatefulWidget {

@@ -1,14 +1,14 @@
-import 'package:first_app/model/Content.dart';
-import 'package:first_app/model/Subtopic.dart';
+import 'package:hajjapp/model/Content.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:flutter/material.dart';
 
-class PreparationWidget extends StatelessWidget {
+class PreparationListItem extends StatelessWidget {
   Content content;
-  Subtopic book;
+  Subtopic subtopic;
 
-  PreparationWidget({
+  PreparationListItem({
     this.content,
-    this.book,
+    this.subtopic,
   });
 
   @override
@@ -33,7 +33,7 @@ class PreparationWidget extends StatelessWidget {
                 children: [
                   Container(
                     decoration:
-                    BoxDecoration(color: Theme.of(context).accentColor),
+                        BoxDecoration(color: Theme.of(context).accentColor),
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       content.content_id.toString(),
@@ -45,7 +45,7 @@ class PreparationWidget extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      book.name_en,
+                      subtopic.name_en,
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
@@ -58,9 +58,9 @@ class PreparationWidget extends StatelessWidget {
                   ),
                   Container(
                     decoration:
-                    BoxDecoration(color: Theme.of(context).accentColor),
+                        BoxDecoration(color: Theme.of(context).accentColor),
                     padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                        const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                     child: Text(
                       "",
                       style: TextStyle(fontSize: 20),
@@ -70,11 +70,15 @@ class PreparationWidget extends StatelessWidget {
               ),
               Container(
                   child: Divider(
-                    color: Colors.grey,
-                    height: 1,
-                  )),
+                color: Colors.grey,
+                height: 1,
+              )),
               SizedBox(height: 6),
-              Image.asset("assets/images/UmrahPreparation.png",width: 150.0, height: 150.0,),
+              Image.asset(
+                "assets/images/UmrahPreparation.png",
+                width: MediaQuery.of(context).size.width,
+
+              ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(

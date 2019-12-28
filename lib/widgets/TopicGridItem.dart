@@ -1,7 +1,7 @@
-import 'package:first_app/model/Topic.dart';
-import 'package:first_app/screen/SubTopicListPage.dart';
-import 'package:first_app/screen/hajjassistant/HajjUmrahAssistantPage.dart';
-import 'package:first_app/screen/questions/QuestionAnswerPage.dart';
+import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/screen/SubTopicListPage.dart';
+import 'package:hajjapp/screen/hajjassistant/HajjUmrahAssistantPage.dart';
+import 'package:hajjapp/screen/questions/QuestionAnswerPage.dart';
 import 'package:flutter/material.dart';
 
 class TopicGridItem extends StatelessWidget {

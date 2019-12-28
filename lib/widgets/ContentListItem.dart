@@ -1,14 +1,14 @@
-import 'package:first_app/model/Content.dart';
-import 'package:first_app/model/Subtopic.dart';
+import 'package:hajjapp/model/Content.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:flutter/material.dart';
 
 class ContentListItem extends StatelessWidget {
   Content content;
-  Subtopic book;
+  Subtopic subtopic;
 
   ContentListItem({
     this.content,
-    this.book,
+    this.subtopic,
   });
 
   @override
@@ -45,7 +45,7 @@ class ContentListItem extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      book.name_en,
+                      subtopic.name_en,
                       style: TextStyle(fontSize: 20),
                     ),
                   ),

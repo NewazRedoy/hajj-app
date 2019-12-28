@@ -1,6 +1,6 @@
-import 'package:first_app/widgets/Search&Settings.dart';
-import 'package:first_app/widgets/SieWidget.dart';
-import 'package:first_app/model/Subtopic.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
+import 'package:hajjapp/widgets/SieWidget.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:flutter/material.dart';
 
 class SaiCount extends StatefulWidget {

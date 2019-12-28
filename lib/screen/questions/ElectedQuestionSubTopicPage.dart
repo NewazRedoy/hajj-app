@@ -1,7 +1,7 @@
-import 'package:first_app/model/QuestionsCategory.dart';
-import 'package:first_app/util/Constants.dart';
-import 'package:first_app/widgets/ElectedQuestionSubTopicItem.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/model/QuestionsCategory.dart';
+import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/widgets/ElectedQuestionSubTopicItem.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class ElectedQuestionSubtopicPage extends StatelessWidget {

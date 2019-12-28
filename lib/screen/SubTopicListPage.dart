@@ -1,9 +1,9 @@
-import 'package:first_app/model/Subtopic.dart';
-import 'package:first_app/model/Topic.dart';
-import 'package:first_app/model/database_helper.dart';
-import 'package:first_app/screen/ContentDetailListPage.dart';
-import 'package:first_app/widgets/ListPageItem.dart';
-import 'package:first_app/widgets/Search&Settings.dart';
+import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/model/database_helper.dart';
+import 'package:hajjapp/screen/ContentDetailListPage.dart';
+import 'package:hajjapp/widgets/ListPageItem.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:flutter/material.dart';
 
 class SubtopicListPage extends StatelessWidget {
@@ -79,11 +79,11 @@ class _SampleAppPageState extends State<SampleAppPage> {
   }
 
   loadData() async {
-    var books =
-        await DatabaseHelper.instance.queryBooksByTopicId(topic.topic_id);
+    var subtopics =
+        await DatabaseHelper.instance.querySubtopicsByTopicId(topic.topic_id);
 
     setState(() {
-      data = books;
+      data = subtopics;
       loading = false;
     });
   }

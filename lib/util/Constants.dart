@@ -1,12 +1,12 @@
-import 'package:first_app/model/ArabicSentences.dart';
-import 'package:first_app/model/ArabicSentencesCategory.dart';
-import 'package:first_app/model/DuaDetail.dart';
-import 'package:first_app/model/AllDuaCategory.dart';
-import 'package:first_app/model/DuaTopic.dart';
-import 'package:first_app/model/MyDua.dart';
-import 'package:first_app/model/QuestionDetail.dart';
-import 'package:first_app/model/QuestionsCategory.dart';
-import 'package:first_app/model/Topic.dart';
+import 'package:hajjapp/model/ArabicSentences.dart';
+import 'package:hajjapp/model/ArabicSentencesCategory.dart';
+import 'package:hajjapp/model/DuaDetail.dart';
+import 'package:hajjapp/model/AllDuaCategory.dart';
+import 'package:hajjapp/model/DuaTopic.dart';
+import 'package:hajjapp/model/MyDua.dart';
+import 'package:hajjapp/model/QuestionDetail.dart';
+import 'package:hajjapp/model/QuestionsCategory.dart';
+import 'package:hajjapp/model/Topic.dart';
 
 class Constants {
   static const String ROUTE_PRODUCT_DETAIL = "/productDetail";
@@ -17,9 +17,9 @@ class Constants {
 
   static const String ROUTE_SINGUP = "/productDetail";
 
-  static var ROUTE_HADITH_LIST = "/booklist";
+  static var ROUTE_HADITH_LIST = "/subtopiclist";
 
-  static var ROUTE_BOOK_LIST = "/hadithlist";
+  static var ROUTE_SUBTOPIC_LIST = "/hadithlist";
 
   static List topics = [
     Topic(topic_id: 1, name: 'হজ্জ-উমরাহ পরিচিতি', color: '#e65c60'),

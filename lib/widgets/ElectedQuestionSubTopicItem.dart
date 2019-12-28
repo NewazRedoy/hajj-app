@@ -1,4 +1,4 @@
-import 'package:first_app/model/QuestionDetail.dart';
+import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:flutter/material.dart';
 
 class ElectedQuestionSubTopicListItem extends StatelessWidget {
