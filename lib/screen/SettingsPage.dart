@@ -13,7 +13,7 @@ class _SettingsState extends State<Settings> {
         title: Text("সেটিংস"),
       ),
       body: Container(
-        child: Center(child: Text("টেক্রট সাইজ")),
+        child: Center(child: Text("টেক্রট সাইজ bk")),
       ),
     );
   }
