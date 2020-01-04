@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/model/database_helper.dart';
 import 'package:hajjapp/widgets/Last2PageGridItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class HajjAssistantPage extends StatelessWidget {
   final Topic topic;
@@ -17,7 +17,9 @@ class HajjAssistantPage extends StatelessWidget {
           title: Text(
             topic.name,
           ),
-          actions: <Widget>[SearchSettings(),],
+          actions: <Widget>[
+            SearchSettings(),
+          ],
         ),
         body: SampleAppPage(topic));
   }

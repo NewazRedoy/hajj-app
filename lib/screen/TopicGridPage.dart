@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/TopicGridItem.dart';
-import 'package:flutter/material.dart';
 
 class TopicGridPage extends StatefulWidget {
   @override

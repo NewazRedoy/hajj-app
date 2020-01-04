@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/DuaTopic.dart';
 import 'package:hajjapp/screen/dua/AllDuaPage.dart';
 import 'package:hajjapp/screen/dua/FavouriteDuaPage.dart';
 import 'package:hajjapp/screen/dua/MyDuaPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
-import 'package:flutter/material.dart';
 
 class DuaTopicPage extends StatefulWidget {
   @override

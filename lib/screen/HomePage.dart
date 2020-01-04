@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/screen/AppDrawerPage.dart';
 import 'package:hajjapp/screen/TopicGridPage.dart';
 import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -30,9 +30,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       drawer: DrawerPage(),
       appBar: AppBar(
         title: Text("Hajj App"),
-        actions: <Widget>[
-          SearchSettings()
-        ],
+        actions: <Widget>[SearchSettings()],
         bottom: TabBar(
           controller: controller,
           indicatorWeight: 3.0,

@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/database_helper.dart';
 import 'package:hajjapp/widgets/ContentListItem.dart';
 import 'package:hajjapp/widgets/PreparationListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class ContentDetailListPage extends StatelessWidget {
   Subtopic subtopic;
@@ -63,7 +63,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 //                }
 //              });
             },
-            child: subtopic.topic_id == 4 && subtopic.subtopic_id==1
+            child: subtopic.topic_id == 4 && subtopic.subtopic_id == 1
                 ? ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
@@ -71,7 +71,6 @@ class _SampleAppPageState extends State<SampleAppPage> {
                           subtopic: subtopic,
                           content: Content.fromMap(data[position]));
                     })
-
                 : ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {

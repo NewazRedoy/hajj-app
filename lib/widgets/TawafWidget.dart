@@ -22,7 +22,7 @@ class TawafWidget extends CustomPainter {
       ..strokeCap = StrokeCap.round;
 
     Offset center = Offset(size.width / 2, size.height / 2);
-    double radius = min(size.width / 2, size.height / 2) - 10;
+    double radius = min(size.width / 3, size.height / 3) - 10;
 
     canvas.drawCircle(
         center, radius, outerCircle); // this draws main outer circle
@@ -31,6 +31,20 @@ class TawafWidget extends CustomPainter {
 
     canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
         angle, false, completeArc);
+
+    // Create a rectangle with size and width same as the canvas
+    var rect = Rect.fromCenter(center: center, width: radius,height: radius);
+    canvas.drawRect(rect, outerCircle);
+
+  
+
+    var path = Path()..moveTo(center.dx, center.dy)..lineTo(size.width, size.height);
+    canvas.drawPath(path, outerCircle);
+
+    var path2 = Path()..moveTo(center.dx, center.dy)..lineTo(0, size.height);
+    canvas.drawPath(path2, outerCircle);
+
+
   }
 
   @override

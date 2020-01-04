@@ -1,14 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/screen/hajjassistant/ArabicSentencesDetailPage.dart';
 import 'package:hajjapp/util/Constants.dart';
-import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class ArabicSentencesTopicPage extends StatefulWidget {
   final Subtopic subtopic;
+
   ArabicSentencesTopicPage(this.subtopic);
+
   @override
   _ArabicSentencesTopicPageState createState() =>
       _ArabicSentencesTopicPageState();
@@ -38,7 +40,9 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.subtopic.name_en),
-          actions: <Widget>[SearchSettings(),],
+          actions: <Widget>[
+            SearchSettings(),
+          ],
         ),
         body: loading
             ? _buildCircularProgressIndicator()
@@ -65,4 +69,3 @@ _buildCircularProgressIndicator() {
     child: CircularProgressIndicator(),
   );
 }
-

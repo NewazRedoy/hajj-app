@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/model/database_helper.dart';
 import 'package:hajjapp/screen/ContentDetailListPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class SubtopicListPage extends StatelessWidget {
   final Topic topic;

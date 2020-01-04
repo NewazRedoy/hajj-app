@@ -1,7 +1,7 @@
-import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:hajjapp/util/Constants.dart';
-import 'package:hajjapp/model/ArabicSentencesCategory.dart';
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/ArabicSentencesCategory.dart';
+import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class SearchDetailPage extends StatefulWidget {
   @override
@@ -9,7 +9,6 @@ class SearchDetailPage extends StatefulWidget {
 }
 
 class _SearchDetailPageState extends State<SearchDetailPage> {
-
   List data = [];
   var loading = true;
 
@@ -31,44 +30,41 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("অনুসন্ধান"),
-          actions: <Widget>[SearchSettings()],
-        ),
-        body: loading
-        ? _buildCircularProgressIndicator()
-          :ListView.builder(
-            itemCount: data.length,
-
-            itemBuilder: (context, index){
-              SentencesCategory sentencesCategory = data[index];
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.only(left:16.0,right: 16.0,top:30.0,bottom:30.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                 children: <Widget>[
-                     Text(
-                       sentencesCategory.sentencetopic,
-                       style:TextStyle(
-                           fontSize: 22.0,
-                           fontWeight: FontWeight.bold
-                       ),
-                     ),
-                     Text(
-                     sentencesCategory.sentencetopic,
-                       style: TextStyle(
-                           color: Colors.grey.shade600
-                       ),
-                     )
-                 ],
-              ),
-            ),
-          );}
-        ),
-      );
+      appBar: AppBar(
+        title: Text("অনুসন্ধান"),
+        actions: <Widget>[SearchSettings()],
+      ),
+      body: loading
+          ? _buildCircularProgressIndicator()
+          : ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                SentencesCategory sentencesCategory = data[index];
+                return Card(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 16.0, right: 16.0, top: 30.0, bottom: 30.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          sentencesCategory.sentencetopic,
+                          style: TextStyle(
+                              fontSize: 22.0, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          sentencesCategory.sentencetopic,
+                          style: TextStyle(color: Colors.grey.shade600),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              }),
+    );
   }
 }
+
 _buildCircularProgressIndicator() {
   return Center(
     child: CircularProgressIndicator(),

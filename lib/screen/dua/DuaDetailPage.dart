@@ -1,8 +1,8 @@
-import 'package:hajjapp/model/DuaDetail.dart';
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/AllDuaCategory.dart';
+import 'package:hajjapp/model/DuaDetail.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class DuaDetailPage extends StatefulWidget {
   final AllDuaCategory allDuaCategory;
@@ -46,10 +46,11 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
         title: Text(
           allDuaCategory.allDuatopic,
         ),
-        actions: <Widget>[SearchSettings(),],
+        actions: <Widget>[
+          SearchSettings(),
+        ],
       ),
-      body:
-      ListView.builder(
+      body: ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
           return DuaDetailItem(data[index]);

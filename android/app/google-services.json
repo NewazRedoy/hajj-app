@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "64342131456",
+    "firebase_url": "https://taibah-hajj-app.firebaseio.com",
+    "project_id": "taibah-hajj-app",
+    "storage_bucket": "taibah-hajj-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64342131456:android:bdd56d73aa9551f105a9e5",
+        "android_client_info": {
+          "package_name": "com.taibah.hajjapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64342131456-1s7gdkeqk350iq75m4q92utr91kurh7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbIBAqySrSpOne6gZSPhvZ8YjxNyPoYmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64342131456-1s7gdkeqk350iq75m4q92utr91kurh7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
