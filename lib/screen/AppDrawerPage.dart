@@ -1,5 +1,5 @@
-import 'package:hajjapp/provider/CurrentUserModel.dart';
 import 'package:flutter/material.dart';
+import 'package:hajjapp/provider/CurrentUserModel.dart';
 import 'package:provider/provider.dart';
 
 class DrawerPage extends StatefulWidget {

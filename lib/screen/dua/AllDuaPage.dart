@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/DuaTopicListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class AllDuaPage extends StatefulWidget {
   @override
@@ -30,8 +30,11 @@ class _AllDuaPageState extends State<AllDuaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("সব দু'আ"),
-          actions: <Widget>[SearchSettings(),],
+      appBar: AppBar(
+        title: Text("সব দু'আ"),
+        actions: <Widget>[
+          SearchSettings(),
+        ],
       ),
       body: loading
           ? _buildCircularProgressIndicator()

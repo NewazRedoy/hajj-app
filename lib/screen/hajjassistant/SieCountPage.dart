@@ -1,11 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SieWidget.dart';
-import 'package:hajjapp/model/Subtopic.dart';
-import 'package:flutter/material.dart';
 
 class SaiCount extends StatefulWidget {
   final Subtopic subtopic;
+
   SaiCount(this.subtopic);
+
   @override
   _SaiCountState createState() => _SaiCountState();
 }
@@ -19,7 +21,9 @@ class _SaiCountState extends State<SaiCount> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.subtopic.name_en),
-        actions: <Widget>[SearchSettings(),],
+        actions: <Widget>[
+          SearchSettings(),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -38,12 +42,14 @@ class _SaiCountState extends State<SaiCount> {
                 child: Text("মারওয়া")),
             Row(children: <Widget>[
               Text("$count/7"),
-              Container(
-                  height: 400,
-                  width: 200,
-                  child: CustomPaint(
-                    foregroundPainter: SieWidget(count / 7),
-                  )),
+              Expanded(
+                child: Container(
+                    height: 400,
+                    width: 200,
+                    child: CustomPaint(
+                      foregroundPainter: SieWidget(count / 7),
+                    )),
+              ),
             ]),
             RaisedButton(
                 onPressed: () {
@@ -61,24 +67,19 @@ class _SaiCountState extends State<SaiCount> {
                     shape: StadiumBorder(),
                     onPressed: () {},
                     child: Text("দু'আ তালিকা")),
-                RaisedButton(
+                RaisedButton.icon(
                   color: Colors.red,
                   shape: StadiumBorder(),
                   onPressed: () {},
-                  child: Row(
-                    children: <Widget>[
-                      CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.arrow_upward,
-                            color: Colors.red,
-                          )),
-                      SizedBox(width: 5.0),
-                      Text(
-                        "শুরু করুন",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
+                  icon: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.arrow_upward,
+                        color: Colors.red,
+                      )),
+                  label: Text(
+                    "শুরু করুন",
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ],

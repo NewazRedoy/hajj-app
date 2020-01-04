@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ArabicSentenceListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class ArabicSentencesDetailPage extends StatefulWidget {
   final SentencesCategory sentences;
@@ -47,7 +47,9 @@ class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
         title: Text(
           sentences.sentencetopic,
         ),
-        actions: <Widget>[SearchSettings(),],
+        actions: <Widget>[
+          SearchSettings(),
+        ],
       ),
       body: ListView.builder(
         itemCount: data.length,

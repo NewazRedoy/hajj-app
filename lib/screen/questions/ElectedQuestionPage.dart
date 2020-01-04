@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionSubTopicPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class ElectedQuestionPage extends StatefulWidget {
   @override
@@ -34,7 +34,9 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("নির্বাচিত প্রশ্নোত্তর"),
-        actions: <Widget>[SearchSettings(),],
+        actions: <Widget>[
+          SearchSettings(),
+        ],
       ),
       body: loading
           ? _buildCircularProgressIndicator()

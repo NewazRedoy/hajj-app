@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/CurrentUserModel.dart';
 import 'package:hajjapp/screen/LoginPage.dart';
-import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
 import 'package:hajjapp/screen/questions/AskQuestionPage.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class QuestionAnswerPage extends StatefulWidget {
@@ -17,7 +17,9 @@ class _QuestionAnswerPageState extends State<QuestionAnswerPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("প্রশ্নসমূহ"),
-        actions: <Widget>[SearchSettings(),],
+        actions: <Widget>[
+          SearchSettings(),
+        ],
       ),
       body: Center(
         child: Container(
@@ -45,42 +47,41 @@ class Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        elevation: 7.0,
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                if (option < 2) {
+                  return ElectedQuestionPage();
+                } else {
+                  var user = Provider.of<CurrentUserModel>(context).user;
+                  if (user == null) {
+                    return LoginPage();
+                  } else
+                    return AskQuestionPage();
+                }
+              }),
+            );
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(icon),
+              SizedBox(
+                height: 16,
+              ),
+              Text(title),
+            ],
           ),
-          elevation: 7.0,
-          child: InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) {
-                  if (option < 2) {
-                    return ElectedQuestionPage();
-                  } else {
-                    var user = Provider.of<CurrentUserModel>(context).user;
-                    if (user == null) {
-                      return LoginPage();
-                    } else
-                      return AskQuestionPage();
-                  }
-                }),
-              );
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(icon),
-                SizedBox(
-                  height: 16,
-                ),
-                Text(title),
-              ],
-            ),
-          ),
-
+        ),
       ),
     );
   }

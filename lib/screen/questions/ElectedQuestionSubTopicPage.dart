@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ElectedQuestionSubTopicItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:flutter/material.dart';
 
 class ElectedQuestionSubtopicPage extends StatelessWidget {
   QuestionCategory questionCategory;
@@ -27,7 +27,9 @@ class ElectedQuestionSubtopicPage extends StatelessWidget {
           title: Text(
             questionCategory.questiontopic,
           ),
-          actions: <Widget>[SearchSettings(),],
+          actions: <Widget>[
+            SearchSettings(),
+          ],
         ),
         body: SampleAppPage(questionCategory));
   }

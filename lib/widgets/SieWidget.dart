@@ -1,11 +1,12 @@
+import 'dart:async';
 import 'dart:math';
-
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 class SieWidget extends CustomPainter {
-  double currentProgress;
+  double count;
 
-  SieWidget(this.currentProgress);
+  SieWidget(this.count);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -18,19 +19,35 @@ class SieWidget extends CustomPainter {
     Paint completeArc = Paint()
       ..strokeWidth = 10
       ..color = Colors.redAccent
-      ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
     Offset center = Offset(size.width / 2, size.height / 2);
     double radius = min(size.width / 2, size.height / 2) - 10;
 
-    canvas.drawCircle(
-        center, radius, outerCircle); // this draws main outer circle
+    var rect2 = Rect.fromCenter(center: center, width: radius, height: radius);
+    canvas.drawRect(rect2, completeArc);
 
-    double angle = 2 * pi * (currentProgress / 100);
+    // Create a rectangle with size and width same as the canvas
+    var rect = Rect.fromCenter(center: center, width: radius,height: size.height);
+    canvas.drawRect(rect, outerCircle);
 
-    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
-        angle, false, completeArc);
+    // Create a rectangle with size and width same as the canvas
+//  if(count%2==0) {
+//    _getImage().then((onValue)=>{
+//      canvas.drawImage(onValue, center, outerCircle)
+//    });
+//  }else {
+//canvas.
+//  }
+
+  }
+
+  Future<ui.Image> _getImage() {
+    Completer<ui.Image> completer = new Completer<ui.Image>();
+    new AssetImage('assets/images/BangladeshFlag.png')
+        .resolve(new ImageConfiguration())
+        .addListener(ImageStreamListener((ImageInfo info, bool _) => completer.complete(info.image)));
+    return completer.future;
   }
 
   @override
