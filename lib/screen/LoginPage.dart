@@ -125,21 +125,13 @@ class _LoginPageState extends State<LoginPage> {
 //                              "sales@ultracoralaustralia.com";
 //                          pwdInputController.text = "Nexus20!9";
 
-//                            Flushbar(
-//                              message: "Logging in",
-//                              duration: Duration(seconds: 3),
-//                            )..show(context);
-                            model.loginUsingUsernamePassword(
-                                context,
-                                "",
+                            model.loginUsingUsernamePassword(context,
                                 emailInputController.text,
                                 pwdInputController.text);
 
 //                            model.loginUsingUsernamePassword(
 //                                context, "", "netmow", "Nexus20!9**");
 
-//                            model.sendEmailLink(
-//                                context, emailInputController.text);
                           }
                         },
                       ),
