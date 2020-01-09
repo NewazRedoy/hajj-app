@@ -36,7 +36,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         onTap: (value) {
           _currentIndex=value;
           setState(() {
-
           });
         },
         items: [
