@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/screen/AppDrawerPage.dart';
 import 'package:hajjapp/screen/TopicGridPage.dart';
 import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
+import 'package:hajjapp/screen/questions/AskQuestionPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class Home extends StatefulWidget {
@@ -15,6 +16,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   switch (currentIndex){
     case 0: return TopicGridPage();
     case 1: return DuaTopicPage();
+    case 2: return AskQuestionPage();
+
+    default:return TopicGridPage();
   }
  }
 
