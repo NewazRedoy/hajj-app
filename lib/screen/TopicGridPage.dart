@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/screen/hajjassistant/HajjUmrahAssistantPage.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionSubTopicPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/TopicGridItem.dart';
@@ -46,7 +48,16 @@ class _TopicGridPageState extends State<TopicGridPage> {
             itemCount: data.length,
             itemBuilder: (context, index) {
               Topic topic= data[index];
-              return ListPageItem((index + 1), topic.name, () {},
+              return ListPageItem((index + 1), topic.name, () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          HajjAssistantPage(
+                            topic: topic,
+                          ),
+                    ));
+              },
               );},
           )
         ],
