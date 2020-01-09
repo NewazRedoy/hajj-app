@@ -10,19 +10,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  TabController controller;
-
-  @override
-  void initState() {
-    controller = TabController(length: 2, vsync: this);
-    super.initState();
+ int _currentIndex=0;
+ Widget callPages(int currentIndex){
+  switch (currentIndex){
+    case 0: return TopicGridPage();
+    case 1: return DuaTopicPage();
   }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -31,24 +25,29 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       appBar: AppBar(
         title: Text("Hajj App"),
         actions: <Widget>[SearchSettings()],
-        bottom: TabBar(
-          controller: controller,
-          indicatorWeight: 3.0,
-          tabs: <Widget>[
-            Tab(
-              icon: Icon(Icons.home),
-            ),
-            Tab(
-              icon: Icon(Icons.question_answer),
-            ),
-          ],
-        ),
       ),
-      body: TabBarView(
-        controller: controller,
-        children: <Widget>[
-          TopicGridPage(),
-          DuaTopicPage(),
+      body: callPages(_currentIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (value) {
+          _currentIndex=value;
+          setState(() {
+
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text("home"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            title: Text("DuaTopic"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.question_answer),
+            title: Text("AskQuestion"),
+          ),
         ],
       ),
     );
