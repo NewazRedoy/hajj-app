@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/screen/SubTopicListPage.dart';
+import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
 import 'package:hajjapp/screen/hajjassistant/HajjUmrahAssistantPage.dart';
-import 'package:hajjapp/screen/questions/ElectedQuestionSubTopicPage.dart';
+import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
+import 'package:hajjapp/screen/hajjassistant/SieCountPage.dart';
+import 'package:hajjapp/screen/hajjassistant/TawafCountPage.dart';
+import 'package:hajjapp/screen/questions/QuestionAnswerPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
-import 'package:hajjapp/widgets/TopicGridItem.dart';
 
 class TopicGridPage extends StatefulWidget {
   @override
@@ -34,29 +38,49 @@ class _TopicGridPageState extends State<TopicGridPage> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          GridView.count(
-            crossAxisCount: 2,
-            children: List.generate(
-              2,
-              (index) {
-                return TopicGridItem(
-                    context: context, topic: Constants.topics[index], index: index);
-              },
-            ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(),
+              Container(),
+            ],
           ),
           ListView.builder(
             itemCount: data.length,
             itemBuilder: (context, index) {
               Topic topic= data[index];
               return ListPageItem((index + 1), topic.name, () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          HajjAssistantPage(
-                            topic: topic,
-                          ),
-                    ));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  if (topic.topic_id < 7) {
+                    return SubtopicListPage(topic: topic);
+                  } else if (topic.topic_id == 8) {
+                    return HajjAssistantPage(
+                      topic: topic,
+                    );
+                  }
+                  else if (topic.topic_id == 9) {
+                    return TawafCountPage(
+
+                    );
+                  }
+                  else if (topic.topic_id == 10) {
+                    return SaiCount(
+
+                    );
+                  }
+                  else if (topic.topic_id == 11) {
+                    return RiyalConverter(
+
+                    );
+                  }
+                  else if (topic.topic_id ==12) {
+                    return ArabicSentencesTopicPage(
+                      topic: topic,
+                    );
+                  }
+                  else {
+                    return QuestionAnswerPage();
+                  }
+                }));
               },
               );},
           )

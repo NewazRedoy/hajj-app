@@ -30,6 +30,10 @@ class Constants {
     Topic(topic_id: 6, name: 'ঐতিহাসিক স্থানসমূহ', color: '#3c968d'),
     Topic(topic_id: 7, name: 'প্রশ্নসমূহ', color: '#409c3e'),
     Topic(topic_id: 8, name: 'হজ্জ - উমরাহ সহায়ক', color: '#8bc34a'),
+    Topic(topic_id: 9, name: 'তাওয়াফ গণনা', color: '#409c3e'),
+    Topic(topic_id: 10, name: "সা'ঈ গণনা", color: '#409c3e'),
+    Topic(topic_id: 11, name: 'রিয়াল- টাকা কানভার্টার', color: '#409c3e'),
+    Topic(topic_id: 12, name: 'কিছু আরবী বাক্য', color: '#409c3e'),
   ];
   static List dua_categories = [
     DuaTopic(
