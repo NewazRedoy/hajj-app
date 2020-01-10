@@ -1,13 +1,11 @@
 import 'dart:math';
-import 'dart:typed_data';
 import 'dart:ui';
 import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:async';
 
 class TawafWidget extends CustomPainter {
-  double currentProgress;
+  int count;
   double _fraction;
   Paint completeArc;
   Paint outerCircle;
@@ -15,23 +13,22 @@ class TawafWidget extends CustomPainter {
 
   ui.Image image;
 
-  TawafWidget(this.currentProgress,this._fraction,this.image){
+  TawafWidget(this.count, this._fraction, this.image, BuildContext context) {
     //this is base circle
     outerCircle = Paint()
-      ..strokeWidth = 10
+      ..strokeWidth = 8
       ..color = Colors.black
       ..style = PaintingStyle.stroke;
 
     completeArc = Paint()
-      ..strokeWidth = 10
-      ..color = Colors.redAccent
+      ..strokeWidth = 8
+      ..color = Theme.of(context).primaryColor
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
-
     linePaint = Paint()
-      ..strokeWidth = 10
-      ..color = Colors.redAccent
+      ..strokeWidth = 2
+      ..color = Colors.black
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
   }
@@ -41,32 +38,88 @@ class TawafWidget extends CustomPainter {
     Offset center = Offset(size.width / 2, size.height / 2);
     double radius = min(size.width / 3, size.height / 3) - 10;
 
-    canvas.drawCircle(
-        center, radius, outerCircle); // this draws main outer circle
+    double angle = 2 * pi * _fraction;
+    if (count == 1) {
+      canvas.drawCircle(center, radius + 10, outerCircle); // this draws main outer circle
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius + 10), 2 * pi * 0.14, -angle, false, completeArc);
+    } else if (count == 2) {
+      canvas.drawCircle(center, radius + 10, completeArc);
 
-    double angle = 2 * pi * (currentProgress / 100);
+      canvas.drawCircle(center, radius + 20, outerCircle); // this draws main outer circle
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius + 20), 2 * pi * 0.14, -angle, false, completeArc);
+    } else if (count == 3) {
+      canvas.drawCircle(center, radius + 10, completeArc);
+      canvas.drawCircle(center, radius + 20, completeArc);
 
-    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
-        angle, false, completeArc);
+      canvas.drawCircle(center, radius + 30, outerCircle); // this draws main outer circle
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius + 30), 2 * pi * 0.14, -angle, false, completeArc);
+    } else if (count == 4) {
+      canvas.drawCircle(center, radius + 10, completeArc);
+      canvas.drawCircle(center, radius + 20, completeArc);
+      canvas.drawCircle(center, radius + 30, completeArc);
 
-    // Create a rectangle with size and width same as the canvas
-    var rect = Rect.fromCenter(center: center, width: radius,height: radius);
-    canvas.drawRect(rect, outerCircle);
+      canvas.drawCircle(center, radius + 40, outerCircle); // this draws main outer circle
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius + 40), 2 * pi * 0.14, -angle, false, completeArc);
+    } else if (count == 5) {
+      canvas.drawCircle(center, radius + 10, completeArc);
+      canvas.drawCircle(center, radius + 20, completeArc);
+      canvas.drawCircle(center, radius + 30, completeArc);
+      canvas.drawCircle(center, radius + 40, completeArc);
 
+      canvas.drawCircle(center, radius + 50, outerCircle); // this draws main outer circle
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius + 50), 2 * pi * 0.14, -angle, false, completeArc);
+    } else if (count == 6) {
+      canvas.drawCircle(center, radius + 10, completeArc);
+      canvas.drawCircle(center, radius + 20, completeArc);
+      canvas.drawCircle(center, radius + 30, completeArc);
+      canvas.drawCircle(center, radius + 40, completeArc);
+      canvas.drawCircle(center, radius + 50, completeArc);
 
-    var path = Path()..moveTo(center.dx, center.dy)..lineTo(size.width, size.height);
-    canvas.drawPath(path, outerCircle);
+      canvas.drawCircle(center, radius + 60, outerCircle); // this draws main outer circle
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius + 60), 2 * pi * 0.14, -angle, false, completeArc);
+    } else if (count == 7) {
+      canvas.drawCircle(center, radius + 10, completeArc);
+      canvas.drawCircle(center, radius + 20, completeArc);
+      canvas.drawCircle(center, radius + 30, completeArc);
+      canvas.drawCircle(center, radius + 40, completeArc);
+      canvas.drawCircle(center, radius + 50, completeArc);
+      canvas.drawCircle(center, radius + 60, completeArc);
 
-    var path2 = Path()..moveTo(center.dx, center.dy)..lineTo(0, size.height);
-    canvas.drawPath(path2, outerCircle);
+      canvas.drawCircle(center, radius + 70, outerCircle); // this draws main outer circle
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius + 70), 2 * pi * 0.14, -angle, false, completeArc);
+    }
 
-    var rect1 = Offset(0.0, 0.0) & size;
+//    var dx = center.dx + radius * cos(-angle);
+//    var dy = center.dy + radius * sin(-angle);
+//  var handler =  Offset(dx, dy);
+//    canvas.drawCircle(handler, 4, completeArc); // this draws main outer circle
 
-    canvas.drawArc(rect1, -pi / 2, pi * 2 * _fraction, false, completeArc);
+    var square = Rect.fromCenter(center: center.translate(0, 20), width: 80, height: 80);
+    canvas.drawRect(square, linePaint);
 
-    if(image!=null) {
+    // triangleInSquare;
+    var path = Path()
+      ..moveTo(center.dx + 40, center.dy + 40)
+      ..lineTo(center.dx + 40, center.dy + 60)
+      ..lineTo(center.dx + 20, center.dy + 60)
+      ..close();
+    canvas.drawPath(path, linePaint);
+    //prayerArea
+    canvas.drawArc(Rect.fromCircle(center: center.translate(0, -40), radius: 40), pi, 2 * pi * 0.5, false, completeArc);
+
+    var duaPath = Path()
+      ..moveTo(center.dx + 40, center.dy + 60)
+      ..lineTo(size.width, size.height);
+    canvas.drawPath(duaPath, linePaint);
+
+    var startPath = Path()
+      ..moveTo(center.dx - 40, center.dy + 60)
+      ..lineTo(0, size.height);
+    canvas.drawPath(startPath, linePaint);
+
+    if (image != null) {
 //      ByteData data = image.toByteData();
-      canvas.drawImage(image, new Offset(0.0, 0.0), new Paint());
+//      canvas.drawImage(image, new Offset(0.0, 0.0), new Paint());
     }
   }
 

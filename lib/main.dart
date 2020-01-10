@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             primarySwatch: Colors.blueGrey,
             accentColor: Color.fromARGB(255, 167, 142, 114),
+            fontFamily: 'Bangla',
             textTheme: TextTheme()),
+
         home: Home(),
       ),
     );

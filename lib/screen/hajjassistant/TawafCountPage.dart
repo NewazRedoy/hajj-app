@@ -85,7 +85,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
               width: MediaQuery.of(context).size.width,
               height: 400,
               child: CustomPaint(
-                  foregroundPainter: TawafWidget((count / 7), _fraction, image)),
+                  foregroundPainter: TawafWidget(count, _fraction, image, context)),
             ),
             SizedBox(
               height: 8,

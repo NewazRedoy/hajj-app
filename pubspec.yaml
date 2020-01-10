@@ -62,6 +62,7 @@ flutter:
      - assets/hadith.db
      - assets/fonts/me_quran.ttf
      - assets/images/
+     - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -78,6 +79,9 @@ flutter:
     - family: Quran
       fonts:
         - asset: assets/fonts/me_quran.ttf
+    - family: Bangla
+      fonts:
+        - asset: assets/fonts/Kalpurush.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
