@@ -17,7 +17,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     case 0: return TopicGridPage();
     case 1: return DuaTopicPage();
     case 2: return AskQuestionPage();
-
     default:return TopicGridPage();
   }
  }

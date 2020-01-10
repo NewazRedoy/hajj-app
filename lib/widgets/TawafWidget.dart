@@ -1,26 +1,43 @@
 import 'dart:math';
-
+import 'dart:typed_data';
+import 'dart:ui';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:async';
 
 class TawafWidget extends CustomPainter {
   double currentProgress;
+  double _fraction;
+  Paint completeArc;
+  Paint outerCircle;
+  Paint linePaint;
 
-  TawafWidget(this.currentProgress);
+  ui.Image image;
 
-  @override
-  void paint(Canvas canvas, Size size) {
+  TawafWidget(this.currentProgress,this._fraction,this.image){
     //this is base circle
-    Paint outerCircle = Paint()
+    outerCircle = Paint()
       ..strokeWidth = 10
       ..color = Colors.black
       ..style = PaintingStyle.stroke;
 
-    Paint completeArc = Paint()
+    completeArc = Paint()
       ..strokeWidth = 10
       ..color = Colors.redAccent
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
+
+    linePaint = Paint()
+      ..strokeWidth = 10
+      ..color = Colors.redAccent
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) {
     Offset center = Offset(size.width / 2, size.height / 2);
     double radius = min(size.width / 3, size.height / 3) - 10;
 
@@ -36,7 +53,6 @@ class TawafWidget extends CustomPainter {
     var rect = Rect.fromCenter(center: center, width: radius,height: radius);
     canvas.drawRect(rect, outerCircle);
 
-  
 
     var path = Path()..moveTo(center.dx, center.dy)..lineTo(size.width, size.height);
     canvas.drawPath(path, outerCircle);
@@ -44,7 +60,14 @@ class TawafWidget extends CustomPainter {
     var path2 = Path()..moveTo(center.dx, center.dy)..lineTo(0, size.height);
     canvas.drawPath(path2, outerCircle);
 
+    var rect1 = Offset(0.0, 0.0) & size;
 
+    canvas.drawArc(rect1, -pi / 2, pi * 2 * _fraction, false, completeArc);
+
+    if(image!=null) {
+//      ByteData data = image.toByteData();
+      canvas.drawImage(image, new Offset(0.0, 0.0), new Paint());
+    }
   }
 
   @override
