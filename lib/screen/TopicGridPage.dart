@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/screen/SubTopicListPage.dart';
 import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
-import 'package:hajjapp/screen/hajjassistant/HajjUmrahAssistantPage.dart';
 import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
 import 'package:hajjapp/screen/hajjassistant/SieCountPage.dart';
 import 'package:hajjapp/screen/hajjassistant/TawafCountPage.dart';
-import 'package:hajjapp/screen/questions/QuestionAnswerPage.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/TopicGridItem.dart';
@@ -59,25 +58,21 @@ class _TopicGridPageState extends State<TopicGridPage> {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                     if (topic.topic_id < 7) {
                       return SubtopicListPage(topic: topic);
-                    } else if (topic.topic_id == 8) {
-                      return HajjAssistantPage(
-                        topic: topic,
-                      );
                     }
-                    else if (topic.topic_id == 9) {
+                    else if (topic.topic_id == 8) {
                       return TawafCountPage(topic);
                     }
-                    else if (topic.topic_id == 10) {
+                    else if (topic.topic_id == 9) {
                       return SaiCount(topic);
                     }
-                    else if (topic.topic_id == 11) {
+                    else if (topic.topic_id == 10) {
                       return RiyalConverter(topic);
                     }
-                    else if (topic.topic_id ==12) {
+                    else if (topic.topic_id ==11) {
                       return ArabicSentencesTopicPage(topic);
                     }
                     else {
-                      return QuestionAnswerPage();
+                      return ElectedQuestionPage();
                     }
                   }));
                 },

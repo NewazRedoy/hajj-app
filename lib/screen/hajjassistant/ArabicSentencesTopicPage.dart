@@ -8,9 +8,7 @@ import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ArabicSentencesTopicPage extends StatefulWidget {
   final Topic topic;
-
   ArabicSentencesTopicPage(this.topic);
-
   @override
   _ArabicSentencesTopicPageState createState() =>
       _ArabicSentencesTopicPageState();
@@ -28,7 +26,7 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
   }
 
   loadData() async {
-    var content = await Constants.topics;
+    var content = await Constants.sentense_categories;
     setState(() {
       data = content;
       loading = false;
