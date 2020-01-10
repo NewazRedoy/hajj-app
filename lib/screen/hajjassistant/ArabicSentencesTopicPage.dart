@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
-import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/screen/hajjassistant/ArabicSentencesDetailPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ArabicSentencesTopicPage extends StatefulWidget {
-  final Subtopic subtopic;
+  final Topic topic;
 
-  ArabicSentencesTopicPage(this.subtopic);
+  ArabicSentencesTopicPage(this.topic);
 
   @override
   _ArabicSentencesTopicPageState createState() =>
@@ -28,7 +28,7 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
   }
 
   loadData() async {
-    var content = await Constants.sentense_categories;
+    var content = await Constants.topics;
     setState(() {
       data = content;
       loading = false;
@@ -39,7 +39,7 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.subtopic.name_en),
+          title: Text(widget.topic.name),
           actions: <Widget>[
             SearchSettings(),
           ],

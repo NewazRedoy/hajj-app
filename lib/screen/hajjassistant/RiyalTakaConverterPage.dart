@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class RiyalConverter extends StatefulWidget {
-  final Subtopic subtopic;
+  final Topic topic;
 
-  RiyalConverter(this.subtopic);
+  RiyalConverter(this.topic);
 
   @override
   _RiyalConverterState createState() => _RiyalConverterState();
@@ -22,7 +22,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.subtopic.name_en),
+        title: Text(widget.topic.name),
         actions: <Widget>[
           SearchSettings(),
         ],

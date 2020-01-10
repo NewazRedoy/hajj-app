@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/TawafWidget.dart';
 
 class TawafCountPage extends StatefulWidget {
-  final Subtopic subtopic;
+  final Topic topic;
 
-  TawafCountPage(this.subtopic);
+  TawafCountPage(this.topic);
 
   @override
   _TawafCountPageState createState() => _TawafCountPageState();
@@ -19,7 +20,7 @@ class _TawafCountPageState extends State<TawafCountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.subtopic.name_en),
+        title: Text(widget.topic.name),
         actions: <Widget>[
           SearchSettings(),
         ],

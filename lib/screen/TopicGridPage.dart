@@ -58,24 +58,16 @@ class _TopicGridPageState extends State<TopicGridPage> {
                     );
                   }
                   else if (topic.topic_id == 9) {
-                    return TawafCountPage(
-
-                    );
+                    return TawafCountPage(topic);
                   }
                   else if (topic.topic_id == 10) {
-                    return SaiCount(
-
-                    );
+                    return SaiCount(topic);
                   }
                   else if (topic.topic_id == 11) {
-                    return RiyalConverter(
-
-                    );
+                    return RiyalConverter(topic);
                   }
                   else if (topic.topic_id ==12) {
-                    return ArabicSentencesTopicPage(
-                      topic: topic,
-                    );
+                    return ArabicSentencesTopicPage(topic);
                   }
                   else {
                     return QuestionAnswerPage();
@@ -88,4 +80,9 @@ class _TopicGridPageState extends State<TopicGridPage> {
       ),
     );
   }
+}
+buildCircularProgressIndicator() {
+  return Center(
+    child: CircularProgressIndicator(),
+  );
 }
