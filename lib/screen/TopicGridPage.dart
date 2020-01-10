@@ -44,7 +44,9 @@ class _TopicGridPageState extends State<TopicGridPage> {
               Container(),
             ],
           ),
-          ListView.builder(
+          loading
+              ? _buildCircularProgressIndicator()
+         : ListView.builder(
             itemCount: data.length,
             itemBuilder: (context, index) {
               Topic topic= data[index];
@@ -81,7 +83,8 @@ class _TopicGridPageState extends State<TopicGridPage> {
     );
   }
 }
-buildCircularProgressIndicator() {
+
+_buildCircularProgressIndicator() {
   return Center(
     child: CircularProgressIndicator(),
   );

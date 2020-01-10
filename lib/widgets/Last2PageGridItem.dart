@@ -25,19 +25,7 @@ class Last2PageGridItem extends StatelessWidget {
         elevation: 7.0,
         child: InkWell(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              switch (subtopic.subtopic_id) {
-                case 1:
-                  return TawafCountPage(subtopic);
-                case 2:
-                  return SaiCount(subtopic);
-                case 3:
-                  return RiyalConverter(subtopic);
-                case 4:
-                  return ArabicSentencesTopicPage(subtopic);
-              }
-            }));
-          },
+            },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
