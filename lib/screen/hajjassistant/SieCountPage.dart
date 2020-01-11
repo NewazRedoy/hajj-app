@@ -175,7 +175,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                         )),
                     SizedBox(width: 8,),
                     Text(
-                      "Reset",
+                      "রিসেট করুন",
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(width: 8,),

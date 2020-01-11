@@ -89,7 +89,7 @@ class SieWidget extends CustomPainter {
     textPainter.paint(canvas, offset);
 
     final textSpan2 = TextSpan(
-      text: 'ei sthane purushra\nektu dhuro hatben',
+      text: 'এই স্থানে পুরুষরা\nএকটু দ্রুত হাঁটবেন',
       style: TextStyle(
         color: Colors.grey,
         fontSize: 14,
