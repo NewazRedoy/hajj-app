@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
-import 'package:hajjapp/screen/questions/ElectedQuestionSubTopicPage.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
@@ -50,7 +50,7 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            ElectedQuestionSubtopicPage(question),
+                            ElectedQuestionDetailPage(question),
                       ));
                 });
               },
