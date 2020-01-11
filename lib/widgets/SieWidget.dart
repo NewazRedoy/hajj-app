@@ -1,45 +1,109 @@
 import 'dart:async';
-import 'dart:math';
 import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 
 class SieWidget extends CustomPainter {
-  double count;
+  int count;
+  double fraction;
+  Paint runningAreaPaint;
+  Paint outerCircle;
+  Paint arrowPaint;
+  bool start;
 
-  SieWidget(this.count);
-
-  @override
-  void paint(Canvas canvas, Size size) {
+  SieWidget(this.count, this.fraction, this.start) {
     //this is base circle
-    Paint outerCircle = Paint()
-      ..strokeWidth = 10
+
+    outerCircle = Paint()
+      ..strokeWidth = 1
       ..color = Colors.black
       ..style = PaintingStyle.stroke;
 
-    Paint completeArc = Paint()
+    runningAreaPaint = Paint()
       ..strokeWidth = 10
-      ..color = Colors.redAccent
+      ..color = Colors.greenAccent
       ..strokeCap = StrokeCap.round;
 
-    Offset center = Offset(size.width / 2, size.height / 2);
-    double radius = min(size.width / 2, size.height / 2) - 10;
+    arrowPaint = Paint()
+      ..strokeWidth = 10
+      ..style = PaintingStyle.fill
+      ..color = Colors.redAccent
+      ..strokeCap = StrokeCap.round;
+  }
 
-    var rect2 = Rect.fromCenter(center: center, width: radius, height: radius);
-    canvas.drawRect(rect2, completeArc);
+  @override
+  void paint(Canvas canvas, Size size) {
+    Offset center = Offset(size.width / 2, size.height / 2);
+    double width = 100;
+
+    var runningArea = Rect.fromCenter(center: center.translate(0, 30), width: width, height: 70);
+    canvas.drawRect(runningArea, runningAreaPaint);
 
     // Create a rectangle with size and width same as the canvas
-    var rect = Rect.fromCenter(center: center, width: radius,height: size.height);
+    var rect = Rect.fromCenter(center: center, width: width, height: size.height);
     canvas.drawRect(rect, outerCircle);
 
-    // Create a rectangle with size and width same as the canvas
-//  if(count%2==0) {
-//    _getImage().then((onValue)=>{
-//      canvas.drawImage(onValue, center, outerCircle)
-//    });
-//  }else {
-//canvas.
-//  }
+    if (start && count > 0 && count < 7) {
+      if (count % 2 == 0) {
+        // Draw the arrow.
+        const double w = 8.0;
+        double h = 5.0;
+        double arrowY = 20 + fraction;
+        final Path path = Path();
+        path.moveTo(center.dx, arrowY + h); // top of the arrow
+        path.lineTo(center.dx + w, arrowY - h);
+        path.lineTo(center.dx - w, arrowY - h);
+        path.close();
 
+        canvas.drawPath(path, arrowPaint);
+      } else {
+        // Draw the arrow.
+        const double w = 8.0;
+        double h = 5.0;
+        double arrowY = size.height - 20 - fraction;
+        final Path path = Path();
+        path.moveTo(center.dx, arrowY - h); // top of the arrow
+        path.lineTo(center.dx + w, arrowY + h);
+        path.lineTo(center.dx - w, arrowY + h);
+        path.close();
+        canvas.drawPath(path, arrowPaint);
+      }
+    }
+
+    final textSpan = TextSpan(
+      text: '$count/7',
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 30,
+      ),
+    );
+    final textPainter = TextPainter(
+      text: textSpan,
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(40, center.dy - 40);
+    textPainter.paint(canvas, offset);
+
+    final textSpan2 = TextSpan(
+      text: 'ei sthane purushra\nektu dhuro hatben',
+      style: TextStyle(
+        color: Colors.grey,
+        fontSize: 14,
+      ),
+    );
+    final textPainter2 = TextPainter(
+      text: textSpan2,
+      textDirection: TextDirection.ltr,
+    );
+    textPainter2.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    textPainter2.paint(canvas, center.translate(55, 15));
   }
 
   Future<ui.Image> _getImage() {
