@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-
-enum DuaMode {
-  Editing,
-  Adding,
-}
+import 'package:hajjapp/model/MyDua.dart';
+import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:provider/provider.dart';
 
 class MyDuaSavingPage extends StatefulWidget {
-  final DuaMode duaMode;
+  final MyDua dua;
 
-  MyDuaSavingPage(this.duaMode);
+  MyDuaSavingPage({this.dua});
 
   @override
   _MyDuaSavingPageState createState() => _MyDuaSavingPageState();
@@ -22,7 +20,7 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.duaMode == DuaMode.Adding ? "Add Dua" : "Edit Dua"),
+        title: Text(widget.dua == null ? "Add Dua" : "Edit Dua"),
       ),
       body: Card(
         shape: RoundedRectangleBorder(
@@ -46,30 +44,44 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 DuaButton('Save', Colors.blue, () {
-                  if (widget?.duaMode == DuaMode.Adding) {
-                    final title = titleController.text;
-                    final text = textController.text;
-                    ({
-                      "title": title,
-                      "text": text,
-                    });
+                  final title = titleController.text;
+                  final text = textController.text;
+                  ({
+                    "title": title,
+                    "text": text,
+                  });
+
+                  if (widget.dua == null) {
+                    var dua = MyDua(text: text, title: title);
+
+                    Provider.of<CurrentUserModel>(context, listen: false).addDua(dua);
+                  } else {
+                    widget.dua.title = title;
+                    widget.dua.text = text;
+
+                    Provider.of<CurrentUserModel>(context, listen: false).updateDua(widget.dua);
                   }
+
                   Navigator.pop(context);
                 }),
-                DuaButton('Diccard', Colors.amber, () {
-                  Navigator.pop(context);
-                }),
-                widget.duaMode == DuaMode.Editing
-                    ? DuaButton('Delete', Colors.red, () {
+                 DuaButton('Delete', Colors.red, () {
+                        Provider.of<CurrentUserModel>(context, listen: false).deleteDua(widget.dua.key);
                         Navigator.pop(context);
                       })
-                    : Container(),
               ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    if (widget.dua != null) {
+      titleController.text = widget.dua.title;
+      textController.text = widget.dua.text;
+    }
   }
 }
 

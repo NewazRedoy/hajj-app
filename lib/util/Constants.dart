@@ -19,8 +19,6 @@ class Constants {
 
   static var ROUTE_HADITH_LIST = "/subtopiclist";
 
-  static var ROUTE_SUBTOPIC_LIST = "/hadithlist";
-
   static List topics = [
     Topic(topic_id: 1, name: 'হজ্জ-উমরাহ পরিচিতি', color: '#e65c60'),
     Topic(topic_id: 2, name: "হারাম সীমানা, মীকাত এবং ইহরাম", color: '#e85d8b'),

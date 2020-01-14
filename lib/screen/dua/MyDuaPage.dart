@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/MyDua.dart';
 import 'package:hajjapp/provider/CurrentUserModel.dart';
 import 'package:hajjapp/screen/dua/MyDuaSavingPage.dart';
-import 'package:hajjapp/util/Constants.dart';
 import 'package:provider/provider.dart';
 
 class MyDuaPage extends StatefulWidget {
@@ -22,18 +21,19 @@ class MyDuaPageState extends State<MyDuaPage> {
             ("আমার দু'আ"),
           ),
         ),
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            return MyDuaListItem(data[index]);
+        body: Consumer<CurrentUserModel>(
+          builder: (context, model, _) {
+            return ListView.builder(
+              itemBuilder: (context, index) {
+                return MyDuaListItem(model.duas[index]);
+              },
+              itemCount: model.duas.length,
+            );
           },
-          itemCount: data.length,
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => MyDuaSavingPage(DuaMode.Adding)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MyDuaSavingPage()));
           },
           child: Icon(Icons.add),
         ),
@@ -41,27 +41,14 @@ class MyDuaPageState extends State<MyDuaPage> {
     });
   }
 
-  List data = [];
-  var loading = true;
-
   @override
   void initState() {
     super.initState();
-
-    loadData();
-  }
-
-  loadData() async {
-    var content = await Constants.duas;
-    setState(() {
-      data = content;
-      loading = false;
-    });
   }
 }
 
 class MyDuaListItem extends StatelessWidget {
-  MyDua dua;
+  final MyDua dua;
 
   MyDuaListItem(this.dua);
 
@@ -69,10 +56,7 @@ class MyDuaListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => MyDuaSavingPage(DuaMode.Editing)));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MyDuaSavingPage(dua: dua)));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -89,10 +73,8 @@ class MyDuaListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    decoration:
-                        BoxDecoration(color: Theme.of(context).accentColor),
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
+                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
                     child: Text(
                       "",
                       style: TextStyle(fontSize: 20),
@@ -110,16 +92,26 @@ class MyDuaListItem extends StatelessWidget {
                   PopupMenuButton(
                     itemBuilder: (BuildContext context) {
                       return [
-                        PopupMenuItem(child: Text("কালার পরিবর্তন")),
-                        PopupMenuItem(child: Text("মুছুন")),
+                        PopupMenuItem(value: 1, child: Text("কালার পরিবর্তন")),
+                        PopupMenuItem(value: 2, child: Text("মুছুন")),
                       ];
+                    },
+                    onSelected: (value) {
+                      print("value:$value");
+                      if (value) {
+                        switch (value) {
+                          case 1:
+                            break;
+                          case 2:
+                            Provider.of<CurrentUserModel>(context, listen: false).deleteDua(dua.key);
+                            break;
+                        }
+                      }
                     },
                   ),
                   Container(
-                    decoration:
-                        BoxDecoration(color: Theme.of(context).accentColor),
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
+                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
                     child: Text(
                       "",
                       style: TextStyle(fontSize: 20),

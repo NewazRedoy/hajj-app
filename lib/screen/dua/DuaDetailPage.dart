@@ -105,8 +105,7 @@ class DuaDetailItem extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                 child: Text(
                   "",
                   style: TextStyle(fontSize: 20),

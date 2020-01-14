@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/MyDua.dart';
 import 'package:hajjapp/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CurrentUserModel extends ChangeNotifier {
-  List orders = [];
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  List duas = [];
 
   CurrentUserModel() {
     _read();
@@ -19,6 +19,8 @@ class CurrentUserModel extends ChangeNotifier {
     if (userData != null) {
       _user = new User.fromJson(userData);
       _status = Status.Authenticated;
+
+      fetchDuas();
 
       notifyListeners();
     } else {
@@ -46,8 +48,7 @@ class CurrentUserModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _showDialog(
-      {BuildContext context, String title = "Error", String error}) {
+  void _showDialog({BuildContext context, String title = "Error", String error}) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -87,96 +88,95 @@ class CurrentUserModel extends ChangeNotifier {
     );
   }
 
-  void loginUsingUsernamePassword(BuildContext context,
-      String email, String password) async {
+  void loginUsingUsernamePassword(BuildContext context, String email, String password) async {
     showProgressDialog(context, "Logging in");
 
-    _user = User(
-        id: 1,
-        firstName: "Nabil",
-        lastName: "Mosharraf",
-        email: "nabil6391@gmail.com",
-        avatarUrl: "",
-        username: "nabil6391");
+    FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((authResult) async {
+      if (authResult.user != null) {
+        _user = User(
+            id: authResult.user.uid,
+            firstName: authResult.user.displayName,
+            email: authResult.user.email,
+            avatarUrl: authResult.user.photoUrl);
 
-    await Future.delayed(const Duration(seconds: 2), () {});
+        var prefs = await SharedPreferences.getInstance();
+        prefs.setString("user", _user.toJson());
 
-    var prefs = await SharedPreferences.getInstance();
-    prefs.setString("user", _user.toJson());
+        _status = Status.Authenticated;
 
-    _status = Status.Authenticated;
-
-    notifyListeners();
-    Navigator.of(context).pop();
-    print("auth notified");
-
-    AuthResult authResult = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password);
-
-    print("login try");
-
-    if (authResult.user != null) {
-
-
-    } else {
-      _status = Status.Login;
+        fetchDuas();
+      } else {
+        _status = Status.Login;
+      }
       notifyListeners();
-    }
+
+      Navigator.of(context).pop();
+      print("auth notified");
+      return;
+    }).catchError((e) {
+      _showDialog(context: context, error: e.toString());
+      signUpUsingUsernamePassword(context, "Nabil", email, password);
+    });
   }
 
-  void signUpUsingUsernamePassword(BuildContext context, String username,
-      String name, String email, String password) async {
+  void signUpUsingUsernamePassword(BuildContext context, String name, String email, String password) async {
     showProgressDialog(context, "Signing Up");
 
-    FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email, password: password)
-        .then((authResult) {
+    FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password).then((authResult) async {
       if (authResult.user != null) {
-//        var prefs = await SharedPreferences.getInstance();
-//        prefs.setString("email", email);
-//        prefs.setString("password", password);
-//        prefs.setString("name", name);
-//
-//
+        _user = User(
+            id: authResult.user.uid,
+            firstName: authResult.user.displayName,
+            email: authResult.user.email,
+            avatarUrl: authResult.user.photoUrl);
+
+        var prefs = await SharedPreferences.getInstance();
+        prefs.setString("user", _user.toJson());
+
+        _status = Status.Authenticated;
       } else {
         _status = Status.Login;
         notifyListeners();
       }
       return;
-    }).catchError((e) {});
+    }).catchError((e) {
+      _showDialog(context: context, error: e.toString());
+    });
   }
 
-
-  Future<void> fetchOrders() async {
-//    var orderResponse = await _getOrdersByCustomer(user.id);
-//
-//    orders = new List<Order>.from(orderResponse.map((x) => Order.fromMap(x)));
-//
-//    print("fetch orders");
-//
-//    notifyListeners();
-
-    // Demonstrates configuring to the database using a file
-    var _counterRef = FirebaseDatabase.instance.reference().child('counter');
-    // Demonstrates configuring the database directly
+  Future<void> fetchDuas() async {
+    var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id);
     final FirebaseDatabase database = FirebaseDatabase();
 
     database.setPersistenceEnabled(true);
-    database.setPersistenceCacheSizeBytes(10000000);
-    _counterRef.keepSynced(true);
-    var _counterSubscription = _counterRef.onValue.listen((Event event) {
+    database.setPersistenceCacheSizeBytes(900000);
+    _duaRef.keepSynced(true);
+    _duaRef.onValue.listen((Event event) {
+      Map<dynamic, dynamic> yearMap = event.snapshot.value;
 
+      duas.clear();
 
-//      setState(() {
-//        _error = null;
-//        _counter = event.snapshot.value ?? 0;
-//      });
-    }, onError: (Object o) {
-//      final DatabaseError error = o;
-//      setState(() {
-//        _error = error;
-//      });
-    });
+      yearMap.forEach((key, value) {
+        duas.add(MyDua.fromLinkedHashMap(key, value));
+      });
+
+      notifyListeners();
+    }, onError: (Object o) {});
+  }
+
+  deleteDua(String key) {
+    var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id);
+    _duaRef.child(key).remove();
+  }
+
+  addDua(MyDua dua) {
+    var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id);
+    _duaRef.push().set(dua.toJson());
+  }
+
+  updateDua(MyDua dua) {
+    var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id);
+    _duaRef.child(dua.key).set(dua.toJson());
   }
 
 //  Future<void> _increment() async {

@@ -51,9 +51,6 @@
 
 ##---------------End: proguard configuration for Gson  ----------
 
--keep class com.greentech.hadith.bookmark.Folder { *; }
--keep class com.greentech.hadith.bookmark.Hadith { *; }
-
 
 #https://r8.googlesource.com/r8/+/refs/heads/master/compatibility-faq.md
 -keepclassmembers,allowobfuscation class * {

@@ -3,9 +3,10 @@ import 'dart:convert';
 class MyDua {
   String title;
   String text;
-  String english;
+  int color;
+  String key;
 
-  MyDua({this.title, this.text, this.english});
+  MyDua({this.key, this.title, this.text, this.color});
 
   factory MyDua.fromRawJson(String str) => MyDua.fromJson(json.decode(str));
 
@@ -14,12 +15,16 @@ class MyDua {
   factory MyDua.fromJson(Map<String, dynamic> json) => new MyDua(
         text: json["text"],
         title: json["title"],
-        english: json["english"],
+      );
+
+  factory MyDua.fromLinkedHashMap(String key, Map<dynamic, dynamic> value) => new MyDua(
+        key: key,
+        text: value["text"],
+        title: value["title"],
       );
 
   Map<String, dynamic> toJson() => {
         "title": title,
         "text": text,
-        "english": english,
       };
 }

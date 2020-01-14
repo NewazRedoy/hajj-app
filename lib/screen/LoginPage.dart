@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
 
@@ -57,11 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            color: Colors.deepPurple),
-                        textAlign: TextAlign.start,
-                      ),
-                      Text(
-                        "Log in into your account below",
+                        ),
                         textAlign: TextAlign.start,
                       ),
                       TextFormField(
@@ -83,39 +80,12 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: true,
                         validator: Validator.pwdValidator,
                       ),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                        children: <Widget>[
-////                          Checkbox(value: true,),
-//                          FlatButton(
-//                            child: Text(
-//                              'Remember me',
-//                            ),
-//                            onPressed: () {
-//                              Navigator.of(context)
-//                                  .pushNamed(Constants.ROUTE_SINGUP);
-//                            },
-//                          ),
-//                          Align(
-//                            alignment: Alignment.centerRight,
-//                            child: FlatButton(
-//                              child: Text(
-//                                'Forgot password?',
-//                              ),
-//                              onPressed: () {
-//                                Navigator.of(context)
-//                                    .pushNamed(Constants.ROUTE_SINGUP);
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
                       SizedBox(height: 40.0),
                       RaisedButton(
                         child: Text('Login'),
                         textColor: Colors.white,
                         elevation: 3.0,
-                        color: Colors.deepPurple,
+                        color: Theme.of(context).primaryColor,
                         padding: EdgeInsets.all(16),
                         onPressed: () {
                           emailInputController.text = "nabil6391@gmail.com";
@@ -128,10 +98,6 @@ class _LoginPageState extends State<LoginPage> {
                             model.loginUsingUsernamePassword(context,
                                 emailInputController.text,
                                 pwdInputController.text);
-
-//                            model.loginUsingUsernamePassword(
-//                                context, "", "netmow", "Nexus20!9**");
-
                           }
                         },
                       ),
@@ -139,10 +105,10 @@ class _LoginPageState extends State<LoginPage> {
                       Center(
                         child: InkWell(
                           onTap: () => {
-//                            Navigator.of(context)
-//                                .pushReplacementNamed(Constants.ROUTE_SINGUP)
+                            Navigator.of(context)
+                                .pushReplacementNamed(Constants.ROUTE_SINGUP)
 
-                            model.gotoSignup()
+//                            model.gotoSignup()
                           },
                           child: RichText(
                             text: TextSpan(
@@ -161,9 +127,6 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   )),
             ),
-            Text('or login with'),
-            SizedBox(height: 26.0),
-            SizedBox(height: 18.0),
           ],
         ),
       );

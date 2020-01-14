@@ -4,7 +4,6 @@ import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
 
 class SignupPage extends StatefulWidget {
-  SignupPage({Key key}) : super(key: key);
 
   @override
   _SignupPageState createState() => _SignupPageState();
@@ -14,14 +13,12 @@ class _SignupPageState extends State<SignupPage> {
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
   TextEditingController contactNameInputController;
   TextEditingController emailInputController;
-  TextEditingController usernameInputController;
   TextEditingController pwdInputController;
 
   @override
   initState() {
     contactNameInputController = new TextEditingController();
     emailInputController = new TextEditingController();
-    usernameInputController = new TextEditingController();
     pwdInputController = new TextEditingController();
     super.initState();
   }
@@ -81,20 +78,6 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                             Expanded(child: Divider()),
                           ],
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                              labelStyle:
-                                  TextStyle(fontWeight: FontWeight.bold),
-                              labelText: 'Username',
-                              hintText: "john.doe"),
-                          controller: usernameInputController,
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return "Please enter a username";
-                            }
-                          },
                         ),
                         TextFormField(
                           decoration: InputDecoration(
@@ -198,7 +181,6 @@ class _SignupPageState extends State<SignupPage> {
                             if (_registerFormKey.currentState.validate()) {
                               model.signUpUsingUsernamePassword(
                                   context,
-                                  usernameInputController.text,
                                   contactNameInputController.text,
                                   emailInputController.text,
                                   pwdInputController.text);
