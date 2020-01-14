@@ -4,10 +4,10 @@ import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ElectedQuestionSubTopicItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
-class ElectedQuestionSubtopicPage extends StatelessWidget {
+class ElectedQuestionDetailPage extends StatelessWidget {
   QuestionCategory questionCategory;
 
-  ElectedQuestionSubtopicPage(
+  ElectedQuestionDetailPage(
     this.questionCategory,
   );
 
