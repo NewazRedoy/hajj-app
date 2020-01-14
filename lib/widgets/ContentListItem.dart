@@ -22,7 +22,8 @@ class _ContentListItemState extends State<ContentListItem> {
   @override
   void initState() {
     _controller = YoutubePlayerController(
-      initialVideoId: 'iLnmTe5Q2Qw',
+      initialVideoId: '_4I7maBjaDk',
+//      initialVideoId: YoutubePlayer.convertUrlToId(widget.content.video_url),
       flags: YoutubePlayerFlags(
         mute: false,
         autoPlay: true,
