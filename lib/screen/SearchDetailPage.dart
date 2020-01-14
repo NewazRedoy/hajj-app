@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
+import 'package:hajjapp/widgets/SearchListDetailItem.dart';
 
 class SearchDetailPage extends StatefulWidget {
   @override
@@ -40,30 +41,13 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
               itemCount: data.length,
               itemBuilder: (context, index) {
                 SentencesCategory sentencesCategory = data[index];
-                return Card(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 16.0, right: 16.0, top: 30.0, bottom: 30.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          sentencesCategory.sentencetopic,
-                          style: TextStyle(
-                              fontSize: 22.0, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          sentencesCategory.sentencetopic,
-                          style: TextStyle(color: Colors.grey.shade600),
-                        )
-                      ],
-                    ),
-                  ),
-                );
+                return SearchListDetailItem(sentencesCategory: sentencesCategory);
               }),
     );
   }
 }
+
+
 
 _buildCircularProgressIndicator() {
   return Center(

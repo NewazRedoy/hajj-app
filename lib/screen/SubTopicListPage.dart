@@ -41,16 +41,14 @@ class SampleAppPage extends StatefulWidget {
   final Topic topic;
 
   @override
-  _SampleAppPageState createState() => _SampleAppPageState(topic);
+  _SampleAppPageState createState() => _SampleAppPageState();
 }
 
 class _SampleAppPageState extends State<SampleAppPage> {
   List data = [];
   var loading = true;
 
-  _SampleAppPageState(this.topic);
-
-  final Topic topic;
+  _SampleAppPageState();
 
   @override
   void initState() {
@@ -80,7 +78,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 
   loadData() async {
     var subtopics =
-        await DatabaseHelper.instance.querySubtopicsByTopicId(topic.topic_id);
+        await DatabaseHelper.instance.querySubtopicsByTopicId(widget.topic.topic_id);
 
     setState(() {
       data = subtopics;
