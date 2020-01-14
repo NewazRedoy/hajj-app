@@ -6,8 +6,7 @@ class DuaTopic {
 
   DuaTopic({this.duatopic_id, this.duatopic});
 
-  factory DuaTopic.fromRawJson(String str) =>
-      DuaTopic.fromJson(json.decode(str));
+  factory DuaTopic.fromRawJson(String str) => DuaTopic.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 

@@ -1,5 +1,5 @@
-import 'package:hajjapp/model/ArabicSentences.dart';
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/ArabicSentences.dart';
 
 class ArabicSentenceListItem extends StatelessWidget {
   ArabicSentence arabicSentence;
@@ -20,7 +20,7 @@ class ArabicSentenceListItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12.0),
             child: Text(
-              arabicSentence.bengali,
+              arabicSentence.bangla,
               style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SearchListDetailItem.dart';
@@ -21,7 +22,7 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
   }
 
   loadData() async {
-    var content = await Constants.sentense_categories;
+    var content = await DatabaseHelper.instance.querybySerach("");
     setState(() {
       data = content;
       loading = false;
@@ -46,8 +47,6 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
     );
   }
 }
-
-
 
 _buildCircularProgressIndicator() {
   return Center(

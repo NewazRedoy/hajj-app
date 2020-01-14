@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/DuaTopicListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
@@ -20,7 +21,7 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
   }
 
   loadData() async {
-    var content = await Constants.allDua_categories;
+    var content = await DatabaseHelper.instance.queryAllDuaCategories();
     setState(() {
       data = content;
       loading = false;

@@ -33,54 +33,55 @@ class _TopicGridPageState extends State<TopicGridPage> {
       loading = false;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:     loading
-          ? _buildCircularProgressIndicator():
-      Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: loading
+          ? _buildCircularProgressIndicator()
+          : Column(
               children: <Widget>[
-                TopicGridItem(topic: data[2]),
-                TopicGridItem(topic: data[3]),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      TopicGridItem(topic: data[2]),
+                      TopicGridItem(topic: data[3]),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      Topic topic = data[index];
+                      return ListPageItem(
+                        (index + 1),
+                        topic.name,
+                        () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                            if (topic.topic_id < 7) {
+                              return SubtopicListPage(topic: topic);
+                            } else if (topic.topic_id == 8) {
+                              return TawafCountPage(topic);
+                            } else if (topic.topic_id == 9) {
+                              return SaiCount(topic);
+                            } else if (topic.topic_id == 10) {
+                              return RiyalConverter(topic);
+                            } else if (topic.topic_id == 11) {
+                              return ArabicSentencesTopicPage(topic);
+                            } else {
+                              return ElectedQuestionPage();
+                            }
+                          }));
+                        },
+                      );
+                    },
+                  ),
+                )
               ],
             ),
-          ),
-          Expanded(
-           child: ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                Topic topic= data[index];
-                return ListPageItem((index + 1), topic.name, () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                    if (topic.topic_id < 7) {
-                      return SubtopicListPage(topic: topic);
-                    }
-                    else if (topic.topic_id == 8) {
-                      return TawafCountPage(topic);
-                    }
-                    else if (topic.topic_id == 9) {
-                      return SaiCount(topic);
-                    }
-                    else if (topic.topic_id == 10) {
-                      return RiyalConverter(topic);
-                    }
-                    else if (topic.topic_id ==11) {
-                      return ArabicSentencesTopicPage(topic);
-                    }
-                    else {
-                      return ElectedQuestionPage();
-                    }
-                  }));
-                },
-                );},
-            ),
-         )
-        ],
-      ),
     );
   }
 }

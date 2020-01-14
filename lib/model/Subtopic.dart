@@ -11,16 +11,13 @@ class Subtopic {
     this.name_en,
   });
 
-  factory Subtopic.fromRawJson(String str) =>
-      Subtopic.fromJson(json.decode(str));
+  factory Subtopic.fromRawJson(String str) => Subtopic.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
   factory Subtopic.fromJson(Map<String, dynamic> json) => new Subtopic(
         topic_id: json["topic_id"],
-        subtopic_id: json["subtopic_id"] is String
-            ? int.parse(json["subtopic_id"])
-            : json["subtopic_id"],
+        subtopic_id: json["subtopic_id"] is String ? int.parse(json["subtopic_id"]) : json["subtopic_id"],
         name_en: json["name_en"],
       );
 

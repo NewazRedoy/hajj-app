@@ -33,4 +33,3 @@ class User {
 //    "meta_data": metaData == null ? null : new List<dynamic>.from(metaData.map((x) => x.toMap())),
       };
 }
-

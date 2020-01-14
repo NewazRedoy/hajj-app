@@ -8,7 +8,7 @@ import 'package:sqflite/sqflite.dart';
 // singleton class to manage the database
 class DatabaseHelper {
   // This is the actual database filename that is saved in the docs directory.
-  static final _databaseName = "hadith.db";
+  static final _databaseName = "hajjdb.db";
 
   // Increment this version when you need to change the schema.
   static final _databaseVersion = 1;
@@ -97,9 +97,8 @@ class DatabaseHelper {
       } catch (_) {}
 
       // Copy from asset
-      ByteData data = await rootBundle.load(join("assets", "hadith.db"));
-      List<int> bytes =
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      ByteData data = await rootBundle.load(join("assets", "hajjdb.db"));
+      List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
 
       // Write and flush the bytes written
       await File(path).writeAsBytes(bytes, flush: true);
@@ -110,11 +109,9 @@ class DatabaseHelper {
     return await openDatabase(path, readOnly: true);
   }
 
-
   Future<List<Map>> queryHadithsByQuery(String query) async {
     Database db = await database;
-    List<Map> maps =
-        await db.rawQuery("select * from content where content match '$query'");
+    List<Map> maps = await db.rawQuery("select * from content where content match '$query'");
 
     print("select * from content where match $query");
     return maps;
@@ -132,19 +129,58 @@ class DatabaseHelper {
 
   Future<List<Map>> queryHadithsBySubtopicId(int topicID, int subtopicID) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery(
-        "select * from content where topic_id= $topicID and subtopic_id=$subtopicID");
+    List<Map> maps = await db.rawQuery("select * from content where topic_id= $topicID and subtopic_id=$subtopicID");
 
-    print(
-        "select * from content where topic_id=$topicID and subtopic_id = $subtopicID size:${maps.length}");
+    print("select * from content where topic_id=$topicID and subtopic_id = $subtopicID size:${maps.length}");
 
     return maps;
   }
 
   Future<List<Map>> querySubtopicsByTopicId(int id) async {
     Database db = await database;
-    List<Map> maps =
-        await db.rawQuery("select * from Subtopic where topic_id=$id");
+    List<Map> maps = await db.rawQuery("select * from Subtopic where topic_id=$id");
+    return maps;
+  }
+
+  Future<List<Map>> querybySerach(String term) async {
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select * from Subtopic where topic_id=$term");
+    return maps;
+  }
+
+  queryQuestionsByCategoryId(int category_id) async {
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select * from QuestioAnswer where category_id=$category_id");
+    return maps;
+  }
+
+  queryQuestionCategories() async {
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select * from QuestionCategory");
+    return maps;
+  }
+
+  queryDuaByCategoryId(int allDuacategory_id) async {
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select * from Dua where category_id=$allDuacategory_id");
+    return maps;
+  }
+
+  queryAllDuaCategories() async {
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select * from DuaCategory");
+    return maps;
+  }
+
+  querySentenceByCategoryId(int allDuacategory_id) async {
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select * from Sentence where category_id=$allDuacategory_id");
+    return maps;
+  }
+
+  queryAllSentenceCategories() async {
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select * from SentenceCategory");
     return maps;
   }
 

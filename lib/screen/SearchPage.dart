@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/SearchItem.dart';
-import 'package:hajjapp/model/database_helper.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/screen/SearchDetailPage.dart';
 import 'package:hajjapp/widgets/SearchListPageItem.dart';
 
@@ -10,7 +10,6 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-
   List data = [];
   var loading = true;
 
@@ -25,10 +24,8 @@ class _SearchPageState extends State<SearchPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
-              onChanged: (value)=> {
-                if(value.length>3){
-                  loadData(value)
-                }
+              onChanged: (value) => {
+                if (value.length > 3) {loadData(value)}
               },
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search),
@@ -46,18 +43,18 @@ class _SearchPageState extends State<SearchPage> {
             child: loading
                 ? CircularProgressIndicator()
                 : ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (BuildContext context, int position) {
-                  var subtopic = SearchItem.fromJson(data[position]);
+                    itemCount: data.length,
+                    itemBuilder: (BuildContext context, int position) {
+                      var subtopic = SearchItem.fromJson(data[position]);
 
-                  return SearchListPageItem((position + 1), subtopic.name_en, () {
+                      return SearchListPageItem((position + 1), subtopic.name_en, () {
 //                    Navigator.push(
 //                        context,
 //                        MaterialPageRoute(
 //                          builder: (context) => ContentDetailListPage(subtopic),
 //                        ));
-                  });
-                });,
+                      });
+                    }),
           ),
           Container(
             alignment: Alignment.bottomRight,
@@ -84,8 +81,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   loadData(String value) async {
-    var subtopics =
-    await DatabaseHelper.instance.querybySerach(value);
+    var subtopics = await DatabaseHelper.instance.querybySerach(value);
 
     setState(() {
       data = subtopics;

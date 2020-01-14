@@ -24,13 +24,11 @@ class CircleProgress extends CustomPainter {
     Offset center = Offset(size.width / 2, size.height / 2);
     double radius = min(size.width / 2, size.height / 2) - 10;
 
-    canvas.drawCircle(
-        center, radius, outerCircle); // this draws main outer circle
+    canvas.drawCircle(center, radius, outerCircle); // this draws main outer circle
 
     double angle = 2 * pi * (currentProgress / 100);
 
-    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
-        angle, false, completeArc);
+    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2, angle, false, completeArc);
   }
 
   @override

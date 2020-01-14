@@ -4,7 +4,6 @@ import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
 
 class SignupPage extends StatefulWidget {
-
   @override
   _SignupPageState createState() => _SignupPageState();
 }
@@ -52,10 +51,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         Text(
                           "Member Register",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepPurple),
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.deepPurple),
                           textAlign: TextAlign.start,
                         ),
                         Text(
@@ -81,8 +77,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                              labelStyle:
-                                  TextStyle(fontWeight: FontWeight.bold),
+                              labelStyle: TextStyle(fontWeight: FontWeight.bold),
                               hintStyle: TextStyle(color: Colors.white),
                               labelText: 'Email*',
                               hintText: "john.doe@gmail.com"),
@@ -92,8 +87,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                              labelStyle:
-                                  TextStyle(fontWeight: FontWeight.bold),
+                              labelStyle: TextStyle(fontWeight: FontWeight.bold),
                               labelText: 'Password*',
                               hintText: "********"),
                           controller: pwdInputController,
@@ -102,8 +96,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                              labelStyle:
-                                  TextStyle(fontWeight: FontWeight.bold),
+                              labelStyle: TextStyle(fontWeight: FontWeight.bold),
                               labelText: 'Contact Name*',
                               hintText: "John"),
                           controller: contactNameInputController,
@@ -179,11 +172,8 @@ class _SignupPageState extends State<SignupPage> {
                           padding: EdgeInsets.all(16),
                           onPressed: () {
                             if (_registerFormKey.currentState.validate()) {
-                              model.signUpUsingUsernamePassword(
-                                  context,
-                                  contactNameInputController.text,
-                                  emailInputController.text,
-                                  pwdInputController.text);
+                              model.signUpUsingUsernamePassword(context, contactNameInputController.text,
+                                  emailInputController.text, pwdInputController.text);
                             }
                           },
                         ),
@@ -201,10 +191,7 @@ class _SignupPageState extends State<SignupPage> {
                                 style: TextStyle(color: Colors.black),
                                 text: 'Already have an account? ',
                                 children: <TextSpan>[
-                                  TextSpan(
-                                      text: 'LOGIN',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold)),
+                                  TextSpan(text: 'LOGIN', style: TextStyle(fontWeight: FontWeight.bold)),
                                 ],
                               ),
                             ),

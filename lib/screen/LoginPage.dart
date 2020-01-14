@@ -32,9 +32,8 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               padding: EdgeInsets.all(46),
               decoration: new BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.elliptical(180, 35),
-                    bottomRight: Radius.elliptical(180, 35)),
+                borderRadius:
+                    BorderRadius.only(bottomLeft: Radius.elliptical(180, 35), bottomRight: Radius.elliptical(180, 35)),
               ),
               child: Form(
                   key: _registerFormKey,
@@ -56,16 +55,15 @@ class _LoginPageState extends State<LoginPage> {
                       Text(
                         "Got an account yet?\nLogin or Register free",
                         style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.start,
                       ),
                       TextFormField(
                           decoration: InputDecoration(
                               labelText: 'Username*',
-                              labelStyle:
-                                  TextStyle(fontWeight: FontWeight.bold),
+                              labelStyle: TextStyle(fontWeight: FontWeight.bold),
                               hintText: "john.doe"),
                           controller: emailInputController,
                           keyboardType: TextInputType.emailAddress,
@@ -95,9 +93,8 @@ class _LoginPageState extends State<LoginPage> {
 //                              "sales@ultracoralaustralia.com";
 //                          pwdInputController.text = "Nexus20!9";
 
-                            model.loginUsingUsernamePassword(context,
-                                emailInputController.text,
-                                pwdInputController.text);
+                            model.loginUsingUsernamePassword(
+                                context, emailInputController.text, pwdInputController.text);
                           }
                         },
                       ),
@@ -105,8 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                       Center(
                         child: InkWell(
                           onTap: () => {
-                            Navigator.of(context)
-                                .pushReplacementNamed(Constants.ROUTE_SINGUP)
+                            Navigator.of(context).pushReplacementNamed(Constants.ROUTE_SINGUP)
 
 //                            model.gotoSignup()
                           },
@@ -115,10 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(color: Colors.black),
                               text: 'Don\'t have an account? ',
                               children: <TextSpan>[
-                                TextSpan(
-                                    text: 'SIGN UP',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text: 'SIGN UP', style: TextStyle(fontWeight: FontWeight.bold)),
                               ],
                             ),
                           ),

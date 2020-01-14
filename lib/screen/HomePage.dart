@@ -3,6 +3,7 @@ import 'package:hajjapp/screen/AppDrawerPage.dart';
 import 'package:hajjapp/screen/TopicGridPage.dart';
 import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
 import 'package:hajjapp/screen/questions/AskQuestionPage.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class Home extends StatefulWidget {
@@ -11,15 +12,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
- int _currentIndex=0;
- Widget callPages(int currentIndex){
-  switch (currentIndex){
-    case 0: return TopicGridPage();
-    case 1: return DuaTopicPage();
-    case 2: return AskQuestionPage();
-    default:return TopicGridPage();
+  int _currentIndex = 0;
+
+  Widget callPages(int currentIndex) {
+    switch (currentIndex) {
+      case 0:
+        return TopicGridPage();
+      case 1:
+        return DuaTopicPage();
+      case 2:
+        return ElectedQuestionPage();
+      default:
+        return TopicGridPage();
+    }
   }
- }
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +39,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (value) {
-          _currentIndex=value;
-          setState(() {
-          });
+          _currentIndex = value;
+          setState(() {});
         },
         items: [
           BottomNavigationBarItem(

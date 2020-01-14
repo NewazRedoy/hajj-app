@@ -146,41 +146,50 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                                   Icons.arrow_upward,
                                   color: Colors.red,
                                 )),
-                            SizedBox(width: 8,),
+                            SizedBox(
+                              width: 8,
+                            ),
                             Text(
                               "শুরু করুন",
                               style: TextStyle(color: Colors.white),
                             ),
-                            SizedBox(width: 8,),
+                            SizedBox(
+                              width: 8,
+                            ),
                           ],
                         ),
                       )
                     : RaisedButton(
-                  color: Theme.of(context).primaryColor,
-                  padding: EdgeInsets.all(2),
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        color: Theme.of(context).primaryColor,
+                        padding: EdgeInsets.all(2),
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         shape: StadiumBorder(),
                         onPressed: () {
                           setState(() {
                             count = 0;
                             start = false;
                           });
-                        }, child: Row(
-                  children: <Widget>[
-                    CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Icon(
-                          Icons.redo,
-                          color: Theme.of(context).primaryColor,
-                        )),
-                    SizedBox(width: 8,),
-                    Text(
-                      "রিসেট করুন",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    SizedBox(width: 8,),
-                  ],
-                ),
+                        },
+                        child: Row(
+                          children: <Widget>[
+                            CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Icon(
+                                  Icons.redo,
+                                  color: Theme.of(context).primaryColor,
+                                )),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              "রিসেট করুন",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                          ],
+                        ),
                       ),
               ],
             ),

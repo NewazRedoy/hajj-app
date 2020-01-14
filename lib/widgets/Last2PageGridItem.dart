@@ -1,9 +1,5 @@
-import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
-import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
-import 'package:hajjapp/screen/hajjassistant/SieCountPage.dart';
-import 'package:hajjapp/screen/hajjassistant/TawafCountPage.dart';
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 
 class Last2PageGridItem extends StatelessWidget {
   int index;
@@ -24,8 +20,7 @@ class Last2PageGridItem extends StatelessWidget {
         ),
         elevation: 7.0,
         child: InkWell(
-          onTap: () {
-            },
+          onTap: () {},
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

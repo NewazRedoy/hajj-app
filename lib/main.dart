@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/CurrentUserModel.dart';
 import 'package:hajjapp/screen/HomePage.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
             accentColor: Color.fromARGB(255, 167, 142, 114),
             fontFamily: 'Bangla',
             textTheme: TextTheme()),
-
         home: Home(),
       ),
     );

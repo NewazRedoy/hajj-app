@@ -1,24 +1,22 @@
 import 'dart:convert';
 
 class QuestionCategory {
-  int category_id;
-  String questiontopic;
+  int id;
+  String name;
 
-  QuestionCategory({this.category_id, this.questiontopic});
+  QuestionCategory({this.id, this.name});
 
-  factory QuestionCategory.fromRawJson(String str) =>
-      QuestionCategory.fromJson(json.decode(str));
+  factory QuestionCategory.fromRawJson(String str) => QuestionCategory.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory QuestionCategory.fromJson(Map<String, dynamic> json) =>
-      new QuestionCategory(
-        category_id: json["question_id"],
-        questiontopic: json["questiontpic_id"],
+  factory QuestionCategory.fromJson(Map<String, dynamic> json) => new QuestionCategory(
+        id: json["id"],
+        name: json["name"],
       );
 
   Map<String, dynamic> toJson() => {
-        "question_id": category_id,
-        "questiontpic": questiontopic,
+        "id": id,
+        "name": name,
       };
 }

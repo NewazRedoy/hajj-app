@@ -33,14 +33,12 @@ class _AskQuestionPageState extends State<AskQuestionPage> {
                     TextField(
                       decoration: InputDecoration(
                           labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                          hintText:
-                              "প্রশ্নের বিষয় উল্লেখ করুন (যেমনঃ ইহরাম, তাওয়াফ, সা'ঈ)"),
+                          hintText: "প্রশ্নের বিষয় উল্লেখ করুন (যেমনঃ ইহরাম, তাওয়াফ, সা'ঈ)"),
                     ),
                     TextField(
                       maxLines: 4,
                       decoration: InputDecoration(
-                          labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                          hintText: "আপনার দু'আ এখানে লেখুন..."),
+                          labelStyle: TextStyle(fontWeight: FontWeight.bold), hintText: "আপনার দু'আ এখানে লেখুন..."),
                     ),
                   ],
                 ),

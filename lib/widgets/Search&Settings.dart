@@ -1,5 +1,5 @@
-import 'package:hajjapp/screen/SearchPage.dart';
 import 'package:flutter/material.dart';
+import 'package:hajjapp/screen/SearchPage.dart';
 
 class SearchSettings extends StatefulWidget {
   @override
@@ -17,14 +17,14 @@ class _SearchSettingsState extends State<SearchSettings> {
             size: 24.0,
           ),
           onPressed: () {
-            Navigator.push(context,
+            Navigator.push(
+              context,
               MaterialPageRoute(
                 builder: (context) => SearchPage(),
               ),
             );
           },
         ),
-
         PopupMenuButton(
           itemBuilder: (BuildContext context) {
             return [

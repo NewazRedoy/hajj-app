@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
-import 'package:flutter/services.dart' show rootBundle;
+
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/Subtopic.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/TawafWidget.dart';
@@ -27,8 +27,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: Duration(milliseconds: 2000), vsync: this);
+    controller = AnimationController(duration: Duration(milliseconds: 2000), vsync: this);
 
     animation = Tween(begin: 0.0, end: 1.0).animate(controller)
       ..addListener(() {
@@ -41,21 +40,19 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
       controller.repeat();
     }
 
-   init();
-
+    init();
   }
 
-  Future <Null> init() async {
+  Future<Null> init() async {
     final ByteData data = await rootBundle.load('assets/images/SaudiarabiaFlag.png');
     image = await loadImage(new Uint8List.view(data.buffer));
   }
 
   @override
   Widget build(BuildContext context) {
-    if (count > 0 && count<=7 &&!controller.isAnimating)
+    if (count > 0 && count <= 7 && !controller.isAnimating)
       controller.repeat();
-    else if ((count == 0 || count==7) && controller.isAnimating)
-      controller.stop();
+    else if ((count == 0 || count == 7) && controller.isAnimating) controller.stop();
 
     return Scaffold(
       appBar: AppBar(
@@ -71,8 +68,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
           children: <Widget>[
             Container(
               alignment: Alignment.topCenter,
-              child: Text(
-                  "প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন"),
+              child: Text("প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন"),
             ),
             SizedBox(
               height: 8,
@@ -84,8 +80,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
             Container(
               width: MediaQuery.of(context).size.width,
               height: 400,
-              child: CustomPaint(
-                  foregroundPainter: TawafWidget(count, _fraction, image, context)),
+              child: CustomPaint(foregroundPainter: TawafWidget(count, _fraction, image, context)),
             ),
             SizedBox(
               height: 8,
@@ -95,7 +90,6 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
                 if (count < 7) {
                   setState(() {
                     count++;
-
                   });
                 }
               },
@@ -117,9 +111,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
   Future<ui.Image> loadImage(List<int> img) async {
     final Completer<ui.Image> completer = new Completer();
     ui.decodeImageFromList(img, (ui.Image img) {
-      setState(() {
-
-      });
+      setState(() {});
       return completer.complete(img);
     });
     return completer.future;
@@ -130,5 +122,4 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
     this.controller.dispose();
     super.dispose();
   }
-
 }

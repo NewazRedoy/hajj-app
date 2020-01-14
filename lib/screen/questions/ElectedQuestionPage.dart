@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
-import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
@@ -22,7 +22,8 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
   }
 
   loadData() async {
-    var content = await Constants.question_categories;
+    var content = await DatabaseHelper.instance.queryQuestionCategories();
+
     setState(() {
       data = content;
       loading = false;
@@ -43,14 +44,13 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
           : ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                QuestionCategory question = data[index];
+                QuestionCategory question = QuestionCategory.fromJson(data[index]);
 
-                return ListPageItem((index + 1), question.questiontopic, () {
+                return ListPageItem((index + 1), question.name, () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            ElectedQuestionDetailPage(question),
+                        builder: (context) => ElectedQuestionDetailPage(question),
                       ));
                 });
               },

@@ -64,10 +64,10 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
 
                   Navigator.pop(context);
                 }),
-                 DuaButton('Delete', Colors.red, () {
-                        Provider.of<CurrentUserModel>(context, listen: false).deleteDua(widget.dua.key);
-                        Navigator.pop(context);
-                      })
+                DuaButton('Delete', Colors.red, () {
+                  Provider.of<CurrentUserModel>(context, listen: false).deleteDua(widget.dua.key);
+                  Navigator.pop(context);
+                })
               ],
             ),
           ],

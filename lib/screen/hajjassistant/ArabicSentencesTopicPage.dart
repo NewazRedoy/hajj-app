@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
 import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/screen/hajjassistant/ArabicSentencesDetailPage.dart';
-import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ArabicSentencesTopicPage extends StatefulWidget {
   final Topic topic;
+
   ArabicSentencesTopicPage(this.topic);
+
   @override
-  _ArabicSentencesTopicPageState createState() =>
-      _ArabicSentencesTopicPageState();
+  _ArabicSentencesTopicPageState createState() => _ArabicSentencesTopicPageState();
 }
 
 class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
@@ -26,7 +27,7 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
   }
 
   loadData() async {
-    var content = await Constants.sentense_categories;
+    var content = await DatabaseHelper.instance.queryAllSentenceCategories();
     setState(() {
       data = content;
       loading = false;
@@ -47,15 +48,14 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
             : ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  SentencesCategory sentencesCategory = data[index];
+                  SentencesCategory sentencesCategory = SentencesCategory.fromJson(data[index]);
 
-                  return ListPageItem(
-                      (index + 1), sentencesCategory.sentencetopic, () {
+                  return ListPageItem((index + 1), sentencesCategory.name, () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => ArabicSentencesDetailPage(
-                                  sentences: sentencesCategory,
+                                  sentenceCategory: sentencesCategory,
                                 )));
                   });
                 }));

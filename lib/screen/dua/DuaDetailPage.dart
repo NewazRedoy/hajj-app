@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/AllDuaCategory.dart';
+import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/model/DuaDetail.dart';
-import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class DuaDetailPage extends StatefulWidget {
-  final AllDuaCategory allDuaCategory;
+  final DuaCategory allDuaCategory;
 
   const DuaDetailPage({
     Key key,
@@ -17,7 +17,7 @@ class DuaDetailPage extends StatefulWidget {
 }
 
 class _DuaDetailPageState extends State<DuaDetailPage> {
-  AllDuaCategory allDuaCategory;
+  DuaCategory allDuaCategory;
 
   _DuaDetailPageState(this.allDuaCategory);
 
@@ -32,7 +32,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
   }
 
   loadData() async {
-    var content = await Constants.all;
+    var content = await DatabaseHelper.instance.queryDuaByCategoryId(widget.allDuaCategory.id);
     setState(() {
       data = content;
       loading = false;
@@ -44,7 +44,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          allDuaCategory.allDuatopic,
+          allDuaCategory.name,
         ),
         actions: <Widget>[
           SearchSettings(),
@@ -53,7 +53,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
       body: ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
-          return DuaDetailItem(data[index]);
+          return DuaDetailItem(DuaDetail.fromJson(data[index]));
         },
       ),
     );
@@ -83,7 +83,7 @@ class DuaDetailItem extends StatelessWidget {
                 decoration: BoxDecoration(color: Theme.of(context).accentColor),
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  allDuatopic.allDuacategory_id.toString(),
+                  allDuatopic.category_id.toString(),
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
@@ -92,7 +92,7 @@ class DuaDetailItem extends StatelessWidget {
               ),
               Expanded(
                 child: Text(
-                  allDuatopic.allDuacategory_id.toString(),
+                  allDuatopic.category_id.toString(),
                   style: TextStyle(fontSize: 20),
                 ),
               ),
@@ -130,7 +130,7 @@ class DuaDetailItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              allDuatopic.bengali,
+              allDuatopic.bangla,
               style: TextStyle(fontSize: 14.0),
             ),
           ),
@@ -138,7 +138,7 @@ class DuaDetailItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              allDuatopic.english,
+              allDuatopic.transliteration,
               style: TextStyle(fontSize: 14.0),
             ),
           ),

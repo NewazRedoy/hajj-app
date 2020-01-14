@@ -1,37 +1,31 @@
 import 'dart:convert';
 
 class DuaDetail {
-  int Subtopic_id;
-  int allDuacategory_id;
+  int id;
+  int category_id;
   String arabic;
-  String bengali;
-  String english;
+  String bangla;
+  String transliteration;
 
-  DuaDetail(
-      {this.Subtopic_id,
-      this.allDuacategory_id,
-      this.arabic,
-      this.bengali,
-      this.english});
+  DuaDetail({this.id, this.category_id, this.arabic, this.bangla, this.transliteration});
 
-  factory DuaDetail.fromRawJson(String str) =>
-      DuaDetail.fromJson(json.decode(str));
+  factory DuaDetail.fromRawJson(String str) => DuaDetail.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
   factory DuaDetail.fromJson(Map<String, dynamic> json) => new DuaDetail(
-        Subtopic_id: json["Subtopic_id"],
-    allDuacategory_id: json["allDuacategory_id"],
-        bengali: json["bengali"],
+        id: json["id"],
+        category_id: json["category_id"],
+        bangla: json["bangla"],
         arabic: json["arabic"],
-        english: json["english"],
+        transliteration: json["transliteration"],
       );
 
   Map<String, dynamic> toJson() => {
-        "Subtopic_id": Subtopic_id,
-        "allDuacategory_id": allDuacategory_id,
+        "id": id,
+        "category_id": category_id,
         "arabic": arabic,
-        "bengali": bengali,
-        "english": english,
+        "bangla": bangla,
+        "transliteration": transliteration,
       };
 }

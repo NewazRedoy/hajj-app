@@ -4,37 +4,21 @@ class Content {
   int topic_id;
   int subtopic_id;
   int content_id;
-  String gradeAr;
-  String gradeArDiacless;
-  String gradeEn;
-  String narratorAr;
-  String narratorArDiacless;
-  String narratorArend;
-  String narratorArendDiacless;
-  String narratorEn;
-  String referenceEn;
-  String relatedEn;
+  String text;
   String textAr;
-  String textArDiacless;
-  String textEn;
+  String reference;
+  String video_url;
+  String image;
 
   Content({
     this.subtopic_id,
     this.topic_id,
     this.content_id,
-    this.gradeAr,
-    this.gradeArDiacless,
-    this.gradeEn,
-    this.narratorAr,
-    this.narratorArDiacless,
-    this.narratorArend,
-    this.narratorArendDiacless,
-    this.narratorEn,
-    this.referenceEn,
-    this.relatedEn,
+    this.video_url,
+    this.reference,
+    this.image,
     this.textAr,
-    this.textArDiacless,
-    this.textEn,
+    this.text,
   });
 
   factory Content.fromJson(String str) => Content.fromMap(json.decode(str));
@@ -45,37 +29,21 @@ class Content {
         subtopic_id: json["subtopic_id"],
         topic_id: json["topic_id"],
         content_id: json["content_id"],
-        gradeAr: json["grade_ar"],
-        gradeArDiacless: json["grade_ar_diacless"],
-        gradeEn: json["grade_en"],
-        narratorAr: json["narrator_ar"],
-        narratorArDiacless: json["narrator_ar_diacless"],
-        narratorArend: json["narrator_arend"],
-        narratorArendDiacless: json["narrator_arend_diacless"],
-        narratorEn: json["narrator_en"],
-        referenceEn: json["reference_en"],
-        relatedEn: json["related_en"],
+        video_url: json["video_url"],
+        reference: json["reference"],
+        image: json["image"],
         textAr: json["text_ar"],
-        textArDiacless: json["text_ar_diacless"],
-        textEn: json["text_en"],
+        text: json["text"],
       );
 
   Map<String, dynamic> toMap() => {
         "subtopic_id": subtopic_id,
         "topic_id": topic_id,
         "content_id": content_id,
-        "grade_ar": gradeAr,
-        "grade_ar_diacless": gradeArDiacless,
-        "grade_en": gradeEn,
-        "narrator_ar": narratorAr,
-        "narrator_ar_diacless": narratorArDiacless,
-        "narrator_arend": narratorArend,
-        "narrator_arend_diacless": narratorArendDiacless,
-        "narrator_en": narratorEn,
-        "reference_en": referenceEn,
-        "related_en": relatedEn,
+        "video_url": video_url,
+        "reference": reference,
+        "image": image,
         "text_ar": textAr,
-        "text_ar_diacless": textArDiacless,
-        "text_en": textEn,
+        "text": text,
       };
 }

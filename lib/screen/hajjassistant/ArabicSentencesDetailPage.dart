@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/ArabicSentences.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
-import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/widgets/ArabicSentenceListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ArabicSentencesDetailPage extends StatefulWidget {
-  final SentencesCategory sentences;
+  final SentencesCategory sentenceCategory;
 
   const ArabicSentencesDetailPage({
     Key key,
-    @required this.sentences,
+    @required this.sentenceCategory,
   }) : super(key: key);
 
   @override
-  _ArabicSentencesDetailPageState createState() =>
-      _ArabicSentencesDetailPageState(sentences);
+  _ArabicSentencesDetailPageState createState() => _ArabicSentencesDetailPageState();
 }
 
 class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
-  SentencesCategory sentences;
-
-  _ArabicSentencesDetailPageState(this.sentences);
+  _ArabicSentencesDetailPageState();
 
   List data = [];
   var loading = true;
@@ -33,7 +31,7 @@ class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
   }
 
   loadData() async {
-    var content = await Constants.sentences;
+    var content = await DatabaseHelper.instance.querySentenceByCategoryId(widget.sentenceCategory.id);
     setState(() {
       data = content;
       loading = false;
@@ -45,7 +43,7 @@ class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          sentences.sentencetopic,
+          widget.sentenceCategory.name,
         ),
         actions: <Widget>[
           SearchSettings(),
@@ -54,7 +52,7 @@ class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
       body: ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
-          return ArabicSentenceListItem(data[index]);
+          return ArabicSentenceListItem(ArabicSentence.fromJson(data[index]));
         },
       ),
     );

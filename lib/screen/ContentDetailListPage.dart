@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/model/database_helper.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/widgets/ContentListItem.dart';
 import 'package:hajjapp/widgets/PreparationListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
@@ -32,15 +32,14 @@ class SampleAppPage extends StatefulWidget {
   Subtopic subtopic;
 
   @override
-  _SampleAppPageState createState() => _SampleAppPageState(subtopic);
+  _SampleAppPageState createState() => _SampleAppPageState();
 }
 
 class _SampleAppPageState extends State<SampleAppPage> {
   List data = [];
   var loading = true;
-  Subtopic subtopic;
 
-  _SampleAppPageState(this.subtopic);
+  _SampleAppPageState();
 
   @override
   void initState() {
@@ -63,26 +62,22 @@ class _SampleAppPageState extends State<SampleAppPage> {
 //                }
 //              });
             },
-            child: subtopic.topic_id == 4 && subtopic.subtopic_id == 1
+            child: widget.subtopic.topic_id == 4 && widget.subtopic.subtopic_id == 1
                 ? ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
-                      return PreparationListItem(
-                          subtopic: subtopic,
-                          content: Content.fromMap(data[position]));
+                      return PreparationListItem(subtopic: widget.subtopic, content: Content.fromMap(data[position]));
                     })
                 : ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
-                      return ContentListItem(
-                          subtopic: subtopic,
-                          content: Content.fromMap(data[position]));
+                      return ContentListItem(subtopic: widget.subtopic, content: Content.fromMap(data[position]));
                     }));
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance
-        .queryHadithsBySubtopicId(subtopic.topic_id, subtopic.subtopic_id);
+    var content =
+        await DatabaseHelper.instance.queryHadithsBySubtopicId(widget.subtopic.topic_id, widget.subtopic.subtopic_id);
 
     setState(() {
       data = content;

@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:flutter/material.dart';
 
 class ContentListItem extends StatelessWidget {
   Content content;
@@ -32,8 +32,7 @@ class ContentListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    decoration:
-                        BoxDecoration(color: Theme.of(context).accentColor),
+                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       content.content_id.toString(),
@@ -57,10 +56,8 @@ class ContentListItem extends StatelessWidget {
                     onPressed: () {},
                   ),
                   Container(
-                    decoration:
-                        BoxDecoration(color: Theme.of(context).accentColor),
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                     child: Text(
                       "",
                       style: TextStyle(fontSize: 20),
@@ -86,7 +83,7 @@ class ContentListItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  content.textEn,
+                  content.text,
                   style: Theme.of(context).textTheme.subhead,
                 ),
               ),

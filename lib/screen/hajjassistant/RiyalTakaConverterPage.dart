@@ -52,8 +52,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   ),
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration.collapsed(
-                          hintText: takaValue.toString()),
+                      decoration: InputDecoration.collapsed(hintText: takaValue.toString()),
                       maxLines: 1,
                       textAlign: TextAlign.right,
                       style: TextStyle(
@@ -91,8 +90,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   ),
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration.collapsed(
-                          hintText: rialValue.toString()),
+                      decoration: InputDecoration.collapsed(hintText: rialValue.toString()),
                       maxLines: 1,
                       textAlign: TextAlign.right,
                       style: TextStyle(fontSize: 32),

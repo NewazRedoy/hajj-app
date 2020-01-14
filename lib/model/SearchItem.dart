@@ -11,16 +11,13 @@ class SearchItem {
     this.name_en,
   });
 
-  factory SearchItem.fromRawJson(String str) =>
-      SearchItem.fromJson(json.decode(str));
+  factory SearchItem.fromRawJson(String str) => SearchItem.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
   factory SearchItem.fromJson(Map<String, dynamic> json) => new SearchItem(
         topic_id: json["topic_id"],
-        subtopic_id: json["subtopic_id"] is String
-            ? int.parse(json["subtopic_id"])
-            : json["subtopic_id"],
+        subtopic_id: json["subtopic_id"] is String ? int.parse(json["subtopic_id"]) : json["subtopic_id"],
         name_en: json["name_en"],
       );
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/model/DuaCategory.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/widgets/DuaTopicListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
@@ -20,7 +21,8 @@ class _AllDuaPageState extends State<AllDuaPage> {
   }
 
   loadData() async {
-    var content = await Constants.allDua_categories;
+    var content = await DatabaseHelper.instance.queryAllDuaCategories();
+
     setState(() {
       data = content;
       loading = false;
@@ -41,7 +43,7 @@ class _AllDuaPageState extends State<AllDuaPage> {
           : ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                return DuaTopicListItem(index + 1, data[index]);
+                return DuaTopicListItem(index + 1, DuaCategory.fromJson(data[index]));
               },
             ),
     );

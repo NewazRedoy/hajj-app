@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
-import 'package:hajjapp/model/database_helper.dart';
+import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/screen/ContentDetailListPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
@@ -77,8 +77,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
   }
 
   loadData() async {
-    var subtopics =
-        await DatabaseHelper.instance.querySubtopicsByTopicId(widget.topic.topic_id);
+    var subtopics = await DatabaseHelper.instance.querySubtopicsByTopicId(widget.topic.topic_id);
 
     setState(() {
       data = subtopics;
