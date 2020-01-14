@@ -1,9 +1,16 @@
 import 'dart:io';
 
 import 'package:flutter/services.dart';
+import 'package:hajjapp/model/Content.dart';
+import 'package:hajjapp/model/DuaCategory.dart';
+import 'package:hajjapp/model/QuestionsCategory.dart';
+import 'package:hajjapp/model/SearchItem.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
+
+enum PageViewType { Content, Dua, Question }
 
 // singleton class to manage the database
 class DatabaseHelper {
@@ -142,10 +149,36 @@ class DatabaseHelper {
     return maps;
   }
 
-  Future<List<Map>> querybySerach(String term) async {
+  Future<List<SearchItem>> querybySearch(String term) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select * from Subtopic where topic_id=$term");
-    return maps;
+
+    List<SearchItem> items = [];
+
+    List<Map> maps = await db.rawQuery("select * from Subtopic where name='%$term%'");
+    maps.forEach((row) {
+      var topic = Subtopic.fromJson(row);
+      items.add(SearchItem(topic.name, "", PageViewType.Content, topic));
+    });
+
+    List<Map> maps1 = await db.rawQuery("select * from Content where text='%$term%'");
+    maps1.forEach((row) {
+      var topic = Content.fromMap(row);
+      items.add(SearchItem(topic.text, "", PageViewType.Content, topic));
+    });
+
+    List<Map> maps2 = await db.rawQuery("select * from DuaCategory where name='%$term%'");
+    maps2.forEach((row) {
+      var topic = DuaCategory.fromJson(row);
+      items.add(SearchItem(topic.name, "", PageViewType.Content, topic));
+    });
+
+    List<Map> maps3 = await db.rawQuery("select * from QuestionCategory where name='%$term%'");
+    maps3.forEach((row) {
+      var topic = QuestionCategory.fromJson(row);
+      items.add(SearchItem(topic.name, "", PageViewType.Content, topic));
+    });
+
+    return items;
   }
 
   queryQuestionsByCategoryId(int category_id) async {

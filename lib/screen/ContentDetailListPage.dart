@@ -16,7 +16,7 @@ class ContentDetailListPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            subtopic.name_en,
+            subtopic.name,
           ),
           actions: <Widget>[
             SearchSettings(),

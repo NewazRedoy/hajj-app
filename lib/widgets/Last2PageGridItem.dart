@@ -29,7 +29,7 @@ class Last2PageGridItem extends StatelessWidget {
               ),
               Icon(Icons.star_border),
               Text(
-                subtopic.name_en,
+                subtopic.name,
                 style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold),
               ),
             ],

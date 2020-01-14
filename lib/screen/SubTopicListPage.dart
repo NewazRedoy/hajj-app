@@ -66,7 +66,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
             itemBuilder: (BuildContext context, int position) {
               var subtopic = Subtopic.fromJson(data[position]);
 
-              return ListPageItem((position + 1), subtopic.name_en, () {
+              return ListPageItem((position + 1), subtopic.name, () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(

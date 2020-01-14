@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/screen/SearchDetailPage.dart';
 import 'package:hajjapp/widgets/SearchListPageItem.dart';
@@ -45,9 +44,9 @@ class _SearchPageState extends State<SearchPage> {
                 : ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
-                      var subtopic = SearchItem.fromJson(data[position]);
+                      var subtopic = data[position];
 
-                      return SearchListPageItem((position + 1), subtopic.name_en, () {
+                      return SearchListPageItem((position + 1), subtopic.name, () {
 //                    Navigator.push(
 //                        context,
 //                        MaterialPageRoute(
@@ -81,7 +80,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   loadData(String value) async {
-    var subtopics = await DatabaseHelper.instance.querybySerach(value);
+    var subtopics = await DatabaseHelper.instance.querybySearch(value);
 
     setState(() {
       data = subtopics;

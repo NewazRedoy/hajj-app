@@ -1,10 +1,4 @@
-import 'package:hajjapp/model/ArabicSentences.dart';
-import 'package:hajjapp/model/ArabicSentencesCategory.dart';
-import 'package:hajjapp/model/DuaCategory.dart';
-import 'package:hajjapp/model/DuaDetail.dart';
 import 'package:hajjapp/model/DuaTopic.dart';
-import 'package:hajjapp/model/QuestionDetail.dart';
-import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/model/Topic.dart';
 
 class Constants {
@@ -46,7 +40,6 @@ class Constants {
       duatopic: "পছন্দ তালিকা",
     ),
   ];
-
 
 //  public static String intToBangla(int n) {
 //    var buffer = new StringBuffer(n.toString());

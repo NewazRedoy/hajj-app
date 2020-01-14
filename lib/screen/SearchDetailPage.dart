@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/ArabicSentencesCategory.dart';
 import 'package:hajjapp/provider/database_helper.dart';
-import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SearchListDetailItem.dart';
 
@@ -22,7 +20,7 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.querybySerach("");
+    var content = await DatabaseHelper.instance.querybySearch("সা'ঈ");
     setState(() {
       data = content;
       loading = false;
@@ -41,8 +39,7 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
           : ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                SentencesCategory sentencesCategory = data[index];
-                return SearchListDetailItem(sentencesCategory: sentencesCategory);
+                return SearchListDetailItem(data[index], () => {});
               }),
     );
   }

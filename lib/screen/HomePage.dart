@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/screen/AppDrawerPage.dart';
 import 'package:hajjapp/screen/TopicGridPage.dart';
 import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
-import 'package:hajjapp/screen/questions/AskQuestionPage.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 

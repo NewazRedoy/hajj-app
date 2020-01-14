@@ -44,7 +44,7 @@ class PreparationListItem extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      subtopic.name_en,
+                      subtopic.name,
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
