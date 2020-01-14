@@ -26,15 +26,15 @@ class DuaTopicListItem extends StatelessWidget {
           child: InkWell(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuaCategory: allDuatopic)));
+                  context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuatopic)));
             },
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
               Container(
                 decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(14.0),
                 child: Text(
                   index.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
               SizedBox(
@@ -43,15 +43,15 @@ class DuaTopicListItem extends StatelessWidget {
               Expanded(
                 child: Text(
                   allDuatopic.name,
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
               Container(
                 decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
                 child: Text(
                   "",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 18),
                 ),
               )
             ]),

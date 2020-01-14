@@ -50,7 +50,7 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ElectedQuestionDetailPage(question),
+                        builder: (context) => QuestionDetailPage(question),
                       ));
                 });
               },

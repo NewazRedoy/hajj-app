@@ -1,19 +1,19 @@
 import 'dart:convert';
 
-class DuaDetail {
+class Dua {
   int id;
   int category_id;
   String arabic;
   String bangla;
   String transliteration;
 
-  DuaDetail({this.id, this.category_id, this.arabic, this.bangla, this.transliteration});
+  Dua({this.id, this.category_id, this.arabic, this.bangla, this.transliteration});
 
-  factory DuaDetail.fromRawJson(String str) => DuaDetail.fromJson(json.decode(str));
+  factory Dua.fromRawJson(String str) => Dua.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory DuaDetail.fromJson(Map<String, dynamic> json) => new DuaDetail(
+  factory Dua.fromJson(Map<String, dynamic> json) => new Dua(
         id: json["id"],
         category_id: json["category_id"],
         bangla: json["bangla"],

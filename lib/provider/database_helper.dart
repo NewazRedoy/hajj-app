@@ -150,40 +150,48 @@ class DatabaseHelper {
   }
 
   Future<List<SearchItem>> querybySearch(String term) async {
+
+    term = term.replaceAll('\'', '\'\'');
+
     Database db = await database;
 
     List<SearchItem> items = [];
 
-    List<Map> maps = await db.rawQuery("select * from Subtopic where name='%$term%'");
+    List<Map> maps = await db.rawQuery("select * from Subtopic where name_en like '%$term%'");
+    print(maps);
     maps.forEach((row) {
       var topic = Subtopic.fromJson(row);
       items.add(SearchItem(topic.name, "", PageViewType.Content, topic));
     });
 
-    List<Map> maps1 = await db.rawQuery("select * from Content where text='%$term%'");
+    List<Map> maps1 = await db.rawQuery("select * from Content where text like '%$term%'");
+    print(maps1);
     maps1.forEach((row) {
       var topic = Content.fromMap(row);
       items.add(SearchItem(topic.text, "", PageViewType.Content, topic));
     });
 
-    List<Map> maps2 = await db.rawQuery("select * from DuaCategory where name='%$term%'");
+    List<Map> maps2 = await db.rawQuery("select * from DuaCategory where name like '%$term%'");
+    print(maps2);
     maps2.forEach((row) {
       var topic = DuaCategory.fromJson(row);
-      items.add(SearchItem(topic.name, "", PageViewType.Content, topic));
+      items.add(SearchItem(topic.name, "", PageViewType.Dua, topic));
     });
 
-    List<Map> maps3 = await db.rawQuery("select * from QuestionCategory where name='%$term%'");
+    List<Map> maps3 = await db.rawQuery("select * from QuestionCategory where name like '%$term%'");
+    print(maps3);
     maps3.forEach((row) {
       var topic = QuestionCategory.fromJson(row);
-      items.add(SearchItem(topic.name, "", PageViewType.Content, topic));
+      items.add(SearchItem(topic.name, "", PageViewType.Question, topic));
     });
 
+    print(items);
     return items;
   }
 
   queryQuestionsByCategoryId(int category_id) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select * from QuestioAnswer where category_id=$category_id");
+    List<Map> maps = await db.rawQuery("select * from QuestionAnswer where category_id=$category_id");
     return maps;
   }
 

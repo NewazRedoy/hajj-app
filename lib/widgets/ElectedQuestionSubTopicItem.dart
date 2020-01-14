@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 
 class ElectedQuestionSubTopicListItem extends StatelessWidget {
-  QuestionDetail questionsubtopic;
+  QuestionDetail questionanswer;
 
   ElectedQuestionSubTopicListItem(
-    this.questionsubtopic,
+    this.questionanswer,
   );
 
   @override
@@ -22,7 +22,7 @@ class ElectedQuestionSubTopicListItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text(
-              questionsubtopic.questiontopic,
+              questionanswer.question,
               style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
             ),
           ),
@@ -30,7 +30,7 @@ class ElectedQuestionSubTopicListItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text(
-              questionsubtopic.answer,
+              questionanswer.answer,
               style: TextStyle(fontSize: 14.0),
             ),
           ),

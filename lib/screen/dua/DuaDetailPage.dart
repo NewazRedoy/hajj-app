@@ -7,10 +7,7 @@ import 'package:hajjapp/widgets/Search&Settings.dart';
 class DuaDetailPage extends StatefulWidget {
   final DuaCategory allDuaCategory;
 
-  const DuaDetailPage({
-    Key key,
-    @required this.allDuaCategory,
-  }) : super(key: key);
+  DuaDetailPage(this.allDuaCategory);
 
   @override
   _DuaDetailPageState createState() => _DuaDetailPageState(allDuaCategory);
@@ -53,7 +50,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
       body: ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
-          return DuaDetailItem(DuaDetail.fromJson(data[index]));
+          return DuaDetailItem(Dua.fromJson(data[index]));
         },
       ),
     );
@@ -61,7 +58,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
 }
 
 class DuaDetailItem extends StatelessWidget {
-  DuaDetail allDuatopic;
+  Dua allDuatopic;
 
   DuaDetailItem(this.allDuatopic);
 

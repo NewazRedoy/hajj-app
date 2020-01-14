@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/screen/ContentDetailListPage.dart';
+import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SearchListDetailItem.dart';
 
@@ -39,7 +43,28 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
           : ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                return SearchListDetailItem(data[index], () => {});
+                SearchItem searchItem = data[index];
+                return SearchListDetailItem(searchItem, () {
+                  if (searchItem.viewtype == PageViewType.Content) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ContentDetailListPage(searchItem.item),
+                        ));
+                  } else if (searchItem.viewtype == PageViewType.Dua) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DuaDetailPage(searchItem.item),
+                        ));
+                  } else if (searchItem.viewtype == PageViewType.Question) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => QuestionDetailPage(searchItem.item),
+                        ));
+                  }
+                });
               }),
     );
   }

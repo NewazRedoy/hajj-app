@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class ContentListItem extends StatelessWidget {
+class ContentListItem extends StatefulWidget {
   Content content;
   Subtopic subtopic;
 
@@ -10,6 +11,26 @@ class ContentListItem extends StatelessWidget {
     this.content,
     this.subtopic,
   });
+
+  @override
+  _ContentListItemState createState() => _ContentListItemState();
+}
+
+class _ContentListItemState extends State<ContentListItem> {
+  YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    _controller = YoutubePlayerController(
+      initialVideoId: 'iLnmTe5Q2Qw',
+      flags: YoutubePlayerFlags(
+        mute: false,
+        autoPlay: true,
+        forceHideAnnotation: true,
+      ),
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +56,7 @@ class ContentListItem extends StatelessWidget {
                     decoration: BoxDecoration(color: Theme.of(context).accentColor),
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      content.content_id.toString(),
+                      widget.content.content_id.toString(),
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ),
@@ -44,7 +65,7 @@ class ContentListItem extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      subtopic.name,
+                      widget.subtopic.name,
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
@@ -65,29 +86,41 @@ class ContentListItem extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                  child: Divider(
+              Divider(
                 color: Colors.grey,
                 height: 1,
-              )),
+              ),
               SizedBox(height: 6),
-//              Padding(
-//                padding: const EdgeInsets.all(8.0),
-//                child: Text(
-//                  content.textAr,
-//                  textAlign: TextAlign.end,
-//                  style: TextStyle(fontSize: 22, fontFamily: 'Quran'),
-//                ),
-//              ),
-              SizedBox(height: 6),
+              widget.content.image != null
+                  ? Image.asset(
+                      widget.content.image,
+                      width: MediaQuery.of(context).size.width,
+                    )
+                  : SizedBox(),
+              widget.content.video_url != null
+                  ? YoutubePlayer(
+                      controller: _controller,
+                      showVideoProgressIndicator: true,
+                      progressIndicatorColor: Colors.amber,
+                      progressColors: ProgressBarColors(
+                        playedColor: Colors.amber,
+                        handleColor: Colors.amberAccent,
+                      ),
+                      onReady: () {
+//                    _controller.addListener(listener);
+                      },
+                    )
+                  : SizedBox(),
+
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  content.text,
+                  widget.content.text,
                   style: Theme.of(context).textTheme.subhead,
                 ),
               ),
               SizedBox(height: 6),
+
 //              Padding(
 //                padding: const EdgeInsets.all(8.0),
 //                child: Text(
@@ -100,5 +133,11 @@ class ContentListItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

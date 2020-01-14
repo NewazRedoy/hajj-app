@@ -5,10 +5,10 @@ import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/widgets/ElectedQuestionSubTopicItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
-class ElectedQuestionDetailPage extends StatelessWidget {
+class QuestionDetailPage extends StatelessWidget {
   QuestionCategory questionCategory;
 
-  ElectedQuestionDetailPage(
+  QuestionDetailPage(
     this.questionCategory,
   );
 

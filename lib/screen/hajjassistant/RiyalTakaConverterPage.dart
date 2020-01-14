@@ -13,8 +13,9 @@ class RiyalConverter extends StatefulWidget {
 }
 
 class _RiyalConverterState extends State<RiyalConverter> {
-  int takaValue = 11;
-  int rialValue = 200;
+  final TextEditingController rialController = TextEditingController();
+  final TextEditingController takaController = TextEditingController();
+
 
   double conversion = 1 / 20;
 
@@ -52,7 +53,8 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   ),
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration.collapsed(hintText: takaValue.toString()),
+                      controller: takaController,
+                      decoration: InputDecoration.collapsed(hintText: null),
                       maxLines: 1,
                       textAlign: TextAlign.right,
                       style: TextStyle(
@@ -62,7 +64,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                       onChanged: (text) {
                         print("First text field taka: $text");
                         setState(() {
-                          rialValue = (conversion * int.parse(text)) as int;
+                          rialController.text = (conversion * int.parse(text)).toString();
                         });
                       },
                     ),
@@ -90,7 +92,8 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   ),
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration.collapsed(hintText: rialValue.toString()),
+                      controller: rialController,
+                      decoration: InputDecoration.collapsed(hintText: null),
                       maxLines: 1,
                       textAlign: TextAlign.right,
                       style: TextStyle(fontSize: 32),
@@ -98,7 +101,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                       onChanged: (text) {
                         print("First text field: $text");
                         setState(() {
-                          takaValue = (int.parse(text) / conversion) as int;
+                          takaController.text = (int.parse(text) / conversion).toString();
                         });
                       },
                     ),

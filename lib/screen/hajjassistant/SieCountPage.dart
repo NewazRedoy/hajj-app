@@ -4,7 +4,11 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:hajjapp/model/DuaCategory.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/screen/ContentDetailListPage.dart';
+import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SieWidget.dart';
 
@@ -124,7 +128,14 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                     textColor: Colors.white,
                     color: Theme.of(context).accentColor,
                     shape: StadiumBorder(),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+
+                            builder: (context) => DuaDetailPage(DuaCategory(id: 1,name: "adas")),
+                          ));
+                    },
                     child: Text("দু'আ তালিকা")),
                 count == 0
                     ? RaisedButton(

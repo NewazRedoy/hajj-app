@@ -39,9 +39,8 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
           Expanded(
-            child: loading
-                ? CircularProgressIndicator()
-                : ListView.builder(
+            child:
+                ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
                       var subtopic = data[position];
