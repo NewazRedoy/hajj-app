@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
+import 'package:http/http.dart' as http;
+
 
 class RiyalConverter extends StatefulWidget {
   final Topic topic;
@@ -16,8 +20,12 @@ class _RiyalConverterState extends State<RiyalConverter> {
   final TextEditingController rialController = TextEditingController();
   final TextEditingController takaController = TextEditingController();
 
-
   double conversion = 1 / 20;
+
+  @override
+  void initState() {
+    getRate();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +72,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                       onChanged: (text) {
                         print("First text field taka: $text");
                         setState(() {
-                          rialController.text = (conversion * int.parse(text)).toString();
+                          rialController.text = (conversion * int.parse(text)).toStringAsFixed(2);
                         });
                       },
                     ),
@@ -101,7 +109,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                       onChanged: (text) {
                         print("First text field: $text");
                         setState(() {
-                          takaController.text = (int.parse(text) / conversion).toString();
+                          takaController.text = (int.parse(text) / conversion).toStringAsFixed(2);
                         });
                       },
                     ),
@@ -113,5 +121,16 @@ class _RiyalConverterState extends State<RiyalConverter> {
         ),
       ),
     );
+  }
+
+  void getRate() async {
+    var response = await http.get(
+        "https://free.currconv.com/api/v7/convert?q=BDT_SAR&compact=ultra&apiKey=558d63f3c169865a4cb7");
+
+    setState(() {
+      conversion = json.decode(response.body)["BDT_SAR"];
+      rialController.text = 1.toString();
+      takaController.text = (int.parse(rialController.text) / conversion).toStringAsFixed(2);
+    });
   }
 }
