@@ -48,7 +48,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.library_books),
-            title: Text("দু'আ এর বিষয়"),
+            title: Text("দু'আ"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.question_answer),

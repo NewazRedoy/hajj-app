@@ -66,7 +66,7 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              DuaButton('সংরক্ষণ করুন', Colors.blue, () {
+              DuaButton('সংরক্ষণ করুন',Theme.of(context).primaryColor, () {
                 final title = titleController.text;
                 final text = textController.text;
                 ({
@@ -87,7 +87,7 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
 
                 Navigator.pop(context);
               }),
-              DuaButton('মুছুন', Colors.red, () {
+              DuaButton('মুছুন',Theme.of(context).accentColor, () {
                 Provider.of<CurrentUserModel>(context, listen: false).deleteDua(widget.dua.key);
                 Navigator.pop(context);
               })
