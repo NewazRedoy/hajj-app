@@ -29,7 +29,7 @@ class ListPageItem extends StatelessWidget {
             children: <Widget>[
               Container(
                 decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.all(18.0),
+                padding: const EdgeInsets.symmetric(vertical: 21.0, horizontal: 14.0),
                 child: Text(
                   index.toString(),
                   style: TextStyle(color: Colors.white, fontSize: 16),
@@ -46,7 +46,7 @@ class ListPageItem extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 5),
+                padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 5),
                 child: Text(
                   "",
                   style: TextStyle(fontSize: 18),
