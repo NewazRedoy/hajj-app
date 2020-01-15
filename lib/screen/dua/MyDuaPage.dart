@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/MyDua.dart';
 import 'package:hajjapp/provider/CurrentUserModel.dart';
 import 'package:hajjapp/screen/dua/MyDuaSavingPage.dart';
+import 'package:hajjapp/widgets/ColorChangeWidget.dart';
 import 'package:provider/provider.dart';
 
 class MyDuaPage extends StatefulWidget {
@@ -84,9 +85,11 @@ class MyDuaListItem extends StatelessWidget {
                     width: 8,
                   ),
                   Expanded(
-                    child: Text(
-                      dua.title,
-                      style: TextStyle(fontSize: 20),
+                    child: Container( color: Colors.white,
+                      child: Text(
+                        dua.title,
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ),
                   ),
                   PopupMenuButton(
@@ -101,7 +104,7 @@ class MyDuaListItem extends StatelessWidget {
                       if (value) {
                         switch (value) {
                           case 1:
-                            break;
+                            return ColorChangeWidget();
                           case 2:
                             Provider.of<CurrentUserModel>(context, listen: false).deleteDua(dua.key);
                             break;
