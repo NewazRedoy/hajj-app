@@ -46,7 +46,7 @@ class ListPageItem extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 5),
+                padding: const EdgeInsets.symmetric(vertical: 17.5, horizontal: 5.0),
                 child: Text(
                   "",
                   style: TextStyle(fontSize: 18),

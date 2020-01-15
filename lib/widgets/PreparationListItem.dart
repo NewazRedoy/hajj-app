@@ -33,7 +33,7 @@ class PreparationListItem extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.symmetric(vertical: 19.0, horizontal: 16.0),
                     child: Text(
                       content.content_id.toString(),
                       style: TextStyle(color: Colors.white, fontSize: 20),
