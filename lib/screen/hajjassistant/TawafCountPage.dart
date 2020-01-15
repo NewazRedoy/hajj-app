@@ -88,6 +88,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
               height: 8,
             ),
             RaisedButton(
+              color: Theme.of(context).primaryColor,
               onPressed: () {
                 if (count < 7) {
                   setState(() {
@@ -101,6 +102,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
               height: 8,
             ),
             RaisedButton(
+              color: Theme.of(context).accentColor,
               onPressed: () {
 
                 Navigator.push(
