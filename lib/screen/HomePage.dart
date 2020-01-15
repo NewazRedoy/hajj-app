@@ -44,15 +44,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text("home"),
+            title: Text("হোম"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.library_books),
-            title: Text("DuaTopic"),
+            title: Text("দু'আ এর বিষয়"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.question_answer),
-            title: Text("AskQuestion"),
+            title: Text("নির্বাচিত প্রশ্নোত্তর"),
           ),
         ],
       ),
