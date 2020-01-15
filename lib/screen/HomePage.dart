@@ -31,7 +31,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Scaffold(
       drawer: DrawerPage(),
       appBar: AppBar(
-        title: Text("Hajj App"),
+        title: Text("হাজ্জ উমরাহ গাইড"),
         actions: <Widget>[SearchSettings()],
       ),
       body: callPages(_currentIndex),
