@@ -20,7 +20,7 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.dua == null ? "Add Dua" : "Edit Dua"),
+        title: Text(widget.dua == null ? "দু'আ যুক্ত করুন" : "দু'আ এডিট করুন"),
       ),
       body: Column(
         children: <Widget>[
