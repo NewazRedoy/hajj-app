@@ -22,56 +22,72 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
       appBar: AppBar(
         title: Text(widget.dua == null ? "Add Dua" : "Edit Dua"),
       ),
-      body: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        elevation: 12.0,
-        child: Column(
-          children: <Widget>[
-            TextField(
-              controller: titleController,
-              decoration: InputDecoration(hintText: "Title"),
-            ),
-            TextField(
-              controller: textController,
-              decoration: InputDecoration(hintText: "Text"),
-            ),
-            SizedBox(
-              height: 16.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                DuaButton('Save', Colors.blue, () {
-                  final title = titleController.text;
-                  final text = textController.text;
-                  ({
-                    "title": title,
-                    "text": text,
-                  });
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              elevation: 12.0,
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    controller: titleController,
+                    decoration: InputDecoration(
+                        hintText: "টাইটেল",
+                    ),
 
-                  if (widget.dua == null) {
-                    var dua = MyDua(text: text, title: title);
-
-                    Provider.of<CurrentUserModel>(context, listen: false).addDua(dua);
-                  } else {
-                    widget.dua.title = title;
-                    widget.dua.text = text;
-
-                    Provider.of<CurrentUserModel>(context, listen: false).updateDua(widget.dua);
-                  }
-
-                  Navigator.pop(context);
-                }),
-                DuaButton('Delete', Colors.red, () {
-                  Provider.of<CurrentUserModel>(context, listen: false).deleteDua(widget.dua.key);
-                  Navigator.pop(context);
-                })
-              ],
+                  ),
+                  TextField(
+                    maxLines: 5,
+                    controller: textController,
+                    decoration: InputDecoration(
+                      hintText: "আপনার দু'আ এখনে লিখুন...",
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 16.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              DuaButton('Save', Colors.blue, () {
+                final title = titleController.text;
+                final text = textController.text;
+                ({
+                  "title": title,
+                  "text": text,
+                });
+
+                if (widget.dua == null) {
+                  var dua = MyDua(text: text, title: title);
+
+                  Provider.of<CurrentUserModel>(context, listen: false).addDua(dua);
+                } else {
+                  widget.dua.title = title;
+                  widget.dua.text = text;
+
+                  Provider.of<CurrentUserModel>(context, listen: false).updateDua(widget.dua);
+                }
+
+                Navigator.pop(context);
+              }),
+              DuaButton('Delete', Colors.red, () {
+                Provider.of<CurrentUserModel>(context, listen: false).deleteDua(widget.dua.key);
+                Navigator.pop(context);
+              })
+            ],
+          ),
+        ],
       ),
     );
   }
