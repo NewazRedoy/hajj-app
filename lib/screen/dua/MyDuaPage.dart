@@ -101,7 +101,6 @@ class MyDuaListItem extends StatelessWidget {
                     },
                     onSelected: (value) {
                       print("value:$value");
-                      if (value) {
                         switch (value) {
                           case 1:
                             return ColorChangeWidget();
@@ -109,7 +108,6 @@ class MyDuaListItem extends StatelessWidget {
                             Provider.of<CurrentUserModel>(context, listen: false).deleteDua(dua.key);
                             break;
                         }
-                      }
                     },
                   ),
                   Container(
