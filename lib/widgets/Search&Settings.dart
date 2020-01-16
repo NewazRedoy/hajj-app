@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/screen/SearchPage.dart';
 import 'package:hajjapp/screen/SettingsPage.dart';
+import 'package:hajjapp/widgets/ColorChangeWidget.dart';
 
 class SearchSettings extends StatefulWidget {
   @override

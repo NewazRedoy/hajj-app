@@ -37,9 +37,6 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("নির্বাচিত প্রশ্নোত্তর"),
-        actions: <Widget>[
-          SearchSettings(),
-        ],
       ),
       body: loading
           ? _buildCircularProgressIndicator()

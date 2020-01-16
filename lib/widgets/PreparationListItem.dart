@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/widgets/ColorChangeWidget.dart';
 
 class PreparationListItem extends StatelessWidget {
   Content content;
@@ -53,7 +54,10 @@ class PreparationListItem extends StatelessWidget {
                       Icons.more_vert,
                       size: 24.0,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      return ColorChangeWidget();
+
+                    },
                   ),
                   Container(
                     decoration: BoxDecoration(color: Theme.of(context).accentColor),

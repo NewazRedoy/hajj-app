@@ -51,7 +51,7 @@ class MyDuaPageState extends State<MyDuaPage> {
 class MyDuaListItem extends StatelessWidget {
   final MyDua dua;
 
-  MyDuaListItem(this.dua);
+  MyDuaListItem(this.dua,);
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +103,7 @@ class MyDuaListItem extends StatelessWidget {
                       print("value:$value");
                         switch (value) {
                           case 1:
-                            return ColorChangeWidget();
+                            break;
                           case 2:
                             Provider.of<CurrentUserModel>(context, listen: false).deleteDua(dua.key);
                             break;
