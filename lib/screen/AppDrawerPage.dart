@@ -23,7 +23,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   )
                 : UserAccountsDrawerHeader(
                     currentAccountPicture: CircleAvatar(),
-                    accountName: Text(user.firstName),
+                    accountName: Text(user.firstName ?? ""),
                     accountEmail: Text("Macca,Saudi Arabia"),
                   ),
             Divider(),
