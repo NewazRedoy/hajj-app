@@ -70,7 +70,7 @@ class ColorChangeWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10.0),
-            RaisedButton(
+            FlatButton(
                 padding: EdgeInsets.all(0),
                 textColor: Colors.black,
                 color: Colors.white,
