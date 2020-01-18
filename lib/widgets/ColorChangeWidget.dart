@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/MyDua.dart';
+import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:provider/provider.dart';
 
 class ColorChangeWidget extends StatelessWidget {
+  ColorChangeWidget(this.dua);
+final MyDua dua;
 
   @override
   Widget build(BuildContext context) {
@@ -13,60 +18,30 @@ class ColorChangeWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    var color=Colors.deepOrangeAccent;
-                  },
-                    child: CircleAvatar(
-                      backgroundColor:Colors.deepOrangeAccent,
-                    ),
-                ),
-                GestureDetector(
-                  onTap: () {
-
-                  },
-                  child: CircleAvatar(
-                    backgroundColor:Colors.amberAccent,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-
-                  },
-                  child: CircleAvatar(
-                    backgroundColor:Colors.lightBlueAccent,
-                  ),
-                ),
+                ColorItem(Colors.red, (){
+                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.red);
+                }),
+                ColorItem(Colors.amberAccent, (){
+                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.amberAccent);
+                }),
+                ColorItem(Colors.lightBlueAccent, (){
+                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.lightBlueAccent);
+                }),
               ],
             ),
             SizedBox(height: 12.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    var color=Colors.lightGreenAccent;
-                  },
-                  child: CircleAvatar(
-                    backgroundColor:Colors.lightGreen,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-
-                  },
-                  child: CircleAvatar(
-                    backgroundColor:Colors.purpleAccent,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-
-                  },
-                  child: CircleAvatar(
-                    backgroundColor:Colors.black26,
-                  ),
-                ),
+                ColorItem(Colors.lightGreenAccent, (){
+                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.lightGreenAccent);
+                }),
+                ColorItem(Colors.purpleAccent, (){
+                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.purpleAccent);
+                }),
+                ColorItem(Colors.black, (){
+                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.black);
+                }),
               ],
             ),
             SizedBox(height: 10.0),
@@ -79,6 +54,23 @@ class ColorChangeWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ColorItem extends StatelessWidget {
+final  Function function;
+final Color color;
+
+  ColorItem(this.color,this.function);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: function,
+        child: CircleAvatar(
+          backgroundColor:color,
+        ),
     );
   }
 }

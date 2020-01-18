@@ -51,7 +51,7 @@ class MyDuaPageState extends State<MyDuaPage> {
 class MyDuaListItem extends StatelessWidget {
   final MyDua dua;
 
-  MyDuaListItem(this.dua,);
+  MyDuaListItem(this.dua);
 
   @override
   Widget build(BuildContext context) {
@@ -68,24 +68,31 @@ class MyDuaListItem extends StatelessWidget {
           ),
           elevation: 5.0,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Container(
+                  Container(color:Colors.white,height:200.0,width:200.0,
+                      child:Container(
+                          color: Colors.yellow,
+                          alignment:Alignment.center// make the yellow child match the parent size
+                      )
+                  ),
+                  SizedBox.expand(
+child:                   Container(
                     decoration: BoxDecoration(color: Theme.of(context).accentColor),
                     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
-                    child: Text(
-                      "",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
+
+                  )),
                   SizedBox(
                     width: 8,
                   ),
                   Expanded(
-                    child: Container( color: Colors.white,
+                    child: Container(
+                      color: Color(dua.color??  Colors.white.value
+                    ),
                       child: Text(
                         dua.title,
                         style: TextStyle(fontSize: 20),
@@ -103,6 +110,9 @@ class MyDuaListItem extends StatelessWidget {
                       print("value:$value");
                         switch (value) {
                           case 1:
+                          showDialog(context: context, builder: (BuildContext context) {
+                            return ColorChangeWidget(dua);
+                          });
                             break;
                           case 2:
                             Provider.of<CurrentUserModel>(context, listen: false).deleteDua(dua.key);

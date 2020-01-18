@@ -55,7 +55,6 @@ class PreparationListItem extends StatelessWidget {
                       size: 24.0,
                     ),
                     onPressed: () {
-                      return ColorChangeWidget();
 
                     },
                   ),

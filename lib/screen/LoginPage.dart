@@ -41,14 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Image.asset(
-                          "assets/uclogo.png",
-                          height: 60,
-                          width: 160,
-                        ),
-                      ),
+
                       SizedBox(
                         height: 10,
                       ),

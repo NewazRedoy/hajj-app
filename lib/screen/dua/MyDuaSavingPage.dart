@@ -69,10 +69,6 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
               DuaButton('সংরক্ষণ করুন',Theme.of(context).primaryColor, () {
                 final title = titleController.text;
                 final text = textController.text;
-                ({
-                  "title": title,
-                  "text": text,
-                });
 
                 if (widget.dua == null) {
                   var dua = MyDua(text: text, title: title);

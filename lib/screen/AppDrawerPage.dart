@@ -29,11 +29,6 @@ class _DrawerPageState extends State<DrawerPage> {
             Divider(),
             ListTile(
               leading: Icon(Icons.album),
-              title: Text("নোটিফিকেশন "),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.album),
               title: Text("সেটিংস"),
             ),
             ListTile(
@@ -49,11 +44,6 @@ class _DrawerPageState extends State<DrawerPage> {
             ListTile(
               leading: Icon(Icons.album),
               title: Text("শেয়ার করুন"),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.album),
-              title: Text(" বুকমার্ক"),
               onTap: () {},
             ),
             ListTile(

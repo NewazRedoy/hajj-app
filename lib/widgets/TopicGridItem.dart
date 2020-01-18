@@ -27,15 +27,7 @@ class TopicGridItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            if (topic.topic_id < 7) {
               return SubtopicListPage(topic: topic);
-            } else if (topic.topic_id == 8) {
-              return HajjAssistantPage(
-                topic: topic,
-              );
-            } else {
-              return QuestionAnswerPage();
-            }
           }));
         },
         child: Column(

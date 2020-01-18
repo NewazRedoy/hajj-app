@@ -178,6 +178,10 @@ class CurrentUserModel extends ChangeNotifier {
     var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id);
     _duaRef.child(dua.key).set(dua.toJson());
   }
+  updateDuaColor(MyDua dua, Color color) {
+    var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id).child(dua.key);
+    _duaRef.child("color").set(color.value);
+  }
 
 //  Future<void> _increment() async {
 //    // Increment counter in transaction.
