@@ -166,9 +166,15 @@ class DatabaseHelper {
 
     List<Map> maps1 = await db.rawQuery("select * from Content where text like '%$term%'");
     print(maps1);
-    maps1.forEach((row) {
+    maps1.forEach((row) async {
       var topic = Content.fromMap(row);
-      items.add(SearchItem(topic.text, "", PageViewType.Content, topic));
+      List<Map> maps = await db.rawQuery("select * from Subtopic where subtopic_id = ${topic.subtopic_id}");
+      maps.forEach((row) {
+        var subtopic= Subtopic.fromJson(row);
+        if(!items.any((e)=>e.name==subtopic.name)){
+          items.add(SearchItem(subtopic.name, "", PageViewType.Content, subtopic));
+        }
+      });
     });
 
     List<Map> maps2 = await db.rawQuery("select * from DuaCategory where name like '%$term%'");

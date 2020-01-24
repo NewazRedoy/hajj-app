@@ -99,7 +99,7 @@ class _ContentListItemState extends State<ContentListItem> {
                 height: 1,
               ),
               SizedBox(height: 6),
-              widget.content.image != null
+              widget.content.image?.isNotEmpty ==true
                   ? Image.asset(
                       widget.content.image,
                       width: MediaQuery.of(context).size.width,

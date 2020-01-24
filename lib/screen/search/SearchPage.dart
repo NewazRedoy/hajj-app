@@ -16,6 +16,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   List data = [];
   var loading = true;
+  final TextEditingController textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class _SearchPageState extends State<SearchPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: textController,
               onChanged: (value) => {
                 if (value.length > 3) {
                   loadData(value)
@@ -75,7 +77,7 @@ class _SearchPageState extends State<SearchPage> {
                       });
                     }),
           ),
-          Container(
+          data.isNotEmpty ?Container(
             alignment: Alignment.bottomRight,
             child: RaisedButton(
               color: Theme.of(context).accentColor,
@@ -93,7 +95,7 @@ class _SearchPageState extends State<SearchPage> {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-          ),
+          ): SizedBox(),
         ],
       ),
     );
