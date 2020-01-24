@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +24,7 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserModel>(builder: (context, model, _) {
+    return Consumer<CurrentUserProvider>(builder: (context, model, _) {
       var checkboxValue = false;
       return Scaffold(
         body: SingleChildScrollView(

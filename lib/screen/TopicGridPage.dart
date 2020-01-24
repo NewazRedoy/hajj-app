@@ -42,13 +42,14 @@ class _TopicGridPageState extends State<TopicGridPage> {
           : Column(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      TopicGridItem(topic: data[2]),
-                      TopicGridItem(topic: data[3]),
+                      Expanded(child: TopicGridItem(topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'))),
+                      Expanded(child: TopicGridItem(topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'))),
                     ],
+
                   ),
                 ),
                 Expanded(

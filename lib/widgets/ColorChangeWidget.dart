@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/MyDua.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:provider/provider.dart';
 
 class ColorChangeWidget extends StatelessWidget {
   ColorChangeWidget(this.dua);
-final MyDua dua;
+
+  final MyDua dua;
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content:Container(
+
+      content: Container(
         width: 70.0,
         height: 150.0,
         child: Column(
@@ -18,14 +20,14 @@ final MyDua dua;
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                ColorItem(Colors.red, (){
-                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.red);
+                ColorItem(Colors.red, () {
+                  updateDuaColor(context, dua, Colors.red);
                 }),
-                ColorItem(Colors.amberAccent, (){
-                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.amberAccent);
+                ColorItem(Colors.amberAccent, () {
+                  updateDuaColor(context, dua, Colors.amberAccent);
                 }),
-                ColorItem(Colors.lightBlueAccent, (){
-                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.lightBlueAccent);
+                ColorItem(Colors.lightBlueAccent, () {
+                  updateDuaColor(context, dua, Colors.lightBlueAccent);
                 }),
               ],
             ),
@@ -33,14 +35,14 @@ final MyDua dua;
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                ColorItem(Colors.lightGreenAccent, (){
-                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.lightGreenAccent);
+                ColorItem(Colors.lightGreenAccent, () {
+                  updateDuaColor(context, dua, Colors.lightGreenAccent);
                 }),
-                ColorItem(Colors.purpleAccent, (){
-                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.purpleAccent);
+                ColorItem(Colors.purpleAccent, () {
+                  updateDuaColor(context, dua, Colors.purpleAccent);
                 }),
-                ColorItem(Colors.black, (){
-                  Provider.of<CurrentUserModel>(context, listen: false).updateDuaColor(dua, Colors.black);
+                ColorItem(Colors.grey, () {
+                  updateDuaColor(context, dua, Colors.grey);
                 }),
               ],
             ),
@@ -58,19 +60,24 @@ final MyDua dua;
   }
 }
 
-class ColorItem extends StatelessWidget {
-final  Function function;
-final Color color;
+void updateDuaColor(BuildContext context, MyDua dua, ColorSwatch color) {
+  Provider.of<CurrentUserProvider>(context, listen: false).updateDuaColor(dua, color);
+  Navigator.pop(context);
+}
 
-  ColorItem(this.color,this.function);
+class ColorItem extends StatelessWidget {
+  final Function function;
+  final Color color;
+
+  ColorItem(this.color, this.function);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: function,
-        child: CircleAvatar(
-          backgroundColor:color,
-        ),
+      child: CircleAvatar(
+        backgroundColor: color,
+      ),
     );
   }
 }

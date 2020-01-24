@@ -8,28 +8,32 @@ import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SearchListDetailItem.dart';
 
 class SearchDetailPage extends StatefulWidget {
+
+  List data;
+  SearchDetailPage(this.data);
+
   @override
   _SearchDetailPageState createState() => _SearchDetailPageState();
 }
 
 class _SearchDetailPageState extends State<SearchDetailPage> {
-  List data = [];
-  var loading = true;
+//  List data = [];
+  var loading = false;
+//
+//  @override
+//  void initState() {
+//    super.initState();
+//
+//    loadData();
+//  }
 
-  @override
-  void initState() {
-    super.initState();
-
-    loadData();
-  }
-
-  loadData() async {
-    var content = await DatabaseHelper.instance.querybySearch("সা'ঈ");
-    setState(() {
-      data = content;
-      loading = false;
-    });
-  }
+//  loadData() async {
+//    var content = await DatabaseHelper.instance.querybySearch("সা'ঈ");
+//    setState(() {
+//      data = content;
+//      loading = false;
+//    });
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +45,9 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(
-              itemCount: data.length,
+              itemCount: widget.data.length,
               itemBuilder: (context, index) {
-                SearchItem searchItem = data[index];
+                SearchItem searchItem = widget.data[index];
                 return SearchListDetailItem(searchItem, () {
                   if (searchItem.viewtype == PageViewType.Content) {
                     Navigator.push(

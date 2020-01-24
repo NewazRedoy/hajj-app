@@ -28,33 +28,36 @@ class DuaTopicListItem extends StatelessWidget {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuatopic)));
             },
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Container(
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.all(14.0),
-                child: Text(
-                  index.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+            child: Container(
+              height: 45,
+              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text(
+                    index.toString(),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Expanded(
-                child: Text(
-                  allDuatopic.name,
-                  style: TextStyle(fontSize: 14),
+                SizedBox(
+                  width: 8,
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
-                child: Text(
-                  "",
-                  style: TextStyle(fontSize: 18),
+                Expanded(
+                  child: Text(
+                    allDuatopic.name,
+                    style: TextStyle(fontSize: 14),
+                  ),
                 ),
-              )
-            ]),
+                Container(
+                  decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
+                  child: Text(
+                    "",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                )
+              ]),
+            ),
           )),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/MyDua.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:provider/provider.dart';
 
 class MyDuaSavingPage extends StatefulWidget {
@@ -73,18 +73,18 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
                 if (widget.dua == null) {
                   var dua = MyDua(text: text, title: title);
 
-                  Provider.of<CurrentUserModel>(context, listen: false).addDua(dua);
+                  Provider.of<CurrentUserProvider>(context, listen: false).addDua(dua);
                 } else {
                   widget.dua.title = title;
                   widget.dua.text = text;
 
-                  Provider.of<CurrentUserModel>(context, listen: false).updateDua(widget.dua);
+                  Provider.of<CurrentUserProvider>(context, listen: false).updateDua(widget.dua);
                 }
 
                 Navigator.pop(context);
               }),
               DuaButton('মুছুন',Theme.of(context).accentColor, () {
-                Provider.of<CurrentUserModel>(context, listen: false).deleteDua(widget.dua.key);
+                Provider.of<CurrentUserProvider>(context, listen: false).deleteDua(widget.dua.key);
                 Navigator.pop(context);
               })
             ],

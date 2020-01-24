@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/provider/database_helper.dart';
-import 'package:hajjapp/screen/SearchDetailPage.dart';
+import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
+import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
+import 'package:hajjapp/screen/search/SearchDetailPage.dart';
 import 'package:hajjapp/widgets/SearchListPageItem.dart';
+
+import '../ContentDetailListPage.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -24,7 +29,9 @@ class _SearchPageState extends State<SearchPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               onChanged: (value) => {
-                if (value.length > 3) {loadData(value)}
+                if (value.length > 3) {
+                  loadData(value)
+                }
               },
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search),
@@ -43,14 +50,28 @@ class _SearchPageState extends State<SearchPage> {
                 ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
-                      var subtopic = data[position];
+                      SearchItem searchItem = data[position];
 
-                      return SearchListPageItem((position + 1), subtopic.name, () {
-//                    Navigator.push(
-//                        context,
-//                        MaterialPageRoute(
-//                          builder: (context) => ContentDetailListPage(subtopic),
-//                        ));
+                      return SearchListPageItem((position + 1), searchItem.name, () {
+                        if (searchItem.viewtype == PageViewType.Content) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ContentDetailListPage(searchItem.item),
+                              ));
+                        } else if (searchItem.viewtype == PageViewType.Dua) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DuaDetailPage(searchItem.item),
+                              ));
+                        } else if (searchItem.viewtype == PageViewType.Question) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => QuestionDetailPage(searchItem.item),
+                              ));
+                        }
                       });
                     }),
           ),
@@ -63,7 +84,7 @@ class _SearchPageState extends State<SearchPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SearchDetailPage(),
+                    builder: (context) => SearchDetailPage(data),
                   ),
                 );
               },

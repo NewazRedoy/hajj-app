@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/screen/SearchPage.dart';
+import 'package:hajjapp/screen/search/SearchPage.dart';
 import 'package:hajjapp/screen/SettingsPage.dart';
 import 'package:hajjapp/widgets/ColorChangeWidget.dart';
 

@@ -22,15 +22,17 @@ class _ContentListItemState extends State<ContentListItem> {
 
   @override
   void initState() {
-    _controller = YoutubePlayerController(
-      initialVideoId: '_4I7maBjaDk',
+    if(widget.content.video_url != null) {
+      _controller = YoutubePlayerController(
+        initialVideoId: '_4I7maBjaDk',
 //      initialVideoId: YoutubePlayer.convertUrlToId(widget.content.video_url),
-      flags: YoutubePlayerFlags(
-        mute: false,
-        autoPlay: true,
-        forceHideAnnotation: true,
-      ),
-    );
+        flags: YoutubePlayerFlags(
+          mute: false,
+          autoPlay: true,
+          forceHideAnnotation: true,
+        ),
+      );
+    }
     super.initState();
   }
 
@@ -51,43 +53,46 @@ class _ContentListItemState extends State<ContentListItem> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      widget.content.content_id.toString(),
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+              Container(
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        widget.content.content_id.toString(),
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Expanded(
-                    child: Text(
-                      widget.subtopic.name,
-                      style: TextStyle(fontSize: 20),
+                    SizedBox(
+                      width: 8,
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.more_vert,
-                      size: 24.0,
+                    Expanded(
+                      child: Text(
+                        widget.subtopic.name,
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ),
-                    onPressed: () {
-                    },
-                  ),
-                  Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                    child: Text(
-                      "",
-                      style: TextStyle(fontSize: 20),
+//                  IconButton(
+//                    icon: Icon(
+//                      Icons.more_vert,
+//                      size: 24.0,
+//                    ),
+//                    onPressed: () {
+//                    },
+//                  ),
+                    Container(
+                      decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                      child: Text(
+                        "",
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Divider(
                 color: Colors.grey,
@@ -100,7 +105,7 @@ class _ContentListItemState extends State<ContentListItem> {
                       width: MediaQuery.of(context).size.width,
                     )
                   : SizedBox(),
-              widget.content.video_url != null
+              widget.content.video_url.isNotEmpty
                   ? YoutubePlayer(
                       controller: _controller,
                       showVideoProgressIndicator: true,

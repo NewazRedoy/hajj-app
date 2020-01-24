@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/HomePage.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => CurrentUserModel()),
+        ChangeNotifierProvider(create: (context) => CurrentUserProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

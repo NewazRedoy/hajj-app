@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:provider/provider.dart';
 
 class DrawerPage extends StatefulWidget {
@@ -10,7 +10,7 @@ class DrawerPage extends StatefulWidget {
 class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<CurrentUserModel>(context).user;
+    var user = Provider.of<CurrentUserProvider>(context).user;
     return Container(
       child: Drawer(
         child: ListView(

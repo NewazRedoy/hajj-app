@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/screen/SubTopicListPage.dart';
-import 'package:hajjapp/screen/hajjassistant/HajjUmrahAssistantPage.dart';
-import 'package:hajjapp/screen/questions/QuestionAnswerPage.dart';
 
 class TopicGridItem extends StatelessWidget {
   const TopicGridItem({
@@ -21,9 +19,9 @@ class TopicGridItem extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(4.0),
       ),
-      elevation: 7.0,
+      elevation: 5.0,
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
@@ -34,9 +32,12 @@ class TopicGridItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 16,
+            ),
             Icon(
               Icons.star_border,
-              size: 24,
+              size: 44,
             ),
             SizedBox(
               height: 16,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/MyDua.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/dua/MyDuaSavingPage.dart';
 import 'package:hajjapp/widgets/ColorChangeWidget.dart';
+import 'package:hajjapp/widgets/MyDuaListItem.dart';
 import 'package:provider/provider.dart';
 
 class MyDuaPage extends StatefulWidget {
@@ -15,14 +16,14 @@ class MyDuaPage extends StatefulWidget {
 class MyDuaPageState extends State<MyDuaPage> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserModel>(builder: (context, model, _) {
+    return Consumer<CurrentUserProvider>(builder: (context, model, _) {
       return Scaffold(
         appBar: AppBar(
           title: Text(
             ("আমার দু'আ"),
           ),
         ),
-        body: Consumer<CurrentUserModel>(
+        body: Consumer<CurrentUserProvider>(
           builder: (context, model, _) {
             return ListView.builder(
               itemBuilder: (context, index) {
@@ -48,103 +49,3 @@ class MyDuaPageState extends State<MyDuaPage> {
   }
 }
 
-class MyDuaListItem extends StatelessWidget {
-  final MyDua dua;
-
-  MyDuaListItem(this.dua);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MyDuaSavingPage(dua: dua)));
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Card(
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0),
-          ),
-          elevation: 5.0,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(color:Colors.white,height:200.0,width:200.0,
-                      child:Container(
-                          color: Colors.yellow,
-                          alignment:Alignment.center// make the yellow child match the parent size
-                      )
-                  ),
-                  SizedBox.expand(
-child:                   Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
-
-                  )),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Expanded(
-                    child: Container(
-                      color: Color(dua.color??  Colors.white.value
-                    ),
-                      child: Text(
-                        dua.title,
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                  ),
-                  PopupMenuButton(
-                    itemBuilder: (BuildContext context) {
-                      return [
-                        PopupMenuItem(value: 1, child: Text("কালার পরিবর্তন")),
-                        PopupMenuItem(value: 2, child: Text("মুছুন")),
-                      ];
-                    },
-                    onSelected: (value) {
-                      print("value:$value");
-                        switch (value) {
-                          case 1:
-                          showDialog(context: context, builder: (BuildContext context) {
-                            return ColorChangeWidget(dua);
-                          });
-                            break;
-                          case 2:
-                            Provider.of<CurrentUserModel>(context, listen: false).deleteDua(dua.key);
-                            break;
-                        }
-                    },
-                  ),
-                  Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
-                    child: Text(
-                      "",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                  child: Divider(
-                color: Colors.grey,
-                height: 1,
-              )),
-              Container(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text(
-                    dua.text,
-                    style: TextStyle(fontSize: 14.0),
-                  )),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}

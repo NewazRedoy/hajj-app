@@ -213,6 +213,14 @@ class DatabaseHelper {
     return maps;
   }
 
+  queryFavDuas(List<String> ids) async {
+
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select * from DuaCategory,Dua where Dua.id in (${ids.join(",")}) and Dua.category_id = DuaCategory.id");
+    return maps;
+  }
+
+
   querySentenceByCategoryId(int allDuacategory_id) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery("select * from Sentence where category_id=$allDuacategory_id");

@@ -6,10 +6,11 @@ import 'package:hajjapp/model/MyDua.dart';
 import 'package:hajjapp/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CurrentUserModel extends ChangeNotifier {
+class CurrentUserProvider extends ChangeNotifier {
   List duas = [];
+  List<String> favDuaId = [];
 
-  CurrentUserModel() {
+  CurrentUserProvider() {
     _read();
   }
 
@@ -28,6 +29,8 @@ class CurrentUserModel extends ChangeNotifier {
 
       _status = Status.Login;
     }
+
+    fetchFavDuas();
   }
 
   User _user;
@@ -183,25 +186,25 @@ class CurrentUserModel extends ChangeNotifier {
     _duaRef.child("color").set(color.value);
   }
 
-//  Future<void> _increment() async {
-//    // Increment counter in transaction.
-//    final TransactionResult transactionResult =
-//    await _counterRef.runTransaction((MutableData mutableData) async {
-//      mutableData.value = (mutableData.value ?? 0) + 1;
-//      return mutableData;
-//    });
-//
-//    if (transactionResult.committed) {
-//      _messagesRef.push().set(<String, String>{
-//        _kTestKey: '$_kTestValue ${transactionResult.dataSnapshot.value}'
-//      });
-//    } else {
-//      print('Transaction not committed.');
-//      if (transactionResult.error != null) {
-//        print(transactionResult.error.message);
-//      }
-//    }
-//  }
+
+
+  Future<void> fetchFavDuas() async {
+    var prefs = await SharedPreferences.getInstance();
+
+    favDuaId = prefs.getStringList("fav") ?? [];
+  }
+
+  Future<void> setFavDuas(String string) async {
+    var prefs = await SharedPreferences.getInstance();
+
+    if(favDuaId.contains(string)) {
+      favDuaId.remove(string);
+    }else{
+      favDuaId.add(string);
+    }
+
+    prefs.setStringList("fav", favDuaId);
+  }
 
   gotoSignup() {
     _status = Status.Signup;

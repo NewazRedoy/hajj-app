@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/LoginPage.dart';
 import 'package:hajjapp/screen/questions/AskQuestionPage.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
@@ -62,7 +62,7 @@ class Item extends StatelessWidget {
                 if (option < 2) {
                   return ElectedQuestionPage();
                 } else {
-                  var user = Provider.of<CurrentUserModel>(context).user;
+                  var user = Provider.of<CurrentUserProvider>(context).user;
                   if (user == null) {
                     return LoginPage();
                   } else
