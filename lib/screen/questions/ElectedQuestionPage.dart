@@ -3,7 +3,6 @@ import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/provider/database_helper.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
-import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ElectedQuestionPage extends StatefulWidget {
   @override
@@ -13,8 +12,6 @@ class ElectedQuestionPage extends StatefulWidget {
 class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
   List data = [];
   var loading = true;
-
-
 
   @override
   void initState() {

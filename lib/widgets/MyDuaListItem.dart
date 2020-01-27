@@ -71,13 +71,14 @@ class MyDuaListItem extends StatelessWidget {
                         }
                       },
                     ),
-                    Container(
-                      decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
-                      child: Text(
-                        "",
-                        style: TextStyle(fontSize: 20),
-                      ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 12.0,
+                      color: Colors.grey,
+                      semanticLabel: 'Text to announce in accessibility modes',
+                    ),
+                    SizedBox(
+                      width: 8,
                     ),
                   ],
                 ),

@@ -181,12 +181,11 @@ class CurrentUserProvider extends ChangeNotifier {
     var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id);
     _duaRef.child(dua.key).set(dua.toJson());
   }
+
   updateDuaColor(MyDua dua, Color color) {
     var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id).child(dua.key);
     _duaRef.child("color").set(color.value);
   }
-
-
 
   Future<void> fetchFavDuas() async {
     var prefs = await SharedPreferences.getInstance();
@@ -197,9 +196,9 @@ class CurrentUserProvider extends ChangeNotifier {
   Future<void> setFavDuas(String string) async {
     var prefs = await SharedPreferences.getInstance();
 
-    if(favDuaId.contains(string)) {
+    if (favDuaId.contains(string)) {
       favDuaId.remove(string);
-    }else{
+    } else {
       favDuaId.add(string);
     }
 

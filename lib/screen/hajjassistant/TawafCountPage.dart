@@ -104,12 +104,10 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
             RaisedButton(
               color: Theme.of(context).accentColor,
               onPressed: () {
-
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-
-                      builder: (context) => DuaDetailPage(DuaCategory(id: 1,name: "adas")),
+                      builder: (context) => DuaDetailPage(DuaCategory(id: 1, name: "adas")),
                     ));
               },
               child: Text("দু'আ তালিকা"),

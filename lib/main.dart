@@ -18,9 +18,16 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blueGrey,
             accentColor: Color.fromARGB(255, 167, 142, 114),
             fontFamily: 'Bangla',
+            pageTransitionsTheme: PageTransitionsTheme(builders: _defaultBuilders),
             textTheme: TextTheme()),
         home: Home(),
       ),
     );
   }
 }
+
+const Map<TargetPlatform, PageTransitionsBuilder> _defaultBuilders = <TargetPlatform, PageTransitionsBuilder>{
+  TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+  TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+  TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+};

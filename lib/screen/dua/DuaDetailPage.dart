@@ -57,4 +57,3 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
     );
   }
 }
-

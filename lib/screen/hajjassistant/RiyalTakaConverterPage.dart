@@ -6,7 +6,6 @@ import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:http/http.dart' as http;
 
-
 class RiyalConverter extends StatefulWidget {
   final Topic topic;
 
@@ -23,9 +22,6 @@ class _RiyalConverterState extends State<RiyalConverter> {
   double conversion = 1 / 20;
 
   @override
-
-
-
   void initState() {
     getRate();
   }
@@ -127,8 +123,8 @@ class _RiyalConverterState extends State<RiyalConverter> {
   }
 
   void getRate() async {
-    var response = await http.get(
-        "https://free.currconv.com/api/v7/convert?q=BDT_SAR&compact=ultra&apiKey=558d63f3c169865a4cb7");
+    var response =
+        await http.get("https://free.currconv.com/api/v7/convert?q=BDT_SAR&compact=ultra&apiKey=558d63f3c169865a4cb7");
 
     setState(() {
       conversion = json.decode(response.body)["BDT_SAR"];

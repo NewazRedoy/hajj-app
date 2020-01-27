@@ -25,18 +25,20 @@ class DuaTopicListItem extends StatelessWidget {
           elevation: 7.0,
           child: InkWell(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuatopic)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuatopic)));
             },
             child: Container(
               height: 45,
               child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
                 Container(
                   decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                  padding: const EdgeInsets.all(15.0),
+                  width: 4,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     index.toString(),
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                    style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                 ),
                 SizedBox(
@@ -48,14 +50,15 @@ class DuaTopicListItem extends StatelessWidget {
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
-                  child: Text(
-                    "",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                )
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 12.0,
+                  color: Colors.grey,
+                  semanticLabel: 'Text to announce in accessibility modes',
+                ),
+                SizedBox(
+                  width: 8,
+                ),
               ]),
             ),
           )),

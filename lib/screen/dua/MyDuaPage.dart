@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/MyDua.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/dua/MyDuaSavingPage.dart';
-import 'package:hajjapp/widgets/ColorChangeWidget.dart';
 import 'package:hajjapp/widgets/MyDuaListItem.dart';
 import 'package:provider/provider.dart';
 
@@ -48,4 +46,3 @@ class MyDuaPageState extends State<MyDuaPage> {
     super.initState();
   }
 }
-

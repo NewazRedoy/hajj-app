@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 class DuaDetailItem extends StatelessWidget {
   Dua allDuatopic;
   DuaCategory allDuaCategory;
+
   DuaDetailItem(this.allDuatopic, this.allDuaCategory);
 
   @override
@@ -20,53 +21,50 @@ class DuaDetailItem extends StatelessWidget {
         ),
         elevation: 5.0,
         child: Column(children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  allDuatopic.id.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+          Container(
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                  width: 4,
                 ),
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Expanded(
-                child: Text(
-                  allDuaCategory.name,
-                  style: TextStyle(fontSize: 20),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    allDuatopic.id.toString(),
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
                 ),
-              ),
-              PopupMenuButton(
-                itemBuilder: (BuildContext context) {
-                  return [
-                    PopupMenuItem(value: 1, child: Text('Favourite')),
-                  ];
-                },
-                onSelected: (value) {
-                  print("value:$value");
-                  switch (value) {
-                    case 1:
-                    Provider.of<CurrentUserProvider>(context, listen: false).setFavDuas(allDuatopic.id.toString());
-                      break;
-                    case 2:
-
-                      break;
-                  }
-                },
-              ),
-              Container(
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                child: Text(
-                  "",
-                  style: TextStyle(fontSize: 20),
+                SizedBox(
+                  width: 8,
                 ),
-              ),
-            ],
+                Expanded(
+                  child: Text(
+                    allDuaCategory.name,
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                PopupMenuButton(
+                  itemBuilder: (BuildContext context) {
+                    return [
+                      PopupMenuItem(value: 1, child: Text('Favourite')),
+                    ];
+                  },
+                  onSelected: (value) {
+                    print("value:$value");
+                    switch (value) {
+                      case 1:
+                        Provider.of<CurrentUserProvider>(context, listen: false).setFavDuas(allDuatopic.id.toString());
+                        break;
+                      case 2:
+                        break;
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
           Container(
               child: Divider(

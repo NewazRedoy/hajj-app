@@ -33,14 +33,10 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
 
   @override
   Widget build(BuildContext context) {
+    return Consumer<CurrentUserProvider>(builder: (context, model, widget) {
+      if (model.favDuaId.isNotEmpty) loadData();
 
-    return Consumer<CurrentUserProvider>(
-
-     builder: (context,model, widget ){
-
-      if(model.favDuaId.isNotEmpty) loadData();
-
-     return Scaffold(
+      return Scaffold(
         appBar: AppBar(
           title: Text("সব দু'আ"),
           actions: <Widget>[
@@ -50,17 +46,14 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
         body: loading
             ? _buildCircularProgressIndicator()
             : ListView.builder(
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    return DuaTopicListItem(index + 1,  DuaCategory.fromJson(data[index]));
-                  },
-                ),
-
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return DuaTopicListItem(index + 1, DuaCategory.fromJson(data[index]));
+                },
+              ),
       );
-     }
-    );
-        }
-
+    });
+  }
 }
 
 _buildCircularProgressIndicator() {

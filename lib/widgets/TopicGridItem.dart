@@ -25,7 +25,7 @@ class TopicGridItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return SubtopicListPage(topic: topic);
+            return SubtopicListPage(topic: topic);
           }));
         },
         child: Column(

@@ -37,12 +37,11 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
                     child: TextField(
                       controller: titleController,
                       decoration: InputDecoration(
-                          hintText: "টাইটেল",
+                        hintText: "টাইটেল",
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
                         ),
                       ),
-
                     ),
                   ),
                   Divider(),
@@ -66,7 +65,7 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              DuaButton('সংরক্ষণ করুন',Theme.of(context).primaryColor, () {
+              DuaButton('সংরক্ষণ করুন', Theme.of(context).primaryColor, () {
                 final title = titleController.text;
                 final text = textController.text;
 
@@ -83,7 +82,7 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
 
                 Navigator.pop(context);
               }),
-              DuaButton('মুছুন',Theme.of(context).accentColor, () {
+              DuaButton('মুছুন', Theme.of(context).accentColor, () {
                 Provider.of<CurrentUserProvider>(context, listen: false).deleteDua(widget.dua.key);
                 Navigator.pop(context);
               })

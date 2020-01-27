@@ -15,15 +15,6 @@ class SubtopicListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.chevron_left,
-              size: 40.0,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
           title: Text(
             topic.name,
           ),

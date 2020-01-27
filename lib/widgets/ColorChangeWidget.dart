@@ -11,7 +11,6 @@ class ColorChangeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-
       content: Container(
         width: 70.0,
         height: 150.0,

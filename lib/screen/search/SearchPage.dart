@@ -29,11 +29,10 @@ class _SearchPageState extends State<SearchPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              autofocus: true,
               controller: textController,
               onChanged: (value) => {
-                if (value.length > 3) {
-                  loadData(value)
-                }
+                if (value.length > 3) {loadData(value)}
               },
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search),
@@ -48,54 +47,55 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
           Expanded(
-            child:
-                ListView.builder(
-                    itemCount: data.length,
-                    itemBuilder: (BuildContext context, int position) {
-                      SearchItem searchItem = data[position];
+            child: ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (BuildContext context, int position) {
+                  SearchItem searchItem = data[position];
 
-                      return SearchListPageItem((position + 1), searchItem.name, () {
-                        if (searchItem.viewtype == PageViewType.Content) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ContentDetailListPage(searchItem.item),
-                              ));
-                        } else if (searchItem.viewtype == PageViewType.Dua) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DuaDetailPage(searchItem.item),
-                              ));
-                        } else if (searchItem.viewtype == PageViewType.Question) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => QuestionDetailPage(searchItem.item),
-                              ));
-                        }
-                      });
-                    }),
+                  return SearchListPageItem((position + 1), searchItem.name, () {
+                    if (searchItem.viewtype == PageViewType.Content) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ContentDetailListPage(searchItem.item),
+                          ));
+                    } else if (searchItem.viewtype == PageViewType.Dua) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DuaDetailPage(searchItem.item),
+                          ));
+                    } else if (searchItem.viewtype == PageViewType.Question) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QuestionDetailPage(searchItem.item),
+                          ));
+                    }
+                  });
+                }),
           ),
-          data.isNotEmpty ?Container(
-            alignment: Alignment.bottomRight,
-            child: RaisedButton(
-              color: Theme.of(context).accentColor,
-              shape: StadiumBorder(),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SearchDetailPage(data),
+          data.isNotEmpty
+              ? Container(
+                  alignment: Alignment.bottomRight,
+                  child: RaisedButton(
+                    color: Theme.of(context).accentColor,
+                    shape: StadiumBorder(),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SearchDetailPage(data),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "সম্পূর্ণ রেজাল্ট দেখুন",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                );
-              },
-              child: Text(
-                "সম্পূর্ণ রেজাল্ট দেখুন",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ): SizedBox(),
+                )
+              : SizedBox(),
         ],
       ),
     );

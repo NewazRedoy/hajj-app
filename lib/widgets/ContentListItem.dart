@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/widgets/ColorChangeWidget.dart';
+import 'package:hajjapp/screen/VideoPlaypagePage.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ContentListItem extends StatefulWidget {
@@ -18,24 +20,6 @@ class ContentListItem extends StatefulWidget {
 }
 
 class _ContentListItemState extends State<ContentListItem> {
-  YoutubePlayerController _controller;
-
-  @override
-  void initState() {
-    if(widget.content.video_url != null) {
-      _controller = YoutubePlayerController(
-        initialVideoId: '_4I7maBjaDk',
-//      initialVideoId: YoutubePlayer.convertUrlToId(widget.content.video_url),
-        flags: YoutubePlayerFlags(
-          mute: false,
-          autoPlay: true,
-          forceHideAnnotation: true,
-        ),
-      );
-    }
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,7 +29,7 @@ class _ContentListItemState extends State<ContentListItem> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
-        elevation: 4.0,
+        elevation: 3.0,
         child: InkWell(
           onTap: () {},
           child: Column(
@@ -60,10 +44,13 @@ class _ContentListItemState extends State<ContentListItem> {
                   children: [
                     Container(
                       decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                      padding: const EdgeInsets.all(16.0),
+                      width: 4,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
                       child: Text(
                         widget.content.content_id.toString(),
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: TextStyle(color: Colors.black, fontSize: 16),
                       ),
                     ),
                     SizedBox(
@@ -75,22 +62,6 @@ class _ContentListItemState extends State<ContentListItem> {
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
-//                  IconButton(
-//                    icon: Icon(
-//                      Icons.more_vert,
-//                      size: 24.0,
-//                    ),
-//                    onPressed: () {
-//                    },
-//                  ),
-                    Container(
-                      decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                      child: Text(
-                        "",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -99,27 +70,42 @@ class _ContentListItemState extends State<ContentListItem> {
                 height: 1,
               ),
               SizedBox(height: 6),
-              widget.content.image?.isNotEmpty ==true
+              widget.content.image?.isNotEmpty == true
                   ? Image.asset(
                       widget.content.image,
                       width: MediaQuery.of(context).size.width,
                     )
                   : SizedBox(),
               widget.content.video_url.isNotEmpty
-                  ? YoutubePlayer(
-                      controller: _controller,
-                      showVideoProgressIndicator: true,
-                      progressIndicatorColor: Colors.amber,
-                      progressColors: ProgressBarColors(
-                        playedColor: Colors.amber,
-                        handleColor: Colors.amberAccent,
-                      ),
-                      onReady: () {
-//                    _controller.addListener(listener);
+                  ? InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => VideoPlayPage(widget.content),
+                            ));
                       },
+                      child: Stack(
+                        children: <Widget>[
+                          CachedNetworkImage(
+                              imageUrl: YoutubePlayer.getThumbnail(videoId: "_4I7maBjaDk"),
+                              fit: BoxFit.cover,
+                              placeholder: (context, url) => CircularProgressIndicator()),
+                          Positioned.fill(
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Icon(
+                                Icons.play_arrow,
+                                size: 64.0,
+                                color: Colors.white,
+                                semanticLabel: 'Text to announce in accessibility modes',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     )
                   : SizedBox(),
-
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
@@ -141,11 +127,5 @@ class _ContentListItemState extends State<ContentListItem> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }

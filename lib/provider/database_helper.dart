@@ -150,7 +150,6 @@ class DatabaseHelper {
   }
 
   Future<List<SearchItem>> querybySearch(String term) async {
-
     term = term.replaceAll('\'', '\'\'');
 
     Database db = await database;
@@ -170,8 +169,8 @@ class DatabaseHelper {
       var topic = Content.fromMap(row);
       List<Map> maps = await db.rawQuery("select * from Subtopic where subtopic_id = ${topic.subtopic_id}");
       maps.forEach((row) {
-        var subtopic= Subtopic.fromJson(row);
-        if(!items.any((e)=>e.name==subtopic.name)){
+        var subtopic = Subtopic.fromJson(row);
+        if (!items.any((e) => e.name == subtopic.name)) {
           items.add(SearchItem(subtopic.name, "", PageViewType.Content, subtopic));
         }
       });
@@ -220,12 +219,11 @@ class DatabaseHelper {
   }
 
   queryFavDuas(List<String> ids) async {
-
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select * from DuaCategory,Dua where Dua.id in (${ids.join(",")}) and Dua.category_id = DuaCategory.id");
+    List<Map> maps = await db.rawQuery(
+        "select * from DuaCategory,Dua where Dua.id in (${ids.join(",")}) and Dua.category_id = DuaCategory.id");
     return maps;
   }
-
 
   querySentenceByCategoryId(int allDuacategory_id) async {
     Database db = await database;

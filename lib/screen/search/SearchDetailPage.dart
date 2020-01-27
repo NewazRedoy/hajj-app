@@ -8,8 +8,8 @@ import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SearchListDetailItem.dart';
 
 class SearchDetailPage extends StatefulWidget {
-
   List data;
+
   SearchDetailPage(this.data);
 
   @override
@@ -19,6 +19,7 @@ class SearchDetailPage extends StatefulWidget {
 class _SearchDetailPageState extends State<SearchDetailPage> {
 //  List data = [];
   var loading = false;
+
 //
 //  @override
 //  void initState() {

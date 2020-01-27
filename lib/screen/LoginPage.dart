@@ -41,7 +41,6 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-
                       SizedBox(
                         height: 10,
                       ),

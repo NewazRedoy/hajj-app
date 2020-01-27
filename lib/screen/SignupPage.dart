@@ -38,7 +38,6 @@ class _SignupPageState extends State<SignupPage> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-
                         SizedBox(
                           height: 10,
                         ),

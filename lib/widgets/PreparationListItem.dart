@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/widgets/ColorChangeWidget.dart';
 
 class PreparationListItem extends StatelessWidget {
   Content content;
@@ -54,17 +53,13 @@ class PreparationListItem extends StatelessWidget {
                       Icons.more_vert,
                       size: 24.0,
                     ),
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                   ),
-                  Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                    child: Text(
-                      "",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 12.0,
+                    color: Colors.grey,
+                    semanticLabel: 'Text to announce in accessibility modes',
                   ),
                 ],
               ),
