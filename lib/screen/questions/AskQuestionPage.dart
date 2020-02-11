@@ -22,7 +22,7 @@ class _AskQuestionPageState extends State<AskQuestionPage> {
           Container(
             padding: EdgeInsets.all(12),
             child: Card(
-              elevation: 5.0,
+              elevation: 1.5,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0),
               ),

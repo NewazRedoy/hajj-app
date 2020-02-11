@@ -30,11 +30,12 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              elevation: 12.0,
+              elevation: 1.5,
               child: Column(
                 children: <Widget>[
                   Container(
                     child: TextField(
+                      autofocus: true,
                       controller: titleController,
                       decoration: InputDecoration(
                         hintText: "টাইটেল",

@@ -53,7 +53,7 @@ class Item extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
         ),
-        elevation: 7.0,
+        elevation: 1.5,
         child: InkWell(
           onTap: () {
             Navigator.push(

@@ -29,7 +29,7 @@ class _ContentListItemState extends State<ContentListItem> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
-        elevation: 3.0,
+        elevation: 1.5,
         child: InkWell(
           onTap: () {},
           child: Column(

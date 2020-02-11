@@ -159,7 +159,7 @@ class _SignupPageState extends State<SignupPage> {
                         RaisedButton(
                           child: Text('Signup'),
                           textColor: Colors.white,
-                          elevation: 3.0,
+                          elevation: 1.5,
                           color: Colors.deepPurple,
                           padding: EdgeInsets.all(16),
                           onPressed: () {

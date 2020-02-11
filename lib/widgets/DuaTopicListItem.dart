@@ -22,7 +22,7 @@ class DuaTopicListItem extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
-          elevation: 7.0,
+          elevation: 1.5,
           child: InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuatopic)));

@@ -24,7 +24,7 @@ class MyDuaListItem extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),
-          elevation: 5.0,
+          elevation: 1.5,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,12 +70,6 @@ class MyDuaListItem extends StatelessWidget {
                             break;
                         }
                       },
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 12.0,
-                      color: Colors.grey,
-                      semanticLabel: 'Text to announce in accessibility modes',
                     ),
                     SizedBox(
                       width: 8,

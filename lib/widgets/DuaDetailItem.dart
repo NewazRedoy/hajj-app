@@ -19,7 +19,7 @@ class DuaDetailItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
-        elevation: 5.0,
+        elevation: 1.5,
         child: Column(children: <Widget>[
           Container(
             height: 50,
