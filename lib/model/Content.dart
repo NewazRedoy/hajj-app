@@ -5,7 +5,7 @@ class Content {
   int subtopic_id;
   int content_id;
   String text;
-  String textAr;
+  String title;
   String reference;
   String video_url;
   String image;
@@ -17,7 +17,7 @@ class Content {
     this.video_url,
     this.reference,
     this.image,
-    this.textAr,
+    this.title,
     this.text,
   });
 
@@ -32,7 +32,7 @@ class Content {
         video_url: json["video_url"],
         reference: json["reference"],
         image: json["image"],
-        textAr: json["text_ar"],
+        title: json["title"],
         text: json["text"],
       );
 
@@ -43,7 +43,7 @@ class Content {
         "video_url": video_url,
         "reference": reference,
         "image": image,
-        "text_ar": textAr,
+        "title": title,
         "text": text,
       };
 }

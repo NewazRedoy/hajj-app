@@ -47,9 +47,9 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Expanded(
-                          child: TopicGridItem(topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'), image: "kaba")),
+                          child: TopicGridItem(topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'), image: "kaba.svg")),
                       Expanded(
-                          child: TopicGridItem(topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'), image: "umrah")),
+                          child: TopicGridItem(topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'), image: "umrah.svg")),
                     ],
                   ),
                 ),

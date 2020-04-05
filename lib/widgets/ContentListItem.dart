@@ -58,7 +58,7 @@ class _ContentListItemState extends State<ContentListItem> {
                     ),
                     Expanded(
                       child: Text(
-                        widget.subtopic.name,
+                        widget.content.title,
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
@@ -76,7 +76,7 @@ class _ContentListItemState extends State<ContentListItem> {
                       width: MediaQuery.of(context).size.width,
                     )
                   : SizedBox(),
-              widget.content.video_url.isNotEmpty
+              widget.content.video_url?.isNotEmpty == true
                   ? InkWell(
                       onTap: () {
                         Navigator.push(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hajjapp/screen/AppDrawerPage.dart';
 import 'package:hajjapp/screen/TopicGridPage.dart';
 import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
@@ -47,11 +48,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             title: Text("হোম"),
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("dua"),
+            icon: SvgPicture.asset("dua.svg"),
             title: Text("দু'আ"),
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("question"),
+            icon: SvgPicture.asset("question.svg"),
             title: Text("নির্বাচিত প্রশ্নোত্তর"),
           ),
         ],
