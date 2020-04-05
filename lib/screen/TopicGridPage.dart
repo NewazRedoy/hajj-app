@@ -10,12 +10,12 @@ import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/TopicGridItem.dart';
 
-class TopicGridPage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _TopicGridPageState createState() => _TopicGridPageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _TopicGridPageState extends State<TopicGridPage> {
+class _HomePageState extends State<HomePage> {
   List data = [];
   var loading = true;
 
@@ -47,9 +47,9 @@ class _TopicGridPageState extends State<TopicGridPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Expanded(
-                          child: TopicGridItem(topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'))),
+                          child: TopicGridItem(topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'), image: "kaba")),
                       Expanded(
-                          child: TopicGridItem(topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'))),
+                          child: TopicGridItem(topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'), image: "umrah")),
                     ],
                   ),
                 ),

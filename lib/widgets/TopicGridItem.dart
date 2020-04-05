@@ -7,12 +7,13 @@ class TopicGridItem extends StatelessWidget {
     Key key,
     @required this.context,
     @required this.topic,
-    this.index,
+    this.index, this.image,
   }) : super(key: key);
 
   final BuildContext context;
   final Topic topic;
   final index;
+final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +36,7 @@ class TopicGridItem extends StatelessWidget {
             SizedBox(
               height: 16,
             ),
-            Icon(
-              Icons.star_border,
-              size: 44,
-            ),
+            Image.asset(image,width: 44, height: 44,),
             SizedBox(
               height: 16,
             ),

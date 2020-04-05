@@ -16,13 +16,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Widget callPages(int currentIndex) {
     switch (currentIndex) {
       case 0:
-        return TopicGridPage();
+        return HomePage();
       case 1:
         return DuaTopicPage();
       case 2:
         return ElectedQuestionPage();
       default:
-        return TopicGridPage();
+        return HomePage();
     }
   }
 
@@ -47,11 +47,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             title: Text("হোম"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_books),
+            icon: Image.asset("dua"),
             title: Text("দু'আ"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer),
+            icon: Image.asset("question"),
             title: Text("নির্বাচিত প্রশ্নোত্তর"),
           ),
         ],
