@@ -48,11 +48,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             title: Text("হোম"),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("dua.svg"),
+            icon: Image.asset("assets/images/dua.png", height: 20,width: 20,),
             title: Text("দু'আ"),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("question.svg"),
+            icon: Image.asset("assets/images/question.png", height: 20,width: 20,),
             title: Text("নির্বাচিত প্রশ্নোত্তর"),
           ),
         ],

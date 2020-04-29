@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/ElectedQuestionSubTopicItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
@@ -65,7 +65,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.queryQuestionsByCategoryId(widget.question_category.id);
+    var content = await DataProvider.of(context).queryQuestionsByCategoryId(widget.question_category.id);
     setState(() {
       data = content;
       loading = false;

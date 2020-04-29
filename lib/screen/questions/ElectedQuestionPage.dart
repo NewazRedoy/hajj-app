@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 
@@ -21,7 +21,7 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.queryQuestionCategories();
+    var content = await DataProvider.of(context).queryQuestionCategories();
 
     setState(() {
       data = content;

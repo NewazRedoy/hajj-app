@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/DuaCategory.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/DuaTopicListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
@@ -21,7 +21,7 @@ class _AllDuaPageState extends State<AllDuaPage> {
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.queryAllDuaCategories();
+    var content = await DataProvider.of(context).queryAllDuaCategories();
 
     setState(() {
       data = content;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/Last2PageGridItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
@@ -64,7 +64,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
   }
 
   loadData() async {
-    var subtopics = await DatabaseHelper.instance.querySubtopicsByTopicId(topic.topic_id);
+    var subtopics = await DataProvider.of(context).querySubtopicsByTopicId(topic.topic_id);
 
     setState(() {
       data = subtopics;

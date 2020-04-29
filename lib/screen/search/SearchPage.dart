@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/SearchItem.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
+import 'package:hajjapp/repository/RepositoryInterface.dart';
 import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
 import 'package:hajjapp/screen/search/SearchDetailPage.dart';
@@ -102,7 +104,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   loadData(String value) async {
-    var subtopics = await DatabaseHelper.instance.querybySearch(value);
+    var subtopics = await DataProvider.of(context).querybySearch(value);
 
     setState(() {
       data = subtopics;

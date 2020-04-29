@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/DuaTopicListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +24,7 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
 
   loadData() async {
     var ids = Provider.of<CurrentUserProvider>(context).favDuaId;
-    var content = await DatabaseHelper.instance.queryFavDuas(ids);
+    var content = await DataProvider.of(context).queryFavDuas(ids);
     setState(() {
       data = content;
       loading = false;

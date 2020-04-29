@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentences.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/ArabicSentenceListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
@@ -31,7 +31,7 @@ class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.querySentenceByCategoryId(widget.sentenceCategory.id);
+    var content = await DataProvider.of(context).querySentenceByCategoryId(widget.sentenceCategory.id);
     setState(() {
       data = content;
       loading = false;

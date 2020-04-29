@@ -58,7 +58,7 @@ class _ContentListItemState extends State<ContentListItem> {
                     ),
                     Expanded(
                       child: Text(
-                        widget.content.title,
+                        widget.content.title ?? "",
                         style: TextStyle(fontSize: 20),
                       ),
                     ),

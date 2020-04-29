@@ -1,4 +1,4 @@
-package com.taibah.hajjapp
+package hajjapp
 
 import android.os.Bundle
 

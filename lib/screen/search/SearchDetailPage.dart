@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/SearchItem.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/repository/RepositoryInterface.dart';
 import 'package:hajjapp/screen/ContentDetailListPage.dart';
 import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
@@ -17,24 +17,7 @@ class SearchDetailPage extends StatefulWidget {
 }
 
 class _SearchDetailPageState extends State<SearchDetailPage> {
-//  List data = [];
   var loading = false;
-
-//
-//  @override
-//  void initState() {
-//    super.initState();
-//
-//    loadData();
-//  }
-
-//  loadData() async {
-//    var content = await DatabaseHelper.instance.querybySearch("সা'ঈ");
-//    setState(() {
-//      data = content;
-//      loading = false;
-//    });
-//  }
 
   @override
   Widget build(BuildContext context) {

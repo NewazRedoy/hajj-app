@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/model/DuaDetail.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/DuaDetailItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
@@ -30,7 +30,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.queryDuaByCategoryId(widget.allDuaCategory.id);
+    var content = await DataProvider.of(context).queryDuaByCategoryId(widget.allDuaCategory.id);
     setState(() {
       data = content;
       loading = false;
