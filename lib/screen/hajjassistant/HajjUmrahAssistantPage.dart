@@ -59,7 +59,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
                 itemCount: data.length,
                 gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                 itemBuilder: (BuildContext context, int position) {
-                  return new Last2PageGridItem(position, Subtopic.fromJson(data[position]));
+                  return new Last2PageGridItem(position, data[position]);
                 }));
   }
 

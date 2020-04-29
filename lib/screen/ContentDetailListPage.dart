@@ -66,12 +66,12 @@ class _SampleAppPageState extends State<SampleAppPage> {
                 ? ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
-                      return PreparationListItem(subtopic: widget.subtopic, content: Content.fromMap(data[position]));
+                      return PreparationListItem(subtopic: widget.subtopic, content: data[position]);
                     })
                 : ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
-                      return ContentListItem(subtopic: widget.subtopic, content: Content.fromMap(data[position]));
+                      return ContentListItem(subtopic: widget.subtopic, content: data[position]);
                     }));
   }
 

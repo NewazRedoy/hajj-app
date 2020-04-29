@@ -51,7 +51,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
       body: ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
-          return DuaDetailItem(Dua.fromJson(data[index]), widget.allDuaCategory);
+          return DuaDetailItem(data[index], widget.allDuaCategory);
         },
       ),
     );

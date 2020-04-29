@@ -55,7 +55,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
         : ListView.builder(
             itemCount: data.length,
             itemBuilder: (BuildContext context, int position) {
-              var subtopic = Subtopic.fromJson(data[position]);
+              var subtopic = data[position];
 
               return ListPageItem((position + 1), subtopic.name, () {
                 Navigator.push(

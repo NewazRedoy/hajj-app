@@ -48,7 +48,7 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
             : ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  return DuaTopicListItem(index + 1, DuaCategory.fromJson(data[index]));
+                  return DuaTopicListItem(index + 1, data[index]);
                 },
               ),
       );

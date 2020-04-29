@@ -52,7 +52,7 @@ class _ArabicSentencesDetailPageState extends State<ArabicSentencesDetailPage> {
       body: ListView.builder(
         itemCount: data.length,
         itemBuilder: (context, index) {
-          return ArabicSentenceListItem(ArabicSentence.fromJson(data[index]));
+          return ArabicSentenceListItem(data[index]);
         },
       ),
     );

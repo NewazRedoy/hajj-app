@@ -37,7 +37,7 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
           : ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                QuestionCategory question = QuestionCategory.fromJson(data[index]);
+                QuestionCategory question = data[index];
 
                 return ListPageItem((index + 1), question.name, () {
                   Navigator.push(

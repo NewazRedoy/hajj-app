@@ -48,7 +48,7 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
             : ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  SentencesCategory sentencesCategory = SentencesCategory.fromJson(data[index]);
+                  SentencesCategory sentencesCategory = data[index];
 
                   return ListPageItem((index + 1), sentencesCategory.name, () {
                     Navigator.push(

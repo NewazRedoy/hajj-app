@@ -58,7 +58,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
             child: ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  var question = QuestionDetail.fromJson(data[index]);
+                  var question = data[index];
 
                   return ElectedQuestionSubTopicListItem(question);
                 }));
