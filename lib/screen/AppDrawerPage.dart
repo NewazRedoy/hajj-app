@@ -1,10 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:async';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 import 'AboutApp.dart';
 
@@ -86,7 +87,9 @@ class _DrawerPageState extends State<DrawerPage> {
             ListTile(
               leading: Icon(Icons.album),
               title: Text("শেয়ার করুন"),
-              onTap: () {shareApp(context);},
+              onTap: () {
+                share(context);
+              },
             ),
             ListTile(
               leading: Icon(Icons.album),
@@ -98,27 +101,7 @@ class _DrawerPageState extends State<DrawerPage> {
       ),
     );
   }
-  void shareApp(BuildContext context) {
-    var alertDialog = AlertDialog(
-      title: Text("Share App"),
-      actions: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(right: 170.0),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              FlatButton(
-                  onPressed: () {
-                    share(context);
-                  },
-                  child: Text("Share Link")),
-            ],
-          ),
-        ),
-      ],
-    );
-    showDialog(
-        context: context, builder: (BuildContext context) => alertDialog);
-  }
+
   void share(BuildContext context) {
     final String text ="Muslim Scholars & Companios is the ultimate collection of biographies "
         "having birth/death,narrator grade,family members and tags to inspire us to learn about them."
