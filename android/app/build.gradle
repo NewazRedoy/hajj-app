@@ -37,7 +37,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        ndkVersion "21.0.6113669"
         applicationId "com.taibah.hajjapp"
         minSdkVersion 16
         targetSdkVersion 28
@@ -45,6 +45,7 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resConfigs "bn"
+        ndkVersion "21.0.6113669"
     }
 
     buildTypes {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/repository/RepositoryInterface.dart';
 
 class SearchItem {
   PageViewType viewtype;

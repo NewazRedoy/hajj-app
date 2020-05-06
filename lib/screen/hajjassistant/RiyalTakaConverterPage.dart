@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
+import 'package:http/http.dart' as http;
 
 class RiyalConverter extends StatefulWidget {
   final Topic topic;
@@ -13,10 +16,15 @@ class RiyalConverter extends StatefulWidget {
 }
 
 class _RiyalConverterState extends State<RiyalConverter> {
-  int takaValue = 11;
-  int rialValue = 200;
+  final TextEditingController rialController = TextEditingController();
+  final TextEditingController takaController = TextEditingController();
 
   double conversion = 1 / 20;
+
+  @override
+  void initState() {
+    getRate();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +60,8 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   ),
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration.collapsed(hintText: takaValue.toString()),
+                      controller: takaController,
+                      decoration: InputDecoration.collapsed(hintText: null),
                       maxLines: 1,
                       textAlign: TextAlign.right,
                       style: TextStyle(
@@ -62,7 +71,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                       onChanged: (text) {
                         print("First text field taka: $text");
                         setState(() {
-                          rialValue = (conversion * int.parse(text)) as int;
+                          rialController.text = (conversion * int.parse(text)).toStringAsFixed(2);
                         });
                       },
                     ),
@@ -90,7 +99,8 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   ),
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration.collapsed(hintText: rialValue.toString()),
+                      controller: rialController,
+                      decoration: InputDecoration.collapsed(hintText: null),
                       maxLines: 1,
                       textAlign: TextAlign.right,
                       style: TextStyle(fontSize: 32),
@@ -98,7 +108,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                       onChanged: (text) {
                         print("First text field: $text");
                         setState(() {
-                          takaValue = (int.parse(text) / conversion) as int;
+                          takaController.text = (int.parse(text) / conversion).toStringAsFixed(2);
                         });
                       },
                     ),
@@ -110,5 +120,16 @@ class _RiyalConverterState extends State<RiyalConverter> {
         ),
       ),
     );
+  }
+
+  void getRate() async {
+    var response =
+        await http.get("https://free.currconv.com/api/v7/convert?q=BDT_SAR&compact=ultra&apiKey=558d63f3c169865a4cb7");
+
+    setState(() {
+      conversion = json.decode(response.body)["BDT_SAR"];
+      rialController.text = 1.toString();
+      takaController.text = (int.parse(rialController.text) / conversion).toStringAsFixed(2);
+    });
   }
 }

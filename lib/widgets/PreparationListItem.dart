@@ -33,7 +33,7 @@ class PreparationListItem extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.symmetric(vertical: 19.0, horizontal: 18.0),
                     child: Text(
                       content.content_id.toString(),
                       style: TextStyle(color: Colors.white, fontSize: 20),
@@ -55,13 +55,11 @@ class PreparationListItem extends StatelessWidget {
                     ),
                     onPressed: () {},
                   ),
-                  Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                    child: Text(
-                      "",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 12.0,
+                    color: Colors.grey,
+                    semanticLabel: 'Text to announce in accessibility modes',
                   ),
                 ],
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/ContentListItem.dart';
 import 'package:hajjapp/widgets/PreparationListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
@@ -66,18 +66,18 @@ class _SampleAppPageState extends State<SampleAppPage> {
                 ? ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
-                      return PreparationListItem(subtopic: widget.subtopic, content: Content.fromMap(data[position]));
+                      return PreparationListItem(subtopic: widget.subtopic, content: data[position]);
                     })
                 : ListView.builder(
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int position) {
-                      return ContentListItem(subtopic: widget.subtopic, content: Content.fromMap(data[position]));
+                      return ContentListItem(subtopic: widget.subtopic, content: data[position]);
                     }));
   }
 
   loadData() async {
     var content =
-        await DatabaseHelper.instance.queryHadithsBySubtopicId(widget.subtopic.topic_id, widget.subtopic.subtopic_id);
+        await DataProvider.of(context).queryHadithsBySubtopicId(widget.subtopic.topic_id, widget.subtopic.subtopic_id);
 
     setState(() {
       data = content;

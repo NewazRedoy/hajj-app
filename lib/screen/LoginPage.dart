@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserModel>(builder: (context, model, _) {
+    return Consumer<CurrentUserProvider>(builder: (context, model, _) {
       return Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -41,14 +41,6 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Image.asset(
-                          "assets/uclogo.png",
-                          height: 60,
-                          width: 160,
-                        ),
-                      ),
                       SizedBox(
                         height: 10,
                       ),
@@ -82,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                       RaisedButton(
                         child: Text('Login'),
                         textColor: Colors.white,
-                        elevation: 3.0,
+                        elevation: 1.5,
                         color: Theme.of(context).primaryColor,
                         padding: EdgeInsets.all(16),
                         onPressed: () {

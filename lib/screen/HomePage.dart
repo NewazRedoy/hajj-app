@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hajjapp/screen/AppDrawerPage.dart';
 import 'package:hajjapp/screen/TopicGridPage.dart';
 import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
@@ -16,13 +17,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Widget callPages(int currentIndex) {
     switch (currentIndex) {
       case 0:
-        return TopicGridPage();
+        return HomePage();
       case 1:
         return DuaTopicPage();
       case 2:
         return ElectedQuestionPage();
       default:
-        return TopicGridPage();
+        return HomePage();
     }
   }
 
@@ -31,7 +32,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Scaffold(
       drawer: DrawerPage(),
       appBar: AppBar(
-        title: Text("Hajj App"),
+        title: Text("হাজ্জ উমরাহ গাইড"),
         actions: <Widget>[SearchSettings()],
       ),
       body: callPages(_currentIndex),
@@ -44,15 +45,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text("home"),
+            title: Text("হোম"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_books),
-            title: Text("DuaTopic"),
+            icon: Image.asset("assets/images/dua.png", height: 20,width: 20,),
+            title: Text("দু'আ"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer),
-            title: Text("AskQuestion"),
+            icon: Image.asset("assets/images/question.png", height: 20,width: 20,),
+            title: Text("নির্বাচিত প্রশ্নোত্তর"),
           ),
         ],
       ),

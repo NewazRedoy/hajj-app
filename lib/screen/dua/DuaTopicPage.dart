@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/DuaTopic.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/dua/AllDuaPage.dart';
 import 'package:hajjapp/screen/dua/FavouriteDuaPage.dart';
 import 'package:hajjapp/screen/dua/MyDuaPage.dart';
@@ -49,7 +49,7 @@ class _DuaTopicPageState extends State<DuaTopicPage> {
                     if (duaTopic.duatopic_id == 1) {
                       return AllDuaPage();
                     } else if (duaTopic.duatopic_id == 2) {
-                      var user = Provider.of<CurrentUserModel>(context).user;
+                      var user = Provider.of<CurrentUserProvider>(context).user;
                       if (user == null) {
                         return LoginPage();
                       } else

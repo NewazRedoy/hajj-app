@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +24,7 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserModel>(builder: (context, model, _) {
+    return Consumer<CurrentUserProvider>(builder: (context, model, _) {
       var checkboxValue = false;
       return Scaffold(
         body: SingleChildScrollView(
@@ -38,14 +38,6 @@ class _SignupPageState extends State<SignupPage> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Image.asset(
-                            "assets/uclogo.png",
-                            height: 60,
-                            width: 160,
-                          ),
-                        ),
                         SizedBox(
                           height: 10,
                         ),
@@ -167,7 +159,7 @@ class _SignupPageState extends State<SignupPage> {
                         RaisedButton(
                           child: Text('Signup'),
                           textColor: Colors.white,
-                          elevation: 3.0,
+                          elevation: 1.5,
                           color: Colors.deepPurple,
                           padding: EdgeInsets.all(16),
                           onPressed: () {

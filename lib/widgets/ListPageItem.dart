@@ -21,38 +21,45 @@ class ListPageItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
         ),
-        elevation: 7.0,
+        elevation: 1.5,
         child: InkWell(
           onTap: onTap,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.all(18.0),
-                child: Text(
-                  index.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+          child: Container(
+            height: 60,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                  width: 4,
                 ),
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Expanded(
-                child: Text(
-                  name,
-                  style: TextStyle(fontSize: 16),
+//                Container(
+//                  padding: const EdgeInsets.symmetric(vertical: 21.0, horizontal: 18.0),
+//                  child: Text(
+//                    index.toString(),
+//                    style: TextStyle(color: Colors.white, fontSize: 16),
+//                  ),
+//                ),
+                SizedBox(
+                  width: 8,
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 5),
-                child: Text(
-                  "",
-                  style: TextStyle(fontSize: 18),
+                Expanded(
+                  child: Text(
+                    name,
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
-              ),
-            ],
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 12.0,
+                  color: Colors.grey,
+                  semanticLabel: 'Text to announce in accessibility modes',
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+              ],
+            ),
           ),
         ),
       ),

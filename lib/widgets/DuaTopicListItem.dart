@@ -22,39 +22,45 @@ class DuaTopicListItem extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
-          elevation: 7.0,
+          elevation: 1.5,
           child: InkWell(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuaCategory: allDuatopic)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuatopic)));
             },
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Container(
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  index.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+            child: Container(
+              height: 45,
+              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                  width: 4,
                 ),
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Expanded(
-                child: Text(
-                  allDuatopic.name,
-                  style: TextStyle(fontSize: 16),
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    index.toString(),
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "",
-                  style: TextStyle(fontSize: 20),
+                SizedBox(
+                  width: 8,
                 ),
-              )
-            ]),
+                Expanded(
+                  child: Text(
+                    allDuatopic.name,
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 12.0,
+                  color: Colors.grey,
+                  semanticLabel: 'Text to announce in accessibility modes',
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+              ]),
+            ),
           )),
     );
   }

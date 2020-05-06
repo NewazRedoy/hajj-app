@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
-import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ElectedQuestionPage extends StatefulWidget {
   @override
@@ -22,7 +21,7 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.queryQuestionCategories();
+    var content = await DataProvider.of(context).queryQuestionCategories();
 
     setState(() {
       data = content;
@@ -33,24 +32,18 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("নির্বাচিত প্রশ্নোত্তর"),
-        actions: <Widget>[
-          SearchSettings(),
-        ],
-      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
-                QuestionCategory question = QuestionCategory.fromJson(data[index]);
+                QuestionCategory question = data[index];
 
                 return ListPageItem((index + 1), question.name, () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ElectedQuestionDetailPage(question),
+                        builder: (context) => QuestionDetailPage(question),
                       ));
                 });
               },

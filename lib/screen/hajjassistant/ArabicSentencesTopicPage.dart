@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
 import 'package:hajjapp/model/Topic.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/hajjassistant/ArabicSentencesDetailPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
@@ -27,7 +27,7 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.queryAllSentenceCategories();
+    var content = await DataProvider.of(context).queryAllSentenceCategories();
     setState(() {
       data = content;
       loading = false;
@@ -48,7 +48,7 @@ class _ArabicSentencesTopicPageState extends State<ArabicSentencesTopicPage> {
             : ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  SentencesCategory sentencesCategory = SentencesCategory.fromJson(data[index]);
+                  SentencesCategory sentencesCategory = data[index];
 
                   return ListPageItem((index + 1), sentencesCategory.name, () {
                     Navigator.push(

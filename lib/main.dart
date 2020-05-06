@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/HomePage.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => CurrentUserModel()),
+        ChangeNotifierProvider(create: (context) => CurrentUserProvider()),
+        ChangeNotifierProvider(create: (context) => DataProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -18,9 +20,16 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blueGrey,
             accentColor: Color.fromARGB(255, 167, 142, 114),
             fontFamily: 'Bangla',
+            pageTransitionsTheme: PageTransitionsTheme(builders: _defaultBuilders),
             textTheme: TextTheme()),
         home: Home(),
       ),
     );
   }
 }
+
+const Map<TargetPlatform, PageTransitionsBuilder> _defaultBuilders = <TargetPlatform, PageTransitionsBuilder>{
+  TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+  TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+  TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+};

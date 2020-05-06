@@ -4,7 +4,9 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/TawafWidget.dart';
 
@@ -86,6 +88,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
               height: 8,
             ),
             RaisedButton(
+              color: Theme.of(context).primaryColor,
               onPressed: () {
                 if (count < 7) {
                   setState(() {
@@ -99,7 +102,14 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
               height: 8,
             ),
             RaisedButton(
-              onPressed: () {},
+              color: Theme.of(context).accentColor,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DuaDetailPage(DuaCategory(id: 1, name: "adas")),
+                    ));
+              },
               child: Text("দু'আ তালিকা"),
             ),
           ],

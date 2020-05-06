@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/ContentDetailListPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
@@ -15,15 +15,6 @@ class SubtopicListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.chevron_left,
-              size: 40.0,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
           title: Text(
             topic.name,
           ),
@@ -64,7 +55,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
         : ListView.builder(
             itemCount: data.length,
             itemBuilder: (BuildContext context, int position) {
-              var subtopic = Subtopic.fromJson(data[position]);
+              var subtopic = data[position];
 
               return ListPageItem((position + 1), subtopic.name, () {
                 Navigator.push(
@@ -77,7 +68,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
   }
 
   loadData() async {
-    var subtopics = await DatabaseHelper.instance.querySubtopicsByTopicId(widget.topic.topic_id);
+    var subtopics = await DataProvider.of(context).querySubtopicsByTopicId(widget.topic.topic_id);
 
     setState(() {
       data = subtopics;

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
-import 'package:hajjapp/provider/database_helper.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/ElectedQuestionSubTopicItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
-class ElectedQuestionDetailPage extends StatelessWidget {
+class QuestionDetailPage extends StatelessWidget {
   QuestionCategory questionCategory;
 
-  ElectedQuestionDetailPage(
+  QuestionDetailPage(
     this.questionCategory,
   );
 
@@ -16,15 +16,6 @@ class ElectedQuestionDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.chevron_left,
-              size: 40.0,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
           title: Text(
             questionCategory.name,
           ),
@@ -67,14 +58,14 @@ class _SampleAppPageState extends State<SampleAppPage> {
             child: ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  var question = QuestionDetail.fromJson(data[index]);
+                  var question = data[index];
 
                   return ElectedQuestionSubTopicListItem(question);
                 }));
   }
 
   loadData() async {
-    var content = await DatabaseHelper.instance.queryQuestionsByCategoryId(widget.question_category.id);
+    var content = await DataProvider.of(context).queryQuestionsByCategoryId(widget.question_category.id);
     setState(() {
       data = content;
       loading = false;

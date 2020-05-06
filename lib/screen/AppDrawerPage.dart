@@ -1,10 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:hajjapp/provider/CurrentUserModel.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:async';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
+
+import 'AboutApp.dart';
 
 class DrawerPage extends StatefulWidget {
   @override
@@ -43,7 +46,7 @@ class _DrawerPageState extends State<DrawerPage> {
   }
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<CurrentUserModel>(context).user;
+    var user = Provider.of<CurrentUserProvider>(context).user;
     return Container(
       child: Drawer(
         child: ListView(
@@ -56,15 +59,10 @@ class _DrawerPageState extends State<DrawerPage> {
                   )
                 : UserAccountsDrawerHeader(
                     currentAccountPicture: CircleAvatar(),
-                    accountName: Text(user.firstName),
+                    accountName: Text(user.firstName ?? ""),
                     accountEmail: Text("Macca,Saudi Arabia"),
                   ),
             Divider(),
-            ListTile(
-              leading: Icon(Icons.album),
-              title: Text("নোটিফিকেশন "),
-              onTap: () {},
-            ),
             ListTile(
               leading: Icon(Icons.album),
               title: Text("সেটিংস"),
@@ -77,17 +75,21 @@ class _DrawerPageState extends State<DrawerPage> {
             ListTile(
               leading: Icon(Icons.album),
               title: Text("আমাদের সম্পর্কে"),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutApp(),
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.album),
               title: Text("শেয়ার করুন"),
-              onTap: () {shareApp(context);},
-            ),
-            ListTile(
-              leading: Icon(Icons.album),
-              title: Text(" বুকমার্ক"),
-              onTap: () {},
+              onTap: () {
+                share(context);
+              },
             ),
             ListTile(
               leading: Icon(Icons.album),
@@ -99,27 +101,7 @@ class _DrawerPageState extends State<DrawerPage> {
       ),
     );
   }
-  void shareApp(BuildContext context) {
-    var alertDialog = AlertDialog(
-      title: Text("Share App"),
-      actions: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(right: 170.0),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              FlatButton(
-                  onPressed: () {
-                    share(context);
-                  },
-                  child: Text("Share Link")),
-            ],
-          ),
-        ),
-      ],
-    );
-    showDialog(
-        context: context, builder: (BuildContext context) => alertDialog);
-  }
+
   void share(BuildContext context) {
     final String text ="Muslim Scholars & Companios is the ultimate collection of biographies "
         "having birth/death,narrator grade,family members and tags to inspire us to learn about them."

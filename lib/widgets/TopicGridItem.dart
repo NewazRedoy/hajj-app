@@ -1,51 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/screen/SubTopicListPage.dart';
-import 'package:hajjapp/screen/hajjassistant/HajjUmrahAssistantPage.dart';
-import 'package:hajjapp/screen/questions/QuestionAnswerPage.dart';
 
 class TopicGridItem extends StatelessWidget {
   const TopicGridItem({
     Key key,
     @required this.context,
     @required this.topic,
-    this.index,
+    this.index, this.image,
   }) : super(key: key);
 
   final BuildContext context;
   final Topic topic;
   final index;
+final String image;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(4.0),
       ),
-      elevation: 7.0,
+      elevation: 1.5,
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            if (topic.topic_id < 7) {
-              return SubtopicListPage(topic: topic);
-            } else if (topic.topic_id == 8) {
-              return HajjAssistantPage(
-                topic: topic,
-              );
-            } else {
-              return QuestionAnswerPage();
-            }
+            return SubtopicListPage(topic: topic);
           }));
         },
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.star_border,
-              size: 24,
+            SizedBox(
+              height: 16,
             ),
+            Image.asset(image,width: 44, height: 44,),
             SizedBox(
               height: 16,
             ),
