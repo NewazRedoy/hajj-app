@@ -64,16 +64,16 @@ class _DrawerPageState extends State<DrawerPage> {
                   ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.album),
+              leading: Image.asset("assets/images/Menu-Settings.png",height: 20,width: 20,),
               title: Text("সেটিংস"),
             ),
             ListTile(
-              leading: Icon(Icons.album),
+              leading: Image.asset("assets/images/Menu-Rating&Review.png",height: 20,width: 20,),
               title: Text("রেটিং এবং রিভিউ"),
               onTap: () { _launch(launchPlayRateUrl);},
             ),
             ListTile(
-              leading: Icon(Icons.album),
+              leading: Image.asset("assets/images/Menu-About-Us.png",height: 20,width: 20,),
               title: Text("আমাদের সম্পর্কে"),
               onTap: () {
                 Navigator.push(
@@ -85,16 +85,21 @@ class _DrawerPageState extends State<DrawerPage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.album),
+              leading: Image.asset("assets/images/Menu-Share.png",height: 20,width: 20,),
               title: Text("শেয়ার করুন"),
               onTap: () {
                 share(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.album),
+                leading: Image.asset("assets/images/Menu-Bookmarks.png",height: 20,width: 20,),
+                title: Text("যোগাযোগ"),
+                onTap: () {}
+            ),
+            ListTile(
+              leading: Image.asset("assets/images/Menu-Contact.png",height: 20,width: 20,),
               title: Text("যোগাযোগ"),
-              onTap: () {send();},
+              onTap: () {send();}
             ),
           ],
         ),
@@ -113,3 +118,4 @@ class _DrawerPageState extends State<DrawerPage> {
 
   }
 }
+

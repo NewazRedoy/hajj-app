@@ -74,6 +74,18 @@ flutter:
      - assets/images/umrah.png
      - assets/images/question.svg
      - assets/images/question.png
+     - assets/images/Dua-Colored.png
+     - assets/images/Hajj-Arafah.png
+     - assets/images/Home-Colored.png
+     - assets/images/Home-Colored.png
+     - assets/images/Umrah-kaaba.png
+     - assets/images/QnA-Colored.png
+     - assets/images/Menu-About-Us.png
+     - assets/images/Menu-Bookmarks.png
+     - assets/images/Menu-Contact.png
+     - assets/images/Menu-Rating&Review.png
+     - assets/images/Menu-Settings.png
+     - assets/images/Menu-Share.png
      - assets/hajjdb.db
      - assets/fonts/me_quran.ttf
      - assets/images/

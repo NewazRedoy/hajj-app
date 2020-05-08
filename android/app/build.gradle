@@ -32,6 +32,7 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+
     lintOptions {
         disable 'InvalidPackage'
     }
@@ -44,7 +45,7 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resConfigs "bn"
-        ndkVersion "21.0.6113669"
+        ndkVersion "20.1.5948944"
     }
 
     buildTypes {
