@@ -122,7 +122,6 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 RaisedButton(
-                    padding: EdgeInsets.all(0),
                     textColor: Colors.white,
                     color: Theme.of(context).accentColor,
                     shape: StadiumBorder(),
