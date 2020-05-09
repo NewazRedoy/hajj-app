@@ -32,12 +32,12 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+
     lintOptions {
         disable 'InvalidPackage'
     }
 
     defaultConfig {
-        ndkVersion "20.1.5948944"
         applicationId "com.taibah.hajjapp"
         minSdkVersion 16
         targetSdkVersion 28
@@ -45,7 +45,7 @@ android {
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resConfigs "bn"
-
+        ndkVersion "20.1.5948944"
     }
 
     buildTypes {
