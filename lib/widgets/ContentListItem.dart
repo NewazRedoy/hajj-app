@@ -62,6 +62,24 @@ class _ContentListItemState extends State<ContentListItem> {
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
+                    PopupMenuButton(
+                      itemBuilder: (BuildContext context) {
+                        return [
+                          PopupMenuItem(value: 1, child: ListTile(leading:Image.asset("assets/images/More-Vert-Share.png",height: 20,width: 20,),title: Text("শেয়ার করুন"),)),
+                          PopupMenuItem(value: 1, child: ListTile(leading:Image.asset("assets/images/More-Vert-Copy.png",height: 20,width: 20,),title: Text("কপি"),)),
+                          PopupMenuItem(value: 1, child: ListTile(leading:Image.asset("assets/images/Menu-Bookmarks.png",height: 20,width: 20,),title: Text("বুকমার্ক"),)),
+                        ];
+                      },
+                      onSelected: (value) {
+                        print("value:$value");
+                        switch (value) {
+                          case 1:
+                            break;
+                          case 2:
+                            break;
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),

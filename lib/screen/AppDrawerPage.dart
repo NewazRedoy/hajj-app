@@ -93,7 +93,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             ListTile(
                 leading: Image.asset("assets/images/Menu-Bookmarks.png",height: 20,width: 20,),
-                title: Text("যোগাযোগ"),
+                title: Text("বুকমার্ক"),
                 onTap: () {}
             ),
             ListTile(
