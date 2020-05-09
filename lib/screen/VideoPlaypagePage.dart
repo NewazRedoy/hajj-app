@@ -34,7 +34,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
         flags: YoutubePlayerFlags(
           mute: false,
           autoPlay: true,
-          forceHideAnnotation: true,
+          //forceHideAnnotation: true,
         ),
       );
     }

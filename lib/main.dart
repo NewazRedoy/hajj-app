@@ -31,5 +31,5 @@ class MyApp extends StatelessWidget {
 const Map<TargetPlatform, PageTransitionsBuilder> _defaultBuilders = <TargetPlatform, PageTransitionsBuilder>{
   TargetPlatform.android: CupertinoPageTransitionsBuilder(),
   TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-  TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+ // TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
 };
