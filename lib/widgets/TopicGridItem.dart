@@ -35,7 +35,7 @@ final String image;
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 16,
+              height: 32,
             ),
             Image.asset(image,width: 44, height: 44,),
             SizedBox(
@@ -45,7 +45,7 @@ final String image;
               padding: const EdgeInsets.all(12.0),
               child: Text(
                 topic.name,
-                style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
               ),
             ),
           ],
