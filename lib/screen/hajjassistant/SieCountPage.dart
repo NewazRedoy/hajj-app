@@ -49,10 +49,10 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
   }
 
   Future<Null> init() async {
-    final ByteData data = await rootBundle.load('assets/images/SaudiarabiaFlag.png');
+    final ByteData data = await rootBundle.load('assets/images/Safa.png');
     imageSafa = await loadImage(new Uint8List.view(data.buffer));
 
-    final ByteData dataMarwa = await rootBundle.load('assets/images/SaudiarabiaFlag.png');
+    final ByteData dataMarwa = await rootBundle.load('assets/images/Marwa.png',);
     imageMarwa = await loadImage(new Uint8List.view(dataMarwa.buffer));
   }
 
