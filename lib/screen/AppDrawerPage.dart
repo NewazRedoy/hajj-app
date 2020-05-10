@@ -62,7 +62,6 @@ class _DrawerPageState extends State<DrawerPage> {
                     accountName: Text(user.firstName ?? ""),
                     accountEmail: Text("Macca,Saudi Arabia"),
                   ),
-            Divider(),
             ListTile(
               leading: Image.asset("assets/images/Menu-Settings.png",height: 20,width: 20,),
               title: Text("সেটিংস"),
