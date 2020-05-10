@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 10,
                       ),
                       Text(
-                        "Got an account yet?\nLogin or Register free",
+                        "এখনও অ্যাকাউন্ট নেই??\nলগইন করুন অথবা রেজিষ্টার করুন ফ্রি",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextFormField(
                           decoration: InputDecoration(
-                              labelText: 'Username*',
+                              labelText: 'ব্যবহারকারীর নাম/ইউজারনেম*',
                               labelStyle: TextStyle(fontWeight: FontWeight.bold),
                               hintText: "john.doe"),
                           controller: emailInputController,
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                       TextFormField(
                         decoration: InputDecoration(
                             labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                            labelText: 'Password*',
+                            labelText: 'পাসওয়ার্ড*',
                             hintText: "********"),
                         controller: pwdInputController,
                         obscureText: true,
@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 40.0),
                       RaisedButton(
-                        child: Text('Login'),
+                        child: Text('লগইন করুন'),
                         textColor: Colors.white,
                         elevation: 1.5,
                         color: Theme.of(context).primaryColor,
@@ -101,9 +101,9 @@ class _LoginPageState extends State<LoginPage> {
                           child: RichText(
                             text: TextSpan(
                               style: TextStyle(color: Colors.black),
-                              text: 'Don\'t have an account? ',
+                              text: 'অ্যাকাউন্ট নেই? ',
                               children: <TextSpan>[
-                                TextSpan(text: 'SIGN UP', style: TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text: 'সাইন আপ করুন', style: TextStyle(fontWeight: FontWeight.bold)),
                               ],
                             ),
                           ),
