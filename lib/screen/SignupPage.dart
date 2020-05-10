@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:hajjapp/screen/LoginPage.dart';
 import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
 
@@ -10,13 +11,11 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
-  TextEditingController contactNameInputController;
   TextEditingController emailInputController;
   TextEditingController pwdInputController;
 
   @override
   initState() {
-    contactNameInputController = new TextEditingController();
     emailInputController = new TextEditingController();
     pwdInputController = new TextEditingController();
     super.initState();
@@ -42,30 +41,8 @@ class _SignupPageState extends State<SignupPage> {
                           height: 10,
                         ),
                         Text(
-                          "নাম্বার রেজিষ্টার করুন",
-                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.deepPurple),
+                          " সাইন আপ করুন",
                           textAlign: TextAlign.start,
-                        ),
-                        Text(
-                          " সাইন আপ করুন/Sing up with",
-                          textAlign: TextAlign.start,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Expanded(child: Divider()),
-                            SizedBox(
-                              width: 6,
-                            ),
-                            Text(
-                              "অথবা",
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            SizedBox(
-                              width: 6,
-                            ),
-                            Expanded(child: Divider()),
-                          ],
                         ),
                         TextFormField(
                           decoration: InputDecoration(
@@ -86,85 +63,16 @@ class _SignupPageState extends State<SignupPage> {
                           obscureText: true,
                           validator: Validator.pwdValidator,
                         ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                              labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                              labelText: 'Contact Name*',
-                              hintText: "John"),
-                          controller: contactNameInputController,
-                          validator: (value) {
-                            if (value.length < 3) {
-                              return "দয়াকরে বৈধ নাম লিখুন/Please enter a valid first name.";
-                            }
-                          },
-                        ),
-//                    DropdownButton<String>(
-//                      isExpanded: true,
-//                      underline: SizedBox(),
-//                      icon: Icon(Icons.keyboard_arrow_down),
-//                      value: gradeValue,
-//                      onChanged: (String newValue) {
-////                        setState(() {
-////                          gradeValue = newValue;
-////                        });
-//                      },
-//                      hint: Text('Grade'),
-//                      items:).toList(),
-//                    )
-//                        CheckboxListTile(
-//                          value: checkboxValue,
-//                          onChanged: (val) {
-//                            if (checkboxValue == false) {
-//                              setState(() {
-//                                checkboxValue = true;
-//                              });
-//                            } else if (checkboxValue == true) {
-//                              setState(() {
-//                                checkboxValue = false;
-//                              });
-//                            }
-//                          },
-//                          title: new Text(
-//                            'I agree to receive emails.',
-//                            style:
-//                                TextStyle(fontSize: 14.0, color: Colors.white),
-//                          ),
-//                          controlAffinity: ListTileControlAffinity.leading,
-//                          activeColor: Colors.white,
-//                        ),
-//                        Container(
-//                          color: Colors.green,
-//                          child: CheckboxListTile(
-//                            value: checkboxValue,
-//                            onChanged: (val) {
-//                              if (checkboxValue == false) {
-//                                setState(() {
-//                                  checkboxValue = true;
-//                                });
-//                              } else if (checkboxValue == true) {
-//                                setState(() {
-//                                  checkboxValue = false;
-//                                });
-//                              }
-//                            },
-//                            title: new Text(
-//                              'I agree to the Terms & Conditions',
-//                              style: TextStyle(fontSize: 14.0, color: Colors.white),
-//                            ),
-//                            controlAffinity: ListTileControlAffinity.leading,
-//                            activeColor: Colors.green,
-//                          ),
-//                        ),
                         SizedBox(height: 22.0),
                         RaisedButton(
                           child: Text('সাইন আপ করুন'),
                           textColor: Colors.white,
                           elevation: 1.5,
-                          color: Colors.deepPurple,
+                          color: Theme.of(context).primaryColor,
                           padding: EdgeInsets.all(16),
                           onPressed: () {
                             if (_registerFormKey.currentState.validate()) {
-                              model.signUpUsingUsernamePassword(context, contactNameInputController.text,
+                              model.signUpUsingUsernamePassword(context,
                                   emailInputController.text, pwdInputController.text);
                             }
                           },
@@ -173,15 +81,15 @@ class _SignupPageState extends State<SignupPage> {
                         Center(
                           child: InkWell(
                             onTap: () => {
-                              model.gotoLogin()
-//
-//                              Navigator.of(context)
-//                                  .pushReplacementNamed(Constants.ROUTE_LOGIN)
+//                              model.gotoLogin()
+
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()))
+
                             },
                             child: RichText(
                               text: TextSpan(
                                 style: TextStyle(color: Colors.black),
-                                text: 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?/Already have an account? ',
+                                text: 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?',
                                 children: <TextSpan>[
                                   TextSpan(text: 'লগইন করুন', style: TextStyle(fontWeight: FontWeight.bold)),
                                 ],

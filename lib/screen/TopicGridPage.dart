@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
-import 'package:hajjapp/screen/SubTopicListPage.dart';
+import 'package:hajjapp/screen/content/SubTopicListPage.dart';
 import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
 import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
 import 'package:hajjapp/screen/hajjassistant/SieCountPage.dart';

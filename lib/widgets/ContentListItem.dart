@@ -2,8 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/AboutApp.dart';
 import 'package:hajjapp/util/global.dart';
+import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
@@ -107,6 +109,9 @@ class _ContentListItemState extends State<ContentListItem> {
                                   width: 20,
                                 ),
                                 title: Text("বুকমার্ক"),
+                                onTap: (){
+                                  Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(widget.subtopic.subtopic_id.toString());
+                                },
                               )),
                         ];
                       },
@@ -179,14 +184,6 @@ class _ContentListItemState extends State<ContentListItem> {
                 ),
               ),
               SizedBox(height: 6),
-
-//              Padding(
-//                padding: const EdgeInsets.all(8.0),
-//                child: Text(
-//                  content.referenceEn,
-//                  style: TextStyle(fontSize: 12),
-//                ),
-//              )
             ],
           ),
         ),

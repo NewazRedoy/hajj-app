@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:hajjapp/screen/SignupPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
@@ -78,12 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                         color: Theme.of(context).primaryColor,
                         padding: EdgeInsets.all(16),
                         onPressed: () {
-                          emailInputController.text = "nabil6391@gmail.com";
-                          pwdInputController.text = "63916391";
-
                           if (_registerFormKey.currentState.validate()) {
-//                              "sales@ultracoralaustralia.com";
-//                          pwdInputController.text = "Nexus20!9";
 
                             model.loginUsingUsernamePassword(
                                 context, emailInputController.text, pwdInputController.text);
@@ -94,9 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                       Center(
                         child: InkWell(
                           onTap: () => {
-                            Navigator.of(context).pushReplacementNamed(Constants.ROUTE_SINGUP)
-
-//                            model.gotoSignup()
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignupPage()))
                           },
                           child: RichText(
                             text: TextSpan(

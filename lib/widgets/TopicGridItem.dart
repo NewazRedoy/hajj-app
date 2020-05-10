@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hajjapp/model/Topic.dart';
-import 'package:hajjapp/screen/SubTopicListPage.dart';
+import 'package:hajjapp/screen/content/SubTopicListPage.dart';
 
 class TopicGridItem extends StatelessWidget {
   const TopicGridItem({

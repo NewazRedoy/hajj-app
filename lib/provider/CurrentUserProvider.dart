@@ -7,9 +7,11 @@ import 'package:hajjapp/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CurrentUserProvider extends ChangeNotifier {
-  List duas = [];
+  List myDuas = [];
   List<String> favDuaId = [];
 
+  List<String> bookmarkId = [];
+  
   CurrentUserProvider() {
     _read();
   }
@@ -21,7 +23,7 @@ class CurrentUserProvider extends ChangeNotifier {
       _user = new User.fromJson(userData);
       _status = Status.Authenticated;
 
-      fetchDuas();
+      fetchMyDuas();
 
       notifyListeners();
     } else {
@@ -107,7 +109,7 @@ class CurrentUserProvider extends ChangeNotifier {
 
         _status = Status.Authenticated;
 
-        fetchDuas();
+        fetchMyDuas();
       } else {
         _status = Status.Login;
       }
@@ -118,11 +120,11 @@ class CurrentUserProvider extends ChangeNotifier {
       return;
     }).catchError((e) {
       _showDialog(context: context, error: e.toString());
-      signUpUsingUsernamePassword(context, "Nabil", email, password);
+      signUpUsingUsernamePassword(context, email, password);
     });
   }
 
-  void signUpUsingUsernamePassword(BuildContext context, String name, String email, String password) async {
+  void signUpUsingUsernamePassword(BuildContext context, String email, String password) async {
     showProgressDialog(context, "Signing Up");
 
     FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password).then((authResult) async {
@@ -147,7 +149,7 @@ class CurrentUserProvider extends ChangeNotifier {
     });
   }
 
-  Future<void> fetchDuas() async {
+  Future<void> fetchMyDuas() async {
     var _duaRef = FirebaseDatabase.instance.reference().child('duas').child(user.id);
     final FirebaseDatabase database = FirebaseDatabase();
 
@@ -157,10 +159,10 @@ class CurrentUserProvider extends ChangeNotifier {
     _duaRef.onValue.listen((Event event) {
       Map<dynamic, dynamic> yearMap = event.snapshot.value;
 
-      duas.clear();
+      myDuas.clear();
 
       yearMap.forEach((key, value) {
-        duas.add(MyDua.fromLinkedHashMap(key, value));
+        myDuas.add(MyDua.fromLinkedHashMap(key, value));
       });
 
       notifyListeners();
@@ -204,7 +206,24 @@ class CurrentUserProvider extends ChangeNotifier {
 
     prefs.setStringList("fav", favDuaId);
   }
+  
+  Future<void> fetchBookmark() async {
+    var prefs = await SharedPreferences.getInstance();
 
+    bookmarkId = prefs.getStringList("bookmark") ?? [];
+  }
+
+  Future<void> setBookmark(String string) async {
+    var prefs = await SharedPreferences.getInstance();
+
+    if (bookmarkId.contains(string)) {
+      bookmarkId.remove(string);
+    } else {
+      bookmarkId.add(string);
+    }
+
+    prefs.setStringList("bookmark", bookmarkId);
+  }
   gotoSignup() {
     _status = Status.Signup;
     print("singup");

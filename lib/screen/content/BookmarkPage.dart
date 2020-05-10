@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/dua/MyDuaSavingPage.dart';
+import 'package:hajjapp/widgets/BookmarkListItem.dart';
 import 'package:hajjapp/widgets/MyDuaListItem.dart';
 import 'package:provider/provider.dart';
 
@@ -25,17 +26,11 @@ class MyDuaPageState extends State<MyDuaPage> {
           builder: (context, model, _) {
             return ListView.builder(
               itemBuilder: (context, index) {
-                return MyDuaListItem(model.myDuas[index]);
+                return BookmarkListItem(model.myDuas[index]);
               },
               itemCount: model.myDuas.length,
             );
           },
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => MyDuaSavingPage()));
-          },
-          child: Icon(Icons.add),
         ),
       );
     });

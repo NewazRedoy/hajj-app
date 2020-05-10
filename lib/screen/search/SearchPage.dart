@@ -8,7 +8,7 @@ import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
 import 'package:hajjapp/screen/search/SearchDetailPage.dart';
 import 'package:hajjapp/widgets/SearchListPageItem.dart';
 
-import '../ContentDetailListPage.dart';
+import '../content/ContentDetailListPage.dart';
 
 class SearchPage extends StatefulWidget {
   @override

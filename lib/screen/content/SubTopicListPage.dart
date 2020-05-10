@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/screen/ContentDetailListPage.dart';
+import 'package:hajjapp/screen/content/ContentDetailListPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
