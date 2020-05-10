@@ -60,6 +60,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   ),
                   Expanded(
                     child: TextField(
+                      autofocus: true,
                       controller: takaController,
                       decoration: InputDecoration.collapsed(hintText: null),
                       maxLines: 1,
@@ -69,7 +70,6 @@ class _RiyalConverterState extends State<RiyalConverter> {
                       ),
                       keyboardType: TextInputType.number,
                       onChanged: (text) {
-                        print("First text field taka: $text");
                         setState(() {
                           rialController.text = (conversion * int.parse(text)).toStringAsFixed(2);
                         });

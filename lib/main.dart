@@ -21,7 +21,11 @@ class MyApp extends StatelessWidget {
             accentColor: Color.fromARGB(255, 167, 142, 114),
             fontFamily: 'Bangla',
             pageTransitionsTheme: PageTransitionsTheme(builders: _defaultBuilders),
-            textTheme: TextTheme()),
+          textTheme: TextTheme(
+            headline1: TextStyle(fontSize: 72.0),
+            headline6: TextStyle(fontSize: 36.0),
+            bodyText2: TextStyle(fontSize: 16.0),
+          )),
         home: Home(),
       ),
     );

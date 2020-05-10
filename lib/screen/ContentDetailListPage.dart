@@ -52,27 +52,17 @@ class _SampleAppPageState extends State<SampleAppPage> {
   Widget build(BuildContext context) {
     return loading
         ? _buildCircularProgressIndicator()
-        : new GestureDetector(
-            onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
-//              setState(() {
-//                int newNumberOfDays =
-//                    (previousNumOfDays / scaleDetails.scale).round();
-//                if (newNumberOfDays >= 7) {
-//                  numberOfDays = newNumberOfDays;
-//                }
-//              });
-            },
-            child: widget.subtopic.topic_id == 4 && widget.subtopic.subtopic_id == 1
-                ? ListView.builder(
-                    itemCount: data.length,
-                    itemBuilder: (BuildContext context, int position) {
-                      return PreparationListItem(subtopic: widget.subtopic, content: data[position]);
-                    })
-                : ListView.builder(
-                    itemCount: data.length,
-                    itemBuilder: (BuildContext context, int position) {
-                      return ContentListItem(subtopic: widget.subtopic, content: data[position]);
-                    }));
+        : widget.subtopic.topic_id == 4 && widget.subtopic.subtopic_id == 1
+            ? ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (BuildContext context, int position) {
+                  return PreparationListItem(subtopic: widget.subtopic, content: data[position]);
+                })
+            : ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (BuildContext context, int position) {
+                  return ContentListItem(subtopic: widget.subtopic, content: data[position]);
+                });
   }
 
   loadData() async {

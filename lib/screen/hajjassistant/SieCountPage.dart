@@ -24,7 +24,8 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
   int count = 0;
   Animation<double> animation;
   AnimationController controller;
-  ui.Image image;
+  ui.Image imageSafa;
+  ui.Image imageMarwa;
   double _fraction = 0.0;
   bool start = false;
 
@@ -49,7 +50,10 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
 
   Future<Null> init() async {
     final ByteData data = await rootBundle.load('assets/images/SaudiarabiaFlag.png');
-    image = await loadImage(new Uint8List.view(data.buffer));
+    imageSafa = await loadImage(new Uint8List.view(data.buffer));
+
+    final ByteData dataMarwa = await rootBundle.load('assets/images/SaudiarabiaFlag.png');
+    imageMarwa = await loadImage(new Uint8List.view(dataMarwa.buffer));
   }
 
   @override
@@ -96,7 +100,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                 height: 400,
                 width: MediaQuery.of(context).size.width,
                 child: CustomPaint(
-                  foregroundPainter: SieWidget(count, _fraction, start),
+                  foregroundPainter: SieWidget(count, _fraction, start, imageSafa, imageMarwa),
                 )),
             SizedBox(
               height: 6,
@@ -129,7 +133,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DuaDetailPage(DuaCategory(id: 1, name: "adas")),
+                            builder: (context) => DuaDetailPage(DuaCategory(id: 6, name: "adas")),
                           ));
                     },
                     child: Text("দু'আ তালিকা")),

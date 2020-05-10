@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/model/DuaDetail.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:hajjapp/util/FontFamily.dart';
 import 'package:provider/provider.dart';
 
 class DuaDetailItem extends StatelessWidget {
@@ -43,7 +44,7 @@ class DuaDetailItem extends StatelessWidget {
                 Expanded(
                   child: Text(
                     allDuaCategory.name,
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 14),
                   ),
                 ),
                 PopupMenuButton(
@@ -76,14 +77,14 @@ class DuaDetailItem extends StatelessWidget {
             child: Text(
               allDuatopic.arabic,
               textDirection: TextDirection.rtl,
-              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, fontFamily: FontFamily.arabic),
             ),
           ),
           Divider(),
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              allDuatopic.bangla,
+              allDuatopic.bangla ?? "",
               style: TextStyle(fontSize: 14.0),
             ),
           ),

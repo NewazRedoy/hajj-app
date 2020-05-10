@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hajjapp/screen/AboutApp.dart';
+import 'package:hajjapp/util/global.dart';
 import 'package:share/share.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
@@ -53,7 +54,7 @@ class _ContentListItemState extends State<ContentListItem> {
                     Container(
                       padding: const EdgeInsets.all(8),
                       child: Text(
-                        widget.content.content_id.toString(),
+                        Global.n(widget.content.content_id.toString()),
                         style: TextStyle(color: Colors.black, fontSize: 16),
                       ),
                     ),
