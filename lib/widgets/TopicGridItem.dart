@@ -20,9 +20,9 @@ final String image;
   Widget build(BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4.0),
-      ),
+//      shape: RoundedRectangleBorder(
+//        borderRadius: BorderRadius.circular(4.0),
+//      ),
       elevation: 1.5,
       child: InkWell(
         onTap: () {

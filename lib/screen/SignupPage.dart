@@ -42,12 +42,12 @@ class _SignupPageState extends State<SignupPage> {
                           height: 10,
                         ),
                         Text(
-                          "Member Register",
+                          "নাম্বার রেজিষ্টার করুন",
                           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.deepPurple),
                           textAlign: TextAlign.start,
                         ),
                         Text(
-                          "Signup with",
+                          " সাইন আপ করুন/Sing up with",
                           textAlign: TextAlign.start,
                         ),
                         Row(
@@ -58,7 +58,7 @@ class _SignupPageState extends State<SignupPage> {
                               width: 6,
                             ),
                             Text(
-                              "OR",
+                              "অথবা",
                               style: TextStyle(color: Colors.grey),
                             ),
                             SizedBox(
@@ -71,7 +71,7 @@ class _SignupPageState extends State<SignupPage> {
                           decoration: InputDecoration(
                               labelStyle: TextStyle(fontWeight: FontWeight.bold),
                               hintStyle: TextStyle(color: Colors.white),
-                              labelText: 'Email*',
+                              labelText: 'ই-মেইল*',
                               hintText: "john.doe@gmail.com"),
                           controller: emailInputController,
                           keyboardType: TextInputType.emailAddress,
@@ -80,7 +80,7 @@ class _SignupPageState extends State<SignupPage> {
                         TextFormField(
                           decoration: InputDecoration(
                               labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                              labelText: 'Password*',
+                              labelText: 'পাসওয়ার্ড*',
                               hintText: "********"),
                           controller: pwdInputController,
                           obscureText: true,
@@ -94,7 +94,7 @@ class _SignupPageState extends State<SignupPage> {
                           controller: contactNameInputController,
                           validator: (value) {
                             if (value.length < 3) {
-                              return "Please enter a valid first name.";
+                              return "দয়াকরে বৈধ নাম লিখুন/Please enter a valid first name.";
                             }
                           },
                         ),
@@ -157,7 +157,7 @@ class _SignupPageState extends State<SignupPage> {
 //                        ),
                         SizedBox(height: 22.0),
                         RaisedButton(
-                          child: Text('Signup'),
+                          child: Text('সাইন আপ করুন'),
                           textColor: Colors.white,
                           elevation: 1.5,
                           color: Colors.deepPurple,
@@ -181,9 +181,9 @@ class _SignupPageState extends State<SignupPage> {
                             child: RichText(
                               text: TextSpan(
                                 style: TextStyle(color: Colors.black),
-                                text: 'Already have an account? ',
+                                text: 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?/Already have an account? ',
                                 children: <TextSpan>[
-                                  TextSpan(text: 'LOGIN', style: TextStyle(fontWeight: FontWeight.bold)),
+                                  TextSpan(text: 'লগইন করুন', style: TextStyle(fontWeight: FontWeight.bold)),
                                 ],
                               ),
                             ),
@@ -196,7 +196,7 @@ class _SignupPageState extends State<SignupPage> {
 //                              launch(
 //                                  'https://ultracoralaustralia.com/coral/partner-registration/')
                                   },
-                              child: Text('Register for a partner Account')),
+                              child: Text('Register for a partner/পার্টনার অ্যাকাউন্ট রেজিষ্টার করুন')),
                         ),
                       ],
                     ),

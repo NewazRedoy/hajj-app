@@ -55,12 +55,6 @@ class PreparationListItem extends StatelessWidget {
                     ),
                     onPressed: () {},
                   ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 12.0,
-                    color: Colors.grey,
-                    semanticLabel: 'Text to announce in accessibility modes',
-                  ),
                 ],
               ),
               Container(
