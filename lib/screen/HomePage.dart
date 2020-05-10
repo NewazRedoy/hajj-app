@@ -21,8 +21,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         return DuaTopicPage();
       case 2:
         return ElectedQuestionPage();
-      default:
-        return HomePage();
     }
   }
 
