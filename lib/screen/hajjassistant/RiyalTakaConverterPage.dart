@@ -48,7 +48,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   Column(
                     children: <Widget>[
                       Image.asset(
-                        "assets/images/BangladeshFlag.png",
+                        "assets/images/bangladesh-flag.png",
                         width: 48,
                         height: 48,
                       ),
