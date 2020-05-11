@@ -32,4 +32,6 @@ abstract class RepositoryInterface {
   Future<List<ArabicSentence>> querySentenceByCategoryId(int allDuacategory_id);
 
   Future<List<SentencesCategory>>  queryAllSentenceCategories() ;
+
+  Future<List<Content>> queryBookmarkedContent(List<String> ids);
 }

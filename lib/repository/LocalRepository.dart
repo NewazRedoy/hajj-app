@@ -152,7 +152,7 @@ class LocalRepository implements RepositoryInterface {
   @override
   Future<List<Content>> queryHadithsBySubtopicId(int topicID, int subtopicID) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select * from content where topic_id= $topicID and subtopic_id=$subtopicID");
+    List<Map> maps = await db.rawQuery("select rowid, * from content where topic_id= $topicID and subtopic_id=$subtopicID");
 
     print("select * from content where topic_id=$topicID and subtopic_id = $subtopicID size:${maps.length}");
 
@@ -237,9 +237,17 @@ class LocalRepository implements RepositoryInterface {
   Future<List<DuaCategory>> queryFavDuas(List<String> ids) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery(
-        "select * from DuaCategory,Dua where Dua.id in (${ids.join(",")}) and Dua.category_id = DuaCategory.id");
+        "select * from DuaCategory,Dua where Dua.id in (${ids.join(",")})");
     return maps.map((e) =>  DuaCategory.fromJson(e)).toList();
   }
+
+  @override
+  Future<List<Content>> queryBookmarkedContent(List<String> ids) async {
+    Database db = await database;
+    List<Map> maps = await db.rawQuery("select rowid, * from Content where rowid in (${ids.join(",")})");
+    return maps.map((e) =>  Content.fromMap(e)).toList();
+  }
+
   @override
   Future<List<ArabicSentence>>  querySentenceByCategoryId(int allDuacategory_id) async {
     Database db = await database;

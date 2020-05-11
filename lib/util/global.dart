@@ -1,8 +1,8 @@
 // bool isInt(String val) => val is int || val == val.roundToDouble();
 
-class Global {
+class Localise {
 // translate number
-  static String n(dynamic i) {
+  static String fromString(dynamic i) {
     var o = '';
     var s = '$i';
 

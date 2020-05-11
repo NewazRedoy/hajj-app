@@ -2,14 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hajjapp/model/Content.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/AboutApp.dart';
+import 'package:hajjapp/screen/VideoPlaypagePage.dart';
+import 'package:hajjapp/util/FontFamily.dart';
+import 'package:hajjapp/util/QuranArabicUtils.dart';
 import 'package:hajjapp/util/global.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
-import 'package:hajjapp/model/Content.dart';
-import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/screen/VideoPlaypagePage.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ContentListItem extends StatefulWidget {
@@ -56,7 +58,7 @@ class _ContentListItemState extends State<ContentListItem> {
                     Container(
                       padding: const EdgeInsets.all(8),
                       child: Text(
-                        Global.n(widget.content.content_id.toString()),
+                        Localise.fromString(widget.content.content_id.toString()),
                         style: TextStyle(color: Colors.black, fontSize: 16),
                       ),
                     ),
@@ -110,7 +112,8 @@ class _ContentListItemState extends State<ContentListItem> {
                                 ),
                                 title: Text("বুকমার্ক"),
                                 onTap: (){
-                                  Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(widget.subtopic.subtopic_id.toString());
+                                  Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(
+                                      widget.content.id.toString());
                                 },
                               )),
                         ];
@@ -156,7 +159,7 @@ class _ContentListItemState extends State<ContentListItem> {
                         children: <Widget>[
                           CachedNetworkImage(
                               imageUrl: YoutubePlayer.getThumbnail(
-                                  videoId: "_4I7maBjaDk"),
+                                  videoId: widget.content.video_url),
                               fit: BoxFit.cover,
                               placeholder: (context, url) =>
                                   CircularProgressIndicator()),
@@ -167,8 +170,6 @@ class _ContentListItemState extends State<ContentListItem> {
                                 Icons.play_arrow,
                                 size: 64.0,
                                 color: Colors.white,
-                                semanticLabel:
-                                    'Text to announce in accessibility modes',
                               ),
                             ),
                           ),
@@ -178,9 +179,12 @@ class _ContentListItemState extends State<ContentListItem> {
                   : SizedBox(),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  widget.content.text,
-                  style: Theme.of(context).textTheme.subhead,
+                child: SelectableText.rich(
+                  TextSpan(
+                    children: QuranArabicUtils.highlightArabic(widget.content.text),
+                  ),
+                  textAlign: TextAlign.justify,
+                  textDirection: TextDirection.ltr,
                 ),
               ),
               SizedBox(height: 6),
@@ -201,3 +205,5 @@ class _ContentListItemState extends State<ContentListItem> {
     Share.share(text, subject: text);
   }
 }
+
+

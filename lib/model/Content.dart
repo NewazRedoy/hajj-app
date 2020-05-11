@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 class Content {
+  int id;
   int topic_id;
   int subtopic_id;
   int content_id;
@@ -11,6 +12,7 @@ class Content {
   String image;
 
   Content({
+    this.id,
     this.subtopic_id,
     this.topic_id,
     this.content_id,
@@ -26,6 +28,7 @@ class Content {
   String toJson() => json.encode(toMap());
 
   factory Content.fromMap(Map<String, dynamic> json) => new Content(
+        id: json["rowid"],
         subtopic_id: json["subtopic_id"],
         topic_id: json["topic_id"],
         content_id: json["content_id"],
@@ -37,6 +40,7 @@ class Content {
       );
 
   Map<String, dynamic> toMap() => {
+        "id": id,
         "subtopic_id": subtopic_id,
         "topic_id": topic_id,
         "content_id": content_id,
@@ -46,4 +50,5 @@ class Content {
         "title": title,
         "text": text,
       };
+
 }

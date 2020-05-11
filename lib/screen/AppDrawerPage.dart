@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:hajjapp/screen/content/BookmarkPage.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -93,7 +94,14 @@ class _DrawerPageState extends State<DrawerPage> {
             ListTile(
                 leading: Image.asset("assets/images/Menu-Bookmarks.png",height: 20,width: 20,),
                 title: Text("বুকমার্ক"),
-                onTap: () {}
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BookmarkPage(),
+                    ),
+                  );
+                }
             ),
             ListTile(
               leading: Image.asset("assets/images/Menu-Contact.png",height: 20,width: 20,),

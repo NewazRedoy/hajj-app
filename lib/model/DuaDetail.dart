@@ -14,7 +14,7 @@ class Dua {
   String toRawJson() => json.encode(toJson());
 
   factory Dua.fromJson(Map<String, dynamic> json) => new Dua(
-        id: json["id"],
+        id: json["dua_id"],
         category_id: json["category_id"],
         bangla: json["bangla"],
         arabic: json["arabic"],
@@ -22,7 +22,7 @@ class Dua {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        "dua_id": id,
         "category_id": category_id,
         "arabic": arabic,
         "bangla": bangla,

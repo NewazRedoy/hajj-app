@@ -54,6 +54,11 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface{
   }
 
   @override
+  Future<List<Content>> queryBookmarkedContent(List<String> ids) {
+    return repository.queryBookmarkedContent(ids);
+  }
+
+  @override
   Future<List<Content>> queryHadithsBySubtopicId(int topicID, int subtopicID) {
     return repository.queryHadithsBySubtopicId(topicID, subtopicID);
   }

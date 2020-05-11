@@ -1,43 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:hajjapp/model/Content.dart';
+import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
-import 'package:hajjapp/screen/dua/MyDuaSavingPage.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/BookmarkListItem.dart';
-import 'package:hajjapp/widgets/MyDuaListItem.dart';
+import 'package:hajjapp/widgets/DuaTopicListItem.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:provider/provider.dart';
 
-class MyDuaPage extends StatefulWidget {
+class BookmarkPage extends StatefulWidget {
   @override
-  MyDuaPageState createState() {
-    return MyDuaPageState();
-  }
+  _BookmarkPageState createState() => _BookmarkPageState();
 }
 
-class MyDuaPageState extends State<MyDuaPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<CurrentUserProvider>(builder: (context, model, _) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            ("আমার দু'আ"),
-          ),
-        ),
-        body: Consumer<CurrentUserProvider>(
-          builder: (context, model, _) {
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return BookmarkListItem(model.myDuas[index]);
-              },
-              itemCount: model.myDuas.length,
-            );
-          },
-        ),
-      );
-    });
-  }
+class _BookmarkPageState extends State<BookmarkPage> {
+  List<Content> data = [];
+  var loading = true;
 
   @override
   void initState() {
     super.initState();
+
+//    loadData();
   }
+
+  loadData() async {
+    var ids = Provider.of<CurrentUserProvider>(context).bookmarkId;
+    var content = await DataProvider.of(context).queryBookmarkedContent(ids);
+    setState(() {
+      data = content;
+      loading = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<CurrentUserProvider>(builder: (context, model, widget) {
+      if (model.favDuaId.isNotEmpty) loadData();
+
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("সব দু'আ"),
+          actions: <Widget>[
+            SearchSettings(),
+          ],
+        ),
+        body: loading
+            ? _buildCircularProgressIndicator()
+            :
+        data.isEmpty ?  Container(child: Center(child: Text("No bookmark found"),),):
+        ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return BookmarkListItem( data[index]);
+                },
+              ),
+      );
+    });
+  }
+}
+
+_buildCircularProgressIndicator() {
+  return Center(
+    child: CircularProgressIndicator(),
+  );
 }

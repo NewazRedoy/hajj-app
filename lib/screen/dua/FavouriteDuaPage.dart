@@ -45,7 +45,9 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
         ),
         body: loading
             ? _buildCircularProgressIndicator()
-            : ListView.builder(
+            :
+        data.isEmpty ?  Container(child: Center(child: Text("No Dua found"),),):
+        ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (context, index) {
                   return DuaTopicListItem(index + 1, data[index]);
