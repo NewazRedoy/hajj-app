@@ -12,7 +12,8 @@ import 'package:hajjapp/widgets/TawafWidget.dart';
 class TawafCountPage extends StatefulWidget {
   final Topic topic;
 
-  TawafCountPage(this.topic);
+
+  TawafCountPage(this.topic,);
 
   @override
   _TawafCountPageState createState() => _TawafCountPageState();
@@ -47,6 +48,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
     if (count > 0 && count <= 7 && !controller.isAnimating)
       controller.repeat();
     else if ((count == 0 || count == 7) && controller.isAnimating) controller.stop();
+
 
     return Scaffold(
       appBar: AppBar(
@@ -103,7 +105,14 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
                   setState(() {
                     count++;
                   });
-                }
+                } else if (count == 7)
+                {showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(content: Container(width: 70.0,
+                        height: 150.0,
+                      child: Text("data"),),);
+                    });}
               },
               child: Text("হাজরে আসওয়াদের কাছে পৌঁছেছেন"),
             ),

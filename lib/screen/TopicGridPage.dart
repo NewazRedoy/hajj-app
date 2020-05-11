@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                             if (topic.topic_id < 7) {
                               return SubtopicListPage(topic: topic);
                             } else if (topic.topic_id == 8) {
-                              return TawafCountPage(topic);
+                              return TawafCountPage(topic,);
                             } else if (topic.topic_id == 9) {
                               return SaiCount(topic);
                             } else if (topic.topic_id == 10) {
