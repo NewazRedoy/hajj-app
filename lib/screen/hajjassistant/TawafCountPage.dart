@@ -65,7 +65,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
               child: Text("প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন"),
             ),
             SizedBox(
-              height: 10,
+              height: 6,
             ),
             Text(
               "$count/7",
@@ -93,7 +93,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
                   width: 20,
                 )),
             SizedBox(
-              height: 8,
+              height: 6,
             ),
             RaisedButton(
               textColor: Colors.white,
