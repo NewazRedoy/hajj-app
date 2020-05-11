@@ -14,6 +14,8 @@ import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import 'ColorChangeWidget.dart';
+
 class ContentListItem extends StatefulWidget {
   Content content;
   Subtopic subtopic;
@@ -83,18 +85,10 @@ class _ContentListItemState extends State<ContentListItem> {
                                   width: 20,
                                 ),
                                 title: Text("শেয়ার করুন"),
-                                onTap: () => share(context),
                               )),
                           PopupMenuItem(
                               value: 2,
                               child: ListTile(
-                                onTap: () {
-                                  Clipboard.setData(
-                                      ClipboardData(text: widget.content.text));
-                                  Scaffold.of(context).showSnackBar(SnackBar(
-                                    content: Text("Copied to Clipboard"),
-                                  ));
-                                },
                                 leading: Image.asset(
                                   "assets/images/More-Vert-Copy.png",
                                   height: 20,
@@ -111,10 +105,6 @@ class _ContentListItemState extends State<ContentListItem> {
                                   width: 20,
                                 ),
                                 title: Text("বুকমার্ক"),
-                                onTap: (){
-                                  Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(
-                                      widget.content.id.toString());
-                                },
                               )),
                         ];
                       },
@@ -123,10 +113,18 @@ class _ContentListItemState extends State<ContentListItem> {
                         print("value:$value");
                         switch (value) {
                           case 1:
-                            //return share(context);
+                            share(context);
                             break;
                           case 2:
-                            return AboutApp();
+                            Clipboard.setData(
+                                ClipboardData(text: widget.content.text));
+                            Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text("Copied to Clipboard"),
+                            ));
+                            break;
+                          case 3:
+                            Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(
+                                widget.content.id.toString());
                             break;
                         }
                       },
@@ -196,12 +194,7 @@ class _ContentListItemState extends State<ContentListItem> {
   }
 
   void share(BuildContext context) {
-    final String text = widget.content.text
-//        "Muslim Scholars & Companios is the ultimate collection of biographies "
-//        "having birth/death,narrator grade,family members and tags to inspire us to learn about them."
-//        "\n\nGet it now at Google Play Store:"
-//        '\nhttps://goo.gl/80yGtV'
-        ;
+    final String text = widget.content.text;
     Share.share(text, subject: text);
   }
 }
