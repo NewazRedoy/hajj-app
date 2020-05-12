@@ -59,10 +59,10 @@ class _ContentListItemState extends State<ContentListItem> {
                     ),
                     Container(
                       padding: const EdgeInsets.all(8),
-                      child: Text(
-                        Localise.fromString(widget.content.content_id.toString()),
-                        style: TextStyle(color: Colors.black, fontSize: 16),
-                      ),
+//                      child: Text(
+//                        Localise.fromString(widget.content.content_id.toString()),
+//                        style: TextStyle(color: Colors.black, fontSize: 16),
+//                      ),
                     ),
                     SizedBox(
                       width: 8,
