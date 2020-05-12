@@ -35,89 +35,84 @@ class _RiyalConverterState extends State<RiyalConverter> {
           SearchSettings(),
         ],
       ),
-      body: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Image.asset(
-                        "assets/images/bangladesh-flag.png",
-                        width: 48,
-                        height: 48,
-                      ),
-                      Text(
-                        "বাংলাদেশ টাকা",
-                        style: TextStyle(color: Colors.grey.shade600),
-                      ),
-                    ],
-                  ),
-                  Expanded(
-                    child: TextField(
-                      autofocus: true,
-                      controller: takaController,
-                      decoration: InputDecoration.collapsed(hintText: null),
-                      maxLines: 1,
-                      textAlign: TextAlign.right,
-                      style: TextStyle(
-                        fontSize: 32,
-                      ),
-                      keyboardType: TextInputType.number,
-                      onChanged: (text) {
-                        setState(() {
-                          rialController.text = (conversion * int.parse(text)).toStringAsFixed(2);
-                        });
-                      },
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Image.asset(
+                      "assets/images/bangladesh-flag.png",
+                      width: 48,
+                      height: 48,
                     ),
+                    Text(
+                      "বাংলাদেশ টাকা",
+                      style: TextStyle(color: Colors.grey.shade600),
+                    ),
+                  ],
+                ),
+                Expanded(
+                  child: TextField(
+                    autofocus: true,
+                    controller: takaController,
+                    decoration: InputDecoration.collapsed(hintText: null),
+                    maxLines: 1,
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: 32,
+                    ),
+                    keyboardType: TextInputType.number,
+                    onChanged: (text) {
+                      setState(() {
+                        rialController.text = (conversion * int.parse(text)).toStringAsFixed(2);
+                      });
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Divider(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Image.asset(
-                        "assets/images/SaudiarabiaFlag.png",
-                        width: 48,
-                        height: 48,
-                      ),
-                      Text(
-                        "সৌদি রিয়াল",
-                        style: TextStyle(color: Colors.grey.shade600),
-                      ),
-                    ],
-                  ),
-                  Expanded(
-                    child: TextField(
-                      controller: rialController,
-                      decoration: InputDecoration.collapsed(hintText: null),
-                      maxLines: 1,
-                      textAlign: TextAlign.right,
-                      style: TextStyle(fontSize: 32),
-                      keyboardType: TextInputType.number,
-                      onChanged: (text) {
-                        print("First text field: $text");
-                        setState(() {
-                          takaController.text = (int.parse(text) / conversion).toStringAsFixed(2);
-                        });
-                      },
+          ),
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Image.asset(
+                      "assets/images/SaudiarabiaFlag.png",
+                      width: 48,
+                      height: 48,
                     ),
+                    Text(
+                      "সৌদি রিয়াল",
+                      style: TextStyle(color: Colors.grey.shade600),
+                    ),
+                  ],
+                ),
+                Expanded(
+                  child: TextField(
+                    controller: rialController,
+                    decoration: InputDecoration.collapsed(hintText: null),
+                    maxLines: 1,
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontSize: 32),
+                    keyboardType: TextInputType.number,
+                    onChanged: (text) {
+                      print("First text field: $text");
+                      setState(() {
+                        takaController.text = (int.parse(text) / conversion).toStringAsFixed(2);
+                      });
+                    },
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
