@@ -91,6 +91,13 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                             start = true;
                           });
                         }
+                        else {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialogSie();
+                              });
+                        }
                       },
                 child: Text("মারওয়া")),
             SizedBox(
@@ -119,6 +126,13 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                             count++;
                             start = true;
                           });
+                        }
+                        else{
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialogSie();
+                              });
                         }
                       },
                 child: Text("সাফা")),
@@ -223,5 +237,34 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
   void dispose() {
     this.controller.dispose();
     super.dispose();
+  }
+}
+class AlertDialogSie extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: Column(mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 200.0),
+            child: IconButton(
+                icon: Icon(
+                  Icons.highlight_off,
+                  color: Theme.of(context).accentColor,
+                ),
+                onPressed: () => Navigator.pop(context)),
+          ),
+          Icon(
+            Icons.check_circle_outline,
+            color: Theme.of(context).accentColor,
+            size: 50.0,
+          ),
+          SizedBox(height: 2.0,),
+          Text("আলহামদুল্লিহ!"),
+          Text(" আপনার সা'ঈ সম্পন্ন হয়েছে ।"),
+        ],
+      ),
+    );
   }
 }
