@@ -50,7 +50,9 @@ class ColorChangeWidget extends StatelessWidget {
                 padding: EdgeInsets.all(0),
                 textColor: Colors.black,
                 color: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: Text("বাতিল")),
           ],
         ),
