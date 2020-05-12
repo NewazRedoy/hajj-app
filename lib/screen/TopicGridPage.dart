@@ -8,7 +8,10 @@ import 'package:hajjapp/screen/hajjassistant/TawafCountPage.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/TopicGridItem.dart';
+
+import 'AppDrawerPage.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -38,6 +41,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerPage(),
+      appBar: AppBar(
+        title: Text("হাজ্জ উমরাহ গাইড"),
+        actions: <Widget>[SearchSettings()],
+      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : Column(

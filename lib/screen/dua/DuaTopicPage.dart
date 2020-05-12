@@ -6,8 +6,10 @@ import 'package:hajjapp/screen/dua/FavouriteDuaPage.dart';
 import 'package:hajjapp/screen/dua/MyDuaPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
+import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:provider/provider.dart';
 
+import '../AppDrawerPage.dart';
 import '../LoginPage.dart';
 
 class DuaTopicPage extends StatefulWidget {
@@ -37,6 +39,11 @@ class _DuaTopicPageState extends State<DuaTopicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerPage(),
+      appBar: AppBar(
+        title: Text("দু'আ"),
+        actions: <Widget>[SearchSettings()],
+      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(
@@ -54,7 +61,6 @@ class _DuaTopicPageState extends State<DuaTopicPage> {
                         return LoginPage();
                       } else
                         return MyDuaPage();
-                      return MyDuaPage();
                     } else {
                       return FavouriteDuaPage();
                     }
