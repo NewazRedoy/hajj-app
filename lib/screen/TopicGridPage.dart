@@ -41,11 +41,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerPage(),
-      appBar: AppBar(
-        title: Text("হাজ্জ উমরাহ গাইড"),
-        actions: <Widget>[SearchSettings()],
-      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : Column(

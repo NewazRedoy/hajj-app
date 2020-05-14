@@ -35,11 +35,6 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerPage(),
-      appBar: AppBar(
-        title: Text("প্রশ্নোত্তর"),
-        actions: <Widget>[SearchSettings()],
-      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(

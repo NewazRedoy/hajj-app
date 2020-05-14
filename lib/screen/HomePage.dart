@@ -26,12 +26,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    var appBarName = [
+      "হাজ্জ উমরাহ গাইড",
+      "দু'আ",
+      "প্রশ্নোত্তর",
+    ];
+
     return Scaffold(
-//      drawer: DrawerPage(),
-//      appBar: AppBar(
-//        title: Text("হাজ্জ উমরাহ গাইড"),
-//        actions: <Widget>[SearchSettings()],
-//      ),
+      drawer: DrawerPage(),
+      appBar: AppBar(
+        title: Text (appBarName[_currentIndex]),
+        actions: <Widget>[SearchSettings()],
+      ),
       body: callPages(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

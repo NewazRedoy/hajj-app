@@ -39,11 +39,6 @@ class _DuaTopicPageState extends State<DuaTopicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerPage(),
-      appBar: AppBar(
-        title: Text("দু'আ"),
-        actions: <Widget>[SearchSettings()],
-      ),
       body: loading
           ? _buildCircularProgressIndicator()
           : ListView.builder(
