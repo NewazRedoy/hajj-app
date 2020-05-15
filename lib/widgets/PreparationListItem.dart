@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:provider/provider.dart';
+import 'package:share/share.dart';
 
 class PreparationListItem extends StatelessWidget {
   Content content;
@@ -28,34 +32,88 @@ class PreparationListItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    padding: const EdgeInsets.symmetric(vertical: 19.0, horizontal: 18.0),
-                    child: Text(
-                      content.content_id.toString(),
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+              Container(
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                      width: 4.0,
                     ),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Expanded(
-                    child: Text(
-                      subtopic.name,
-                      style: TextStyle(fontSize: 20),
+                    Container(
+                      padding: const EdgeInsets.all(8.0),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.more_vert,
-                      size: 24.0,
+                    SizedBox(
+                      width: 8,
                     ),
-                    onPressed: () {},
-                  ),
-                ],
+                    Expanded(
+                      child: Text(
+                        subtopic.name,
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    PopupMenuButton(
+                      itemBuilder: (BuildContext context) {
+                        return [
+                          PopupMenuItem(
+                              value: 1,
+                              child: ListTile(
+                                leading: Image.asset(
+                                  "assets/images/More-Vert-Share.png",
+                                  height: 20,
+                                  width: 20,
+                                ),
+                                title: Text("শেয়ার করুন"),
+                              )),
+                          PopupMenuItem(
+                              value: 2,
+                              child: ListTile(
+                                leading: Image.asset(
+                                  "assets/images/More-Vert-Copy.png",
+                                  height: 20,
+                                  width: 20,
+                                ),
+                                title: Text("কপি"),
+                              )),
+                          PopupMenuItem(
+                              value: 3,
+                              child: ListTile(
+                                leading: Image.asset(
+                                  "assets/images/Menu-Bookmarks.png",
+                                  height: 20,
+                                  width: 20,
+                                ),
+                                title: Text("বুকমার্ক"),
+                              )),
+                        ];
+                      },
+                      // ignore: missing_return
+                      onSelected: (value) {
+                        print("value:$value");
+                        switch (value) {
+                          case 1:
+                            share(context);
+                            break;
+                          case 2:
+                            Clipboard.setData(
+                                ClipboardData(text: content.text));
+                            Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text("ক্লিপবর্ডে কপি করা হয়েছে"),
+                            ));
+                            break;
+                          case 3:
+                            Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(
+                                content.id.toString());
+                            Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text("বুকমার্ক করা হয়েছে"),
+                            ));
+                            break;
+                        }
+                      },
+                    ),
+                  ],
+                ),
               ),
               Container(
                   child: Divider(
@@ -79,5 +137,9 @@ class PreparationListItem extends StatelessWidget {
         ),
       ),
     );
+  }
+  void share(BuildContext context) {
+    final String text = content.text;
+    Share.share(text, subject: text);
   }
 }

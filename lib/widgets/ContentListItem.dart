@@ -119,12 +119,15 @@ class _ContentListItemState extends State<ContentListItem> {
                             Clipboard.setData(
                                 ClipboardData(text: widget.content.text));
                             Scaffold.of(context).showSnackBar(SnackBar(
-                              content: Text("Copied to Clipboard"),
+                              content: Text("ক্লিপবর্ডে কপি করা হয়েছে"),
                             ));
                             break;
                           case 3:
                             Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(
                                 widget.content.id.toString());
+                            Scaffold.of(context).showSnackBar(SnackBar(
+                              content: Text("বুকমার্ক করা হয়েছে"),
+                            ));
                             break;
                         }
                       },

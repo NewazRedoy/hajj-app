@@ -33,10 +33,10 @@ class DuaDetailItem extends StatelessWidget {
                 ),
                 Container(
                   padding: const EdgeInsets.all(8),
-                  child: Text(
-                    allDuatopic.id.toString(),
-                    style: TextStyle(color: Colors.black, fontSize: 16),
-                  ),
+//                  child: Text(
+//                    allDuatopic.id.toString(),
+//                    style: TextStyle(color: Colors.black, fontSize: 16),
+//                  ),
                 ),
                 SizedBox(
                   width: 8,
@@ -50,7 +50,7 @@ class DuaDetailItem extends StatelessWidget {
                 PopupMenuButton(
                   itemBuilder: (BuildContext context) {
                     return [
-                      PopupMenuItem(value: 1, child: Text('Favourite')),
+                      PopupMenuItem(value: 1, child: Text('ফেভারিট')),
                     ];
                   },
                   onSelected: (value) {
@@ -58,6 +58,9 @@ class DuaDetailItem extends StatelessWidget {
                     switch (value) {
                       case 1:
                         Provider.of<CurrentUserProvider>(context, listen: false).setFavDuas(allDuatopic.id.toString());
+                        Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text("ফেভারিট করা হয়েছে"),
+                        ));
                         break;
                       case 2:
                         break;
@@ -80,7 +83,6 @@ class DuaDetailItem extends StatelessWidget {
               style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, fontFamily: FontFamily.arabic),
             ),
           ),
-          Divider(),
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(

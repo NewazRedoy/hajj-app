@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor:Color(0xFF537790),
 //            primarySwatch: Color(0xFF537790),
-            accentColor: Color.fromARGB(255, 167, 142, 114),
+            accentColor: Color(0xFFA5936E),
+//            Color.fromARGB(255, 167, 142, 114),
             fontFamily: 'Bangla',
             pageTransitionsTheme: PageTransitionsTheme(builders: _defaultBuilders),
           textTheme: TextTheme(

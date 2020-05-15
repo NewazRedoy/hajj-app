@@ -19,7 +19,7 @@ class ListPageItem extends StatelessWidget {
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(2.0),
         ),
         elevation: 1.5,
         child: InkWell(
