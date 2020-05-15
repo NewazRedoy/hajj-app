@@ -28,7 +28,7 @@ class DuaTopicListItem extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (context) => DuaDetailPage(allDuatopic)));
             },
             child: Container(
-              height: 45,
+              height: 60,
               child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
                 Container(
                   decoration: BoxDecoration(color: Theme.of(context).accentColor),
@@ -36,10 +36,10 @@ class DuaTopicListItem extends StatelessWidget {
                 ),
                 Container(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    index.toString(),
-                    style: TextStyle(color: Colors.black, fontSize: 16),
-                  ),
+//                  child: Text(
+//                    index.toString(),
+//                    style: TextStyle(color: Colors.black, fontSize: 16),
+//                  ),
                 ),
                 SizedBox(
                   width: 8,
