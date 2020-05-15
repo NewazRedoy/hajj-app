@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:hajjapp/screen/SettingsPage.dart';
 import 'package:hajjapp/screen/content/BookmarkPage.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
@@ -52,21 +53,38 @@ class _DrawerPageState extends State<DrawerPage> {
       child: Drawer(
         child: ListView(
           children: <Widget>[
-            user == null
-                ? UserAccountsDrawerHeader(
-                    currentAccountPicture: CircleAvatar(),
-                    accountName: Text("Not Logged In"),
-                    accountEmail: Text(""),
-                  )
-                : UserAccountsDrawerHeader(
-                    currentAccountPicture: CircleAvatar(),
-                    accountName: Text(user.firstName ?? ""),
-                    accountEmail: Text("Macca,Saudi Arabia"),
-                  ),
+
+            DrawerHeader(decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+                child: Column(children: [
+              CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
+              SizedBox(height: 12.0,),
+              Text("Not Logged In",textAlign: TextAlign.center,),
+              Text("",textAlign: TextAlign.center,),
+            ],)),
+//            user == null
+//                ? UserAccountsDrawerHeader(
+//                    currentAccountPicture: CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
+//                    accountName: Container(width: double.infinity,child: Text("Not Logged In",textAlign: TextAlign.center,)),
+//                    accountEmail: Text("",textAlign: TextAlign.center,),
+//                  )
+//                : Container(
+//                  child: UserAccountsDrawerHeader(
+//                      currentAccountPicture: CircleAvatar(),
+//                      accountName: Text(user.firstName ?? ""),
+//                      accountEmail: Text("Macca,Saudi Arabia"),
+//                    ),
+//                ),
+            ListTile(
+              leading: Icon(Icons.person),
+//              leading: Image.asset("assets/images/Menu-Settings.png",height: 20,width: 20,),
+              title: Text("লগআউট"),
+            ),
             ListTile(
               leading: Image.asset("assets/images/Menu-Settings.png",height: 20,width: 20,),
               title: Text("সেটিংস"),
+              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings())),
             ),
+
             ListTile(
               leading: Image.asset("assets/images/Menu-Rating&Review.png",height: 20,width: 20,),
               title: Text("রেটিং এবং রিভিউ"),

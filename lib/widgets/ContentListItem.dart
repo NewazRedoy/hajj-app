@@ -37,7 +37,7 @@ class _ContentListItemState extends State<ContentListItem> {
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         elevation: 1.5,
         child: InkWell(
