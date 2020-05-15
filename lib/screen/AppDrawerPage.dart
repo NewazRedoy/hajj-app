@@ -56,10 +56,24 @@ class _DrawerPageState extends State<DrawerPage> {
 
             DrawerHeader(decoration: BoxDecoration(color: Theme.of(context).primaryColor),
                 child: Column(children: [
-              CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
-              SizedBox(height: 12.0,),
-              Text("Not Logged In",textAlign: TextAlign.center,),
-              Text("",textAlign: TextAlign.center,),
+                  user == null
+                      ?  Column(
+                        children: [
+                          CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
+                          SizedBox(height: 12.0,),
+                          Text("Not Logged In",textAlign: TextAlign.center,),
+                          Text("",textAlign: TextAlign.center,),
+                        ],
+                      )
+              : Column(
+                    children: [
+                      CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
+                      SizedBox(height: 12.0,),
+                      Text(user.firstName ?? ""),
+                      Text("Macca,Saudi Arabia"),
+                    ],
+                  )
+
             ],)),
 //            user == null
 //                ? UserAccountsDrawerHeader(
