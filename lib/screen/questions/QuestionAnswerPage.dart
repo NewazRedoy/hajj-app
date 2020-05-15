@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/screen/questions/QuestionDetailPage.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
-import 'package:hajjapp/widgets/Search&Settings.dart';
 
-import '../AppDrawerPage.dart';
+import 'QuestionPage.dart';
 
-class ElectedQuestionPage extends StatefulWidget {
+
+class QuestionAnswerTopicPage extends StatefulWidget {
   @override
-  _ElectedQuestionPageState createState() => _ElectedQuestionPageState();
+  _QuestionAnswerTopicPageState createState() => _QuestionAnswerTopicPageState();
 }
 
-class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
+class _QuestionAnswerTopicPageState extends State<QuestionAnswerTopicPage> {
   List data = [];
   var loading = true;
 
@@ -41,12 +40,11 @@ class _ElectedQuestionPageState extends State<ElectedQuestionPage> {
               itemCount: data.length,
               itemBuilder: (context, index) {
                 QuestionCategory question = data[index];
-
                 return ListPageItem((index + 1), question.name, () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => QuestionDetailPage(question),
+                        builder: (context) => QuestionPage(question),
                       ));
                 });
               },

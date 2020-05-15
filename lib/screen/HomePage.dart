@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                             } else if (topic.topic_id == 11) {
                               return ArabicSentencesTopicPage(topic);
                             } else {
-                              return ElectedQuestionPage();
+                              return QuestionAnswerTopicPage();
                             }
                           }));
                         },

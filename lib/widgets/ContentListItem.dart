@@ -47,6 +47,7 @@ class _ContentListItemState extends State<ContentListItem> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
               Container(
                 height: 50,
                 child: Row(

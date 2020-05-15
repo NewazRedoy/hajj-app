@@ -20,7 +20,7 @@ class _BottomNavigationState extends State<BottomNavigation> with SingleTickerPr
       case 1:
         return DuaTopicPage();
       case 2:
-        return ElectedQuestionPage();
+        return QuestionAnswerTopicPage();
     }
   }
 
