@@ -3,7 +3,7 @@ import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/repository/RepositoryInterface.dart';
 import 'package:hajjapp/screen/content/ContentDetailListPage.dart';
 import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
-import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
+import 'package:hajjapp/screen/questions/QuestionDetailPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SearchListDetailItem.dart';
 

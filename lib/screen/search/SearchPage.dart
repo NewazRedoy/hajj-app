@@ -4,7 +4,7 @@ import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/repository/RepositoryInterface.dart';
 import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
-import 'package:hajjapp/screen/questions/ElectedQuestionDetailPage.dart';
+import 'package:hajjapp/screen/questions/QuestionDetailPage.dart';
 import 'package:hajjapp/screen/search/SearchDetailPage.dart';
 import 'package:hajjapp/widgets/SearchListPageItem.dart';
 

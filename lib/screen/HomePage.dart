@@ -5,7 +5,7 @@ import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
 import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
 import 'package:hajjapp/screen/hajjassistant/SieCountPage.dart';
 import 'package:hajjapp/screen/hajjassistant/TawafCountPage.dart';
-import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
+import 'package:hajjapp/screen/questions/QuestionAnswerPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/TopicGridItem.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/screen/AppDrawerPage.dart';
 import 'package:hajjapp/screen/HomePage.dart';
 import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
-import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
+import 'package:hajjapp/screen/questions/QuestionAnswerPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class BottomNavigation extends StatefulWidget {

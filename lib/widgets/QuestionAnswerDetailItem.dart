@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 
-class ElectedQuestionSubTopicListItem extends StatelessWidget {
+class QuestionAnswerDetailItem extends StatelessWidget {
   QuestionDetail questionanswer;
 
-  ElectedQuestionSubTopicListItem(
+  QuestionAnswerDetailItem(
     this.questionanswer,
   );
 

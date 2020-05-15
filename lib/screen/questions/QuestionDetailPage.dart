@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/widgets/ElectedQuestionSubTopicItem.dart';
+import 'package:hajjapp/widgets/QuestionAnswerDetailItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class QuestionDetailPage extends StatelessWidget {
@@ -60,7 +59,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
                 itemBuilder: (context, index) {
                   var question = data[index];
 
-                  return ElectedQuestionSubTopicListItem(question);
+                  return QuestionAnswerDetailItem(question);
                 }));
   }
 
