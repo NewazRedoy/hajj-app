@@ -120,7 +120,7 @@ flutter_icons:
   ios: true
 
 flutter_rename_app:
-  application_name: Amar Hajj
+  application_name: আমার হজ্জ
   dart_package_name: hajjapp
   application_id: com.taibah.hajjapp
   bundle_id: com.taibah.hajjapp

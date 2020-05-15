@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            primarySwatch: Colors.blueGrey,
+          primaryColor:Color(0xFF537790),
+//            primarySwatch: Color(0xFF537790),
             accentColor: Color.fromARGB(255, 167, 142, 114),
             fontFamily: 'Bangla',
             pageTransitionsTheme: PageTransitionsTheme(builders: _defaultBuilders),
