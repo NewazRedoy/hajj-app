@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/screen/HomePage.dart';
+import 'package:hajjapp/screen/BottomNavigation.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             headline6: TextStyle(fontSize: 36.0),
             bodyText2: TextStyle(fontSize: 16.0),
           )),
-        home: Home(),
+        home: BottomNavigation(),
       ),
     );
   }

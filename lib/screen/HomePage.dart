@@ -1,65 +1,97 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/screen/AppDrawerPage.dart';
-import 'package:hajjapp/screen/TopicGridPage.dart';
-import 'package:hajjapp/screen/dua/DuaTopicPage.dart';
+import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/screen/content/SubTopicListPage.dart';
+import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
+import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
+import 'package:hajjapp/screen/hajjassistant/SieCountPage.dart';
+import 'package:hajjapp/screen/hajjassistant/TawafCountPage.dart';
 import 'package:hajjapp/screen/questions/ElectedQuestionPage.dart';
-import 'package:hajjapp/widgets/Search&Settings.dart';
+import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/widgets/ListPageItem.dart';
+import 'package:hajjapp/widgets/TopicGridItem.dart';
 
-class Home extends StatefulWidget {
+
+
+class HomePage extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  int _currentIndex = 0;
+class _HomePageState extends State<HomePage> {
+  List data = [];
+  var loading = true;
 
-  Widget callPages(int currentIndex) {
-    switch (currentIndex) {
-      case 0:
-        return HomePage();
-      case 1:
-        return DuaTopicPage();
-      case 2:
-        return ElectedQuestionPage();
-    }
+  @override
+  void initState() {
+    super.initState();
+
+    loadData();
+  }
+
+  loadData() async {
+    var content = await Constants.topics;
+    setState(() {
+      data = content;
+      loading = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    var appBarName = [
-      "হাজ্জ উমরাহ গাইড",
-      "দু'আ",
-      "প্রশ্নোত্তর",
-    ];
-
     return Scaffold(
-      drawer: DrawerPage(),
-      appBar: AppBar(
-        title: Text (appBarName[_currentIndex]),
-        actions: <Widget>[SearchSettings()],
-      ),
-      body: callPages(_currentIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (value) {
-          _currentIndex = value;
-          setState(() {});
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Image.asset("assets/images/Home-Colored.png",height: 20,width: 20,),
-            title: Text("হোম"),
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset("assets/images/Dua-Colored.png", height: 20,width: 20,),
-            title: Text("দু'আ"),
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/images/QnA-Colored.png', height: 20,width: 20,),
-            title: Text("প্রশ্নোত্তর"),
-          ),
-        ],
-      ),
+      body: loading
+          ? _buildCircularProgressIndicator()
+          : Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                          child: TopicGridItem(topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'), image: "assets/images/Umrah-Kaba.png")),
+                      Expanded(
+                          child: TopicGridItem(topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'), image: "assets/images/Hajj-Arafah.png")),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      Topic topic = data[index];
+                      return ListPageItem(
+                        (index + 1),
+                        topic.name,
+                        () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                            if (topic.topic_id < 7) {
+                              return SubtopicListPage(topic: topic);
+                            } else if (topic.topic_id == 8) {
+                              return TawafCountPage(topic,);
+                            } else if (topic.topic_id == 9) {
+                              return SaiCount(topic);
+                            } else if (topic.topic_id == 10) {
+                              return RiyalConverter(topic);
+                            } else if (topic.topic_id == 11) {
+                              return ArabicSentencesTopicPage(topic);
+                            } else {
+                              return ElectedQuestionPage();
+                            }
+                          }));
+                        },
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
     );
   }
+}
+
+_buildCircularProgressIndicator() {
+  return Center(
+    child: CircularProgressIndicator(),
+  );
 }
