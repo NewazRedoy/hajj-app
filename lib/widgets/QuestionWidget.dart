@@ -24,11 +24,11 @@ class QuestionWidget extends StatelessWidget {
           ),
           elevation: 1.5,
           child: InkWell(
-//            onTap: ()=>Navigator.push(
-//                context,
-//                MaterialPageRoute(
-//                  builder: (context) => QuestionDetailPage(question),
-//                )),
+            onTap: ()=>Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QuestionDetailPage(questionanswer),
+              )),
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +44,7 @@ class QuestionWidget extends StatelessWidget {
                     child: Text(
                         questionanswer.question,
                       style: TextStyle(fontSize: 16),
-                        maxLines:2,
+
                     ),
                   ),
                   Icon(
