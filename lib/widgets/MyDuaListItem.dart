@@ -66,7 +66,7 @@ class MyDuaListItem extends StatelessWidget {
                                 });
                             break;
                           case 2:
-                            Provider.of<CurrentUserProvider>(context, listen: false).deleteDua(dua.key);
+                            Provider.of<AuthProvider>(context, listen: false).deleteDua(dua.key);
                             break;
                         }
                       },

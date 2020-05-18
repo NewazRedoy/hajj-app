@@ -62,7 +62,7 @@ class ColorChangeWidget extends StatelessWidget {
 }
 
 void updateDuaColor(BuildContext context, MyDua dua, ColorSwatch color) {
-  Provider.of<CurrentUserProvider>(context, listen: false).updateDuaColor(dua, color);
+  Provider.of<AuthProvider>(context, listen: false).updateDuaColor(dua, color);
   Navigator.pop(context);
 }
 

@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 
-class Settings extends StatefulWidget {
+class SettingsPage extends StatefulWidget {
   @override
-  _SettingsState createState() => _SettingsState();
+  _SettingsPageState createState() => _SettingsPageState();
 }
 
-class _SettingsState extends State<Settings> {
-  double size = 0.0;
-  double size1 = 0.0;
-  double size2 = 0.0;
+class _SettingsPageState extends State<SettingsPage> {
+  double bnSize = 0.0;
+  double enSize = 0.0;
+  double arSize = 0.0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    bnSize = DataProvider.of(context).banglaFontSize;
+    arSize = DataProvider.of(context).arabicFontSize;
+    enSize = DataProvider.of(context).englishFontSize;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,26 +41,32 @@ class _SettingsState extends State<Settings> {
                 children: [
                   Text("বাংলা"),
                   Slider.adaptive(
-                    label: "$size",
+                    label: "$bnSize",
                     activeColor: Colors.green,
-                    value: size,
+                    min: 12,
+                    max: 50,
+                    value: bnSize,
                     onChanged: (value) {
                       setState(() {
-                        size = value;
+                        bnSize = value;
                       });
+                      DataProvider.of(context).updateFont(bnValue: value);
                     },
                   ),
                   Column(
                     children: [
                       Text("ইংলিশ"),
                       Slider.adaptive(
-                        label: "$size1",
+                        label: "$enSize",
                         activeColor: Colors.green,
-                        value: size1,
+                        value: enSize,
+                        min: 12,
+                        max: 50,
                         onChanged: (value) {
                           setState(() {
-                            size1 = value;
+                            enSize = value;
                           });
+                          DataProvider.of(context).updateFont(enValue: value);
                         },
                       ),
                     ],
@@ -59,13 +75,16 @@ class _SettingsState extends State<Settings> {
                     children: [
                       Text("আরবী"),
                       Slider.adaptive(
-                        label: "$size2",
+                        label: "$arSize",
                         activeColor: Colors.green,
-                        value: size2,
+                        value: arSize,
+                        min: 12,
+                        max: 50,
                         onChanged: (value) {
                           setState(() {
-                            size2 = value;
+                            arSize = value;
                           });
+                          DataProvider.of(context).updateFont(arValue: value);
                         },
                       ),
                     ],

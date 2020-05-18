@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => CurrentUserProvider()),
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
         ChangeNotifierProvider(create: (context) => DataProvider()),
       ],
       child: MaterialApp(
@@ -23,9 +23,6 @@ class MyApp extends StatelessWidget {
             fontFamily: FontFamily.bangla,
             pageTransitionsTheme: PageTransitionsTheme(builders: _defaultBuilders),
             textTheme: TextTheme(
-              headline1: TextStyle(fontSize: 72.0),
-              headline6: TextStyle(fontSize: 36.0),
-              bodyText2: TextStyle(fontSize: 16.0),
             )),
         home: BottomNavigation(),
       ),

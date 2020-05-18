@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    var content = await Constants.topics;
+    var content = Constants.topics;
     setState(() {
       data = content;
       loading = false;

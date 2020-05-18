@@ -46,7 +46,7 @@ class _DrawerPageState extends State<DrawerPage> {
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<CurrentUserProvider>(context).user;
+    var user = Provider.of<AuthProvider>(context).user;
     return Container(
       child: Drawer(
         child: ListView(
@@ -117,7 +117,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 width: 20,
               ),
               title: Text("সেটিংস"),
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Settings())),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage())),
             ),
 
             ListTile(

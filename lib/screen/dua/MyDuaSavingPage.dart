@@ -73,18 +73,18 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
                 if (widget.dua == null) {
                   var dua = MyDua(text: text, title: title);
 
-                  Provider.of<CurrentUserProvider>(context, listen: false).addDua(dua);
+                  Provider.of<AuthProvider>(context, listen: false).addDua(dua);
                 } else {
                   widget.dua.title = title;
                   widget.dua.text = text;
 
-                  Provider.of<CurrentUserProvider>(context, listen: false).updateDua(widget.dua);
+                  Provider.of<AuthProvider>(context, listen: false).updateDua(widget.dua);
                 }
 
                 Navigator.pop(context);
               }),
               DuaButton('মুছুন', Theme.of(context).accentColor, () {
-                Provider.of<CurrentUserProvider>(context, listen: false).deleteDua(widget.dua.key);
+                Provider.of<AuthProvider>(context, listen: false).deleteDua(widget.dua.key);
                 Navigator.pop(context);
               })
             ],

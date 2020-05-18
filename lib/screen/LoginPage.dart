@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserProvider>(builder: (context, model, _) {
+    return Consumer<AuthProvider>(builder: (context, model, _) {
       return Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

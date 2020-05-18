@@ -5,7 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/VideoPlaypagePage.dart';
+import 'package:hajjapp/util/FontFamily.dart';
 import 'package:hajjapp/util/QuranArabicUtils.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
@@ -116,8 +118,7 @@ class _ContentListItemState extends State<ContentListItem> {
                             ));
                             break;
                           case 3:
-                            Provider.of<CurrentUserProvider>(context, listen: false)
-                                .setBookmark(widget.content.id.toString());
+                            Provider.of<AuthProvider>(context, listen: false).setBookmark(widget.content.id.toString());
                             Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text("বুকমার্ক করা হয়েছে"),
                             ));
@@ -172,10 +173,30 @@ class _ContentListItemState extends State<ContentListItem> {
                 padding: const EdgeInsets.all(16.0),
                 child: SelectableText.rich(
                   TextSpan(
-                    children: QuranArabicUtils.highlightArabic(widget.content.text),
+                    children: QuranArabicUtils.highlightArabic(
+                        widget.content.text,
+                        TextStyle(
+                          locale: Locale.fromSubtags(languageCode: "ar"),
+                          fontSize: DataProvider.of(context).arabicFontSize,
+                            color: Colors.red,
+                            fontFamily: FontFamily.arabic
+                        )),
                   ),
                   textAlign: TextAlign.justify,
                   textDirection: TextDirection.ltr,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Wrap(
+                    children: QuranArabicUtils.highlightArabicWidget(
+                        widget.content.text,
+                        TextStyle(
+                            locale: Locale.fromSubtags(languageCode: "ar"),
+                            fontSize: DataProvider.of(context).arabicFontSize,
+                            color: Colors.red,
+                            fontFamily: FontFamily.arabic
+                        ))
                 ),
               ),
               SizedBox(height: 6),

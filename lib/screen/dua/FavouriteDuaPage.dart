@@ -15,14 +15,13 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
   var loading = true;
 
   @override
-  void initState() {
-    super.initState();
-
-//    loadData();
+  void didChangeDependencies() {
+super.didChangeDependencies();
+loadData();
   }
 
   loadData() async {
-    var ids = Provider.of<CurrentUserProvider>(context).favDuaId;
+    var ids = Provider.of<AuthProvider>(context).favDuaId;
     var content = await DataProvider.of(context).queryFavDuas(ids);
     setState(() {
       data = content;
@@ -32,12 +31,12 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserProvider>(builder: (context, model, widget) {
+    return Consumer<AuthProvider>(builder: (context, model, widget) {
       if (model.favDuaId.isNotEmpty) loadData();
 
       return Scaffold(
         appBar: AppBar(
-          title: Text("সব দু'আ"),
+          title: Text("পছন্দ তালিকা"),
           actions: <Widget>[
             SearchSettings(),
           ],

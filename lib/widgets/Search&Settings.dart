@@ -36,7 +36,7 @@ class _SearchSettingsState extends State<SearchSettings> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Settings(),
+                  builder: (context) => SettingsPage(),
                 ));
           },
         ),

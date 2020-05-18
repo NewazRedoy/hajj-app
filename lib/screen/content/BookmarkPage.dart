@@ -23,7 +23,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
   }
 
   loadData() async {
-    var ids = Provider.of<CurrentUserProvider>(context).bookmarkId;
+    var ids = Provider.of<AuthProvider>(context).bookmarkId;
     var content = await DataProvider.of(context).queryBookmarkedContent(ids);
     setState(() {
       data = content;
@@ -33,7 +33,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserProvider>(builder: (context, model, widget) {
+    return Consumer<AuthProvider>(builder: (context, model, widget) {
       if (model.favDuaId.isNotEmpty) loadData();
 
       return Scaffold(

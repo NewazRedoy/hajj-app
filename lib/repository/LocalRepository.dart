@@ -244,7 +244,7 @@ class LocalRepository implements RepositoryInterface {
   @override
   Future<List<DuaCategory>> queryFavDuas(List<String> ids) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select * from DuaCategory,Dua where Dua.id in (${ids.join(",")})");
+    List<Map> maps = await db.rawQuery("select * from DuaCategory,Dua where Dua.dua_id in (${ids.join(",")})");
     return maps.map((e) => DuaCategory.fromJson(e)).toList();
   }
 

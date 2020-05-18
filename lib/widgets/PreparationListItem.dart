@@ -102,7 +102,7 @@ class PreparationListItem extends StatelessWidget {
                             ));
                             break;
                           case 3:
-                            Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(content.id.toString());
+                            Provider.of<AuthProvider>(context, listen: false).setBookmark(content.id.toString());
                             Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text("বুকমার্ক করা হয়েছে"),
                             ));

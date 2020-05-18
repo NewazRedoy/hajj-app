@@ -1,6 +1,9 @@
 // needed for Directory()
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:hajjapp/model/ArabicSentences.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
 import 'package:hajjapp/model/Content.dart';
@@ -13,6 +16,9 @@ import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/repository/LocalRepository.dart';
 import 'package:hajjapp/repository/RepositoryInterface.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+
 
 // singleton class to manage the database
 class DataProvider extends ChangeNotifier implements RepositoryInterface {
@@ -25,12 +31,25 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
   DataProvider() {
     repository = LocalRepository();
     dbLoading = false;
+    _read();
 
     notifyListeners();
   }
 
   static DataProvider of(BuildContext context) {
     return Provider.of<DataProvider>(context, listen: false);
+  }
+
+  double arabicFontSize = 20;
+  double englishFontSize = 20;
+  double banglaFontSize = 20;
+
+
+  _read() async {
+    var prefs = await SharedPreferences.getInstance();
+    arabicFontSize = prefs.getDouble("arabicFontSize") ?? arabicFontSize;
+    englishFontSize = prefs.getDouble("englishFontSize") ?? englishFontSize;
+    banglaFontSize = prefs.getDouble("banglaFontSize") ?? banglaFontSize;
   }
 
   @override
@@ -87,4 +106,30 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
   Future<List<SearchItem>> querybySearch(String term) {
     return repository.querybySearch(term);
   }
+
+  double conversion = 1 / 20;
+
+
+  void getRate() async {
+    var response =
+    await http.get("https://free.currconv.com/api/v7/convert?q=BDT_SAR&compact=ultra&apiKey=558d63f3c169865a4cb7");
+
+    conversion = json.decode(response.body)["BDT_SAR"];
+    notifyListeners();
+  }
+
+  void updateFont({double arValue, double enValue, double bnValue}) async {
+    arabicFontSize = arValue ?? arabicFontSize;
+    banglaFontSize = bnValue ?? banglaFontSize;
+    englishFontSize = enValue ?? englishFontSize;
+
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setDouble("arabicFontSize", arabicFontSize);
+    prefs.setDouble("englishFontSize", englishFontSize);
+    prefs.setDouble("banglaFontSize", banglaFontSize);
+    notifyListeners();
+  }
+
+
 }
+

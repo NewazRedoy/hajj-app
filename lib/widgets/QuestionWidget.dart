@@ -17,8 +17,8 @@ class QuestionWidget extends StatelessWidget {
       padding: const EdgeInsets.only(
         left: 10.0,
         right: 10.0,
-        top: 3.0,
-        bottom: 0.0,
+        top: 5.0,
+        bottom: 5.0,
       ),
       child: Expanded(
         child: Card(

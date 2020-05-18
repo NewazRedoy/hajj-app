@@ -49,7 +49,7 @@ class _DuaTopicPageState extends State<DuaTopicPage> {
                     if (duaTopic.duatopic_id == 1) {
                       return AllDuaPage();
                     } else if (duaTopic.duatopic_id == 2) {
-                      var user = Provider.of<CurrentUserProvider>(context).user;
+                      var user = Provider.of<AuthProvider>(context).user;
                       if (user == null) {
                         return LoginPage();
                       } else

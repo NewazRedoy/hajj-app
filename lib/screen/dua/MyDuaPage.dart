@@ -14,14 +14,14 @@ class MyDuaPage extends StatefulWidget {
 class MyDuaPageState extends State<MyDuaPage> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserProvider>(builder: (context, model, _) {
+    return Consumer<AuthProvider>(builder: (context, model, _) {
       return Scaffold(
         appBar: AppBar(
           title: Text(
             ("আমার দু'আ"),
           ),
         ),
-        body: Consumer<CurrentUserProvider>(
+        body: Consumer<AuthProvider>(
           builder: (context, model, _) {
             return ListView.builder(
               itemBuilder: (context, index) {

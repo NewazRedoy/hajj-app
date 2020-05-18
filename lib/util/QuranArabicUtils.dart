@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'FontFamily.dart';
-
 class QuranArabicUtils {
   static final RegExp arabicmatcher = RegExp("[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FF]+");
 
@@ -30,7 +28,7 @@ class QuranArabicUtils {
     return false;
   }
 
-  static List<TextSpan> highlightArabic(String source) {
+  static List<TextSpan> highlightArabic(String source, TextStyle style) {
     if (source == null) {
       return [TextSpan(text: source ?? "")];
     }
@@ -42,11 +40,6 @@ class QuranArabicUtils {
       return [TextSpan(text: source)];
     }
     matches.sort((a, b) => a.start.compareTo(b.start));
-
-    var style = TextStyle(
-      color: Colors.red,
-      fontFamily: FontFamily.arabic,
-    );
 
     int lastMatchEnd = 0;
     final List<TextSpan> children = [];
@@ -77,6 +70,56 @@ class QuranArabicUtils {
     if (lastMatchEnd < source.length) {
       children.add(TextSpan(
         text: source.substring(lastMatchEnd, source.length),
+      ));
+    }
+
+    return children;
+  }
+
+  static List<Widget> highlightArabicWidget(String source, TextStyle style) {
+    if (source == null) {
+      return [Text(source ?? "")];
+    }
+
+    List<Match> matches = [];
+    matches.addAll(QuranArabicUtils.arabicmatcher.allMatches(source));
+
+    if (matches.isEmpty) {
+      return [Text(source)];
+    }
+    matches.sort((a, b) => a.start.compareTo(b.start));
+
+    int lastMatchEnd = 0;
+    final List<Text> children = [];
+    for (final match in matches) {
+      if (match.end <= lastMatchEnd) {
+        // already matched -> ignore
+      } else if (match.start <= lastMatchEnd) {
+        children.add(Text(
+          source.substring(lastMatchEnd, match.end),
+          style: style,
+          textDirection: TextDirection.rtl,
+        ));
+      } else if (match.start > lastMatchEnd) {
+        children.add(Text(
+          source.substring(lastMatchEnd, match.start),
+        ));
+
+        children.add(Text(
+          source.substring(match.start, match.end),
+          style: style,
+          textDirection: TextDirection.rtl,
+        ));
+      }
+
+      if (lastMatchEnd < match.end) {
+        lastMatchEnd = match.end;
+      }
+    }
+
+    if (lastMatchEnd < source.length) {
+      children.add(Text(
+        source.substring(lastMatchEnd, source.length),
       ));
     }
 

@@ -23,7 +23,7 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CurrentUserProvider>(builder: (context, model, _) {
+    return Consumer<AuthProvider>(builder: (context, model, _) {
       var checkboxValue = false;
       return Scaffold(
         body: SingleChildScrollView(

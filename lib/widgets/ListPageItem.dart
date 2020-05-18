@@ -13,8 +13,8 @@ class ListPageItem extends StatelessWidget {
       padding: const EdgeInsets.only(
         left: 10.0,
         right: 10.0,
-        top: 3.0,
-        bottom: 0.0,
+        top: 5.0,
+        bottom: 5.0,
       ),
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -33,13 +33,6 @@ class ListPageItem extends StatelessWidget {
                   decoration: BoxDecoration(color: Theme.of(context).accentColor),
                   width: 4,
                 ),
-//                Container(
-//                  padding: const EdgeInsets.symmetric(vertical: 21.0, horizontal: 18.0),
-//                  child: Text(
-//                    index.toString(),
-//                    style: TextStyle(color: Colors.white, fontSize: 16),
-//                  ),
-//                ),
                 SizedBox(
                   width: 8,
                 ),

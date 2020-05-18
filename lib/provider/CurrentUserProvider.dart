@@ -6,13 +6,13 @@ import 'package:hajjapp/model/MyDua.dart';
 import 'package:hajjapp/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CurrentUserProvider extends ChangeNotifier {
+class AuthProvider extends ChangeNotifier {
   List myDuas = [];
   List<String> favDuaId = [];
 
   List<String> bookmarkId = [];
 
-  CurrentUserProvider() {
+  AuthProvider() {
     _read();
   }
 

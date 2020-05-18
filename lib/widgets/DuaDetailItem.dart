@@ -57,7 +57,7 @@ class DuaDetailItem extends StatelessWidget {
                     print("value:$value");
                     switch (value) {
                       case 1:
-                        Provider.of<CurrentUserProvider>(context, listen: false).setFavDuas(allDuatopic.id.toString());
+                        Provider.of<AuthProvider>(context, listen: false).setFavDuas(allDuatopic.id.toString());
                         Scaffold.of(context).showSnackBar(SnackBar(
                           content: Text("ফেভারিট করা হয়েছে"),
                         ));
