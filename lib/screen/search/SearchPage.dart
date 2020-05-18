@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/repository/RepositoryInterface.dart';
 import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
 import 'package:hajjapp/screen/questions/QuestionDetailPage.dart';

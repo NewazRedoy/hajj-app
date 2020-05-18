@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/ArabicSentences.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/ArabicSentenceListItem.dart';

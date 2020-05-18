@@ -35,7 +35,7 @@ class _BottomNavigationState extends State<BottomNavigation> with SingleTickerPr
     return Scaffold(
       drawer: DrawerPage(),
       appBar: AppBar(
-        title: Text (appBarName[_currentIndex]),
+        title: Text(appBarName[_currentIndex]),
         actions: <Widget>[SearchSettings()],
       ),
       body: callPages(_currentIndex),
@@ -47,15 +47,27 @@ class _BottomNavigationState extends State<BottomNavigation> with SingleTickerPr
         },
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset("assets/images/Home-Colored.png",height: 20,width: 20,),
+            icon: Image.asset(
+              "assets/images/Home-Colored.png",
+              height: 20,
+              width: 20,
+            ),
             title: Text("হোম"),
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("assets/images/Dua-Colored.png", height: 20,width: 20,),
+            icon: Image.asset(
+              "assets/images/Dua-Colored.png",
+              height: 20,
+              width: 20,
+            ),
             title: Text("দু'আ"),
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/QnA-Colored.png', height: 20,width: 20,),
+            icon: Image.asset(
+              'assets/images/QnA-Colored.png',
+              height: 20,
+              width: 20,
+            ),
             title: Text("প্রশ্নোত্তর"),
           ),
         ],

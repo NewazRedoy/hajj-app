@@ -5,16 +5,11 @@ import 'package:flutter/widgets.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
-import 'package:hajjapp/screen/AboutApp.dart';
 import 'package:hajjapp/screen/VideoPlaypagePage.dart';
-import 'package:hajjapp/util/FontFamily.dart';
 import 'package:hajjapp/util/QuranArabicUtils.dart';
-import 'package:hajjapp/util/global.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
-import 'ColorChangeWidget.dart';
 
 class ContentListItem extends StatefulWidget {
   Content content;
@@ -47,15 +42,13 @@ class _ContentListItemState extends State<ContentListItem> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Container(
                 height: 50,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      decoration:
-                          BoxDecoration(color: Theme.of(context).accentColor),
+                      decoration: BoxDecoration(color: Theme.of(context).accentColor),
                       width: 4,
                     ),
                     Container(
@@ -117,15 +110,14 @@ class _ContentListItemState extends State<ContentListItem> {
                             share(context);
                             break;
                           case 2:
-                            Clipboard.setData(
-                                ClipboardData(text: widget.content.text));
+                            Clipboard.setData(ClipboardData(text: widget.content.text));
                             Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text("ক্লিপবর্ডে কপি করা হয়েছে"),
                             ));
                             break;
                           case 3:
-                            Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(
-                                widget.content.id.toString());
+                            Provider.of<CurrentUserProvider>(context, listen: false)
+                                .setBookmark(widget.content.id.toString());
                             Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text("বুকমার্ক করা হয়েছে"),
                             ));
@@ -153,18 +145,15 @@ class _ContentListItemState extends State<ContentListItem> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  VideoPlayPage(widget.content),
+                              builder: (context) => VideoPlayPage(widget.content),
                             ));
                       },
                       child: Stack(
                         children: <Widget>[
                           CachedNetworkImage(
-                              imageUrl: YoutubePlayer.getThumbnail(
-                                  videoId: widget.content.video_url),
+                              imageUrl: YoutubePlayer.getThumbnail(videoId: widget.content.video_url),
                               fit: BoxFit.cover,
-                              placeholder: (context, url) =>
-                                  CircularProgressIndicator()),
+                              placeholder: (context, url) => CircularProgressIndicator()),
                           Positioned.fill(
                             child: Align(
                               alignment: Alignment.center,
@@ -202,5 +191,3 @@ class _ContentListItemState extends State<ContentListItem> {
     Share.share(text, subject: text);
   }
 }
-
-

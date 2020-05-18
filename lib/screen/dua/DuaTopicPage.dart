@@ -6,10 +6,8 @@ import 'package:hajjapp/screen/dua/FavouriteDuaPage.dart';
 import 'package:hajjapp/screen/dua/MyDuaPage.dart';
 import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
-import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:provider/provider.dart';
 
-import '../AppDrawerPage.dart';
 import '../LoginPage.dart';
 
 class DuaTopicPage extends StatefulWidget {

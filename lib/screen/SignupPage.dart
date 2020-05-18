@@ -72,8 +72,8 @@ class _SignupPageState extends State<SignupPage> {
                           padding: EdgeInsets.all(16),
                           onPressed: () {
                             if (_registerFormKey.currentState.validate()) {
-                              model.signUpUsingUsernamePassword(context,
-                                  emailInputController.text, pwdInputController.text);
+                              model.signUpUsingUsernamePassword(
+                                  context, emailInputController.text, pwdInputController.text);
                             }
                           },
                         ),
@@ -84,7 +84,6 @@ class _SignupPageState extends State<SignupPage> {
 //                              model.gotoLogin()
 
                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()))
-
                             },
                             child: RichText(
                               text: TextSpan(

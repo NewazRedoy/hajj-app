@@ -50,5 +50,4 @@ class Content {
         "title": title,
         "text": text,
       };
-
 }

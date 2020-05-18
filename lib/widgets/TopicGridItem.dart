@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/screen/content/SubTopicListPage.dart';
 
@@ -8,13 +7,14 @@ class TopicGridItem extends StatelessWidget {
     Key key,
     @required this.context,
     @required this.topic,
-    this.index, this.image,
+    this.index,
+    this.image,
   }) : super(key: key);
 
   final BuildContext context;
   final Topic topic;
   final index;
-final String image;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,9 @@ final String image;
       width: 180.0,
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4.0),
-      ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4.0),
+        ),
         elevation: 1.5,
         child: InkWell(
           onTap: () {
@@ -40,7 +40,11 @@ final String image;
               SizedBox(
                 height: 32,
               ),
-              Image.asset(image,width: 44, height: 44,),
+              Image.asset(
+                image,
+                width: 44,
+                height: 44,
+              ),
               SizedBox(
                 height: 16,
               ),

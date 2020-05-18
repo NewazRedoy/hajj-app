@@ -13,7 +13,6 @@ import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -149,21 +148,25 @@ class LocalRepository implements RepositoryInterface {
 
     return true;
   }
+
   @override
   Future<List<Content>> queryHadithsBySubtopicId(int topicID, int subtopicID) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select rowid, * from content where topic_id= $topicID and subtopic_id=$subtopicID");
+    List<Map> maps =
+        await db.rawQuery("select rowid, * from content where topic_id= $topicID and subtopic_id=$subtopicID");
 
     print("select * from content where topic_id=$topicID and subtopic_id = $subtopicID size:${maps.length}");
 
     return maps.map((e) => Content.fromMap(e)).toList();
   }
+
   @override
   Future<List<Subtopic>> querySubtopicsByTopicId(int id) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery("select * from Subtopic where topic_id=$id");
     return maps.map((e) => Subtopic.fromJson(e)).toList();
   }
+
   @override
   Future<List<SearchItem>> querybySearch(String term) async {
     term = term.replaceAll('\'', '\'\'');
@@ -209,51 +212,56 @@ class LocalRepository implements RepositoryInterface {
     print(items);
     return items;
   }
+
   @override
   Future<List<QuestionDetail>> queryQuestionsByCategoryId(int category_id) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery("select * from QuestionAnswer where category_id=$category_id");
     return maps.map((e) => QuestionDetail.fromJson(e)).toList();
   }
+
   @override
   Future<List<QuestionCategory>> queryQuestionCategories() async {
     Database db = await database;
     List<Map> maps = await db.rawQuery("select * from QuestionCategory");
     return maps.map((e) => QuestionCategory.fromJson(e)).toList();
   }
+
   @override
   Future<List<Dua>> queryDuaByCategoryId(int allDuacategory_id) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery("select * from Dua where category_id=$allDuacategory_id");
     return maps.map((e) => Dua.fromJson(e)).toList();
   }
+
   @override
   Future<List<DuaCategory>> queryAllDuaCategories() async {
     Database db = await database;
     List<Map> maps = await db.rawQuery("select * from DuaCategory");
     return maps.map((e) => DuaCategory.fromJson(e)).toList();
   }
+
   @override
   Future<List<DuaCategory>> queryFavDuas(List<String> ids) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery(
-        "select * from DuaCategory,Dua where Dua.id in (${ids.join(",")})");
-    return maps.map((e) =>  DuaCategory.fromJson(e)).toList();
+    List<Map> maps = await db.rawQuery("select * from DuaCategory,Dua where Dua.id in (${ids.join(",")})");
+    return maps.map((e) => DuaCategory.fromJson(e)).toList();
   }
 
   @override
   Future<List<Content>> queryBookmarkedContent(List<String> ids) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery("select rowid, * from Content where rowid in (${ids.join(",")})");
-    return maps.map((e) =>  Content.fromMap(e)).toList();
+    return maps.map((e) => Content.fromMap(e)).toList();
   }
 
   @override
-  Future<List<ArabicSentence>>  querySentenceByCategoryId(int allDuacategory_id) async {
+  Future<List<ArabicSentence>> querySentenceByCategoryId(int allDuacategory_id) async {
     Database db = await database;
     List<Map> maps = await db.rawQuery("select * from Sentence where category_id=$allDuacategory_id");
     return maps.map((e) => ArabicSentence.fromJson(e)).toList();
   }
+
   @override
   Future<List<SentencesCategory>> queryAllSentenceCategories() async {
     Database db = await database;

@@ -5,7 +5,6 @@ import 'package:hajjapp/widgets/ListPageItem.dart';
 
 import 'QuestionPage.dart';
 
-
 class QuestionAnswerTopicPage extends StatefulWidget {
   @override
   _QuestionAnswerTopicPageState createState() => _QuestionAnswerTopicPageState();

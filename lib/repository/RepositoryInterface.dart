@@ -1,21 +1,19 @@
-
-
 import 'package:hajjapp/model/ArabicSentences.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
-import 'package:hajjapp/model/SearchItem.dart';
-import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/model/DuaDetail.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
+import 'package:hajjapp/model/SearchItem.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 
 enum PageViewType { Content, Dua, Question }
 
 abstract class RepositoryInterface {
-  Future<List<Content>> queryHadithsBySubtopicId(int topicID, int subtopicID) ;
+  Future<List<Content>> queryHadithsBySubtopicId(int topicID, int subtopicID);
 
-  Future<List<Subtopic>> querySubtopicsByTopicId(int id) ;
+  Future<List<Subtopic>> querySubtopicsByTopicId(int id);
 
   Future<List<SearchItem>> querybySearch(String term);
 
@@ -31,7 +29,7 @@ abstract class RepositoryInterface {
 
   Future<List<ArabicSentence>> querySentenceByCategoryId(int allDuacategory_id);
 
-  Future<List<SentencesCategory>>  queryAllSentenceCategories() ;
+  Future<List<SentencesCategory>> queryAllSentenceCategories();
 
   Future<List<Content>> queryBookmarkedContent(List<String> ids);
 }

@@ -11,7 +11,7 @@ class CurrentUserProvider extends ChangeNotifier {
   List<String> favDuaId = [];
 
   List<String> bookmarkId = [];
-  
+
   CurrentUserProvider() {
     _read();
   }
@@ -206,7 +206,7 @@ class CurrentUserProvider extends ChangeNotifier {
 
     prefs.setStringList("fav", favDuaId);
   }
-  
+
   Future<void> fetchBookmark() async {
     var prefs = await SharedPreferences.getInstance();
 
@@ -224,6 +224,7 @@ class CurrentUserProvider extends ChangeNotifier {
 
     prefs.setStringList("bookmark", bookmarkId);
   }
+
   gotoSignup() {
     _status = Status.Signup;
     print("singup");

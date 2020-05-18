@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/DuaCategory.dart';
-import 'package:hajjapp/model/DuaDetail.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/DuaDetailItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';

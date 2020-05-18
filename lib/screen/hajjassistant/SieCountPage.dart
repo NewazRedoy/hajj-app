@@ -52,7 +52,9 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
     final ByteData data = await rootBundle.load('assets/images/Safa.png');
     imageSafa = await loadImage(new Uint8List.view(data.buffer));
 
-    final ByteData dataMarwa = await rootBundle.load('assets/images/Marwa.png',);
+    final ByteData dataMarwa = await rootBundle.load(
+      'assets/images/Marwa.png',
+    );
     imageMarwa = await loadImage(new Uint8List.view(dataMarwa.buffer));
   }
 
@@ -90,8 +92,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                             count++;
                             start = true;
                           });
-                        }
-                        else {
+                        } else {
                           showDialog(
                               context: context,
                               builder: (BuildContext context) {
@@ -126,8 +127,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                             count++;
                             start = true;
                           });
-                        }
-                        else{
+                        } else {
                           showDialog(
                               context: context,
                               builder: (BuildContext context) {
@@ -239,11 +239,13 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
     super.dispose();
   }
 }
+
 class AlertDialogSie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Column(mainAxisSize: MainAxisSize.min,
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
@@ -260,7 +262,9 @@ class AlertDialogSie extends StatelessWidget {
             color: Theme.of(context).accentColor,
             size: 50.0,
           ),
-          SizedBox(height: 2.0,),
+          SizedBox(
+            height: 2.0,
+          ),
           Text("আলহামদুল্লিহ!"),
           Text(" আপনার সা'ঈ সম্পন্ন হয়েছে ।"),
         ],

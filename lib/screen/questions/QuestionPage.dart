@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/QuestionWidget.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
-import 'QuestionDetailPage.dart';
 class QuestionPage extends StatelessWidget {
   QuestionCategory questionCategory;
 
   QuestionPage(
-      this.questionCategory,
-      );
+    this.questionCategory,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +27,11 @@ class QuestionPage extends StatelessWidget {
   }
 }
 
-
 class SampleAppPage extends StatefulWidget {
   QuestionCategory question_category;
+
   SampleAppPage(this.question_category);
+
   @override
   _SampleAppPageState createState() => _SampleAppPageState();
 }
@@ -53,15 +52,14 @@ class _SampleAppPageState extends State<SampleAppPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body:
-      loading
-        ? _buildCircularProgressIndicator()
-        : ListView.builder(
-            itemCount: data.length,
-            itemBuilder: (context, index) {
-               QuestionDetail question = data[index];
-              return QuestionWidget(question);
-            }));
+        body: loading
+            ? _buildCircularProgressIndicator()
+            : ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  QuestionDetail question = data[index];
+                  return QuestionWidget(question);
+                }));
   }
 
   loadData() async {

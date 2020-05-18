@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
-import 'package:hajjapp/model/MyDua.dart';
-import 'package:hajjapp/provider/CurrentUserProvider.dart';
-import 'package:hajjapp/screen/dua/MyDuaSavingPage.dart';
-import 'package:provider/provider.dart';
-
-import 'ColorChangeWidget.dart';
 
 class BookmarkListItem extends StatelessWidget {
   final Content dua;

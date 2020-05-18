@@ -96,15 +96,13 @@ class PreparationListItem extends StatelessWidget {
                             share(context);
                             break;
                           case 2:
-                            Clipboard.setData(
-                                ClipboardData(text: content.text));
+                            Clipboard.setData(ClipboardData(text: content.text));
                             Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text("ক্লিপবর্ডে কপি করা হয়েছে"),
                             ));
                             break;
                           case 3:
-                            Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(
-                                content.id.toString());
+                            Provider.of<CurrentUserProvider>(context, listen: false).setBookmark(content.id.toString());
                             Scaffold.of(context).showSnackBar(SnackBar(
                               content: Text("বুকমার্ক করা হয়েছে"),
                             ));
@@ -138,6 +136,7 @@ class PreparationListItem extends StatelessWidget {
       ),
     );
   }
+
   void share(BuildContext context) {
     final String text = content.text;
     Share.share(text, subject: text);

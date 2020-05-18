@@ -2,7 +2,6 @@ import 'package:hajjapp/model/DuaTopic.dart';
 import 'package:hajjapp/model/Topic.dart';
 
 class Constants {
-
   static const String ROUTE_LOGIN = "/productDetail";
 
   static const String ROUTE_SINGUP = "/signup";
@@ -32,5 +31,4 @@ class Constants {
       duatopic: "পছন্দ তালিকা",
     ),
   ];
-
 }

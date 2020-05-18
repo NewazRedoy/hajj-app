@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -12,8 +11,10 @@ class SieWidget extends CustomPainter {
   Paint arrowPaint;
   bool start;
 
-  ui.Image imageSafa ;
-  ui.Image imageMarwa ;
+  ui.Image imageSafa;
+
+  ui.Image imageMarwa;
+
   SieWidget(this.count, this.fraction, this.start, this.imageSafa, this.imageMarwa) {
     //this is base circle
 
@@ -32,8 +33,6 @@ class SieWidget extends CustomPainter {
       ..style = PaintingStyle.fill
       ..color = Colors.redAccent
       ..strokeCap = StrokeCap.round;
-
-
   }
 
   @override
@@ -93,14 +92,9 @@ class SieWidget extends CustomPainter {
     final offset = Offset(40, center.dy - 40);
     textPainter.paint(canvas, offset);
 
-
     final textSpan2 = TextSpan(
       text: 'এই স্থানে পুরুষরা\nএকটু দ্রুত হাঁটবেন',
-      style: TextStyle(
-        color: Colors.grey,
-        fontSize: 14,
-        fontFamily: FontFamily.bangla
-      ),
+      style: TextStyle(color: Colors.grey, fontSize: 14, fontFamily: FontFamily.bangla),
     );
     final textPainter2 = TextPainter(
       text: textSpan2,
@@ -114,11 +108,11 @@ class SieWidget extends CustomPainter {
 
     if (imageSafa != null) {
       final imageSize = Size(imageSafa.width.toDouble(), imageSafa.height.toDouble());
-    final src = Offset.zero & imageSize;
-    final dst = Offset.zero.translate(center.dx -15, size.height -50) & size *0.1;
-    canvas.drawImageRect(imageSafa, src, dst, Paint());
+      final src = Offset.zero & imageSize;
+      final dst = Offset.zero.translate(center.dx - 15, size.height - 50) & size * 0.1;
+      canvas.drawImageRect(imageSafa, src, dst, Paint());
 
-      final dstMarwa = Offset.zero.translate(center.dx -15, 10) & size *0.1;
+      final dstMarwa = Offset.zero.translate(center.dx - 15, 10) & size * 0.1;
       canvas.drawImageRect(imageMarwa, src, dstMarwa, Paint());
     }
   }

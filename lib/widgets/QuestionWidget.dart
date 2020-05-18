@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/screen/questions/QuestionDetailPage.dart';
+
 class QuestionWidget extends StatelessWidget {
   QuestionDetail questionanswer;
   QuestionCategory question_category;
-  QuestionWidget(this.questionanswer,);
+
+  QuestionWidget(
+    this.questionanswer,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +28,11 @@ class QuestionWidget extends StatelessWidget {
           ),
           elevation: 1.5,
           child: InkWell(
-            onTap: ()=>Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => QuestionDetailPage(questionanswer),
-              )),
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => QuestionDetailPage(questionanswer),
+                )),
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -42,9 +46,8 @@ class QuestionWidget extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                        questionanswer.question,
+                      questionanswer.question,
                       style: TextStyle(fontSize: 16),
-
                     ),
                   ),
                   Icon(

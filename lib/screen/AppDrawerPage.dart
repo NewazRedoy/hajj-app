@@ -24,16 +24,13 @@ class _DrawerPageState extends State<DrawerPage> {
     await FlutterEmailSender.send(email);
   }
 
-
   Future<void> launched;
 
   String launchFBUrl = 'https://m.facebook.com/GreenTech0';
 
-  String launchPlayUrl =
-      'https://play.google.com/store/apps/details?id=com.greentech.muslimscholars';
+  String launchPlayUrl = 'https://play.google.com/store/apps/details?id=com.greentech.muslimscholars';
 
-  String launchPlayRateUrl =
-      'https://play.google.com/store/apps/details?id=com.greentech.muslimscholars';
+  String launchPlayRateUrl = 'https://play.google.com/store/apps/details?id=com.greentech.muslimscholars';
 
   Future<void> _launch(String url) async {
     if (await canLaunch(url)) {
@@ -46,6 +43,7 @@ class _DrawerPageState extends State<DrawerPage> {
       throw 'Could not launch $url';
     }
   }
+
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<CurrentUserProvider>(context).user;
@@ -53,28 +51,47 @@ class _DrawerPageState extends State<DrawerPage> {
       child: Drawer(
         child: ListView(
           children: <Widget>[
-
-            DrawerHeader(decoration: BoxDecoration(color: Theme.of(context).primaryColor),
-                child: Column(children: [
-                  user == null
-                      ?  Column(
-                        children: [
-                          CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
-                          SizedBox(height: 12.0,),
-                          Text("Not Logged In",textAlign: TextAlign.center,),
-                          Text("",textAlign: TextAlign.center,),
-                        ],
-                      )
-              : Column(
-                    children: [
-                      CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
-                      SizedBox(height: 12.0,),
-                      Text(user.firstName ?? ""),
-                      Text("Macca,Saudi Arabia"),
-                    ],
-                  )
-
-            ],)),
+            DrawerHeader(
+                decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+                child: Column(
+                  children: [
+                    user == null
+                        ? Column(
+                            children: [
+                              CircleAvatar(
+                                child: Image.asset(
+                                  "assets/images/Menu-Settings.png",
+                                ),
+                              ),
+                              SizedBox(
+                                height: 12.0,
+                              ),
+                              Text(
+                                "Not Logged In",
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                "",
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              CircleAvatar(
+                                child: Image.asset(
+                                  "assets/images/Menu-Settings.png",
+                                ),
+                              ),
+                              SizedBox(
+                                height: 12.0,
+                              ),
+                              Text(user.firstName ?? ""),
+                              Text("Macca,Saudi Arabia"),
+                            ],
+                          )
+                  ],
+                )),
 //            user == null
 //                ? UserAccountsDrawerHeader(
 //                    currentAccountPicture: CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
@@ -94,18 +111,32 @@ class _DrawerPageState extends State<DrawerPage> {
               title: Text("লগআউট"),
             ),
             ListTile(
-              leading: Image.asset("assets/images/Menu-Settings.png",height: 20,width: 20,),
+              leading: Image.asset(
+                "assets/images/Menu-Settings.png",
+                height: 20,
+                width: 20,
+              ),
               title: Text("সেটিংস"),
-              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings())),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Settings())),
             ),
 
             ListTile(
-              leading: Image.asset("assets/images/Menu-Rating&Review.png",height: 20,width: 20,),
+              leading: Image.asset(
+                "assets/images/Menu-Rating&Review.png",
+                height: 20,
+                width: 20,
+              ),
               title: Text("রেটিং এবং রিভিউ"),
-              onTap: () { _launch(launchPlayRateUrl);},
+              onTap: () {
+                _launch(launchPlayRateUrl);
+              },
             ),
             ListTile(
-              leading: Image.asset("assets/images/Menu-About-Us.png",height: 20,width: 20,),
+              leading: Image.asset(
+                "assets/images/Menu-About-Us.png",
+                height: 20,
+                width: 20,
+              ),
               title: Text("আমাদের সম্পর্কে"),
               onTap: () {
                 Navigator.push(
@@ -117,14 +148,22 @@ class _DrawerPageState extends State<DrawerPage> {
               },
             ),
             ListTile(
-              leading: Image.asset("assets/images/Menu-Share.png",height: 20,width: 20,),
+              leading: Image.asset(
+                "assets/images/Menu-Share.png",
+                height: 20,
+                width: 20,
+              ),
               title: Text("শেয়ার করুন"),
               onTap: () {
                 share(context);
               },
             ),
             ListTile(
-                leading: Image.asset("assets/images/Menu-Bookmarks.png",height: 20,width: 20,),
+                leading: Image.asset(
+                  "assets/images/Menu-Bookmarks.png",
+                  height: 20,
+                  width: 20,
+                ),
                 title: Text("বুকমার্ক"),
                 onTap: () {
                   Navigator.push(
@@ -133,13 +172,17 @@ class _DrawerPageState extends State<DrawerPage> {
                       builder: (context) => BookmarkPage(),
                     ),
                   );
-                }
-            ),
+                }),
             ListTile(
-              leading: Image.asset("assets/images/Menu-Contact.png",height: 20,width: 20,),
-              title: Text("যোগাযোগ"),
-              onTap: () {send();}
-            ),
+                leading: Image.asset(
+                  "assets/images/Menu-Contact.png",
+                  height: 20,
+                  width: 20,
+                ),
+                title: Text("যোগাযোগ"),
+                onTap: () {
+                  send();
+                }),
           ],
         ),
       ),
@@ -147,14 +190,10 @@ class _DrawerPageState extends State<DrawerPage> {
   }
 
   void share(BuildContext context) {
-    final String text ="Muslim Scholars & Companios is the ultimate collection of biographies "
+    final String text = "Muslim Scholars & Companios is the ultimate collection of biographies "
         "having birth/death,narrator grade,family members and tags to inspire us to learn about them."
         "\n\nGet it now at Google Play Store:"
-        '\nhttps://goo.gl/80yGtV'
-    ;
-    Share.share(text,
-        subject: text);
-
+        '\nhttps://goo.gl/80yGtV';
+    Share.share(text, subject: text);
   }
 }
-

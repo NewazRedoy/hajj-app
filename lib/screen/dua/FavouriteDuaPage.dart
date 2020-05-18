@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/DuaTopicListItem.dart';
@@ -45,14 +44,18 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
         ),
         body: loading
             ? _buildCircularProgressIndicator()
-            :
-        data.isEmpty ?  Container(child: Center(child: Text("No Dua found"),),):
-        ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  return DuaTopicListItem(index + 1, data[index]);
-                },
-              ),
+            : data.isEmpty
+                ? Container(
+                    child: Center(
+                      child: Text("No Dua found"),
+                    ),
+                  )
+                : ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      return DuaTopicListItem(index + 1, data[index]);
+                    },
+                  ),
       );
     });
   }

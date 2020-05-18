@@ -15,7 +15,7 @@ import 'package:hajjapp/repository/RepositoryInterface.dart';
 import 'package:provider/provider.dart';
 
 // singleton class to manage the database
-class DataProvider extends ChangeNotifier implements RepositoryInterface{
+class DataProvider extends ChangeNotifier implements RepositoryInterface {
   // This is the actual database filename that is saved in the docs directory.
 
   var dbLoading = true;
@@ -40,7 +40,7 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface{
 
   @override
   Future<List<SentencesCategory>> queryAllSentenceCategories() {
-   return repository.queryAllSentenceCategories();
+    return repository.queryAllSentenceCategories();
   }
 
   @override

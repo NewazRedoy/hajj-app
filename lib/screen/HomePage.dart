@@ -10,8 +10,6 @@ import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/TopicGridItem.dart';
 
-
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -49,9 +47,13 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Expanded(
-                          child: TopicGridItem(topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'), image: "assets/images/Umrah-Kaba.png")),
+                          child: TopicGridItem(
+                              topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'),
+                              image: "assets/images/Umrah-Kaba.png")),
                       Expanded(
-                          child: TopicGridItem(topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'), image: "assets/images/Hajj-Arafah.png")),
+                          child: TopicGridItem(
+                              topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'),
+                              image: "assets/images/Hajj-Arafah.png")),
                     ],
                   ),
                 ),
@@ -68,7 +70,9 @@ class _HomePageState extends State<HomePage> {
                             if (topic.topic_id < 7) {
                               return SubtopicListPage(topic: topic);
                             } else if (topic.topic_id == 8) {
-                              return TawafCountPage(topic,);
+                              return TawafCountPage(
+                                topic,
+                              );
                             } else if (topic.topic_id == 9) {
                               return SaiCount(topic);
                             } else if (topic.topic_id == 10) {

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
-import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/BookmarkListItem.dart';
-import 'package:hajjapp/widgets/DuaTopicListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:provider/provider.dart';
 
@@ -47,14 +45,18 @@ class _BookmarkPageState extends State<BookmarkPage> {
         ),
         body: loading
             ? _buildCircularProgressIndicator()
-            :
-        data.isEmpty ?  Container(child: Center(child: Text("No bookmark found"),),):
-        ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  return BookmarkListItem( data[index]);
-                },
-              ),
+            : data.isEmpty
+                ? Container(
+                    child: Center(
+                      child: Text("No bookmark found"),
+                    ),
+                  )
+                : ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      return BookmarkListItem(data[index]);
+                    },
+                  ),
       );
     });
   }

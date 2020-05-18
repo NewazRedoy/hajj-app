@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/SignupPage.dart';
-import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/util/Validator.dart';
 import 'package:provider/provider.dart';
 
@@ -80,7 +79,6 @@ class _LoginPageState extends State<LoginPage> {
                         padding: EdgeInsets.all(16),
                         onPressed: () {
                           if (_registerFormKey.currentState.validate()) {
-
                             model.loginUsingUsernamePassword(
                                 context, emailInputController.text, pwdInputController.text);
                           }
@@ -90,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                       Center(
                         child: InkWell(
                           onTap: () => {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignupPage()))
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignupPage()))
                           },
                           child: RichText(
                             text: TextSpan(

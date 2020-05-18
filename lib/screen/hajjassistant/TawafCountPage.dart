@@ -20,8 +20,7 @@ class TawafCountPage extends StatefulWidget {
   _TawafCountPageState createState() => _TawafCountPageState();
 }
 
-class _TawafCountPageState extends State<TawafCountPage>
-    with SingleTickerProviderStateMixin {
+class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProviderStateMixin {
   double _fraction = 0.0;
   Animation<double> animation;
   int count = 0;
@@ -31,8 +30,7 @@ class _TawafCountPageState extends State<TawafCountPage>
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: Duration(milliseconds: 2000), vsync: this);
+    controller = AnimationController(duration: Duration(milliseconds: 2000), vsync: this);
 
     animation = Tween(begin: 0.0, end: 1.0).animate(controller)
       ..addListener(() {
@@ -50,8 +48,7 @@ class _TawafCountPageState extends State<TawafCountPage>
   Widget build(BuildContext context) {
     if (count > 0 && count <= 7 && !controller.isAnimating)
       controller.repeat();
-    else if ((count == 0 || count == 7) && controller.isAnimating)
-      controller.stop();
+    else if ((count == 0 || count == 7) && controller.isAnimating) controller.stop();
 
     return Scaffold(
       appBar: AppBar(
@@ -67,8 +64,7 @@ class _TawafCountPageState extends State<TawafCountPage>
           children: <Widget>[
             Container(
               alignment: Alignment.topCenter,
-              child: Text(
-                  "প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন"),
+              child: Text("প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন"),
             ),
             SizedBox(
               height: 6,
@@ -88,8 +84,7 @@ class _TawafCountPageState extends State<TawafCountPage>
               padding: EdgeInsets.only(left: 50.0, right: 50.0),
               width: MediaQuery.of(context).size.width,
               height: 400,
-              child: CustomPaint(
-                  foregroundPainter: TawafWidget(count, _fraction, context)),
+              child: CustomPaint(foregroundPainter: TawafWidget(count, _fraction, context)),
             ),
             Container(
                 padding: EdgeInsets.only(left: 40.0, right: 50.0),
@@ -135,12 +130,10 @@ class _TawafCountPageState extends State<TawafCountPage>
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              DuaDetailPage(DuaCategory(id: 5, name: "adas")),
+                          builder: (context) => DuaDetailPage(DuaCategory(id: 5, name: "adas")),
                         ));
                   },
-                  child: Padding(
-                      padding: EdgeInsets.all(5), child: Text("দু'আ তালিকা")),
+                  child: Padding(padding: EdgeInsets.all(5), child: Text("দু'আ তালিকা")),
                 ),
                 count == 0
                     ? RaisedButton(
@@ -235,7 +228,8 @@ class AlertDialogTawaf extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Column(mainAxisSize: MainAxisSize.min,
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
@@ -252,7 +246,9 @@ class AlertDialogTawaf extends StatelessWidget {
             color: Theme.of(context).accentColor,
             size: 50.0,
           ),
-          SizedBox(height: 2.0,),
+          SizedBox(
+            height: 2.0,
+          ),
           Text("আলহামদুল্লিহ!"),
           Text(" আপনার তাওয়াফ সম্পন্ন হয়েছে ।"),
         ],

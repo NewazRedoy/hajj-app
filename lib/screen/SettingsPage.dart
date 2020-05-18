@@ -9,6 +9,7 @@ class _SettingsState extends State<Settings> {
   double size = 0.0;
   double size1 = 0.0;
   double size2 = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,11 +20,13 @@ class _SettingsState extends State<Settings> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-
-            Center(child: Text("টেক্রট সাইজ",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),)),
-
-
-            Padding(padding: EdgeInsets.all(18.0),
+            Center(
+                child: Text(
+              "টেক্রট সাইজ",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            )),
+            Padding(
+              padding: EdgeInsets.all(18.0),
               child: Column(
                 children: [
                   Text("বাংলা"),
@@ -70,7 +73,6 @@ class _SettingsState extends State<Settings> {
                 ],
               ),
             ),
-
           ],
         ),
       ),
