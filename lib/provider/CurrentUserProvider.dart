@@ -128,6 +128,8 @@ class AuthProvider extends ChangeNotifier {
     showProgressDialog(context, "Signing Up");
 
     FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password).then((authResult) async {
+      print(authResult);
+      Navigator.of(context).pop();
       if (authResult.user != null) {
         _user = User(
             id: authResult.user.uid,
@@ -139,6 +141,8 @@ class AuthProvider extends ChangeNotifier {
         prefs.setString("user", _user.toJson());
 
         _status = Status.Authenticated;
+        notifyListeners();
+
       } else {
         _status = Status.Login;
         notifyListeners();

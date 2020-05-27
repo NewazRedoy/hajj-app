@@ -60,9 +60,12 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    if (count > 0 && count <= 7 && !controller.isAnimating)
+    if (start && count >= 0 && count <= 7 && !controller.isAnimating) {
       controller.repeat();
-    else if ((count == 0 || count == 7) && controller.isAnimating) controller.stop();
+    }
+    else if (start && (count == 7) && controller.isAnimating) {
+      controller.stop();
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.topic.name),
@@ -84,7 +87,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                 shape: RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(8.0),
                 ),
-                onPressed: start && count % 2 == 0
+                onPressed: start && count % 2 != 0
                     ? null
                     : () {
                         if (count < 7) {
@@ -92,12 +95,14 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                             count++;
                             start = true;
                           });
-                        } else {
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialogSie();
-                              });
+
+                          if (count == 7) {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialogSie();
+                                });
+                          }
                         }
                       },
                 child: Text("মারওয়া")),
@@ -119,7 +124,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                 shape: RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(8.0),
                 ),
-                onPressed: start && count % 2 != 0
+                onPressed: start && count % 2 == 0
                     ? null
                     : () {
                         if (count < 7) {
@@ -127,12 +132,13 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                             count++;
                             start = true;
                           });
-                        } else {
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialogSie();
-                              });
+                          if(count==7) {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialogSie();
+                                });
+                          }
                         }
                       },
                 child: Text("সাফা")),
@@ -151,15 +157,15 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                           ));
                     },
                     child: Text("দু'আ তালিকা")),
-                count == 0
+                !start
                     ? RaisedButton(
                         padding: EdgeInsets.all(2),
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        color: Colors.red,
+                        color: Colors.green,
                         shape: StadiumBorder(),
                         onPressed: () {
                           setState(() {
-                            count++;
+//                            count++;
                             start = true;
                           });
                         },
@@ -169,7 +175,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                                 backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.arrow_upward,
-                                  color: Colors.red,
+                                  color: Colors.green,
                                 )),
                             SizedBox(
                               width: 8,

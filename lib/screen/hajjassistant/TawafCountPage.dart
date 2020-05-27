@@ -105,12 +105,14 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
                   setState(() {
                     count++;
                   });
-                } else {
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialogTawaf();
-                      });
+
+                  if(count==7) {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialogTawaf();
+                        });
+                  }
                 }
               },
               child: Text("হাজরে আসওয়াদের কাছে পৌঁছেছেন"),
@@ -139,7 +141,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
                     ? RaisedButton(
                         padding: EdgeInsets.all(2),
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        color: Colors.red,
+                        color: Colors.green,
                         shape: StadiumBorder(),
                         onPressed: () {
                           setState(() {
@@ -153,7 +155,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
                                 backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.arrow_upward,
-                                  color: Colors.red,
+                                  color: Colors.green,
                                 )),
                             SizedBox(
                               width: 8,

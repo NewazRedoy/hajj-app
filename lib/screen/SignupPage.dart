@@ -96,15 +96,6 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 14.0),
-                        Center(
-                          child: FlatButton(
-                              onPressed: () => {
-//                              launch(
-//                                  'https://ultracoralaustralia.com/coral/partner-registration/')
-                                  },
-                              child: Text('Register for a partner/পার্টনার অ্যাকাউন্ট রেজিষ্টার করুন')),
-                        ),
                       ],
                     ),
                   )),
