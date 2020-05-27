@@ -64,7 +64,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
           children: <Widget>[
             Container(
               alignment: Alignment.topCenter,
-              child: Text("প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন"),
+              child: Text("প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন", style: TextStyle(fontWeight: FontWeight.bold),),
             ),
             SizedBox(
               height: 6,

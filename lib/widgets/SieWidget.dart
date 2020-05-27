@@ -48,7 +48,7 @@ class SieWidget extends CustomPainter {
     canvas.drawRect(rect, outerCircle);
 
     if (start && count > 0 && count < 7) {
-      if (count % 2 == 0) {
+      if (count % 2 != 0) {
         // Draw the arrow.
         const double w = 8.0;
         double h = 5.0;

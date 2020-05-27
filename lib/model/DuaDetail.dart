@@ -6,8 +6,9 @@ class Dua {
   String arabic;
   String bangla;
   String transliteration;
+  String reference;
 
-  Dua({this.id, this.category_id, this.arabic, this.bangla, this.transliteration});
+  Dua({this.id, this.category_id, this.arabic, this.bangla, this.transliteration, this.reference});
 
   factory Dua.fromRawJson(String str) => Dua.fromJson(json.decode(str));
 
@@ -19,6 +20,7 @@ class Dua {
         bangla: json["bangla"],
         arabic: json["arabic"],
         transliteration: json["transliteration"],
+        reference: json["reference"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -26,6 +28,6 @@ class Dua {
         "category_id": category_id,
         "arabic": arabic,
         "bangla": bangla,
-        "transliteration": transliteration,
+        "reference": reference,
       };
 }

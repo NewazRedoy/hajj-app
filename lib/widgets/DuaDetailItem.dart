@@ -98,6 +98,13 @@ class DuaDetailItem extends StatelessWidget {
               style: TextStyle(fontSize: 14.0),
             ),
           ),
+          Container(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              allDuatopic.transliteration ?? "",
+              style: TextStyle(fontSize: 14.0, color: Colors.grey),
+            ),
+          ),
         ]),
       ),
     );

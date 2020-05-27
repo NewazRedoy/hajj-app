@@ -186,6 +186,12 @@ class _ContentListItemState extends State<ContentListItem> {
                   textDirection: TextDirection.ltr,
                 ),
               ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(widget.content.text, textDirection: TextDirection.ltr,)
+              ),
+              Divider(),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Wrap(

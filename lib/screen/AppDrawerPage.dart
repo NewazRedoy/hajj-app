@@ -107,6 +107,8 @@ class _DrawerPageState extends State<DrawerPage> {
 //                ),
             ListTile(
               leading: Icon(Icons.person),
+onTap: ()=> Provider.of<AuthProvider>(context, listen: false).signOut(),
+
 //              leading: Image.asset("assets/images/Menu-Settings.png",height: 20,width: 20,),
               title: Text("লগআউট"),
             ),

@@ -19,7 +19,11 @@ class _BookmarkPageState extends State<BookmarkPage> {
   void initState() {
     super.initState();
 
-//    loadData();
+  }
+
+  @override
+  void didChangeDependencies() {
+   loadData();
   }
 
   loadData() async {
@@ -34,11 +38,9 @@ class _BookmarkPageState extends State<BookmarkPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthProvider>(builder: (context, model, widget) {
-      if (model.favDuaId.isNotEmpty) loadData();
-
       return Scaffold(
         appBar: AppBar(
-          title: Text("সব দু'আ"),
+          title: Text("Bookmarks"),
           actions: <Widget>[
             SearchSettings(),
           ],
