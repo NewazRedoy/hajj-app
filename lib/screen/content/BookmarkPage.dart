@@ -40,7 +40,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
     return Consumer<AuthProvider>(builder: (context, model, widget) {
       return Scaffold(
         appBar: AppBar(
-          title: Text("Bookmarks"),
+          title: Text("বুকমার্ক"),
           actions: <Widget>[
             SearchSettings(),
           ],
@@ -50,7 +50,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
             : data.isEmpty
                 ? Container(
                     child: Center(
-                      child: Text("No bookmark found"),
+                      child: Text("কোন বুকমার্ক পাওয়া যায়নি"),
                     ),
                   )
                 : ListView.builder(
