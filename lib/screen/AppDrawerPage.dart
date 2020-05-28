@@ -59,12 +59,8 @@ class _DrawerPageState extends State<DrawerPage> {
                         ? Column(
                             children: [
                               CircleAvatar(
-                                child: Image.asset(
-                                  "assets/images/Menu-Settings.png",
-                                ),
-                              ),
-                              SizedBox(
-                                height: 12.0,
+                                radius: 40.0,
+                                backgroundImage: AssetImage("assets/images/Menu-Settings.png"),
                               ),
                               Text(
                                 "লগইন করা নাই",
@@ -79,12 +75,9 @@ class _DrawerPageState extends State<DrawerPage> {
                         : Column(
                             children: [
                               CircleAvatar(
-                                child: Image.asset(
-                                  "assets/images/Menu-Settings.png",
-                                ),
-                              ),
-                              SizedBox(
-                                height: 12.0,
+                                radius: 40.0,
+                                backgroundImage: AssetImage("assets/images/character.jpg"),
+
                               ),
                               Text(user.firstName ?? ""),
                               Text("Macca,Saudi Arabia"),
@@ -92,24 +85,11 @@ class _DrawerPageState extends State<DrawerPage> {
                           )
                   ],
                 )),
-//            user == null
-//                ? UserAccountsDrawerHeader(
-//                    currentAccountPicture: CircleAvatar(child: Image.asset("assets/images/Menu-Settings.png",),),
-//                    accountName: Container(width: double.infinity,child: Text("Not Logged In",textAlign: TextAlign.center,)),
-//                    accountEmail: Text("",textAlign: TextAlign.center,),
-//                  )
-//                : Container(
-//                  child: UserAccountsDrawerHeader(
-//                      currentAccountPicture: CircleAvatar(),
-//                      accountName: Text(user.firstName ?? ""),
-//                      accountEmail: Text("Macca,Saudi Arabia"),
-//                    ),
-//                ),
+
             ListTile(
               leading: Icon(Icons.person),
 onTap: ()=> Provider.of<AuthProvider>(context, listen: false).signOut(),
 
-//              leading: Image.asset("assets/images/Menu-Settings.png",height: 20,width: 20,),
               title: Text("লগআউট"),
             ),
             ListTile(
