@@ -67,7 +67,7 @@ class _DrawerPageState extends State<DrawerPage> {
                                 height: 12.0,
                               ),
                               Text(
-                                "Not Logged In",
+                                "লগইন করা নাই",
                                 textAlign: TextAlign.center,
                               ),
                               Text(
