@@ -39,7 +39,7 @@ class ListPageItem extends StatelessWidget {
                 Expanded(
                   child: Text(
                     name,
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
                 Icon(

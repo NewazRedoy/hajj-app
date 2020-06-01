@@ -132,7 +132,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DuaDetailPage(DuaCategory(id: 5, name: "adas")),
+                          builder: (context) => DuaDetailPage(DuaCategory(id: 4, name: "হাজরে আসওয়াদের কাছে আসলে")),
                         ));
                   },
                   child: Padding(padding: EdgeInsets.all(5), child: Text("দু'আ তালিকা")),

@@ -16,8 +16,8 @@ class _FavouriteDuaPageState extends State<FavouriteDuaPage> {
 
   @override
   void didChangeDependencies() {
-super.didChangeDependencies();
-loadData();
+    super.didChangeDependencies();
+    loadData();
   }
 
   loadData() async {
@@ -32,8 +32,6 @@ loadData();
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthProvider>(builder: (context, model, widget) {
-      if (model.favDuaId.isNotEmpty) loadData();
-
       return Scaffold(
         appBar: AppBar(
           title: Text("পছন্দ তালিকা"),

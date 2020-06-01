@@ -30,6 +30,7 @@ class _DuaDetailPageState extends State<DuaDetailPage> {
 
   loadData() async {
     var content = await DataProvider.of(context).queryDuaByCategoryId(widget.allDuaCategory.id);
+    print(widget.allDuaCategory.id);
     setState(() {
       data = content;
       loading = false;

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
+import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/BookmarkListItem.dart';
+import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:provider/provider.dart';
+
+import 'ContentDetailListPage.dart';
 
 class BookmarkPage extends StatefulWidget {
   @override
@@ -12,7 +16,7 @@ class BookmarkPage extends StatefulWidget {
 }
 
 class _BookmarkPageState extends State<BookmarkPage> {
-  List<Content> data = [];
+  List<Subtopic> data = [];
   var loading = true;
 
   @override
@@ -55,8 +59,14 @@ class _BookmarkPageState extends State<BookmarkPage> {
                   )
                 : ListView.builder(
                     itemCount: data.length,
-                    itemBuilder: (context, index) {
-                      return BookmarkListItem(data[index]);
+                    itemBuilder: (context, position) {
+                      return ListPageItem((position + 1), data[position].name, () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ContentDetailListPage(data[position]),
+                            ));
+                      });
                     },
                   ),
       );

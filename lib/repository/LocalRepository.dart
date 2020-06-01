@@ -249,10 +249,10 @@ class LocalRepository implements RepositoryInterface {
   }
 
   @override
-  Future<List<Content>> queryBookmarkedContent(List<String> ids) async {
+  Future<List<Subtopic>> queryBookmarkedContent(List<String> ids) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select rowid, * from Content where rowid in (${ids.join(",")})");
-    return maps.map((e) => Content.fromMap(e)).toList();
+    List<Map> maps = await db.rawQuery("select Subtopic.topic_id, Subtopic.subtopic_id, Subtopic.name_en from Subtopic, Content where Content.rowid in (${ids.join(",")}) and Content.subtopic_id = Subtopic.subtopic_id and Content.topic_id = Subtopic.topic_id");
+    return maps.map((e) => Subtopic.fromJson(e)).toList();
   }
 
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/model/DuaDetail.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/util/FontFamily.dart';
 import 'package:provider/provider.dart';
 
@@ -80,14 +81,14 @@ class DuaDetailItem extends StatelessWidget {
             child: Text(
               allDuatopic.arabic,
               textDirection: TextDirection.rtl,
-              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, fontFamily: FontFamily.arabic),
+              style: TextStyle(fontSize: DataProvider.of(context).arabicFontSize, fontWeight: FontWeight.bold, fontFamily: FontFamily.arabic),
             ),
           ),
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               allDuatopic.bangla ?? "",
-              style: TextStyle(fontSize: 14.0),
+              style: TextStyle(fontSize: DataProvider.of(context).banglaFontSize),
             ),
           ),
           Divider(),
@@ -95,14 +96,14 @@ class DuaDetailItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               allDuatopic.transliteration,
-              style: TextStyle(fontSize: 14.0),
+              style: TextStyle(fontSize: DataProvider.of(context).banglaFontSize),
             ),
           ),
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               allDuatopic.transliteration ?? "",
-              style: TextStyle(fontSize: 14.0, color: Colors.grey),
+              style: TextStyle(fontSize: DataProvider.of(context).banglaFontSize, color: Colors.grey),
             ),
           ),
         ]),

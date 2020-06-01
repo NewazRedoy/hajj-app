@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/questions/QuestionDetailPage.dart';
 
 class QuestionWidget extends StatelessWidget {
@@ -47,7 +48,7 @@ class QuestionWidget extends StatelessWidget {
                   Expanded(
                     child: Text(
                       questionanswer.question,
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                   Icon(

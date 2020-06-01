@@ -62,8 +62,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     if (start && count >= 0 && count <= 7 && !controller.isAnimating) {
       controller.repeat();
-    }
-    else if (start && (count == 7) && controller.isAnimating) {
+    } else if (start && (count == 7) && controller.isAnimating) {
       controller.stop();
     }
     return Scaffold(
@@ -90,18 +89,20 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                 onPressed: start && count % 2 != 0
                     ? null
                     : () {
-                        if (count < 7) {
-                          setState(() {
-                            count++;
-                            start = true;
-                          });
+                        if (start) {
+                          if (count < 7) {
+                            setState(() {
+                              count++;
+                              start = true;
+                            });
 
-                          if (count == 7) {
-                            showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialogSie();
-                                });
+                            if (count == 7) {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialogSie();
+                                  });
+                            }
                           }
                         }
                       },
@@ -127,17 +128,19 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                 onPressed: start && count % 2 == 0
                     ? null
                     : () {
-                        if (count < 7) {
-                          setState(() {
-                            count++;
-                            start = true;
-                          });
-                          if(count==7) {
-                            showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialogSie();
-                                });
+                        if (start) {
+                          if (count < 7) {
+                            setState(() {
+                              count++;
+                              start = true;
+                            });
+                            if (count == 7) {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialogSie();
+                                  });
+                            }
                           }
                         }
                       },
@@ -153,7 +156,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DuaDetailPage(DuaCategory(id: 6, name: "adas")),
+                            builder: (context) => DuaDetailPage(DuaCategory(id: 6, name: "সাফা ও মারওয়ায় দাঁড়িয়ে দো‘আ")),
                           ));
                     },
                     child: Text("দু'আ তালিকা")),

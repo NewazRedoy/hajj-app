@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 
 class QuestionAnswerDetailItem extends StatelessWidget {
   QuestionDetail questionanswer;
@@ -23,7 +24,7 @@ class QuestionAnswerDetailItem extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Text(
               questionanswer.question,
-              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: DataProvider.of(context).banglaFontSize, fontWeight: FontWeight.bold),
             ),
           ),
           Divider(),
@@ -31,7 +32,7 @@ class QuestionAnswerDetailItem extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Text(
               questionanswer.answer,
-              style: TextStyle(fontSize: 14.0),
+              style: TextStyle(fontSize: DataProvider.of(context).banglaFontSize),
             ),
           ),
         ]),

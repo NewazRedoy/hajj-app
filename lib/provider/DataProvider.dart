@@ -41,14 +41,12 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
   }
 
   double arabicFontSize = 20;
-  double englishFontSize = 20;
   double banglaFontSize = 20;
 
 
   _read() async {
     var prefs = await SharedPreferences.getInstance();
     arabicFontSize = prefs.getDouble("arabicFontSize") ?? arabicFontSize;
-    englishFontSize = prefs.getDouble("englishFontSize") ?? englishFontSize;
     banglaFontSize = prefs.getDouble("banglaFontSize") ?? banglaFontSize;
   }
 
@@ -73,7 +71,7 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
   }
 
   @override
-  Future<List<Content>> queryBookmarkedContent(List<String> ids) {
+  Future<List<Subtopic>> queryBookmarkedContent(List<String> ids) {
     return repository.queryBookmarkedContent(ids);
   }
 
@@ -121,11 +119,9 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
   void updateFont({double arValue, double enValue, double bnValue}) async {
     arabicFontSize = arValue ?? arabicFontSize;
     banglaFontSize = bnValue ?? banglaFontSize;
-    englishFontSize = enValue ?? englishFontSize;
 
     var prefs = await SharedPreferences.getInstance();
     prefs.setDouble("arabicFontSize", arabicFontSize);
-    prefs.setDouble("englishFontSize", englishFontSize);
     prefs.setDouble("banglaFontSize", banglaFontSize);
     notifyListeners();
   }

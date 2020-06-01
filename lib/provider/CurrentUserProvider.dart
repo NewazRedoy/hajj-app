@@ -33,6 +33,7 @@ class AuthProvider extends ChangeNotifier {
     }
 
     fetchFavDuas();
+    fetchBookmark();
   }
 
   User _user;
@@ -199,6 +200,12 @@ class AuthProvider extends ChangeNotifier {
     favDuaId = prefs.getStringList("fav") ?? [];
   }
 
+  Future<void> fetchBookmark() async {
+    var prefs = await SharedPreferences.getInstance();
+
+    bookmarkId = prefs.getStringList("bookmark") ?? [];
+  }
+
   Future<void> setFavDuas(String string) async {
     var prefs = await SharedPreferences.getInstance();
 
@@ -209,12 +216,6 @@ class AuthProvider extends ChangeNotifier {
     }
 
     prefs.setStringList("fav", favDuaId);
-  }
-
-  Future<void> fetchBookmark() async {
-    var prefs = await SharedPreferences.getInstance();
-
-    bookmarkId = prefs.getStringList("bookmark") ?? [];
   }
 
   Future<void> setBookmark(String string) async {

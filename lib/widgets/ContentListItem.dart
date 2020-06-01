@@ -46,88 +46,30 @@ class _ContentListItemState extends State<ContentListItem> {
             children: [
               Container(
                 height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                      width: 4,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-//                      child: Text(
-//                        Localise.fromString(widget.content.content_id.toString()),
-//                        style: TextStyle(color: Colors.black, fontSize: 16),
-//                      ),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Expanded(
-                      child: Text(
-                        widget.content.title ?? "",
-                        style: TextStyle(fontSize: 20),
+                child: widget.content.title != null
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                            width: 4,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Expanded(
+                            child: Text(
+                              widget.content.title,
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                          buildPopupMenuButton(context),
+                        ],
+                      )
+                    : Align(
+                        alignment: Alignment.topRight,
+                        child: buildPopupMenuButton(context),
                       ),
-                    ),
-                    PopupMenuButton(
-                      itemBuilder: (BuildContext context) {
-                        return [
-                          PopupMenuItem(
-                              value: 1,
-                              child: ListTile(
-                                leading: Image.asset(
-                                  "assets/images/More-Vert-Share.png",
-                                  height: 20,
-                                  width: 20,
-                                ),
-                                title: Text("শেয়ার করুন"),
-                              )),
-                          PopupMenuItem(
-                              value: 2,
-                              child: ListTile(
-                                leading: Image.asset(
-                                  "assets/images/More-Vert-Copy.png",
-                                  height: 20,
-                                  width: 20,
-                                ),
-                                title: Text("কপি"),
-                              )),
-                          PopupMenuItem(
-                              value: 3,
-                              child: ListTile(
-                                leading: Image.asset(
-                                  "assets/images/Menu-Bookmarks.png",
-                                  height: 20,
-                                  width: 20,
-                                ),
-                                title: Text("বুকমার্ক"),
-                              )),
-                        ];
-                      },
-                      // ignore: missing_return
-                      onSelected: (value) {
-                        print("value:$value");
-                        switch (value) {
-                          case 1:
-                            share(context);
-                            break;
-                          case 2:
-                            Clipboard.setData(ClipboardData(text: widget.content.text));
-                            Scaffold.of(context).showSnackBar(SnackBar(
-                              content: Text("ক্লিপবর্ডে কপি করা হয়েছে"),
-                            ));
-                            break;
-                          case 3:
-                            Provider.of<AuthProvider>(context, listen: false).setBookmark(widget.content.id.toString());
-                            Scaffold.of(context).showSnackBar(SnackBar(
-                              content: Text("বুকমার্ক করা হয়েছে"),
-                            ));
-                            break;
-                        }
-                      },
-                    ),
-                  ],
-                ),
               ),
               Divider(
                 color: Colors.grey,
@@ -169,47 +111,108 @@ class _ContentListItemState extends State<ContentListItem> {
                       ),
                     )
                   : SizedBox(),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: SelectableText.rich(
-                  TextSpan(
-                    children: QuranArabicUtils.highlightArabic(
-                        widget.content.text,
-                        TextStyle(
-                          locale: Locale.fromSubtags(languageCode: "ar"),
-                          fontSize: DataProvider.of(context).arabicFontSize,
-                            color: Colors.red,
-                            fontFamily: FontFamily.arabic
-                        )),
-                  ),
-                  textAlign: TextAlign.justify,
-                  textDirection: TextDirection.ltr,
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(widget.content.text, textDirection: TextDirection.ltr,)
-              ),
-              Divider(),
+//              Padding(
+//                padding: const EdgeInsets.all(16.0),
+//                child: SelectableText.rich(
+//                  TextSpan(
+//                    children: QuranArabicUtils.highlightArabic(
+//                        widget.content.text.replaceAll(RegExp(r'\['),'').replaceAll(RegExp(r'\]'),'').replaceAll(RegExp(r'\﴾'),''),
+//                        TextStyle(
+//                            locale: Locale.fromSubtags(languageCode: "ar"),
+//                            fontSize: DataProvider.of(context).arabicFontSize,
+//                            color: Colors.red,
+//                            fontFamily: FontFamily.arabic)),
+//                  ),
+//                  textAlign: TextAlign.justify,
+//                  textDirection: TextDirection.ltr,
+//                ),
+//              ),
+//              Divider(),
+//              Padding(
+//                  padding: const EdgeInsets.all(16.0),
+//                  child: Text(
+//                    widget.content.text.replaceAll(RegExp(r'\['),'').replaceAll(RegExp(r'\]'),'').replaceAll(RegExp(r'\﴾'),''),
+//                    textDirection: TextDirection.ltr,
+//                      style: TextStyle(
+//                        locale: Locale.fromSubtags(languageCode: "ar")),
+//                  )),
+//              Divider(),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Wrap(
                     children: QuranArabicUtils.highlightArabicWidget(
-                        widget.content.text,
+                        widget.content.text.replaceAll(RegExp(r'\['),'').replaceAll(RegExp(r'\]'),'').replaceAll(RegExp(r'\﴾'),''),
                         TextStyle(
                             locale: Locale.fromSubtags(languageCode: "ar"),
                             fontSize: DataProvider.of(context).arabicFontSize,
-                            color: Colors.red,
-                            fontFamily: FontFamily.arabic
-                        ))
-                ),
+                            color: Colors.blue,
+                            fontFamily: FontFamily.arabic))),
               ),
               SizedBox(height: 6),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  PopupMenuButton<int> buildPopupMenuButton(BuildContext context) {
+    return PopupMenuButton(
+      itemBuilder: (BuildContext context) {
+        return [
+          PopupMenuItem(
+              value: 1,
+              child: ListTile(
+                leading: Image.asset(
+                  "assets/images/More-Vert-Share.png",
+                  height: 20,
+                  width: 20,
+                ),
+                title: Text("শেয়ার করুন"),
+              )),
+          PopupMenuItem(
+              value: 2,
+              child: ListTile(
+                leading: Image.asset(
+                  "assets/images/More-Vert-Copy.png",
+                  height: 20,
+                  width: 20,
+                ),
+                title: Text("কপি"),
+              )),
+          PopupMenuItem(
+              value: 3,
+              child: ListTile(
+                leading: Image.asset(
+                  "assets/images/Menu-Bookmarks.png",
+                  height: 20,
+                  width: 20,
+                ),
+                title: Text("বুকমার্ক"),
+              )),
+        ];
+      },
+      // ignore: missing_return
+      onSelected: (value) {
+        print("value:$value");
+        switch (value) {
+          case 1:
+            share(context);
+            break;
+          case 2:
+            Clipboard.setData(ClipboardData(text: widget.content.text));
+            Scaffold.of(context).showSnackBar(SnackBar(
+              content: Text("ক্লিপবর্ডে কপি করা হয়েছে"),
+            ));
+            break;
+          case 3:
+            Provider.of<AuthProvider>(context, listen: false).setBookmark(widget.content.id.toString());
+            Scaffold.of(context).showSnackBar(SnackBar(
+              content: Text("বুকমার্ক করা হয়েছে"),
+            ));
+            break;
+        }
+      },
     );
   }
 

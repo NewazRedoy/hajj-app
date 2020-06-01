@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class QuranArabicUtils {
-  static final RegExp arabicmatcher = RegExp("[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FF]+");
+  static final RegExp arabicmatcher = RegExp(r"[\u0600-\u06FF :]{3,}");
 
   static bool containArabic(String s) {
     if (s == null) {
@@ -99,6 +99,7 @@ class QuranArabicUtils {
           source.substring(lastMatchEnd, match.end),
           style: style,
           textDirection: TextDirection.rtl,
+
         ));
       } else if (match.start > lastMatchEnd) {
         children.add(Text(
