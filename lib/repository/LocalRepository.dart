@@ -84,7 +84,7 @@ class LocalRepository implements RepositoryInterface {
   // This is the actual database filename that is saved in the docs directory.
 
   LocalRepository() {
-    _initDatabase();
+    initDatabase();
   }
 
   // Only allow a single open connection to the database.
@@ -93,37 +93,40 @@ class LocalRepository implements RepositoryInterface {
   Future<Database> get database async {
     if (_database != null) return _database;
 
-    _database = await _initDatabase();
+    _database = await initDatabase();
 
     return _database;
   }
 
   // open the database
-  _initDatabase() async {
+  initDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, _databaseName);
 
 // Check if the database exists
     var exists = await databaseExists(path);
+    Database db;
 
     if (!exists) {
       print("Creating new copy from asset");
 
       // Make sure the parent directory exists
       await copyDataBaseFromAsset(path);
+      db = await openDatabase(path,  version: _databaseVersion);
+    }else {
+      db = await openDatabase(path, readOnly: true);
     }
 
 // open the database
-    var db = await openDatabase(path, readOnly: true);
     var dbVersion = await db.getVersion();
-    print("Verion compare $dbVersion $_databaseVersion");
-//    if (dbVersion < _databaseVersion) {
-//      print("Creating new copy from asset");
-//      await copyDataBaseFromAsset(path);
-//      db = await openDatabase(path, version: _databaseVersion, readOnly: true);
-//    } else {
-//      print("Opening existing database");
-//    }
+    print("Version compare $dbVersion $_databaseVersion");
+    if (dbVersion < _databaseVersion) {
+      print("Creating new copy from asset as version low");
+      await copyDataBaseFromAsset(path);
+      db = await openDatabase(path, version: _databaseVersion);
+    } else {
+      print("Opening existing database");
+    }
 
     return db;
   }
@@ -244,7 +247,7 @@ class LocalRepository implements RepositoryInterface {
   @override
   Future<List<DuaCategory>> queryFavDuas(List<String> ids) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select * from DuaCategory,Dua where Dua.dua_id in (${ids.join(",")})");
+    List<Map> maps = await db.rawQuery("select * from DuaCategory,Dua where Dua.dua_id in (${ids.join(",")}) and DuaCategory.id = Dua.category_id");
     return maps.map((e) => DuaCategory.fromJson(e)).toList();
   }
 

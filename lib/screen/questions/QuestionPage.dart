@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/widgets/QuestionWidget.dart';
+import 'package:hajjapp/widgets/QuestionListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class QuestionPage extends StatelessWidget {
@@ -58,7 +58,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
                 itemCount: data.length,
                 itemBuilder: (context, index) {
                   QuestionDetail question = data[index];
-                  return QuestionWidget(question);
+                  return QuestionListItem(question);
                 }));
   }
 

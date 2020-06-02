@@ -60,15 +60,15 @@ class _DrawerPageState extends State<DrawerPage> {
                             children: [
                               CircleAvatar(
                                 radius: 40.0,
-                                backgroundImage: AssetImage("assets/images/Menu-Settings.png"),
+                                backgroundImage: AssetImage("assets/images/character.jpg"),
+                              ),
+                              SizedBox(
+                                height: 8,
                               ),
                               Text(
                                 "লগইন করা নাই",
                                 textAlign: TextAlign.center,
-                              ),
-                              Text(
-                                "",
-                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.white),
                               ),
                             ],
                           )
@@ -77,21 +77,21 @@ class _DrawerPageState extends State<DrawerPage> {
                               CircleAvatar(
                                 radius: 40.0,
                                 backgroundImage: AssetImage("assets/images/character.jpg"),
-
+                              ),
+                              SizedBox(
+                                height: 8,
                               ),
                               Text(user.firstName ?? ""),
-                              Text("Macca,Saudi Arabia"),
                             ],
                           )
                   ],
                 )),
-
-            ListTile(
-              leading: Icon(Icons.person),
-onTap: ()=> Provider.of<AuthProvider>(context, listen: false).signOut(),
-
-              title: Text("লগআউট"),
-            ),
+            if (Provider.of<AuthProvider>(context, listen: false).user != null)
+              ListTile(
+                leading: Icon(Icons.person),
+                onTap: () => Provider.of<AuthProvider>(context, listen: false).signOut(),
+                title: Text("লগআউট"),
+              ),
             ListTile(
               leading: Image.asset(
                 "assets/images/Menu-Settings.png",
@@ -101,7 +101,6 @@ onTap: ()=> Provider.of<AuthProvider>(context, listen: false).signOut(),
               title: Text("সেটিংস"),
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage())),
             ),
-
             ListTile(
               leading: Image.asset(
                 "assets/images/Menu-Rating&Review.png",

@@ -4,11 +4,10 @@ import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/questions/QuestionDetailPage.dart';
 
-class QuestionWidget extends StatelessWidget {
+class QuestionListItem extends StatelessWidget {
   QuestionDetail questionanswer;
-  QuestionCategory question_category;
 
-  QuestionWidget(
+  QuestionListItem(
     this.questionanswer,
   );
 
@@ -35,16 +34,10 @@ class QuestionWidget extends StatelessWidget {
                   builder: (context) => QuestionDetailPage(questionanswer),
                 )),
             child: Container(
+              padding: const EdgeInsets.all(10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                    width: 4,
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
                   Expanded(
                     child: Text(
                       questionanswer.question,
