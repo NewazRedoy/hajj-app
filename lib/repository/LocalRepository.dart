@@ -84,51 +84,71 @@ class LocalRepository implements RepositoryInterface {
   // This is the actual database filename that is saved in the docs directory.
 
   LocalRepository() {
-    initDatabase();
+    database;
   }
 
   // Only allow a single open connection to the database.
-  static Database _database;
+  static Future<Database> _database;
 
   Future<Database> get database async {
-    if (_database != null) return _database;
-
-    _database = await initDatabase();
-
+    _database ??= initDatabase(); //can init call only once
     return _database;
   }
 
   // open the database
-  initDatabase() async {
-    Directory documentsDirectory = await getApplicationDocumentsDirectory();
+  Future<Database> initDatabase() async {
+    Directory documentsDirectory = await getApplicationSupportDirectory();
     String path = join(documentsDirectory.path, _databaseName);
 
+
 // Check if the database exists
-    var exists = await databaseExists(path);
-    Database db;
+      var exists = await databaseExists(path);
+      Database db;
+    try {
+      if (!exists) {
+        print("Creating new copy from asset");
 
-    if (!exists) {
-      print("Creating new copy from asset");
-
-      // Make sure the parent directory exists
-      await copyDataBaseFromAsset(path);
-      db = await openDatabase(path,  version: _databaseVersion);
-    }else {
-      db = await openDatabase(path, readOnly: true);
-    }
+        // Make sure the parent directory exists
+        await copyDataBaseFromAsset(path);
+        db = await openDatabase(path, version: _databaseVersion);
+      } else {
+        db = await openDatabase(path, readOnly: true);
+      }
 
 // open the database
-    var dbVersion = await db.getVersion();
-    print("Version compare $dbVersion $_databaseVersion");
-    if (dbVersion < _databaseVersion) {
-      print("Creating new copy from asset as version low");
-      await copyDataBaseFromAsset(path);
-      db = await openDatabase(path, version: _databaseVersion);
-    } else {
-      print("Opening existing database");
+
+      var dbVersion = await db.getVersion();
+      print("Version compare $dbVersion $_databaseVersion");
+      if (dbVersion < _databaseVersion) {
+        print("Creating new copy from asset as version low");
+        await copyDataBaseFromAsset(path);
+        db = await openDatabase(path, version: _databaseVersion);
+      } else {
+        print("Opening existing database");
+      }
+    }catch (e) {
+      print(e.toString());
     }
 
     return db;
+  }
+
+  /// Check if a file is a valid database file
+  ///
+  /// An empty file is a valid empty sqlite file
+  Future<bool> isDatabase(String path) async {
+    Database db;
+    bool isDatabase = false;
+    try {
+      db = await openReadOnlyDatabase(path);
+      int version = await db.getVersion();
+      if (version != null) {
+        isDatabase = true;
+      }
+    } catch (_) {} finally {
+      await db?.close();
+    }
+    return isDatabase;
   }
 
   Future<bool> copyDataBaseFromAsset(String path) async {
@@ -139,15 +159,15 @@ class LocalRepository implements RepositoryInterface {
 
     // Copy from asset
     ByteData data = await rootBundle.load(join("assets", "hajjdb.db"));
-//    List<int> bytes =
-//    data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-    // Write and flush the bytes written
-//    await File(path).writeAsBytes(bytes, flush: true);
+    List<int> bytes =
+    data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+//     Write and flush the bytes written
+    await File(path).writeAsBytes(bytes, flush: true);
 
-    final outputFile = File(path);
-
-    await compute(_writeIsolate, [data, outputFile]);
-    print('Copy done!');
+//    final outputFile = File(path);
+//
+//    await compute(_writeIsolate, [data, outputFile]);
+//    print('Copy done!');
 
     return true;
   }

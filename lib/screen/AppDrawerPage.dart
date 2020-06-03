@@ -47,8 +47,9 @@ class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<AuthProvider>(context).user;
-    return Container(
-      child: Drawer(
+    return Drawer(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
             DrawerHeader(

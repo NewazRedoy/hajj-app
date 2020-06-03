@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/content/SubTopicListPage.dart';
 import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
 import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    DataProvider.of(context).dbLoading; //preload database
     return Scaffold(
       body: loading
           ? _buildCircularProgressIndicator()

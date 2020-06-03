@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
             fontFamily: FontFamily.bangla,
             pageTransitionsTheme: PageTransitionsTheme(builders: _defaultBuilders),
             textTheme: TextTheme(
+              bodyText1: TextStyle(fontSize: 16.0),
             )),
         home: BottomNavigation(),
       ),
