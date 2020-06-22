@@ -46,8 +46,7 @@ class _ContentListItemState extends State<ContentListItem> {
             children: [
               Container(
                 height: 50,
-                child: widget.content.title != null
-                    ? Row(
+                child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
@@ -59,16 +58,12 @@ class _ContentListItemState extends State<ContentListItem> {
                           ),
                           Expanded(
                             child: Text(
-                              widget.content.title,
+                             widget.subtopic.name,
                               style: TextStyle(fontSize: 20),
                             ),
                           ),
                           buildPopupMenuButton(context),
                         ],
-                      )
-                    : Align(
-                        alignment: Alignment.topRight,
-                        child: buildPopupMenuButton(context),
                       ),
               ),
               Divider(
