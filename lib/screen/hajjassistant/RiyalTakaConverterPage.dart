@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
-import 'package:http/http.dart' as http;
 
 class RiyalConverter extends StatefulWidget {
   final Topic topic;
@@ -45,10 +42,14 @@ class _RiyalConverterState extends State<RiyalConverter> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Image.asset(
-                      "assets/images/bangladesh-flag.png",
-                      width: 48,
-                      height: 48,
+                    Container(
+                      width: 65,
+                        height: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6.0),
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/BdFlag.png"),
+                              fit: BoxFit.cover)),
                     ),
                     Text(
                       "বাংলাদেশ টাকা",
@@ -60,7 +61,8 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   child: TextField(
                     autofocus: true,
                     controller: takaController,
-                    decoration: InputDecoration.collapsed(hintText: null),
+                    decoration: InputDecoration(hintText:null),
+//                    rialController.text = (DataProvider.of(context).conversion * int.parse(text)).toStringAsFixed(2)),
                     maxLines: 1,
                     textAlign: TextAlign.right,
                     style: TextStyle(
@@ -84,10 +86,14 @@ class _RiyalConverterState extends State<RiyalConverter> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Image.asset(
-                      "assets/images/SaudiarabiaFlag.png",
-                      width: 48,
-                      height: 48,
+                    Container(
+                      width: 65,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6.0),
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/SaudiarabiaFlag.png"),
+                              fit: BoxFit.cover)),
                     ),
                     Text(
                       "সৌদি রিয়াল",
