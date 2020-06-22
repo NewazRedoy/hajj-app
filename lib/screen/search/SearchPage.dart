@@ -28,7 +28,7 @@ class _SearchPageState extends State<SearchPage> {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 20.0,bottom: 20.0,left: 8.0,right: 8.0),
             child: TextField(
               autofocus: true,
               controller: textController,
@@ -48,7 +48,8 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
           Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
+                separatorBuilder: (context, index) => Divider(),
                 itemCount: data.length,
                 itemBuilder: (BuildContext context, int position) {
                   SearchItem searchItem = data[position];
@@ -78,7 +79,7 @@ class _SearchPageState extends State<SearchPage> {
           ),
           data.isNotEmpty
               ? Container(
-                  alignment: Alignment.bottomRight,
+                  alignment: Alignment.bottomLeft,
                   child: RaisedButton(
                     color: Theme.of(context).accentColor,
                     shape: StadiumBorder(),
