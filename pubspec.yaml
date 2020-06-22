@@ -38,6 +38,7 @@ dependencies:
   share: ^0.6.4+3
   flutter_svg: ^0.17.4
   flutter_email_sender:
+  flutter_statusbarcolor: ^0.2.3
 
 
 dev_dependencies:

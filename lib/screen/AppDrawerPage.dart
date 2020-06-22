@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/screen/SettingsPage.dart';
 import 'package:hajjapp/screen/content/BookmarkPage.dart';
@@ -47,6 +48,7 @@ class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
     var user = Provider.of<AuthProvider>(context).user;
+    FlutterStatusbarcolor.setStatusBarColor(Color(0xFF285778));
     return Drawer(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
