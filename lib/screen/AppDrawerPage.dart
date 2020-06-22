@@ -90,89 +90,79 @@ class _DrawerPageState extends State<DrawerPage> {
             if (Provider.of<AuthProvider>(context, listen: false).user != null)
               ListTile(
                 leading: Icon(Icons.person),
-                onTap: () => Provider.of<AuthProvider>(context, listen: false).signOut(),
+                onTap: () =>
+                    Provider.of<AuthProvider>(context, listen: false).signOut(),
                 title: Text("লগআউট"),
               ),
-            ListTile(
-              leading: Image.asset(
-                "assets/images/Menu-Settings.png",
-                height: 20,
-                width: 20,
-              ),
-              title: Text("সেটিংস"),
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage())),
+            drawerImageItemTitle(
+              "assets/images/Menu-Settings.png",
+              "সেটিংস",
+              () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SettingsPage())),
             ),
-            ListTile(
-              leading: Image.asset(
-                "assets/images/Menu-Rating&Review.png",
-                height: 20,
-                width: 20,
-              ),
-              title: Text("রেটিং এবং রিভিউ"),
-              onTap: () {
-                _launch(launchPlayRateUrl);
-              },
+            drawerImageItemTitle(
+              "assets/images/Menu-Rating&Review.png",
+              "রেটিং এবং রিভিউ",
+              () => _launch(launchPlayRateUrl),
             ),
-            ListTile(
-              leading: Image.asset(
-                "assets/images/Menu-About-Us.png",
-                height: 20,
-                width: 20,
-              ),
-              title: Text("আমাদের সম্পর্কে"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AboutApp(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: Image.asset(
-                "assets/images/Menu-Share.png",
-                height: 20,
-                width: 20,
-              ),
-              title: Text("শেয়ার করুন"),
-              onTap: () {
-                share(context);
-              },
-            ),
-            ListTile(
-                leading: Image.asset(
-                  "assets/images/Menu-Bookmarks.png",
-                  height: 20,
-                  width: 20,
+            drawerImageItemTitle(
+              "assets/images/Menu-About-Us.png",
+              "আমাদের সম্পর্কে",
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AboutApp(),
                 ),
-                title: Text("বুকমার্ক"),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BookmarkPage(),
-                    ),
-                  );
-                }),
-            ListTile(
-                leading: Image.asset(
-                  "assets/images/Menu-Contact.png",
-                  height: 20,
-                  width: 20,
+              ),
+            ),
+            drawerImageItemTitle(
+              "assets/images/Menu-Share.png",
+              "শেয়ার করুন",
+              () => share(context),
+            ),
+            drawerImageItemTitle(
+              "assets/images/Menu-Bookmarks.png",
+              "বুকমার্ক",
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BookmarkPage(),
                 ),
-                title: Text("যোগাযোগ"),
-                onTap: () {
-                  send();
-                }),
+              ),
+            ),
+            drawerImageItemTitle(
+              "assets/images/Menu-Contact.png",
+              "যোগাযোগ",
+              () => send(),
+            ),
           ],
         ),
       ),
     );
   }
 
+  Widget drawerImageItemTitle(
+    String image,
+    String tileName,
+    Function onTap,
+  ) {
+    return ListTile(
+      leading: Image.asset(
+        image,
+        height: 28.0,
+        width: 28.0,
+      ),
+      title: Text(
+        tileName,
+        style: TextStyle(fontSize: 18.0),
+      ),
+      onTap: onTap,
+    );
+  }
+
   void share(BuildContext context) {
-    final String text = "Muslim Scholars & Companios is the ultimate collection of biographies "
+    final String text =
+        "Muslim Scholars & Companios is the ultimate collection of biographies "
         "having birth/death,narrator grade,family members and tags to inspire us to learn about them."
         "\n\nGet it now at Google Play Store:"
         '\nhttps://goo.gl/80yGtV';
