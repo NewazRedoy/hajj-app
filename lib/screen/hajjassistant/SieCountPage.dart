@@ -264,7 +264,7 @@ class AlertDialogSie extends StatelessWidget {
                   Icons.highlight_off,
                   color: Theme.of(context).accentColor,
                 ),
-                onPressed: () => Navigator.pop(context)),
+                onPressed: ()  {Navigator.pop(context);Navigator.pop(context);}),
           ),
           Icon(
             Icons.check_circle_outline,
@@ -274,8 +274,7 @@ class AlertDialogSie extends StatelessWidget {
           SizedBox(
             height: 2.0,
           ),
-          Text("আলহামদুল্লিহ!"),
-          Text(" আপনার সা'ঈ সম্পন্ন হয়েছে ।"),
+          Text("আলহামদুল্লিহ! \n আপনার সা'ঈ সম্পন্ন হয়েছে ।",textAlign: TextAlign.center,),
         ],
       ),
     );

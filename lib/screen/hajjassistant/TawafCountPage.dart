@@ -64,7 +64,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
           children: <Widget>[
             Container(
               alignment: Alignment.topCenter,
-              child: Text("প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন", style: TextStyle(fontWeight: FontWeight.bold),),
+              child: Text("প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন ট্যাপ করুন", textAlign: TextAlign.center,),
             ),
             SizedBox(
               height: 6,
@@ -241,7 +241,7 @@ class AlertDialogTawaf extends StatelessWidget {
                   Icons.highlight_off,
                   color: Theme.of(context).accentColor,
                 ),
-                onPressed: () => Navigator.pop(context)),
+                onPressed: () {Navigator.pop(context);Navigator.pop(context);}),
           ),
           Icon(
             Icons.check_circle_outline,
@@ -251,8 +251,7 @@ class AlertDialogTawaf extends StatelessWidget {
           SizedBox(
             height: 2.0,
           ),
-          Text("আলহামদুল্লিহ!"),
-          Text(" আপনার তাওয়াফ সম্পন্ন হয়েছে ।"),
+          Text("আলহামদুল্লিহ!\n আপনার তাওয়াফ সম্পন্ন হয়েছে ।",textAlign: TextAlign.center,),
         ],
       ),
     );
