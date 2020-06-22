@@ -19,12 +19,12 @@ class TopicGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180.0,
+      height: 160.0,
       width: 180.0,
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4.0),
+          borderRadius: BorderRadius.circular(2.0),
         ),
         elevation: 1.5,
         child: InkWell(
@@ -37,19 +37,17 @@ class TopicGridItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 32,
-              ),
+
               Image.asset(
                 image,
-                width: 44,
-                height: 44,
+                width: 80,
+                height: 80,
               ),
               SizedBox(
                 height: 16,
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(6.0),
                 child: Text(
                   topic.name,
                   style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),

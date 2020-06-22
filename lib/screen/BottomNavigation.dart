@@ -27,7 +27,7 @@ class _BottomNavigationState extends State<BottomNavigation> with SingleTickerPr
   @override
   Widget build(BuildContext context) {
     var appBarName = [
-      "হাজ্জ উমরাহ গাইড",
+      "আমার হাজ্জ",
       "দু'আ",
       "প্রশ্নোত্তর",
     ];
@@ -49,26 +49,26 @@ class _BottomNavigationState extends State<BottomNavigation> with SingleTickerPr
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/images/Home-Colored.png",
-              height: 20,
-              width: 20,
+              height: 24,
+              width: 24,
             ),
-            title: Text("হোম"),
+            title: Text(""),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/images/Dua-Colored.png",
-              height: 20,
-              width: 20,
+              height: 25,
+              width: 25,
             ),
-            title: Text("দু'আ"),
+            title: Text(""),
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
               'assets/images/QnA-Colored.png',
-              height: 20,
-              width: 20,
+              height: 24,
+              width: 24,
             ),
-            title: Text("প্রশ্নোত্তর"),
+            title: Text(""),
           ),
         ],
       ),
