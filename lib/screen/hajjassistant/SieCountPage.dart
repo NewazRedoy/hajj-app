@@ -253,28 +253,33 @@ class AlertDialogSie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      title: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 200.0),
+            padding: const EdgeInsets.only(left: 210.0),
             child: IconButton(
                 icon: Icon(
                   Icons.highlight_off,
                   color: Theme.of(context).accentColor,
+                  size: 20.0,
                 ),
-                onPressed: ()  {Navigator.pop(context);Navigator.pop(context);}),
+                onPressed: () {Navigator.pop(context);Navigator.pop(context);}),
           ),
           Icon(
             Icons.check_circle_outline,
             color: Theme.of(context).accentColor,
-            size: 50.0,
+            size: 60.0,
           ),
+        ],
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text("আলহামদুলিল্লাহ! \n আপনার সা'ঈ সম্পন্ন হয়েছে।",textAlign: TextAlign.center,),
           SizedBox(
-            height: 2.0,
+            height: 10.0,
           ),
-          Text("আলহামদুল্লিহ! \n আপনার সা'ঈ সম্পন্ন হয়েছে ।",textAlign: TextAlign.center,),
         ],
       ),
     );

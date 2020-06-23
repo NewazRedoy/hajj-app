@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/BookmarkListItem.dart';
@@ -54,7 +55,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
             : data.isEmpty
                 ? Container(
                     child: Center(
-                      child: Text("কোন বুকমার্ক পাওয়া যায়নি"),
+                      child: Text("কোনো বুকমার্ক পাওয়া যায়নি"),
                     ),
                   )
                 : ListView.builder(
@@ -64,7 +65,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ContentDetailListPage(data[position]),
+                              builder: (context) => ContentDetailListPage(data[position],),
                             ));
                       });
                     },

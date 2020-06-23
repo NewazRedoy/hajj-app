@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
@@ -69,7 +68,7 @@ class _DrawerPageState extends State<DrawerPage> {
                                 height: 8,
                               ),
                               Text(
-                                "লগইন করা নাই",
+                                "লগইন করা নেই",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: Colors.white),
                               ),
