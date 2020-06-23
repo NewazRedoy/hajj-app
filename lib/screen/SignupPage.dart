@@ -33,45 +33,56 @@ class _SignupPageState extends State<SignupPage> {
           decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 80,),
+              SizedBox(
+                height: 80,
+              ),
               user == null
                   ? Column(
-                children: [
-                  CircleAvatar(
-                    radius: 40.0,
-                    backgroundImage: AssetImage("assets/images/character.jpg"),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    "ছবি আপলোড করুন",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              )
+                      children: [
+                        CircleAvatar(
+                          radius: 40.0,
+                          backgroundImage:
+                              AssetImage("assets/images/character.jpg"),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "ছবি আপলোড করুন",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    )
                   : Column(
-                children: [
-                  CircleAvatar(
-                    radius: 40.0,
-                    backgroundImage: AssetImage("assets/images/character.jpg"),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Text(user.firstName ?? ""),
-                ],
+                      children: [
+                        CircleAvatar(
+                          radius: 40.0,
+                          backgroundImage:
+                              AssetImage("assets/images/character.jpg"),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(user.firstName ?? ""),
+                      ],
+                    ),
+              Container(
+                padding: EdgeInsets.all(8.0),
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "সাইনআপ করুন",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
               ),
-              Container(alignment:Alignment.topLeft,
-                child: Text("সাইনআপ করুন",style: TextStyle(color: Colors.white,fontSize: 18),),),
               Expanded(
                 child: Container(
-                    padding: EdgeInsets.only(left: 12,right: 12),
+                    padding: EdgeInsets.only(left: 12, right: 12),
                     decoration: new BoxDecoration(
                       color: Colors.white,
-                      borderRadius:
-                      BorderRadius.only(topLeft: Radius.circular(20.0),topRight: Radius.circular(20.0)),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20.0),
+                          topRight: Radius.circular(20.0)),
                     ),
                     child: Form(
                       key: _registerFormKey,
@@ -88,7 +99,8 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                           TextFormField(
                             decoration: InputDecoration(
-                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                labelStyle:
+                                    TextStyle(fontWeight: FontWeight.bold),
                                 hintStyle: TextStyle(color: Colors.white),
                                 labelText: 'আপনার ই-মেইল*',
                                 hintText: "someone@gmail.com"),
@@ -99,14 +111,16 @@ class _SignupPageState extends State<SignupPage> {
                           TextFormField(
                               decoration: InputDecoration(
                                   labelText: 'আপনার নাম',
-                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                  hintText:"someone"),
+                                  labelStyle:
+                                      TextStyle(fontWeight: FontWeight.bold),
+                                  hintText: "someone"),
                               controller: nameInputController,
                               keyboardType: TextInputType.emailAddress,
                               validator: Validator.emptyValidator),
                           TextFormField(
                             decoration: InputDecoration(
-                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                labelStyle:
+                                    TextStyle(fontWeight: FontWeight.bold),
                                 labelText: 'পাসওয়ার্ড',
                                 hintText: "********"),
                             controller: pwdInputController,
@@ -115,7 +129,8 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                           TextFormField(
                             decoration: InputDecoration(
-                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                labelStyle:
+                                    TextStyle(fontWeight: FontWeight.bold),
                                 labelText: 'পাসওয়ার্ডটি পুণরায় লিখুন',
                                 hintText: "********"),
                             controller: pwdInputController,
@@ -123,18 +138,23 @@ class _SignupPageState extends State<SignupPage> {
                             validator: Validator.pwdValidator,
                           ),
                           SizedBox(height: 22.0),
-                          RaisedButton(
-                            child: Text('সাইন আপ করুন'),
-                            textColor: Colors.white,
-                            elevation: 1.5,
-                            color: Theme.of(context).primaryColor,
-                            padding: EdgeInsets.all(16),
-                            onPressed: () {
-                              if (_registerFormKey.currentState.validate()) {
-                                model.signUpUsingUsernamePassword(
-                                    context, emailInputController.text, pwdInputController.text);
-                              }
-                            },
+                          Container(
+                            margin: EdgeInsets.fromLTRB(65, 6, 65, 6),
+                            child: RaisedButton(
+                              child: Text('সাইন আপ করুন'),
+                              textColor: Colors.white,
+                              elevation: 1.5,
+                              color: Theme.of(context).primaryColor,
+                              padding: EdgeInsets.all(16),
+                              onPressed: () {
+                                if (_registerFormKey.currentState.validate()) {
+                                  model.signUpUsingUsernamePassword(
+                                      context,
+                                      emailInputController.text,
+                                      pwdInputController.text);
+                                }
+                              },
+                            ),
                           ),
                           SizedBox(height: 14.0),
                           Center(
@@ -142,14 +162,22 @@ class _SignupPageState extends State<SignupPage> {
                               onTap: () => {
 //                              model.gotoLogin()
 
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()))
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginPage()))
                               },
                               child: RichText(
                                 text: TextSpan(
                                   style: TextStyle(color: Colors.black),
                                   text: 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?',
                                   children: <TextSpan>[
-                                    TextSpan(text: 'লগইন করুন', style: TextStyle(fontWeight: FontWeight.bold)),
+                                    TextSpan(
+                                        text: 'লগইন করুন',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Theme.of(context).primaryColor,
+                                        )),
                                   ],
                                 ),
                               ),
