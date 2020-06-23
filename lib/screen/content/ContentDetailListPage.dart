@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/widgets/ContentListItem.dart';
 import 'package:hajjapp/widgets/PreparationListItem.dart';

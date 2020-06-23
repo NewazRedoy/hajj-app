@@ -52,7 +52,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                               fit: BoxFit.cover)),
                     ),
                     Text(
-                      "বাংলাদেশ টাকা",
+                      "বাংলাদেশী টাকা",
                       style: TextStyle(color: Colors.grey.shade600),
                     ),
                   ],

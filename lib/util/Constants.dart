@@ -13,7 +13,7 @@ class Constants {
     Topic(topic_id: 6, name: 'ঐতিহাসিক স্থানসমূহ', color: '#3c968d'),
     Topic(topic_id: 8, name: 'তাওয়াফ গণনা', color: '#409c3e'),
     Topic(topic_id: 9, name: "সা'ঈ গণনা", color: '#409c3e'),
-    Topic(topic_id: 10, name: 'রিয়াল- টাকা কানভার্টার', color: '#409c3e'),
+    Topic(topic_id: 10, name: 'রিয়াল-টাকা কনভার্টার', color: '#409c3e'),
     Topic(topic_id: 11, name: 'কিছু আরবী বাক্য', color: '#409c3e'),
   ];
 
