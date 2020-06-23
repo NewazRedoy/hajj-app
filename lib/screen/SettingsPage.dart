@@ -30,7 +30,7 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
             Center(
                 child: Text(
-              "টেক্রট সাইজ",
+              "টেক্সট সাইজ",
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             )),
             Text("বাংলা"),
