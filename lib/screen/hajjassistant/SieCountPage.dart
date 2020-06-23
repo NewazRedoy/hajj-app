@@ -77,7 +77,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
         child: Column(
           children: <Widget>[
             Text(
-              "সাফা থেকে শুরু করুন এবং মারওয়ায় পৌঁছে সাফা এবং মারওয়া বাটন চাপুন",
+              "সাফা থেকে শুরু করুন, মারওয়ায় পৌঁছে মারওয়া এবং সাফা পৌঁছে সাফা বাটন চাপুন",
               textAlign: TextAlign.center,
             ),
             RaisedButton(
