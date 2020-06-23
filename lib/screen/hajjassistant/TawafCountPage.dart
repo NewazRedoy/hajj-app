@@ -74,12 +74,8 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 30,
-                fontWeight: FontWeight.bold,
               ),
             ),
-//            SizedBox(
-//              height: 4,
-//            ),
             Container(
               padding: EdgeInsets.only(left: 50.0, right: 50.0),
               width: MediaQuery.of(context).size.width,

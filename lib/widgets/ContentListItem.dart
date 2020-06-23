@@ -106,32 +106,6 @@ class _ContentListItemState extends State<ContentListItem> {
                       ),
                     )
                   : SizedBox(),
-//              Padding(
-//                padding: const EdgeInsets.all(16.0),
-//                child: SelectableText.rich(
-//                  TextSpan(
-//                    children: QuranArabicUtils.highlightArabic(
-//                        widget.content.text.replaceAll(RegExp(r'\['),'').replaceAll(RegExp(r'\]'),'').replaceAll(RegExp(r'\﴾'),''),
-//                        TextStyle(
-//                            locale: Locale.fromSubtags(languageCode: "ar"),
-//                            fontSize: DataProvider.of(context).arabicFontSize,
-//                            color: Colors.red,
-//                            fontFamily: FontFamily.arabic)),
-//                  ),
-//                  textAlign: TextAlign.justify,
-//                  textDirection: TextDirection.ltr,
-//                ),
-//              ),
-//              Divider(),
-//              Padding(
-//                  padding: const EdgeInsets.all(16.0),
-//                  child: Text(
-//                    widget.content.text.replaceAll(RegExp(r'\['),'').replaceAll(RegExp(r'\]'),'').replaceAll(RegExp(r'\﴾'),''),
-//                    textDirection: TextDirection.ltr,
-//                      style: TextStyle(
-//                        locale: Locale.fromSubtags(languageCode: "ar")),
-//                  )),
-//              Divider(),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Wrap(
@@ -157,34 +131,44 @@ class _ContentListItemState extends State<ContentListItem> {
         return [
           PopupMenuItem(
               value: 1,
-              child: ListTile(
-                leading: Image.asset(
+              child: Row(
+                children: [
+                Image.asset(
                   "assets/images/More-Vert-Share.png",
                   height: 20,
                   width: 20,
                 ),
-                title: Text("শেয়ার করুন"),
-              )),
+                  SizedBox(width: 6,),
+                Text("শেয়ার করুন"),
+              ],),
+          ),
           PopupMenuItem(
               value: 2,
-              child: ListTile(
-                leading: Image.asset(
+              child:
+              Row(
+                children: [
+                Image.asset(
                   "assets/images/More-Vert-Copy.png",
                   height: 20,
                   width: 20,
                 ),
-                title: Text("কপি"),
-              )),
+                  SizedBox(width: 6,),
+                Text("কপি"),
+              ],),
+          ),
           PopupMenuItem(
               value: 3,
-              child: ListTile(
-                leading: Image.asset(
+              child:  Row(
+                children: [
+                Image.asset(
                   "assets/images/Menu-Bookmarks.png",
                   height: 20,
                   width: 20,
                 ),
-                title: Text("বুকমার্ক"),
-              )),
+                SizedBox(width: 6,),
+                Text("বুকমার্ক"),
+              ],),
+          ),
         ];
       },
       // ignore: missing_return
