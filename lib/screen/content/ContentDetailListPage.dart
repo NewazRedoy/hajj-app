@@ -52,17 +52,19 @@ class _SampleAppPageState extends State<SampleAppPage> {
   Widget build(BuildContext context) {
     return loading
         ? _buildCircularProgressIndicator()
-        : widget.subtopic.topic_id == 4 && widget.subtopic.subtopic_id == 1
-            ? ListView.builder(
+        :
+//    widget.subtopic.topic_id == 4 && widget.subtopic.subtopic_id == 1
+//            ?
+    ListView.builder(
                 itemCount: data.length,
                 itemBuilder: (BuildContext context, int position) {
                   return PreparationListItem(subtopic: widget.subtopic, content: data[position]);
-                })
-            : ListView.builder(
-                itemCount: data.length,
-                itemBuilder: (BuildContext context, int position) {
-                  return ContentListItem(subtopic: widget.subtopic, content: data[position]);
                 });
+//            : ListView.builder(
+//                itemCount: data.length,
+//                itemBuilder: (BuildContext context, int position) {
+//                  return ContentListItem(subtopic: widget.subtopic, content: data[position]);
+//                });
   }
 
   loadData() async {
