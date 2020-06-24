@@ -13,6 +13,7 @@ import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -291,4 +292,15 @@ class LocalRepository implements RepositoryInterface {
     List<Map> maps = await db.rawQuery("select * from SentenceCategory");
     return maps.map((e) => SentencesCategory.fromJson(e)).toList();
   }
+//  @override
+//  Future<String> getTopicName(Topic topic_id) async {
+//    Database db = await database;
+//    List<Map> maps =
+//    await db.rawQuery("select * from Content where topic_id = ${topic_id.topic_id} and subtopic_id=${topic_id.subtopic_id}");
+//    if (maps.isNotEmpty) {
+//      var topic = Topic.fromJson(maps[0]);
+//      return topic.name;
+//    }
+//    return "";
+//  }
 }

@@ -7,7 +7,7 @@ import 'package:hajjapp/widgets/PreparationListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ContentDetailListPage extends StatelessWidget {
-//  Topic topic;
+  Topic topic;
 //  int index = 1;
   Subtopic subtopic;
 //  this.topic,this.index,
@@ -18,7 +18,7 @@ class ContentDetailListPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "subtopic.name",
+            topic.name,
           ),
           actions: <Widget>[
             SearchSettings(),
@@ -38,7 +38,7 @@ class ContentDetailListPage extends StatelessWidget {
 //  @override
 //  Widget build(BuildContext context) {
 //    return FutureBuilder<String>(
-//        future: topic.name == null ? DataProvider.of(context).getBookName(book) : null,
+//        future: topic.name == null ? DataProvider.of(context).getTopicName(topic): null,
 //        builder: (_, asyncString) {
 //          return Text(
 //            topic.name ?? asyncString.data ?? "",

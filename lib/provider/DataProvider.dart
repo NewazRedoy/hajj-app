@@ -13,6 +13,7 @@ import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/repository/LocalRepository.dart';
 import 'package:hajjapp/repository/RepositoryInterface.dart';
 import 'package:provider/provider.dart';
@@ -104,6 +105,11 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
   Future<List<SearchItem>> querybySearch(String term) {
     return repository.querybySearch(term);
   }
+
+//  @override
+//  Future<String> getTopicName(Topic topic) {
+//    return repository.getTopicName(topic);
+//  }
 
   double conversion = 1 / 20;
 

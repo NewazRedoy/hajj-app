@@ -7,6 +7,7 @@ import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/model/Subtopic.dart';
+import 'package:hajjapp/model/Topic.dart';
 
 enum PageViewType { Content, Dua, Question }
 
@@ -32,4 +33,6 @@ abstract class RepositoryInterface {
   Future<List<SentencesCategory>> queryAllSentenceCategories();
 
   Future<List<Subtopic>> queryBookmarkedContent(List<String> ids);
+
+//  Future<String> getTopicName(Topic topic){}
 }
