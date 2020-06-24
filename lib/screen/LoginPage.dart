@@ -26,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     var user = Provider.of<AuthProvider>(context).user;
     return Consumer<AuthProvider>(builder: (context, model, _) {
       return Scaffold(
+        resizeToAvoidBottomPadding: false,
         body: Container(
           decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           child: Column(

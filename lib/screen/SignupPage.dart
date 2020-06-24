@@ -27,7 +27,6 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     var user = Provider.of<AuthProvider>(context).user;
     return Consumer<AuthProvider>(builder: (context, model, _) {
-      var checkboxValue = false;
       return Scaffold(
         body: Container(
           decoration: BoxDecoration(color: Theme.of(context).primaryColor),
