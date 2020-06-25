@@ -64,7 +64,10 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
           children: <Widget>[
             Container(
               alignment: Alignment.topCenter,
-              child: Text("প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন চাপুন", textAlign: TextAlign.center,),
+              child: Text(
+                "প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন চাপুন",
+                textAlign: TextAlign.center,
+              ),
             ),
             SizedBox(
               height: 6,
@@ -102,7 +105,7 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
                     count++;
                   });
 
-                  if(count==7) {
+                  if (count == 7) {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -226,7 +229,7 @@ class AlertDialogTawaf extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title:  Column(
+      title: Column(
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 210.0),
@@ -236,7 +239,10 @@ class AlertDialogTawaf extends StatelessWidget {
                   color: Theme.of(context).accentColor,
                   size: 20.0,
                 ),
-                onPressed: () {Navigator.pop(context);Navigator.pop(context);}),
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }),
           ),
           Icon(
             Icons.check_circle_outline,
@@ -249,7 +255,10 @@ class AlertDialogTawaf extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text("আলহামদুলিল্লাহ!\n আপনার তাওয়াফ সম্পন্ন হয়েছে।",textAlign: TextAlign.center,),
+          Text(
+            "আলহামদুলিল্লাহ!\n আপনার তাওয়াফ সম্পন্ন হয়েছে।",
+            textAlign: TextAlign.center,
+          ),
           SizedBox(
             height: 10.0,
           ),

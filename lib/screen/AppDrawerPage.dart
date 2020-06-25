@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
@@ -91,15 +92,13 @@ class _DrawerPageState extends State<DrawerPage> {
             if (Provider.of<AuthProvider>(context, listen: false).user != null)
               ListTile(
                 leading: Icon(Icons.person),
-                onTap: () =>
-                    Provider.of<AuthProvider>(context, listen: false).signOut(),
+                onTap: () => Provider.of<AuthProvider>(context, listen: false).signOut(),
                 title: Text("লগআউট"),
               ),
             drawerImageItemTitle(
               "assets/images/Menu-Settings.png",
               "সেটিংস",
-              () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SettingsPage())),
+              () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage())),
             ),
             drawerImageItemTitle(
               "assets/images/Menu-Rating&Review.png",
@@ -162,8 +161,7 @@ class _DrawerPageState extends State<DrawerPage> {
   }
 
   void share(BuildContext context) {
-    final String text =
-        "Muslim Scholars & Companios is the ultimate collection of biographies "
+    final String text = "Muslim Scholars & Companios is the ultimate collection of biographies "
         "having birth/death,narrator grade,family members and tags to inspire us to learn about them."
         "\n\nGet it now at Google Play Store:"
         '\nhttps://goo.gl/80yGtV';

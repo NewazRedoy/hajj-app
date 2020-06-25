@@ -37,13 +37,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    DataProvider.of(context).dbLoading; //preload database
     return Scaffold(
       body: loading
           ? _buildCircularProgressIndicator()
           : Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
-            child: Column(
+              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
+              child: Column(
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
@@ -94,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-          ),
+            ),
     );
   }
 }

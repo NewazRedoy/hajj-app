@@ -47,24 +47,24 @@ class _ContentListItemState extends State<ContentListItem> {
               Container(
                 height: 50,
                 child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(color: Theme.of(context).accentColor),
-                            width: 4,
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Expanded(
-                            child: Text(
-                             widget.subtopic.name,
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          ),
-                          buildPopupMenuButton(context),
-                        ],
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(color: Theme.of(context).accentColor),
+                      width: 4,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Expanded(
+                      child: Text(
+                        widget.subtopic.name,
+                        style: TextStyle(fontSize: 20),
                       ),
+                    ),
+                    buildPopupMenuButton(context),
+                  ],
+                ),
               ),
               Divider(
                 color: Colors.grey,
@@ -110,7 +110,10 @@ class _ContentListItemState extends State<ContentListItem> {
                 padding: const EdgeInsets.all(16.0),
                 child: Wrap(
                     children: QuranArabicUtils.highlightArabicWidget(
-                        widget.content.text.replaceAll(RegExp(r'\['),'').replaceAll(RegExp(r'\]'),'').replaceAll(RegExp(r'\﴾'),''),
+                        widget.content.text
+                            .replaceAll(RegExp(r'\['), '')
+                            .replaceAll(RegExp(r'\]'), '')
+                            .replaceAll(RegExp(r'\﴾'), ''),
                         TextStyle(
                             locale: Locale.fromSubtags(languageCode: "ar"),
                             fontSize: DataProvider.of(context).arabicFontSize,
@@ -130,44 +133,52 @@ class _ContentListItemState extends State<ContentListItem> {
       itemBuilder: (BuildContext context) {
         return [
           PopupMenuItem(
-              value: 1,
-              child: Row(
-                children: [
+            value: 1,
+            child: Row(
+              children: [
                 Image.asset(
                   "assets/images/More-Vert-Share.png",
                   height: 20,
                   width: 20,
                 ),
-                  SizedBox(width: 6,),
+                SizedBox(
+                  width: 6,
+                ),
                 Text("শেয়ার করুন"),
-              ],),
+              ],
+            ),
           ),
           PopupMenuItem(
-              value: 2,
-              child:
-              Row(
-                children: [
+            value: 2,
+            child: Row(
+              children: [
                 Image.asset(
                   "assets/images/More-Vert-Copy.png",
                   height: 20,
                   width: 20,
                 ),
-                  SizedBox(width: 6,),
+                SizedBox(
+                  width: 6,
+                ),
                 Text("কপি"),
-              ],),
+              ],
+            ),
           ),
           PopupMenuItem(
-              value: 3,
-              child:  Row(
-                children: [
+            value: 3,
+            child: Row(
+              children: [
                 Image.asset(
                   "assets/images/Menu-Bookmarks.png",
                   height: 20,
                   width: 20,
                 ),
-                SizedBox(width: 6,),
+                SizedBox(
+                  width: 6,
+                ),
                 Text("বুকমার্ক"),
-              ],),
+              ],
+            ),
           ),
         ];
       },

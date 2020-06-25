@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/widgets/DuaTopicListItem.dart';
+import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
+
+import 'DuaDetailPage.dart';
 
 class AllDuaPage extends StatefulWidget {
   @override
@@ -31,21 +33,27 @@ class _AllDuaPageState extends State<AllDuaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("সব দু'আ"),
-        actions: <Widget>[
-          SearchSettings(),
-        ],
-      ),
-      body: loading
-          ? _buildCircularProgressIndicator()
-          : ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return DuaTopicListItem(index + 1, data[index]);
-              },
-            ),
-    );
+        appBar: AppBar(
+          title: Text("সব দু'আ"),
+          actions: <Widget>[
+            SearchSettings(),
+          ],
+        ),
+        body: loading
+            ? _buildCircularProgressIndicator()
+            : ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return ListPageItem(
+                    (index + 1),
+                    data[index].name,
+                    () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return DuaDetailPage(data[index]);
+                      }));
+                    },
+                  );
+                }));
   }
 }
 

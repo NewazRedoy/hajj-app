@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/QuestionDetail.dart';
-import 'package:hajjapp/model/QuestionsCategory.dart';
-import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/questions/QuestionDetailPage.dart';
 
 class QuestionListItem extends StatelessWidget {

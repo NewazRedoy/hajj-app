@@ -40,8 +40,7 @@ class _SignupPageState extends State<SignupPage> {
                       children: [
                         CircleAvatar(
                           radius: 40.0,
-                          backgroundImage:
-                              AssetImage("assets/images/character.jpg"),
+                          backgroundImage: AssetImage("assets/images/character.jpg"),
                         ),
                         SizedBox(
                           height: 8,
@@ -57,8 +56,7 @@ class _SignupPageState extends State<SignupPage> {
                       children: [
                         CircleAvatar(
                           radius: 40.0,
-                          backgroundImage:
-                              AssetImage("assets/images/character.jpg"),
+                          backgroundImage: AssetImage("assets/images/character.jpg"),
                         ),
                         SizedBox(
                           height: 8,
@@ -79,9 +77,7 @@ class _SignupPageState extends State<SignupPage> {
                     padding: EdgeInsets.only(left: 12, right: 12),
                     decoration: new BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20.0),
-                          topRight: Radius.circular(20.0)),
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
                     ),
                     child: Form(
                       key: _registerFormKey,
@@ -98,8 +94,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                           TextFormField(
                             decoration: InputDecoration(
-                                labelStyle:
-                                    TextStyle(fontWeight: FontWeight.bold),
+                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
                                 hintStyle: TextStyle(color: Colors.white),
                                 labelText: 'আপনার ই-মেইল*',
                                 hintText: "someone@gmail.com"),
@@ -110,16 +105,14 @@ class _SignupPageState extends State<SignupPage> {
                           TextFormField(
                               decoration: InputDecoration(
                                   labelText: 'আপনার নাম',
-                                  labelStyle:
-                                      TextStyle(fontWeight: FontWeight.bold),
+                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
                                   hintText: "someone"),
                               controller: nameInputController,
                               keyboardType: TextInputType.emailAddress,
                               validator: Validator.emptyValidator),
                           TextFormField(
                             decoration: InputDecoration(
-                                labelStyle:
-                                    TextStyle(fontWeight: FontWeight.bold),
+                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
                                 labelText: 'পাসওয়ার্ড',
                                 hintText: "********"),
                             controller: pwdInputController,
@@ -128,8 +121,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                           TextFormField(
                             decoration: InputDecoration(
-                                labelStyle:
-                                    TextStyle(fontWeight: FontWeight.bold),
+                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
                                 labelText: 'পাসওয়ার্ডটি পুণরায় লিখুন',
                                 hintText: "********"),
                             controller: pwdInputController,
@@ -148,9 +140,7 @@ class _SignupPageState extends State<SignupPage> {
                               onPressed: () {
                                 if (_registerFormKey.currentState.validate()) {
                                   model.signUpUsingUsernamePassword(
-                                      context,
-                                      emailInputController.text,
-                                      pwdInputController.text);
+                                      context, emailInputController.text, pwdInputController.text);
                                 }
                               },
                             ),
@@ -161,10 +151,7 @@ class _SignupPageState extends State<SignupPage> {
                               onTap: () => {
 //                              model.gotoLogin()
 
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginPage()))
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()))
                               },
                               child: RichText(
                                 text: TextSpan(

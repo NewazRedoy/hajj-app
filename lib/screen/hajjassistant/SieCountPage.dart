@@ -156,7 +156,8 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DuaDetailPage(DuaCategory(id: 6, name: "সাফা ও মারওয়ায় দাঁড়িয়ে দো‘আ")),
+                            builder: (context) =>
+                                DuaDetailPage(DuaCategory(id: 6, name: "সাফা ও মারওয়ায় দাঁড়িয়ে দো‘আ")),
                           ));
                     },
                     child: Text("দু'আ তালিকা")),
@@ -263,7 +264,10 @@ class AlertDialogSie extends StatelessWidget {
                   color: Theme.of(context).accentColor,
                   size: 20.0,
                 ),
-                onPressed: () {Navigator.pop(context);Navigator.pop(context);}),
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }),
           ),
           Icon(
             Icons.check_circle_outline,
@@ -276,7 +280,10 @@ class AlertDialogSie extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text("আলহামদুলিল্লাহ! \n আপনার সা'ঈ সম্পন্ন হয়েছে।",textAlign: TextAlign.center,),
+          Text(
+            "আলহামদুলিল্লাহ! \n আপনার সা'ঈ সম্পন্ন হয়েছে।",
+            textAlign: TextAlign.center,
+          ),
           SizedBox(
             height: 10.0,
           ),

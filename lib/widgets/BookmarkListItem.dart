@@ -27,7 +27,7 @@ class BookmarkListItem extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: Text(
-                      dua?.title?? "",
+                      dua?.title ?? "",
                       style: TextStyle(fontSize: 20),
                     ),
                   ),

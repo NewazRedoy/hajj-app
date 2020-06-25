@@ -49,39 +49,45 @@ class _BottomNavigationState extends State<BottomNavigation> with SingleTickerPr
         },
         items: [
           BottomNavigationBarItem(
-            icon:_currentIndex==0? Image.asset(
-              "assets/images/Home-Colored.png",
-              height: 22,
-              width: 22,
-            ):Image.asset(
-              "assets/images/Home-Greyed.png",
-              height: 22,
-              width: 22,
-            ),
+            icon: _currentIndex == 0
+                ? Image.asset(
+                    "assets/images/Home-Colored.png",
+                    height: 22,
+                    width: 22,
+                  )
+                : Image.asset(
+                    "assets/images/Home-Greyed.png",
+                    height: 22,
+                    width: 22,
+                  ),
             title: Text(""),
           ),
           BottomNavigationBarItem(
-            icon: _currentIndex ==1?Image.asset(
-              "assets/images/Dua-Colored.png",
-              height: 25,
-              width: 25,
-            ):Image.asset(
-              "assets/images/Dua-Greyed.png",
-              height: 25,
-              width: 25,
-            ),
+            icon: _currentIndex == 1
+                ? Image.asset(
+                    "assets/images/Dua-Colored.png",
+                    height: 25,
+                    width: 25,
+                  )
+                : Image.asset(
+                    "assets/images/Dua-Greyed.png",
+                    height: 25,
+                    width: 25,
+                  ),
             title: Text(""),
           ),
           BottomNavigationBarItem(
-            icon:_currentIndex==2? Image.asset(
-              'assets/images/QnA-Colored.png',
-              height: 24,
-              width: 24,
-            ): Image.asset(
-              'assets/images/QnA-Greyed.png',
-              height: 24,
-              width: 24,
-            ),
+            icon: _currentIndex == 2
+                ? Image.asset(
+                    'assets/images/QnA-Colored.png',
+                    height: 24,
+                    width: 24,
+                  )
+                : Image.asset(
+                    'assets/images/QnA-Greyed.png',
+                    height: 24,
+                    width: 24,
+                  ),
             title: Text(""),
           ),
         ],

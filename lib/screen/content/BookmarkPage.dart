@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hajjapp/model/Content.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/provider/CurrentUserProvider.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/widgets/BookmarkListItem.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:provider/provider.dart';
@@ -23,12 +20,11 @@ class _BookmarkPageState extends State<BookmarkPage> {
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
   void didChangeDependencies() {
-   loadData();
+    loadData();
   }
 
   loadData() async {
@@ -65,7 +61,9 @@ class _BookmarkPageState extends State<BookmarkPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ContentDetailListPage(data[position],),
+                              builder: (context) => ContentDetailListPage(
+                                data[position],
+                              ),
                             ));
                       });
                     },

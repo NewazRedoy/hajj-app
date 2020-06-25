@@ -44,12 +44,10 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   children: <Widget>[
                     Container(
                       width: 65,
-                        height: 40,
+                      height: 40,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6.0),
-                          image: DecorationImage(
-                              image: AssetImage("assets/images/BdFlag.png"),
-                              fit: BoxFit.cover)),
+                          image: DecorationImage(image: AssetImage("assets/images/BdFlag.png"), fit: BoxFit.cover)),
                     ),
                     Text(
                       "বাংলাদেশী টাকা",
@@ -61,7 +59,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                   child: TextField(
                     autofocus: true,
                     controller: takaController,
-                    decoration: InputDecoration(hintText:null),
+                    decoration: InputDecoration(hintText: null),
 //                    rialController.text = (DataProvider.of(context).conversion * int.parse(text)).toStringAsFixed(2)),
                     maxLines: 1,
                     textAlign: TextAlign.right,
@@ -71,7 +69,8 @@ class _RiyalConverterState extends State<RiyalConverter> {
                     keyboardType: TextInputType.number,
                     onChanged: (text) {
                       setState(() {
-                        rialController.text = (DataProvider.of(context).conversion * int.parse(text)).toStringAsFixed(2);
+                        rialController.text =
+                            (DataProvider.of(context).conversion * int.parse(text)).toStringAsFixed(2);
                       });
                     },
                   ),
@@ -92,8 +91,7 @@ class _RiyalConverterState extends State<RiyalConverter> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6.0),
                           image: DecorationImage(
-                              image: AssetImage("assets/images/SaudiarabiaFlag.png"),
-                              fit: BoxFit.cover)),
+                              image: AssetImage("assets/images/SaudiarabiaFlag.png"), fit: BoxFit.cover)),
                     ),
                     Text(
                       "সৌদি রিয়াল",
@@ -112,7 +110,8 @@ class _RiyalConverterState extends State<RiyalConverter> {
                     onChanged: (text) {
                       print("First text field: $text");
                       setState(() {
-                        takaController.text = (int.parse(text) / DataProvider.of(context).conversion).toStringAsFixed(2);
+                        takaController.text =
+                            (int.parse(text) / DataProvider.of(context).conversion).toStringAsFixed(2);
                       });
                     },
                   ),
@@ -124,5 +123,4 @@ class _RiyalConverterState extends State<RiyalConverter> {
       ),
     );
   }
-
 }

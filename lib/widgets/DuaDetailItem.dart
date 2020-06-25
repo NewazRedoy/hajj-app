@@ -81,7 +81,10 @@ class DuaDetailItem extends StatelessWidget {
             child: Text(
               allDuatopic.arabic,
               textDirection: TextDirection.rtl,
-              style: TextStyle(fontSize: DataProvider.of(context).arabicFontSize, fontWeight: FontWeight.bold, fontFamily: FontFamily.arabic),
+              style: TextStyle(
+                  fontSize: DataProvider.of(context).arabicFontSize,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: FontFamily.arabic),
             ),
           ),
           Container(

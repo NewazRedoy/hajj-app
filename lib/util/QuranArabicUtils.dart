@@ -99,7 +99,6 @@ class QuranArabicUtils {
           source.substring(lastMatchEnd, match.end),
           style: style,
           textDirection: TextDirection.rtl,
-
         ));
       } else if (match.start > lastMatchEnd) {
         children.add(Text(

@@ -143,7 +143,6 @@ class AuthProvider extends ChangeNotifier {
 
         _status = Status.Authenticated;
         notifyListeners();
-
       } else {
         _status = Status.Login;
         notifyListeners();

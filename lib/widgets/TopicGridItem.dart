@@ -37,7 +37,6 @@ class TopicGridItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               Image.asset(
                 image,
                 width: 80,

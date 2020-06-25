@@ -2,7 +2,6 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:hajjapp/model/ArabicSentences.dart';
 import 'package:hajjapp/model/ArabicSentencesCategory.dart';
@@ -13,7 +12,6 @@ import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/model/Topic.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -101,10 +99,9 @@ class LocalRepository implements RepositoryInterface {
     Directory documentsDirectory = await getApplicationSupportDirectory();
     String path = join(documentsDirectory.path, _databaseName);
 
-
 // Check if the database exists
-      var exists = await databaseExists(path);
-      Database db;
+    var exists = await databaseExists(path);
+    Database db;
     try {
       if (!exists) {
         print("Creating new copy from asset");
@@ -127,7 +124,7 @@ class LocalRepository implements RepositoryInterface {
       } else {
         print("Opening existing database");
       }
-    }catch (e) {
+    } catch (e) {
       print(e.toString());
     }
 
@@ -160,8 +157,7 @@ class LocalRepository implements RepositoryInterface {
 
     // Copy from asset
     ByteData data = await rootBundle.load(join("assets", "hajjdb.db"));
-    List<int> bytes =
-    data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+    List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
 //     Write and flush the bytes written
     await File(path).writeAsBytes(bytes, flush: true);
 
@@ -268,14 +264,16 @@ class LocalRepository implements RepositoryInterface {
   @override
   Future<List<DuaCategory>> queryFavDuas(List<String> ids) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select * from DuaCategory,Dua where Dua.dua_id in (${ids.join(",")}) and DuaCategory.id = Dua.category_id");
+    List<Map> maps = await db.rawQuery(
+        "select * from DuaCategory,Dua where Dua.dua_id in (${ids.join(",")}) and DuaCategory.id = Dua.category_id");
     return maps.map((e) => DuaCategory.fromJson(e)).toList();
   }
 
   @override
   Future<List<Subtopic>> queryBookmarkedContent(List<String> ids) async {
     Database db = await database;
-    List<Map> maps = await db.rawQuery("select Subtopic.topic_id, Subtopic.subtopic_id, Subtopic.name_en from Subtopic, Content where Content.rowid in (${ids.join(",")}) and Content.subtopic_id = Subtopic.subtopic_id and Content.topic_id = Subtopic.topic_id");
+    List<Map> maps = await db.rawQuery(
+        "select Subtopic.topic_id, Subtopic.subtopic_id, Subtopic.name_en from Subtopic, Content where Content.rowid in (${ids.join(",")}) and Content.subtopic_id = Subtopic.subtopic_id and Content.topic_id = Subtopic.topic_id");
     return maps.map((e) => Subtopic.fromJson(e)).toList();
   }
 

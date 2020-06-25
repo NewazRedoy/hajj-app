@@ -23,18 +23,18 @@ class MyDuaPageState extends State<MyDuaPage> {
         ),
         body: Consumer<AuthProvider>(
           builder: (context, model, _) {
-            return  model.myDuas.isEmpty
+            return model.myDuas.isEmpty
                 ? Container(
-              child: Center(
-                child: Text("আমার দু'আ পাওয়া যায়নি"),
-              ),
-            )
+                    child: Center(
+                      child: Text("আমার দু'আ পাওয়া যায়নি"),
+                    ),
+                  )
                 : ListView.builder(
-              itemBuilder: (context, index) {
-                return MyDuaListItem(model.myDuas[index]);
-              },
-              itemCount: model.myDuas.length,
-            );
+                    itemBuilder: (context, index) {
+                      return MyDuaListItem(model.myDuas[index]);
+                    },
+                    itemCount: model.myDuas.length,
+                  );
           },
         ),
         floatingActionButton: FloatingActionButton(

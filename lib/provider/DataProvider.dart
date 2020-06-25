@@ -13,13 +13,11 @@ import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/repository/LocalRepository.dart';
 import 'package:hajjapp/repository/RepositoryInterface.dart';
+import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
-
 
 // singleton class to manage the database
 class DataProvider extends ChangeNotifier implements RepositoryInterface {
@@ -43,7 +41,6 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
 
   double arabicFontSize = 20;
   double banglaFontSize = 20;
-
 
   _read() async {
     var prefs = await SharedPreferences.getInstance();
@@ -113,10 +110,9 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
 
   double conversion = 1 / 20;
 
-
   void getRate() async {
     var response =
-    await http.get("https://free.currconv.com/api/v7/convert?q=BDT_SAR&compact=ultra&apiKey=558d63f3c169865a4cb7");
+        await http.get("https://free.currconv.com/api/v7/convert?q=BDT_SAR&compact=ultra&apiKey=558d63f3c169865a4cb7");
 
     conversion = json.decode(response.body)["BDT_SAR"];
     notifyListeners();
@@ -131,7 +127,4 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
     prefs.setDouble("banglaFontSize", banglaFontSize);
     notifyListeners();
   }
-
-
 }
-

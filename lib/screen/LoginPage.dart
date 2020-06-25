@@ -41,8 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         CircleAvatar(
                           radius: 40.0,
-                          backgroundImage:
-                              AssetImage("assets/images/character.jpg"),
+                          backgroundImage: AssetImage("assets/images/character.jpg"),
                         ),
                         SizedBox(
                           height: 8,
@@ -58,8 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         CircleAvatar(
                           radius: 40.0,
-                          backgroundImage:
-                              AssetImage("assets/images/character.jpg"),
+                          backgroundImage: AssetImage("assets/images/character.jpg"),
                         ),
                         SizedBox(
                           height: 8,
@@ -80,9 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.only(left: 12, right: 12),
                   decoration: new BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0)),
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
                   ),
                   child: Form(
                       key: _registerFormKey,
@@ -93,8 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                           TextFormField(
                               decoration: InputDecoration(
                                   labelText: 'আপনার নাম',
-                                  labelStyle:
-                                      TextStyle(fontWeight: FontWeight.bold),
+                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
                                   hintText: "someone"),
                               controller: emailInputController,
                               keyboardType: TextInputType.emailAddress,
@@ -102,8 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(height: 15.0),
                           TextFormField(
                             decoration: InputDecoration(
-                                labelStyle:
-                                    TextStyle(fontWeight: FontWeight.bold),
+                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
                                 labelText: 'আপনার পাসওয়ার্ড',
                                 hintText: "********"),
                             controller: pwdInputController,
@@ -122,9 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                               onPressed: () {
                                 if (_registerFormKey.currentState.validate()) {
                                   model.loginUsingUsernamePassword(
-                                      context,
-                                      emailInputController.text,
-                                      pwdInputController.text);
+                                      context, emailInputController.text, pwdInputController.text);
                                 }
                               },
                             ),
@@ -134,9 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: InkWell(
                               onTap: () => {
                                 Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SignupPage()))
+                                    context, MaterialPageRoute(builder: (context) => SignupPage()))
                               },
                               child: RichText(
                                 text: TextSpan(

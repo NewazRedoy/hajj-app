@@ -7,7 +7,6 @@ import 'package:hajjapp/model/QuestionDetail.dart';
 import 'package:hajjapp/model/QuestionsCategory.dart';
 import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/model/Subtopic.dart';
-import 'package:hajjapp/model/Topic.dart';
 
 enum PageViewType { Content, Dua, Question }
 
