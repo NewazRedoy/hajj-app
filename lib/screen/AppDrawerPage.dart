@@ -11,6 +11,7 @@ import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'AboutApp.dart';
+import 'LoginPage.dart';
 
 class DrawerPage extends StatefulWidget {
   @override
@@ -68,10 +69,18 @@ class _DrawerPageState extends State<DrawerPage> {
                               SizedBox(
                                 height: 8,
                               ),
-                              Text(
-                                "লগইন করা নেই",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(color: Colors.white),
+                              InkWell(
+                                onTap: ()=> Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginPage(),
+                                  ),
+                                ),
+                                child: Text(
+                                  "লগইন করুন",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ),
                             ],
                           )

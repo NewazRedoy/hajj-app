@@ -79,97 +79,99 @@ class _SignupPageState extends State<SignupPage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
                     ),
-                    child: Form(
-                      key: _registerFormKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "সাইনআপ করুন",
-                            textAlign: TextAlign.start,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                hintStyle: TextStyle(color: Colors.white),
-                                labelText: 'আপনার ই-মেইল*',
-                                hintText: "someone@gmail.com"),
-                            controller: emailInputController,
-                            keyboardType: TextInputType.emailAddress,
-                            validator: Validator.emailValidator,
-                          ),
-                          TextFormField(
-                              decoration: InputDecoration(
-                                  labelText: 'আপনার নাম',
-                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                  hintText: "someone"),
-                              controller: nameInputController,
-                              keyboardType: TextInputType.emailAddress,
-                              validator: Validator.emptyValidator),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                labelText: 'পাসওয়ার্ড',
-                                hintText: "********"),
-                            controller: pwdInputController,
-                            obscureText: true,
-                            validator: Validator.pwdValidator,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                labelText: 'পাসওয়ার্ডটি পুণরায় লিখুন',
-                                hintText: "********"),
-                            controller: pwdInputController,
-                            obscureText: true,
-                            validator: Validator.pwdValidator,
-                          ),
-                          SizedBox(height: 22.0),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(65, 6, 65, 6),
-                            child: RaisedButton(
-                              child: Text('সাইন আপ করুন'),
-                              textColor: Colors.white,
-                              elevation: 1.5,
-                              color: Theme.of(context).primaryColor,
-                              padding: EdgeInsets.all(16),
-                              onPressed: () {
-                                if (_registerFormKey.currentState.validate()) {
-                                  model.signUpUsingUsernamePassword(
-                                      context, emailInputController.text, pwdInputController.text);
-                                }
-                              },
+                    child: SingleChildScrollView(
+                      child: Form(
+                        key: _registerFormKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SizedBox(
+                              height: 10,
                             ),
-                          ),
-                          SizedBox(height: 14.0),
-                          Center(
-                            child: InkWell(
-                              onTap: () => {
-//                              model.gotoLogin()
-
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()))
-                              },
-                              child: RichText(
-                                text: TextSpan(
-                                  style: TextStyle(color: Colors.black),
-                                  text: 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?',
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                        text: 'লগইন করুন',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Theme.of(context).primaryColor,
-                                        )),
-                                  ],
-                                ),
+                            Text(
+                              "সাইনআপ করুন",
+                              textAlign: TextAlign.start,
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                  hintStyle: TextStyle(color: Colors.white),
+                                  labelText: 'আপনার ইমেইল',
+                                  hintText: "someone@gmail.com"),
+                              controller: emailInputController,
+                              keyboardType: TextInputType.emailAddress,
+                              validator: Validator.emailValidator,
+                            ),
+                            TextFormField(
+                                decoration: InputDecoration(
+                                    labelText: 'আপনার নাম',
+                                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                    hintText: "someone"),
+                                controller: nameInputController,
+                                keyboardType: TextInputType.emailAddress,
+                                validator: Validator.emptyValidator),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                  labelText: 'পাসওয়ার্ড',
+                                  hintText: "********"),
+                              controller: pwdInputController,
+                              obscureText: true,
+                              validator: Validator.pwdValidator,
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                  labelText: 'পাসওয়ার্ডটি পুণরায় লিখুন',
+                                  hintText: "********"),
+                              controller: pwdInputController,
+                              obscureText: true,
+                              validator: Validator.pwdValidator,
+                            ),
+                            SizedBox(height: 22.0),
+                            Container(
+                              margin: EdgeInsets.fromLTRB(65, 6, 65, 6),
+                              child: RaisedButton(
+                                child: Text('সাইনআপ করুন'),
+                                textColor: Colors.white,
+                                elevation: 1.5,
+                                color: Theme.of(context).primaryColor,
+                                padding: EdgeInsets.all(16),
+                                onPressed: () {
+                                  if (_registerFormKey.currentState.validate()) {
+                                    model.signUpUsingUsernamePassword(
+                                        context, emailInputController.text, pwdInputController.text);
+                                  }
+                                },
                               ),
                             ),
-                          ),
-                        ],
+//                            SizedBox(height: 14.0),
+//                            Center(
+//                              child: InkWell(
+//                                onTap: () => {
+////                              model.gotoLogin()
+//
+//                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()))
+//                                },
+//                                child: RichText(
+//                                  text: TextSpan(
+//                                    style: TextStyle(color: Colors.black),
+//                                    text: 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?',
+//                                    children: <TextSpan>[
+//                                      TextSpan(
+//                                          text: 'লগইন করুন',
+//                                          style: TextStyle(
+//                                            fontWeight: FontWeight.bold,
+//                                            color: Theme.of(context).primaryColor,
+//                                          )),
+//                                    ],
+//                                  ),
+//                                ),
+//                              ),
+//                            ),
+                          ],
+                        ),
                       ),
                     )),
               ),
