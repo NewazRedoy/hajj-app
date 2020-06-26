@@ -32,6 +32,4 @@ abstract class RepositoryInterface {
   Future<List<SentencesCategory>> queryAllSentenceCategories();
 
   Future<List<Subtopic>> queryBookmarkedContent(List<String> ids);
-
-//  Future<String> getTopicName(Topic topic){}
 }

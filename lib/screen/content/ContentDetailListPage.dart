@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
+import 'package:hajjapp/util/Constants.dart';
 import 'package:hajjapp/widgets/PreparationListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ContentDetailListPage extends StatelessWidget {
   Topic topic;
 
-//  int index = 1;
   Subtopic subtopic;
 
-//  this.topic,this.index,
   ContentDetailListPage(this.subtopic);
 
   @override
@@ -19,7 +19,8 @@ class ContentDetailListPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            topic?.name ?? "",
+            topic?.name??""
+//              Constants.topics[topic?.name ??0]
           ),
           actions: <Widget>[
             SearchSettings(),
@@ -28,25 +29,6 @@ class ContentDetailListPage extends StatelessWidget {
         body: SampleAppPage(subtopic));
   }
 }
-//class TitleWidget extends StatelessWidget {
-//  const TitleWidget({
-//    Key key,
-//    @required this.topic,
-//  }) : super(key: key);
-//
-//  Topic topic;
-//
-//  @override
-//  Widget build(BuildContext context) {
-//    return FutureBuilder<String>(
-//        future: topic.name == null ? DataProvider.of(context).getTopicName(topic): null,
-//        builder: (_, asyncString) {
-//          return Text(
-//            topic.name ?? asyncString.data ?? "",
-//          );
-//        });
-//  }
-//}
 
 class SampleAppPage extends StatefulWidget {
   SampleAppPage(this.subtopic);

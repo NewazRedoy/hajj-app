@@ -290,15 +290,4 @@ class LocalRepository implements RepositoryInterface {
     List<Map> maps = await db.rawQuery("select * from SentenceCategory");
     return maps.map((e) => SentencesCategory.fromJson(e)).toList();
   }
-//  @override
-//  Future<String> getTopicName(Topic topic_id) async {
-//    Database db = await database;
-//    List<Map> maps =
-//    await db.rawQuery("select * from Content where topic_id = ${topic_id.topic_id} and subtopic_id=${topic_id.subtopic_id}");
-//    if (maps.isNotEmpty) {
-//      var topic = Topic.fromJson(maps[0]);
-//      return topic.name;
-//    }
-//    return "";
-//  }
 }

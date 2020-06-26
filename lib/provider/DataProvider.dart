@@ -103,10 +103,6 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
     return repository.querybySearch(term);
   }
 
-//  @override
-//  Future<String> getTopicName(Topic topic) {
-//    return repository.getTopicName(topic);
-//  }
 
   double conversion = 1 / 20;
 

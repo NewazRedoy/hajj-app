@@ -60,7 +60,7 @@ class _SearchPageState extends State<SearchPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ContentDetailListPage(searchItem.item),
+                            builder: (context) => ContentDetailListPage(searchItem.item,),
                           ));
                     } else if (searchItem.viewtype == PageViewType.Dua) {
                       Navigator.push(
