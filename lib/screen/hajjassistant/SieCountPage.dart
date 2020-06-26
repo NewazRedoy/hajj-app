@@ -253,8 +253,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
 class AlertDialogSie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Column(
+    return SimpleDialog(
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 210.0),
@@ -262,24 +261,20 @@ class AlertDialogSie extends StatelessWidget {
                 icon: Icon(
                   Icons.highlight_off,
                   color: Theme.of(context).accentColor,
-                  size: 20.0,
+                  size: 28.0,
                 ),
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.pop(context);
                 }),
           ),
+          SizedBox(height: 12,),
           Icon(
             Icons.check_circle_outline,
             color: Theme.of(context).accentColor,
             size: 60.0,
           ),
-        ],
-      ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
+          SizedBox(height: 12,),
           Text(
             "আলহামদুলিল্লাহ! \n আপনার সা'ঈ সম্পন্ন হয়েছে।",
             textAlign: TextAlign.center,
@@ -288,7 +283,6 @@ class AlertDialogSie extends StatelessWidget {
             height: 10.0,
           ),
         ],
-      ),
     );
   }
 }

@@ -228,42 +228,37 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
 class AlertDialogTawaf extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 210.0),
-            child: IconButton(
-                icon: Icon(
-                  Icons.highlight_off,
-                  color: Theme.of(context).accentColor,
-                  size: 20.0,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                }),
-          ),
-          Icon(
-            Icons.check_circle_outline,
-            color: Theme.of(context).accentColor,
-            size: 60.0,
-          ),
-        ],
-      ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            "আলহামদুলিল্লাহ!\n আপনার তাওয়াফ সম্পন্ন হয়েছে।",
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-        ],
-      ),
+    return SimpleDialog(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 210.0),
+          child: IconButton(
+              icon: Icon(
+                Icons.highlight_off,
+                color: Theme.of(context).accentColor,
+                size: 28.0,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              }),
+        ),
+        SizedBox(height: 12,),
+        Icon(
+          Icons.check_circle_outline,
+          color: Theme.of(context).accentColor,
+          size: 60.0,
+        ),
+        SizedBox(height: 12,),
+
+        Text(
+          "আলহামদুলিল্লাহ! \n আপনার তাওয়াফ সম্পন্ন হয়েছে।",
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+      ],
     );
   }
 }
