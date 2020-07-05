@@ -83,9 +83,6 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
             RaisedButton(
                 textColor: Colors.white,
                 color: Theme.of(context).primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(8.0),
-                ),
                 onPressed: start && count % 2 != 0
                     ? null
                     : () {
@@ -122,9 +119,9 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
             RaisedButton(
                 textColor: Colors.white,
                 color: Theme.of(context).primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(8.0),
-                ),
+//                shape: RoundedRectangleBorder(
+//                  borderRadius: new BorderRadius.circular(8.0),
+//                ),
                 onPressed: start && count % 2 == 0
                     ? null
                     : () {
