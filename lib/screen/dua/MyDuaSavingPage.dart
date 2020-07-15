@@ -30,7 +30,7 @@ class _MyDuaSavingPageState extends State<MyDuaSavingPage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              elevation: 1.5,
+              elevation: 3,
               child: Column(
                 children: <Widget>[
                   Container(

@@ -105,16 +105,26 @@ class _LoginPageState extends State<LoginPage> {
                               validator: Validator.pwdValidator,
                             ),
                             SizedBox(height: 20.0),
-                            Center(child: Text("পাসওয়ার্ড ভুলে গেছেন?")),
+                            Container(
+                              child: FlatButton(
+                                child: Text('পাসওয়ার্ড ভুলে গেছেন?'),
+                                padding: EdgeInsets.all(16),
+                                onPressed: () {
+                                  if (_registerFormKey.currentState.validate()) {
+                                    model.forgotPassword(
+                                        context, emailInputController.text, pwdInputController.text);
+                                  }
+                                },
+                              ),
+                            ),
                             SizedBox(height: 20.0),
                             Container(
                               margin: EdgeInsets.fromLTRB(65, 6, 65, 6),
                               child: RaisedButton(
                                 child: Text('লগইন করুন'),
                                 textColor: Colors.white,
-                                elevation: 1.5,
+                                elevation: 3,
                                 color: Theme.of(context).primaryColor,
-                                padding: EdgeInsets.all(16),
                                 onPressed: () {
                                   if (_registerFormKey.currentState.validate()) {
                                     model.loginUsingUsernamePassword(

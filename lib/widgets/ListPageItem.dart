@@ -21,7 +21,7 @@ class ListPageItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4.0),
         ),
-        elevation: 1.5,
+        elevation: 3,
         child: InkWell(
           onTap: onTap,
           child: Container(

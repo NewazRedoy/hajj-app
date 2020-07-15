@@ -21,7 +21,7 @@ class DuaDetailItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
-        elevation: 1.5,
+        elevation: 3,
         child: Column(children: <Widget>[
           Container(
             height: 50,
@@ -105,7 +105,7 @@ class DuaDetailItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              allDuatopic.transliteration ?? "",
+              allDuatopic.reference ?? "",
               style: TextStyle(fontSize: DataProvider.of(context).banglaFontSize, color: Colors.grey),
             ),
           ),

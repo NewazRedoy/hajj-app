@@ -59,151 +59,153 @@ class _TawafCountPageState extends State<TawafCountPage> with SingleTickerProvid
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topCenter,
-              child: Text(
-                "প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন চাপুন",
-                textAlign: TextAlign.center,
-              ),
-            ),
-            SizedBox(
-              height: 6,
-            ),
-            Text(
-              "$count/7",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 30,
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 50.0, right: 50.0),
-              width: MediaQuery.of(context).size.width,
-              height: 400,
-              child: CustomPaint(foregroundPainter: TawafWidget(count, _fraction, context)),
-            ),
-            Container(
-                padding: EdgeInsets.only(left: 40.0, right: 50.0),
-                alignment: Alignment.topLeft,
-                child: Image.asset(
-                  "assets/images/Dua-Colored.png",
-                  height: 20,
-                  width: 20,
-                )),
-            SizedBox(
-              height: 6,
-            ),
-            RaisedButton(
-              textColor: Colors.white,
-              color: Theme.of(context).primaryColor,
-              onPressed: () {
-                if (count < 7) {
-                  setState(() {
-                    count++;
-                  });
-
-                  if (count == 7) {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialogTawaf();
-                        });
-                  }
-                }
-              },
-              child: Text("হাজরে আসওয়াদের কাছে পৌঁছেছেন"),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                RaisedButton(
-                  padding: EdgeInsets.all(5),
-                  color: Theme.of(context).accentColor,
-                  textColor: Colors.white,
-                  shape: StadiumBorder(),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DuaDetailPage(DuaCategory(id: 4, name: "হাজরে আসওয়াদের কাছে আসলে")),
-                        ));
-                  },
-                  child: Padding(padding: EdgeInsets.all(5), child: Text("দু'আ তালিকা")),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.topCenter,
+                child: Text(
+                  "প্রতিবার হাজরে আসওয়াদের কাছে পৌঁছে নিচের বাটন চাপুন",
+                  textAlign: TextAlign.center,
                 ),
-                count == 0
-                    ? RaisedButton(
-                        padding: EdgeInsets.all(2),
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        color: Colors.green,
-                        shape: StadiumBorder(),
-                        onPressed: () {
-                          setState(() {
-                            count++;
-                            start = true;
+              ),
+              SizedBox(
+                height: 6,
+              ),
+              Text(
+                "$count/7",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 30,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 50.0, right: 50.0),
+                width: MediaQuery.of(context).size.width,
+                height: 400,
+                child: CustomPaint(foregroundPainter: TawafWidget(count, _fraction, context)),
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 40.0, right: 50.0),
+                  alignment: Alignment.topLeft,
+                  child: Image.asset(
+                    "assets/images/Dua-Colored.png",
+                    height: 20,
+                    width: 20,
+                  )),
+              SizedBox(
+                height: 6,
+              ),
+              RaisedButton(
+                textColor: Colors.white,
+                color: Theme.of(context).primaryColor,
+                onPressed: () {
+                  if (count < 7) {
+                    setState(() {
+                      count++;
+                    });
+
+                    if (count == 7) {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogTawaf();
                           });
-                        },
-                        child: Row(
-                          children: <Widget>[
-                            CircleAvatar(
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  Icons.arrow_upward,
-                                  color: Colors.green,
-                                )),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Text(
-                              "শুরু করুন",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                          ],
+                    }
+                  }
+                },
+                child: Text("হাজরে আসওয়াদের কাছে পৌঁছেছেন"),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  RaisedButton(
+                    padding: EdgeInsets.all(5),
+                    color: Theme.of(context).accentColor,
+                    textColor: Colors.white,
+                    shape: StadiumBorder(),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DuaDetailPage(DuaCategory(id: 4, name: "হাজরে আসওয়াদের কাছে আসলে")),
+                          ));
+                    },
+                    child: Padding(padding: EdgeInsets.all(5), child: Text("দু'আ তালিকা")),
+                  ),
+                  count == 0
+                      ? RaisedButton(
+                          padding: EdgeInsets.all(2),
+                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          color: Colors.green,
+                          shape: StadiumBorder(),
+                          onPressed: () {
+                            setState(() {
+                              count++;
+                              start = true;
+                            });
+                          },
+                          child: Row(
+                            children: <Widget>[
+                              CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  child: Icon(
+                                    Icons.arrow_upward,
+                                    color: Colors.green,
+                                  )),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                "শুরু করুন",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                            ],
+                          ),
+                        )
+                      : RaisedButton(
+                          color: Theme.of(context).primaryColor,
+                          padding: EdgeInsets.all(2),
+                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          shape: StadiumBorder(),
+                          onPressed: () {
+                            setState(() {
+                              count = 0;
+                              start = false;
+                            });
+                          },
+                          child: Row(
+                            children: <Widget>[
+                              CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  child: Icon(
+                                    Icons.redo,
+                                    color: Theme.of(context).primaryColor,
+                                  )),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                "রিসেট করুন",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                            ],
+                          ),
                         ),
-                      )
-                    : RaisedButton(
-                        color: Theme.of(context).primaryColor,
-                        padding: EdgeInsets.all(2),
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        shape: StadiumBorder(),
-                        onPressed: () {
-                          setState(() {
-                            count = 0;
-                            start = false;
-                          });
-                        },
-                        child: Row(
-                          children: <Widget>[
-                            CircleAvatar(
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  Icons.redo,
-                                  color: Theme.of(context).primaryColor,
-                                )),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Text(
-                              "রিসেট করুন",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                          ],
-                        ),
-                      ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -243,14 +245,17 @@ class AlertDialogTawaf extends StatelessWidget {
                 Navigator.pop(context);
               }),
         ),
-        SizedBox(height: 12,),
+        SizedBox(
+          height: 12,
+        ),
         Icon(
           Icons.check_circle_outline,
           color: Theme.of(context).accentColor,
           size: 60.0,
         ),
-        SizedBox(height: 12,),
-
+        SizedBox(
+          height: 12,
+        ),
         Text(
           "আলহামদুলিল্লাহ! \n আপনার তাওয়াফ সম্পন্ন হয়েছে।",
           textAlign: TextAlign.center,

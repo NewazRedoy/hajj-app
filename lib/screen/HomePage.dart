@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
-import 'package:hajjapp/provider/DataProvider.dart';
-import 'package:hajjapp/screen/content/SubTopicListPage.dart';
-import 'package:hajjapp/screen/hajjassistant/ArabicSentencesTopicPage.dart';
-import 'package:hajjapp/screen/hajjassistant/RiyalTakaConverterPage.dart';
-import 'package:hajjapp/screen/hajjassistant/SieCountPage.dart';
-import 'package:hajjapp/screen/hajjassistant/TawafCountPage.dart';
 import 'package:hajjapp/screen/questions/QuestionAnswerPage.dart';
 import 'package:hajjapp/util/Constants.dart';
+import 'package:hajjapp/widgets/GridItem.dart';
 import 'package:hajjapp/widgets/ListPageItem.dart';
-import 'package:hajjapp/widgets/TopicGridItem.dart';
+
+import 'content/SubTopicListPage.dart';
+import 'hajjassistant/ArabicSentencesTopicPage.dart';
+import 'hajjassistant/RiyalTakaConverterPage.dart';
+import 'hajjassistant/SieCountPage.dart';
+import 'hajjassistant/TawafCountPage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -38,32 +38,26 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: loading
-          ? _buildCircularProgressIndicator()
-          : Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
+        body: loading
+            ? _buildCircularProgressIndicator()
+            : CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Expanded(
-                            child: TopicGridItem(
-                                topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'),
-                                image: "assets/images/Umrah-Kaba.png")),
-                        Expanded(
-                            child: TopicGridItem(
-                                topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'),
-                                image: "assets/images/Hajj-Arafah.png")),
+                        GridItem(
+                            topic: Topic(topic_id: 3, name: 'ধাপে ধাপে উমরাহ', color: '#4859b5'),
+                            image: "assets/images/Umrah-Kaba.png"),
+                        GridItem(
+                            topic: Topic(topic_id: 4, name: 'ধাপে ধাপে হজ্জ', color: '#5677fc'),
+                            image: "assets/images/Hajj-Arafah.png"),
                       ],
                     ),
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: data.length,
-                      itemBuilder: (context, index) {
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
                         Topic topic = data[index];
                         return ListPageItem(
                           (index + 1),
@@ -89,12 +83,11 @@ class _HomePageState extends State<HomePage> {
                           },
                         );
                       },
+                      childCount: data.length
                     ),
-                  )
+                  ),
                 ],
-              ),
-            ),
-    );
+              ));
   }
 }
 

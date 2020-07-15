@@ -36,7 +36,7 @@ class _ContentListItemState extends State<ContentListItem> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        elevation: 1.5,
+        elevation: 3,
         child: InkWell(
           onTap: () {},
           child: Column(
@@ -117,10 +117,18 @@ class _ContentListItemState extends State<ContentListItem> {
                         TextStyle(
                             locale: Locale.fromSubtags(languageCode: "ar"),
                             fontSize: DataProvider.of(context).arabicFontSize,
-                            color: Theme.of(context).primaryColor,
-                            fontFamily: DataProvider.of(context).arabicFont,))),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: DataProvider.of(context).arabicFont,
+                        ))),
               ),
               SizedBox(height: 6),
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  widget.content.reference ?? "",
+                  style: TextStyle(fontSize: DataProvider.of(context).banglaFontSize, color: Colors.grey),
+                ),
+              ),
             ],
           ),
         ),

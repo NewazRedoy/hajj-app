@@ -24,7 +24,7 @@ class QuestionDetailPage extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6.0),
               ),
-              elevation: 1.5,
+              elevation: 3,
               child: Column(children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(12.0),

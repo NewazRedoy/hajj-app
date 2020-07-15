@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/screen/content/SubTopicListPage.dart';
 
-class TopicGridItem extends StatelessWidget {
-  const TopicGridItem({
+class GridItem extends StatelessWidget {
+  const GridItem({
     Key key,
     @required this.context,
     @required this.topic,
@@ -19,14 +19,14 @@ class TopicGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 160.0,
-      width: 180.0,
+      height: 170.0,
+      width: 170.0,
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4.0),
         ),
-        elevation: 1.5,
+        elevation: 3,
         child: InkWell(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {

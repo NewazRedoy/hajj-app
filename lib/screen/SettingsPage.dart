@@ -30,121 +30,126 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         title: Text("সেটিংস"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Center(
-                child: Text(
-              "টেক্সট সাইজ",
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            )),
-            Text("বাংলা"),
-            Row(
+      body: Column(
+        children: [
+          Center(
+              child: Text(
+            "টেক্সট সাইজ",
+            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          )),
+          Text("বাংলা"),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
               children: [
-                Slider.adaptive(
-                  label: "$bnSize",
-                  activeColor: Colors.green,
-                  min: 12,
-                  max: 50,
-                  value: bnSize,
-                  onChanged: (value) {
-                    setState(() {
-                      bnSize = value;
-                    });
-                    DataProvider.of(context).updateFont(bnValue: value);
-                  },
+                Expanded(
+                  child: Slider(
+                    label: "$bnSize",
+                    activeColor: Colors.green,
+                    min: 12,
+                    max: 50,
+                    value: bnSize,
+                    onChanged: (value) {
+                      setState(() {
+                        bnSize = value;
+                      });
+                      DataProvider.of(context).updateFont(bnValue: value);
+                    },
+                  ),
                 ),
                 Text(bnSize.toStringAsFixed(2))
               ],
             ),
-            Column(
+          ),
+          Text("আরবী"),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
               children: [
-                Text("আরবী"),
-                Row(
-                  children: [
-                    Slider.adaptive(
-                      label: "$arSize",
-                      activeColor: Colors.green,
-                      value: arSize,
-                      min: 12,
-                      max: 50,
-                      onChanged: (value) {
-                        setState(() {
-                          arSize = value;
-                        });
-                        DataProvider.of(context).updateFont(arValue: value);
-                      },
-                    ),
-                    Text(arSize.toStringAsFixed(2))
-                  ],
+                Expanded(
+                  child: Slider(
+                    label: "$arSize",
+                    activeColor: Colors.green,
+                    value: arSize,
+                    min: 12,
+                    max: 50,
+                    onChanged: (value) {
+                      setState(() {
+                        arSize = value;
+                      });
+                      DataProvider.of(context).updateFont(arValue: value);
+                    },
+                  ),
                 ),
+                Text(arSize.toStringAsFixed(2))
               ],
             ),
-            ToggleButtons(
-              hoverColor: Colors.green[700],
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Kalpurush',
-                  ),
+          ),
+          ToggleButtons(
+            hoverColor: Colors.green[700],
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Kalpurush',
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'AponaLohit',
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'AponaLohit',
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'SiyamRupali',
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'SiyamRupali',
                 ),
-              ],
-              onPressed: (int index) {
-                DataProvider.of(context).updateFontFamily(banglaFontValue: banglaFonts[index]);
-              },
-              isSelected: [
-                currentFont == FontFamily.kalpurush,
-                currentFont == FontFamily.aponalohit,
-                currentFont == FontFamily.siyamrupali,
-              ],
-            ),
-            ToggleButtons(
-              hoverColor: Colors.green[700],
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'MeQuran',
-                  ),
+              ),
+            ],
+            onPressed: (int index) {
+              DataProvider.of(context).updateFontFamily(banglaFontValue: banglaFonts[index]);
+            },
+            isSelected: [
+              currentFont == FontFamily.kalpurush,
+              currentFont == FontFamily.aponalohit,
+              currentFont == FontFamily.siyamrupali,
+            ],
+          ),
+          SizedBox(height: 16,),
+          Text("আরবী"),
+          ToggleButtons(
+            hoverColor: Colors.green[700],
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'MeQuran',
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Kitab',
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Kitab',
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Qalam',
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Qalam',
                 ),
-              ],
-              onPressed: (int index) {
-                DataProvider.of(context).updateFontFamily(arabicFontValue: arabicFonts[index]);
-              },
-              isSelected: [
-                currentArabicFont == FontFamily.mequran,
-                currentArabicFont == FontFamily.kitab,
-                currentArabicFont == FontFamily.qalam,
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+            onPressed: (int index) {
+              DataProvider.of(context).updateFontFamily(arabicFontValue: arabicFonts[index]);
+            },
+            isSelected: [
+              currentArabicFont == FontFamily.mequran,
+              currentArabicFont == FontFamily.kitab,
+              currentArabicFont == FontFamily.qalam,
+            ],
+          ),
+        ],
       ),
     );
   }

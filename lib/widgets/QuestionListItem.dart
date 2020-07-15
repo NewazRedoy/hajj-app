@@ -18,41 +18,39 @@ class QuestionListItem extends StatelessWidget {
         top: 5.0,
         bottom: 5.0,
       ),
-      child: Expanded(
-        child: Card(
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(2.0),
-          ),
-          elevation: 1.5,
-          child: InkWell(
-            onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => QuestionDetailPage(questionanswer),
-                )),
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      questionanswer.question,
-                      style: TextStyle(fontSize: 18),
-                    ),
+      child: Card(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(2.0),
+        ),
+        elevation: 3,
+        child: InkWell(
+          onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QuestionDetailPage(questionanswer),
+              )),
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    questionanswer.question,
+                    style: TextStyle(fontSize: 18),
                   ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 12.0,
-                    color: Colors.grey,
-                    semanticLabel: 'Text to announce in accessibility modes',
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                ],
-              ),
+                ),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 12.0,
+                  color: Colors.grey,
+                  semanticLabel: 'Text to announce in accessibility modes',
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+              ],
             ),
           ),
         ),

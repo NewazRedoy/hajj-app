@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/model/Topic.dart';
-import 'package:hajjapp/model/Topic.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/util/Constants.dart';
-import 'package:hajjapp/widgets/PreparationListItem.dart';
+import 'package:hajjapp/widgets/ContentListItem.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 
 class ContentDetailListPage extends StatelessWidget {
-  Topic topic;
 
   Subtopic subtopic;
 
@@ -19,8 +17,7 @@ class ContentDetailListPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            topic?.name??""
-//              Constants.topics[topic?.name ??0]
+              Constants.topics.firstWhere((element) => element.topic_id ==subtopic.topic_id).name
           ),
           actions: <Widget>[
             SearchSettings(),
@@ -57,18 +54,11 @@ class _SampleAppPageState extends State<SampleAppPage> {
     return loading
         ? _buildCircularProgressIndicator()
         :
-//    widget.subtopic.topic_id == 4 && widget.subtopic.subtopic_id == 1
-//            ?
         ListView.builder(
             itemCount: data.length,
             itemBuilder: (BuildContext context, int position) {
-              return PreparationListItem(subtopic: widget.subtopic, content: data[position]);
+              return ContentListItem(subtopic: widget.subtopic, content: data[position]);
             });
-//            : ListView.builder(
-//                itemCount: data.length,
-//                itemBuilder: (BuildContext context, int position) {
-//                  return ContentListItem(subtopic: widget.subtopic, content: data[position]);
-//                });
   }
 
   loadData() async {

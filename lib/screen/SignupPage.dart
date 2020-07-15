@@ -135,9 +135,8 @@ class _SignupPageState extends State<SignupPage> {
                               child: RaisedButton(
                                 child: Text('সাইনআপ করুন'),
                                 textColor: Colors.white,
-                                elevation: 1.5,
+                                elevation: 3,
                                 color: Theme.of(context).primaryColor,
-                                padding: EdgeInsets.all(16),
                                 onPressed: () {
                                   if (_registerFormKey.currentState.validate()) {
                                     model.signUpUsingUsernamePassword(
@@ -146,30 +145,6 @@ class _SignupPageState extends State<SignupPage> {
                                 },
                               ),
                             ),
-//                            SizedBox(height: 14.0),
-//                            Center(
-//                              child: InkWell(
-//                                onTap: () => {
-////                              model.gotoLogin()
-//
-//                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()))
-//                                },
-//                                child: RichText(
-//                                  text: TextSpan(
-//                                    style: TextStyle(color: Colors.black),
-//                                    text: 'ইতিমধ্যে একটি অ্যাকাউন্ট আছে?',
-//                                    children: <TextSpan>[
-//                                      TextSpan(
-//                                          text: 'লগইন করুন',
-//                                          style: TextStyle(
-//                                            fontWeight: FontWeight.bold,
-//                                            color: Theme.of(context).primaryColor,
-//                                          )),
-//                                    ],
-//                                  ),
-//                                ),
-//                              ),
-//                            ),
                           ],
                         ),
                       ),

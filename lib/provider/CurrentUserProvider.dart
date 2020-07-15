@@ -124,7 +124,19 @@ class AuthProvider extends ChangeNotifier {
       signUpUsingUsernamePassword(context, email, password);
     });
   }
+  void forgotPassword(BuildContext context, String email, String password) async {
+    showProgressDialog(context, "Logging in");
 
+    FirebaseAuth.instance.sendPasswordResetEmail(email: email).then((authResult) async {
+
+      _showDialog(context: context, error: "Password reset instructions are sent to your email");
+
+      return;
+    }).catchError((e) {
+      _showDialog(context: context, error: e.toString());
+      signUpUsingUsernamePassword(context, email, password);
+    });
+  }
   void signUpUsingUsernamePassword(BuildContext context, String email, String password) async {
     showProgressDialog(context, "Signing Up");
 
