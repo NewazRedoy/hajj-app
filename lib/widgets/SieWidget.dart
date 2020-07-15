@@ -15,7 +15,8 @@ class SieWidget extends CustomPainter {
 
   ui.Image imageMarwa;
 
-  SieWidget(this.count, this.fraction, this.start, this.imageSafa, this.imageMarwa) {
+  String banglaFont;
+  SieWidget(this.count, this.fraction, this.start, this.imageSafa, this.imageMarwa, this.banglaFont) {
     //this is base circle
 
     outerCircle = Paint()
@@ -94,7 +95,7 @@ class SieWidget extends CustomPainter {
 
     final textSpan2 = TextSpan(
       text: 'এই স্থানে পুরুষরা\nএকটু দ্রুত হাঁটবেন',
-      style: TextStyle(color: Colors.grey, fontSize: 14, fontFamily: FontFamily.bangla),
+      style: TextStyle(color: Colors.grey, fontSize: 14, fontFamily:banglaFont),
     );
     final textPainter2 = TextPainter(
       text: textSpan2,

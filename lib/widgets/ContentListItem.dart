@@ -118,7 +118,7 @@ class _ContentListItemState extends State<ContentListItem> {
                             locale: Locale.fromSubtags(languageCode: "ar"),
                             fontSize: DataProvider.of(context).arabicFontSize,
                             color: Theme.of(context).primaryColor,
-                            fontFamily: FontFamily.arabic))),
+                            fontFamily: DataProvider.of(context).arabicFont,))),
               ),
               SizedBox(height: 6),
             ],

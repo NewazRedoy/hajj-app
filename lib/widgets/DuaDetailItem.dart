@@ -84,7 +84,7 @@ class DuaDetailItem extends StatelessWidget {
               style: TextStyle(
                   fontSize: DataProvider.of(context).arabicFontSize,
                   fontWeight: FontWeight.bold,
-                  fontFamily: FontFamily.arabic),
+                  fontFamily: DataProvider.of(context).arabicFont),
             ),
           ),
           Container(

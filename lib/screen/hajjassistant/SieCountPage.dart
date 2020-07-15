@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:hajjapp/model/DuaCategory.dart';
 import 'package:hajjapp/model/Topic.dart';
+import 'package:hajjapp/provider/DataProvider.dart';
 import 'package:hajjapp/screen/dua/DuaDetailPage.dart';
 import 'package:hajjapp/widgets/Search&Settings.dart';
 import 'package:hajjapp/widgets/SieWidget.dart';
@@ -111,7 +112,7 @@ class _SaiCountState extends State<SaiCount> with SingleTickerProviderStateMixin
                 height: 400,
                 width: MediaQuery.of(context).size.width,
                 child: CustomPaint(
-                  foregroundPainter: SieWidget(count, _fraction, start, imageSafa, imageMarwa),
+                  foregroundPainter: SieWidget(count, _fraction, start, imageSafa, imageMarwa, DataProvider.of(context).banglaFont,),
                 )),
             SizedBox(
               height: 6,

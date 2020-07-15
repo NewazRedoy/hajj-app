@@ -15,6 +15,7 @@ import 'package:hajjapp/model/SearchItem.dart';
 import 'package:hajjapp/model/Subtopic.dart';
 import 'package:hajjapp/repository/LocalRepository.dart';
 import 'package:hajjapp/repository/RepositoryInterface.dart';
+import 'package:hajjapp/util/FontFamily.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,18 +36,15 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
     notifyListeners();
   }
 
-  static DataProvider of(BuildContext context) {
-    return Provider.of<DataProvider>(context, listen: false);
+  static DataProvider of(BuildContext context,{listen: false}) {
+    return Provider.of<DataProvider>(context, listen: listen);
   }
 
   double arabicFontSize = 20;
+  String arabicFont = FontFamily.mequran;
+  String banglaFont = FontFamily.kalpurush;
   double banglaFontSize = 20;
 
-  _read() async {
-    var prefs = await SharedPreferences.getInstance();
-    arabicFontSize = prefs.getDouble("arabicFontSize") ?? arabicFontSize;
-    banglaFontSize = prefs.getDouble("banglaFontSize") ?? banglaFontSize;
-  }
 
   @override
   Future<List<DuaCategory>> queryAllDuaCategories() {
@@ -114,6 +112,14 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
     notifyListeners();
   }
 
+  _read() async {
+    var prefs = await SharedPreferences.getInstance();
+    arabicFontSize = prefs.getDouble("arabicFontSize") ?? arabicFontSize;
+    arabicFont = prefs.getString("arabicFont") ?? arabicFont;
+    banglaFontSize = prefs.getDouble("banglaFontSize") ?? banglaFontSize;
+    banglaFont = prefs.getString("banglaFont") ?? banglaFont;
+  }
+
   void updateFont({double arValue, double enValue, double bnValue}) async {
     arabicFontSize = arValue ?? arabicFontSize;
     banglaFontSize = bnValue ?? banglaFontSize;
@@ -121,6 +127,16 @@ class DataProvider extends ChangeNotifier implements RepositoryInterface {
     var prefs = await SharedPreferences.getInstance();
     prefs.setDouble("arabicFontSize", arabicFontSize);
     prefs.setDouble("banglaFontSize", banglaFontSize);
+    notifyListeners();
+  }
+
+  void updateFontFamily({String banglaFontValue, String arabicFontValue}) async {
+    arabicFont = arabicFontValue ?? arabicFont;
+    banglaFont = banglaFontValue ?? banglaFont;
+
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setString("arabicFont", arabicFont);
+    prefs.setString("banglaFont", banglaFont);
     notifyListeners();
   }
 }

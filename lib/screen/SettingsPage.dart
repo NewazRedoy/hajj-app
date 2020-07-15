@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hajjapp/provider/DataProvider.dart';
+import 'package:hajjapp/util/FontFamily.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -18,8 +19,13 @@ class _SettingsPageState extends State<SettingsPage> {
     arSize = DataProvider.of(context).arabicFontSize;
   }
 
+  var banglaFonts = [FontFamily.kalpurush, FontFamily.aponalohit, FontFamily.siyamrupali];
+  var arabicFonts = [FontFamily.mequran, FontFamily.kitab, FontFamily.qalam];
+
   @override
   Widget build(BuildContext context) {
+    var currentFont = DataProvider.of(context).banglaFont;
+    var currentArabicFont = DataProvider.of(context).arabicFont;
     return Scaffold(
       appBar: AppBar(
         title: Text("সেটিংস"),
@@ -73,6 +79,68 @@ class _SettingsPageState extends State<SettingsPage> {
                     Text(arSize.toStringAsFixed(2))
                   ],
                 ),
+              ],
+            ),
+            ToggleButtons(
+              hoverColor: Colors.green[700],
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Kalpurush',
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'AponaLohit',
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'SiyamRupali',
+                  ),
+                ),
+              ],
+              onPressed: (int index) {
+                DataProvider.of(context).updateFontFamily(banglaFontValue: banglaFonts[index]);
+              },
+              isSelected: [
+                currentFont == FontFamily.kalpurush,
+                currentFont == FontFamily.aponalohit,
+                currentFont == FontFamily.siyamrupali,
+              ],
+            ),
+            ToggleButtons(
+              hoverColor: Colors.green[700],
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'MeQuran',
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Kitab',
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Qalam',
+                  ),
+                ),
+              ],
+              onPressed: (int index) {
+                DataProvider.of(context).updateFontFamily(arabicFontValue: arabicFonts[index]);
+              },
+              isSelected: [
+                currentArabicFont == FontFamily.mequran,
+                currentArabicFont == FontFamily.kitab,
+                currentArabicFont == FontFamily.qalam,
               ],
             ),
           ],
